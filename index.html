@@ -48,6 +48,13 @@
   .new-profile-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;border:1.5px dashed var(--accent);border-radius:14px;padding:16px 18px;color:var(--accent-light);font-size:0.95rem;font-weight:600;width:100%;margin-top:4px;transition:all .2s;}
   .new-profile-btn:active{background:#1a2e1f;}
   .new-profile-btn span{font-size:1.4rem;}
+  .user-card-wrap{position:relative;}
+  .delete-user-btn{position:absolute;top:50%;right:14px;transform:translateY(-50%);background:none;border:none;color:#e74c3c;font-size:1.1rem;padding:6px;border-radius:6px;opacity:0;transition:opacity .2s;z-index:2;}
+  .user-card-wrap:hover .delete-user-btn{opacity:1;}
+  .user-card-wrap .user-card-btn{padding-right:44px;}
+  .edit-mode-btn{background:none;border:1px solid var(--border);border-radius:8px;color:var(--muted);padding:8px 14px;font-size:0.78rem;font-weight:600;margin-top:16px;width:100%;transition:all .2s;}
+  .edit-mode-btn.active{border-color:#e74c3c;color:#e74c3c;}
+  .delete-user-btn.visible{opacity:1;}
   #screen-onboarding{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 20px;}
   .onboard-box{width:100%;max-width:400px;}
   .screen-title{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:2px;color:var(--accent-light);margin-bottom:6px;}
@@ -321,26 +328,78 @@ async function init(){
   }, 1400);
 }
 function showUserSelect(){show('screen-users');hide('screen-onboarding');document.getElementById('screen-app').style.display='none';document.getElementById('screen-app').classList.remove('visible');renderUserCards();}
+let _editMode = false;
+
 function renderUserCards(){
   const el=document.getElementById('user-cards-list');
   el.innerHTML='';
-  // Combine built-in users + any extra users from DB not in USERS list
   const extraUsers = (window._dbUsers||[]).filter(n=>!USERS.includes(n));
   const allUsers = [...USERS, ...extraUsers];
+  
   allUsers.forEach(name=>{
     const has=window._dbUsers&&window._dbUsers.includes(name);
+    const wrap=document.createElement('div');
+    wrap.className='user-card-wrap';
+    wrap.style.cssText='position:relative;display:contents;';
+
     const d=document.createElement('div');
     d.className='user-card-btn';
-    d.innerHTML='<div class="user-avatar" style="background:'+(has?'var(--accent)':'var(--border)')+'">'+name[0].toUpperCase()+'</div><div class="user-card-info"><div class="user-card-name">'+name+'</div><div class="user-card-status">'+(has?'✅ Profile set up':'⚙️ Tap to set up')+'</div></div><span style="color:var(--muted)">›</span>';
-    d.onclick=()=>selectUser(name);
+    d.style.position='relative';
+    d.innerHTML='<div class="user-avatar" style="background:'+(has?'var(--accent)':'var(--border)')+'">'+name[0].toUpperCase()+'</div><div class="user-card-info"><div class="user-card-name">'+name+'</div><div class="user-card-status">'+(has?'✅ Profile set up':'⚙️ Tap to set up')+'</div></div>'+(_editMode?'':'<span style="color:var(--muted)">›</span>');
+    
+    if(!_editMode){
+      d.onclick=()=>selectUser(name);
+    }
+
+    if(_editMode){
+      const delBtn=document.createElement('button');
+      delBtn.style.cssText='position:absolute;top:50%;right:12px;transform:translateY(-50%);background:#2d0a0a;border:1.5px solid #e74c3c;color:#e74c3c;border-radius:8px;padding:6px 12px;font-size:0.78rem;font-weight:700;z-index:2;';
+      delBtn.textContent='🗑️ Delete';
+      delBtn.onclick=(e)=>{e.stopPropagation();confirmDelete(name);};
+      d.style.paddingRight='90px';
+      d.appendChild(delBtn);
+    }
+
     el.appendChild(d);
   });
+
   // New Profile button
   const np=document.createElement('button');
   np.className='new-profile-btn';
   np.innerHTML='<span>➕</span> New Profile';
   np.onclick=openNewProfile;
   el.appendChild(np);
+
+  // Edit / Done button
+  const editBtn=document.createElement('button');
+  editBtn.className='edit-mode-btn'+(_editMode?' active':'');
+  editBtn.textContent=_editMode?'✓ Done Editing':'✏️ Manage Profiles';
+  editBtn.onclick=()=>{_editMode=!_editMode;renderUserCards();};
+  el.appendChild(editBtn);
+}
+
+async function confirmDelete(name){
+  const confirmed = confirm('Delete "'+name+'"? This will remove all their workout data permanently.');
+  if(!confirmed) return;
+  await deleteUser(name);
+}
+
+async function deleteUser(name){
+  setSS('syncing','Deleting...');
+  try{
+    // Delete from all tables
+    await sb('workout_logs?user_name=eq.'+encodeURIComponent(name),{method:'DELETE',prefer:'return=minimal'});
+    await sb('weight_logs?user_name=eq.'+encodeURIComponent(name),{method:'DELETE',prefer:'return=minimal'});
+    await sb('users?name=eq.'+encodeURIComponent(name),{method:'DELETE',prefer:'return=minimal'});
+    // Remove from local list
+    if(window._dbUsers) window._dbUsers = window._dbUsers.filter(n=>n!==name);
+    setSS('synced','Deleted ✓');
+    _editMode=false;
+    renderUserCards();
+  }catch(e){
+    setSS('error','Delete failed');
+    console.error(e);
+  }
 }
 let obU={weight:'kg',height:'cm',ex:'kg'};
 async function selectUser(name){CU=name;show('loading');hide('screen-users');const ok=await loadUser(name);hide('loading');if(ok&&UD)enterApp();else showOnboarding(name);}
