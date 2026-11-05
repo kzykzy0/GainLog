@@ -325,6 +325,63 @@
   .pp-link{ font-size:12px; font-weight:600; color:var(--moss-deep); display:inline-flex; align-items:center; gap:2px; }
   .pp-link svg{ width:14px; height:14px; }
 
+
+  /* ---------- health card, pricing, earnings, referrals, rebook ---------- */
+  .petcard{ cursor:pointer; }
+  .petcard .hc-badge{ display:inline-block; margin-top:6px; }
+  .hc-badge{
+    font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600; letter-spacing:0; text-transform:none;
+    background:rgba(227,162,59,0.18); color:var(--gold-deep); padding:3px 8px; border-radius:999px; margin-left:6px;
+  }
+  .hc-badge.ok{ background:rgba(110,143,114,0.16); color:var(--moss-deep); }
+  .healthcard{ background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:4px 14px; margin-bottom:6px; }
+  .hc-row{ display:flex; gap:12px; padding:11px 0; border-bottom:1px solid var(--line); align-items:flex-start; }
+  .hc-row:last-child{ border-bottom:none; }
+  .hc-ic{ width:30px; height:30px; border-radius:10px; background:rgba(110,143,114,0.14); color:var(--moss-deep); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .hc-ic svg{ width:16px; height:16px; }
+  .hc-body span{ display:block; font-size:11px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; }
+  .hc-body b{ display:block; font-size:13.5px; font-weight:500; margin-top:2px; line-height:1.4; }
+  .pethero{ height:200px; border-radius:20px; background-size:cover; background-position:center; background-color:var(--line); }
+  .stepper{ display:inline-flex; align-items:center; gap:14px; background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:6px 8px; }
+  .stepper button{ width:32px; height:32px; border-radius:10px; border:none; background:var(--canvas); font-size:18px; font-weight:600; color:var(--ink); cursor:pointer; }
+  .stepper b{ min-width:18px; text-align:center; font-size:15px; }
+  .pricing-rows{ background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:4px 14px; }
+  .pr-row{ display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-bottom:1px solid var(--line); font-size:13px; color:var(--ink-soft); }
+  .pr-row:last-child{ border-bottom:none; }
+  .pr-row b{ color:var(--ink); white-space:nowrap; }
+  .inputsuffix{ display:flex; align-items:center; gap:8px; }
+  .inputsuffix input{ flex:1; }
+  .inputsuffix span{ font-size:12.5px; color:var(--ink-soft); white-space:nowrap; min-width:64px; }
+  .fieldhint{ font-size:11.5px; color:var(--ink-soft); margin:6px 0 0; line-height:1.4; }
+  .earnhero{ background:var(--ink); color:var(--canvas); border-radius:22px; padding:18px 20px; margin-bottom:14px; }
+  .earnhero span{ display:block; font-size:12px; opacity:.7; text-transform:uppercase; letter-spacing:.08em; }
+  .earnhero b{ display:block; font-family:'Fraunces',serif; font-size:36px; font-weight:600; margin:4px 0 2px; }
+  .earnhero em{ font-style:normal; font-size:12.5px; font-weight:600; }
+  .earnhero em.up{ color:#9FD4A5; } .earnhero em.down{ color:#F0A596; }
+  .barchart{ display:flex; align-items:flex-end; gap:10px; height:150px; background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:14px 12px 10px; }
+  .barcol{ flex:1; height:100%; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:4px; min-width:0; }
+  .barcol .bar{ width:100%; max-width:34px; border-radius:8px 8px 3px 3px; background:rgba(110,143,114,0.45); }
+  .barcol .bar.cur{ background:var(--moss-deep); }
+  .barval{ font-size:10px; font-weight:600; color:var(--ink-soft); white-space:nowrap; }
+  .barlbl{ font-size:10.5px; color:var(--ink-soft); }
+  .cal-cell.booked{ background:var(--moss); color:#fff; font-weight:600; }
+  .cal-legend .caldot.booked{ background:var(--moss-deep); }
+  .invitecode{ background:var(--paper); border:1.5px dashed var(--gold); border-radius:20px; padding:16px; text-align:center; margin-bottom:14px; }
+  .invitecode span{ font-size:11px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.08em; }
+  .invitecode b{ display:block; font-family:'IBM Plex Mono',monospace; font-size:24px; letter-spacing:.06em; margin:6px 0 12px; }
+  .ic-actions{ display:flex; gap:10px; }
+  .friendrow{ display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid var(--line); }
+  .friendrow .mbody{ flex:1; min-width:0; }
+  .friendrow .mbody b{ display:block; font-size:13.5px; }
+  .friendrow .mbody span{ font-size:12px; color:var(--ink-soft); }
+  .rebookrail{ display:flex; gap:10px; overflow-x:auto; margin-bottom:16px; padding-bottom:2px; }
+  .rebookrail::-webkit-scrollbar{ display:none; }
+  .rb-card{ flex:0 0 118px; background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:10px; text-align:center; }
+  .rb-img{ width:56px; height:56px; border-radius:50%; background-size:cover; background-position:center; margin:0 auto 6px; cursor:pointer; }
+  .rb-name{ font-family:'Fraunces',serif; font-weight:600; font-size:14px; }
+  .rb-sub{ font-size:11px; color:var(--ink-soft); margin-bottom:8px; }
+  .rb-btn{ padding:8px; font-size:12px; border-radius:12px; }
+
   /* ---------- buttons ---------- */
   .btn{
     display:flex; align-items:center; justify-content:center; gap:8px;
@@ -967,14 +1024,14 @@ const ICON = {
 
 /* ============ MOCK DATA ============ */
 const SITTERS = [
-  {id:'s1', name:'Elif Kaya', loc:'Kadıköy, Istanbul', rating:4.9, reviews:127, price:'₺450', pets:['Dogs','Cats'], img:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80', bio:"I've got a big fenced yard and two very lazy cats of my own who mostly ignore guests — perfect if your dog needs space to zoom around, or your cat needs a calm house to hide in for a bit.", tagline:'Big yard, calm house, two resident cats', verified:true, backgroundCheck:true, instantBook:true, blockedDates:['2026-07-12','2026-07-13'], responseMinutes:35, area:'Kadıköy', lat:40.990, lng:29.027},
-  {id:'s2', name:'Mert Yıldız', loc:'Beşiktaş, Istanbul', rating:4.8, reviews:94, price:'₺550', pets:['Dogs'], img:'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&q=80', bio:'Dog walker turned full-time host. Daily walks along the Bosphorus, twice-a-day feeding updates with photos, and a strict no-other-boarders policy — your dog gets the run of the place.', tagline:'Daily Bosphorus walks, photo updates', verified:true, backgroundCheck:false, instantBook:false, blockedDates:['2026-07-20','2026-07-21','2026-07-22'], responseMinutes:180, area:'Beşiktaş', lat:41.043, lng:29.007},
-  {id:'s3', name:'Ayşe Demir', loc:'Üsküdar, Istanbul', rating:5.0, reviews:61, price:'₺350', pets:['Cats','Small pets'], img:'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80', bio:'Quiet apartment, no other animals, no children — genuinely the best fit for shy or elderly cats, rabbits, or anything that startles easily. I work from home so someone is always around.', tagline:'Quiet home, ideal for shy cats', verified:true, backgroundCheck:true, instantBook:true, blockedDates:[], responseMinutes:15, area:'Üsküdar', lat:41.026, lng:29.015},
-  {id:'s4', name:'Deniz Aksoy', loc:'Şişli, Istanbul', rating:4.7, reviews:203, price:'₺600', pets:['Dogs','Cats','Birds'], img:'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&q=80', bio:'Former vet tech of 6 years — comfortable giving medication, monitoring chronic conditions, and handling senior pets. Also just really like animals more than most people.', tagline:'Former vet tech, meds & senior care ok', verified:true, backgroundCheck:true, instantBook:false, blockedDates:['2026-07-05'], responseMinutes:60, area:'Şişli', lat:41.060, lng:28.987},
-  {id:'s5', name:'Burcu Tan', loc:'Bakırköy, Istanbul', rating:4.6, reviews:38, price:'₺400', pets:['Dogs','Cats'], img:'https://images.unsplash.com/photo-1583512603806-077998240c7a?w=400&q=80', bio:'Ground-floor flat next to the Florya seaside park — long daily walks by the water and plenty of playtime. I only host one guest at a time.', tagline:'Seaside walks, one guest at a time', verified:true, backgroundCheck:true, instantBook:true, blockedDates:['2026-07-15','2026-07-16'], responseMinutes:25, area:'Bakırköy', lat:40.981, lng:28.872},
-  {id:'s6', name:'Kaan Özdemir', loc:'Sarıyer, Istanbul', rating:4.9, reviews:77, price:'₺650', pets:['Dogs'], img:'https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80', bio:'Detached house with a garden on the edge of Belgrad Forest. Forest walks twice a day — ideal for high-energy dogs and large breeds.', tagline:'Garden + Belgrad Forest walks', verified:true, backgroundCheck:true, instantBook:false, blockedDates:['2026-07-08','2026-07-09'], responseMinutes:120, area:'Sarıyer', lat:41.168, lng:29.057},
-  {id:'s7', name:'Selin Çetin', loc:'Ataşehir, Istanbul', rating:4.8, reviews:52, price:'₺380', pets:['Cats','Small pets','Birds'], img:'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400&q=80', bio:'Cat and small-pet specialist: a separate quiet room, daily cleaning, and photo updates every morning and evening. Experienced with rabbits and parrots.', tagline:'Quiet room, rabbits & parrots welcome', verified:true, backgroundCheck:false, instantBook:true, blockedDates:[], responseMinutes:20, area:'Ataşehir', lat:40.992, lng:29.127},
-  {id:'s8', name:'Emre Baran', loc:'Beyoğlu, Istanbul', rating:4.6, reviews:29, price:'₺500', pets:['Dogs','Cats'], img:'https://images.unsplash.com/photo-1571566882372-1598d88abd90?w=400&q=80', bio:'Designer working from home in Cihangir — your pet gets company all day, short walks every few hours and lots of cuddles.', tagline:'Home all day, company guaranteed', verified:true, backgroundCheck:false, instantBook:false, blockedDates:['2026-07-26'], responseMinutes:90, area:'Beyoğlu', lat:41.032, lng:28.985},
+  {id:'s1', name:'Elif Kaya', loc:'Kadıköy, Istanbul', rating:4.9, reviews:127, price:'₺450', pets:['Dogs','Cats'], img:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80', bio:"I've got a big fenced yard and two very lazy cats of my own who mostly ignore guests — perfect if your dog needs space to zoom around, or your cat needs a calm house to hide in for a bit.", tagline:'Big yard, calm house, two resident cats', verified:true, backgroundCheck:true, instantBook:true, blockedDates:['2026-07-12','2026-07-13'], responseMinutes:35, area:'Kadıköy', lat:40.990, lng:29.027, pricing:{weekend:50, holiday:100, multiPet:20, cleaning:0}},
+  {id:'s2', name:'Mert Yıldız', loc:'Beşiktaş, Istanbul', rating:4.8, reviews:94, price:'₺550', pets:['Dogs'], img:'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&q=80', bio:'Dog walker turned full-time host. Daily walks along the Bosphorus, twice-a-day feeding updates with photos, and a strict no-other-boarders policy — your dog gets the run of the place.', tagline:'Daily Bosphorus walks, photo updates', verified:true, backgroundCheck:false, instantBook:false, blockedDates:['2026-07-20','2026-07-21','2026-07-22'], responseMinutes:180, area:'Beşiktaş', lat:41.043, lng:29.007, pricing:{weekend:75, holiday:150, multiPet:15, cleaning:100}},
+  {id:'s3', name:'Ayşe Demir', loc:'Üsküdar, Istanbul', rating:5.0, reviews:61, price:'₺350', pets:['Cats','Small pets'], img:'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80', bio:'Quiet apartment, no other animals, no children — genuinely the best fit for shy or elderly cats, rabbits, or anything that startles easily. I work from home so someone is always around.', tagline:'Quiet home, ideal for shy cats', verified:true, backgroundCheck:true, instantBook:true, blockedDates:[], responseMinutes:15, area:'Üsküdar', lat:41.026, lng:29.015, pricing:{weekend:0, holiday:80, multiPet:25, cleaning:0}},
+  {id:'s4', name:'Deniz Aksoy', loc:'Şişli, Istanbul', rating:4.7, reviews:203, price:'₺600', pets:['Dogs','Cats','Birds'], img:'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&q=80', bio:'Former vet tech of 6 years — comfortable giving medication, monitoring chronic conditions, and handling senior pets. Also just really like animals more than most people.', tagline:'Former vet tech, meds & senior care ok', verified:true, backgroundCheck:true, instantBook:false, blockedDates:['2026-07-05'], responseMinutes:60, area:'Şişli', lat:41.060, lng:28.987, pricing:{weekend:100, holiday:200, multiPet:10, cleaning:150}},
+  {id:'s5', name:'Burcu Tan', loc:'Bakırköy, Istanbul', rating:4.6, reviews:38, price:'₺400', pets:['Dogs','Cats'], img:'https://images.unsplash.com/photo-1583512603806-077998240c7a?w=400&q=80', bio:'Ground-floor flat next to the Florya seaside park — long daily walks by the water and plenty of playtime. I only host one guest at a time.', tagline:'Seaside walks, one guest at a time', verified:true, backgroundCheck:true, instantBook:true, blockedDates:['2026-07-15','2026-07-16'], responseMinutes:25, area:'Bakırköy', lat:40.981, lng:28.872, pricing:{weekend:40, holiday:100, multiPet:20, cleaning:0}},
+  {id:'s6', name:'Kaan Özdemir', loc:'Sarıyer, Istanbul', rating:4.9, reviews:77, price:'₺650', pets:['Dogs'], img:'https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80', bio:'Detached house with a garden on the edge of Belgrad Forest. Forest walks twice a day — ideal for high-energy dogs and large breeds.', tagline:'Garden + Belgrad Forest walks', verified:true, backgroundCheck:true, instantBook:false, blockedDates:['2026-07-08','2026-07-09'], responseMinutes:120, area:'Sarıyer', lat:41.168, lng:29.057, pricing:{weekend:100, holiday:150, multiPet:10, cleaning:200}},
+  {id:'s7', name:'Selin Çetin', loc:'Ataşehir, Istanbul', rating:4.8, reviews:52, price:'₺380', pets:['Cats','Small pets','Birds'], img:'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400&q=80', bio:'Cat and small-pet specialist: a separate quiet room, daily cleaning, and photo updates every morning and evening. Experienced with rabbits and parrots.', tagline:'Quiet room, rabbits & parrots welcome', verified:true, backgroundCheck:false, instantBook:true, blockedDates:[], responseMinutes:20, area:'Ataşehir', lat:40.992, lng:29.127, pricing:{weekend:30, holiday:80, multiPet:25, cleaning:0}},
+  {id:'s8', name:'Emre Baran', loc:'Beyoğlu, Istanbul', rating:4.6, reviews:29, price:'₺500', pets:['Dogs','Cats'], img:'https://images.unsplash.com/photo-1571566882372-1598d88abd90?w=400&q=80', bio:'Designer working from home in Cihangir — your pet gets company all day, short walks every few hours and lots of cuddles.', tagline:'Home all day, company guaranteed', verified:true, backgroundCheck:false, instantBook:false, blockedDates:['2026-07-26'], responseMinutes:90, area:'Beyoğlu', lat:41.032, lng:28.985, pricing:{weekend:50, holiday:100, multiPet:15, cleaning:100}},
 ];
 
 const REQUESTS = [
@@ -1051,7 +1108,7 @@ function isRangeBlocked(s, checkIn, checkOut){
   let d = new Date(checkIn+'T00:00:00');
   const end = new Date(checkOut+'T00:00:00');
   while(d < end){
-    const iso = d.toISOString().slice(0,10);
+    const iso = isoLocal(d);
     if(s.blockedDates.includes(iso)) return true;
     d.setDate(d.getDate()+1);
   }
@@ -1259,15 +1316,19 @@ let state = {
   selectedId: null,
   filter: 'All',
   bookings: [
-    { id:'demo1', status:'confirmed', petName:'Buddy', hostName:'Elif Kaya', loc:'Kadıköy', checkIn:'Jul 10', checkOut:'Jul 14', code:'PWC-7734', sitterId:'s1',
+    { id:'demo1', status:'confirmed', petName:'Buddy', hostName:'Elif Kaya', loc:'Kadıköy', checkIn:'Jul 10', checkOut:'Jul 14', checkInISO:'2026-07-10', checkOutISO:'2026-07-14', pets:1, protect:true, code:'PWC-7734', sitterId:'s1',
       updates:[
         { photo:'https://images.unsplash.com/photo-1591160690555-5debfba289f0?w=400&q=80', note:'Morning walk done — big appetite today, finished his whole bowl!', when:'Today, 09:14' },
         { photo:'https://images.unsplash.com/photo-1583512603806-077998240c7a?w=400&q=80', note:'Nap time in the sun ☀️ he’s completely settled in.', when:'Yesterday, 16:40' },
       ], review:null },
-    { id:'demo2', status:'completed', petName:'Mia', hostName:'Ayşe Demir', loc:'Üsküdar', checkIn:'Jun 2', checkOut:'Jun 9', code:'PWC-4471', sitterId:'s3', updates:[], review:null },
+    { id:'demo2', status:'completed', petName:'Mia', hostName:'Ayşe Demir', loc:'Üsküdar', checkIn:'Jun 2', checkOut:'Jun 9', checkInISO:'2026-06-02', checkOutISO:'2026-06-09', pets:1, code:'PWC-4471', sitterId:'s3', updates:[], review:null },
   ],
   reviewDraft: null,
-  form: { protect:false },
+  form: { protect:false, pets:1, petIdx:null, shareHealth:true, dates:null, prefill:null, rebook:false },
+  consentGiven: true,
+  selectedPet: null, editPetIdx: null,
+  myPricing: { base:450, weekend:50, holiday:100, multiPet:20, cleaning:0 },
+  referral: { code:'PAW-KUZEY7', usedCode:null, invited:[ {name:'Ece K.', status:'joined'}, {name:'Tolga A.', status:'pending'} ] },
   loyaltyPoints: 180,
   redeemedRewards: [],
   favorites: [],
@@ -1279,7 +1340,10 @@ let state = {
   policyReturnTo: 'profile',
   cards: [],
   payout: null,
-  myPets: [],
+  myPets: [
+    { name:'Luna', type:'Dog', breed:'Golden Retriever', age:'3', notes:'Loves tennis balls.', photo:'https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80',
+      health:{ vaccines:'up_to_date', vaccineDate:'2026-03-12', allergies:'Chicken', medications:'None', vetName:'Dr. Ayhan Kurt', vetPhone:'0216 555 01 23', feeding:'1 cup dry food at 08:00 and 19:00. No table scraps.' } },
+  ],
   trainerCV: null, // { experience, bio, certifications, animals:[] }
   trainerCV_draft: null, // in-progress edits before saving
   notifications: [
@@ -1321,7 +1385,7 @@ function unreadNotifCount(){
 /* ============ RENDER: TOPBAR ============ */
 function renderTopbar(){
   if(!state.onboarded){ app.topbar.innerHTML=''; return; }
-  const showBack = ['detail','request','requestDetail','trainingDetail','ticket','verify','payment','mypets','addpet','policy','policyhub','documents','trainercv','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour'].includes(state.screen);
+  const showBack = ['detail','request','requestDetail','trainingDetail','ticket','verify','payment','mypets','addpet','policy','policyhub','documents','trainercv','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen);
   app.topbar.innerHTML = `
     <div class="topbar-row">
       ${showBack
@@ -1349,7 +1413,7 @@ function renderBottomNav(){
     {key:'messages', icon:ICON.chat, label:t('nav_messages')},
     {key:'profile', icon:ICON.user, label:t('nav_profile')},
   ];
-  const activeKey = ['detail','request','ticket','requestDetail','trainingDetail','trainercv','verify','payment','mypets','addpet','policy','policyhub','documents','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour'].includes(state.screen) ? null : state.screen;
+  const activeKey = ['detail','request','ticket','requestDetail','trainingDetail','trainercv','verify','payment','mypets','addpet','policy','policyhub','documents','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen) ? null : state.screen;
   app.bottomnav.innerHTML = items.map(it => `
     <div class="navitem ${activeKey===it.key?'active':''}" data-action="nav-${it.key}">
       ${it.icon}<span>${it.label}</span>
@@ -1727,6 +1791,7 @@ function screenBrowse(){
       </div>
     </div>
     ${f.panel ? renderFilterPanel() : ''}` : ''}
+    ${rebookRailHTML()}
     <div class="chiprow">
       ${cats.map(c=>`<div class="chip ${state.filter===c?'active':''}" data-action="filter-${c}">${c}</div>`).join('')}
     </div>
@@ -1794,6 +1859,8 @@ function screenSitterDetail(){
       <p class="bio">${s.bio}</p>
       <div class="tagrow">${s.pets.map(p=>`<span class="tag">${p}</span>`).join('')}</div>
       ${renderTrustBadges(s, false)}
+      <div class="section-label">Pricing</div>
+      ${pricingRowsHTML(parsePrice(s.price), s.pricing || {weekend:0,holiday:0,multiPet:0,cleaning:0})}
       <div class="section-label">Availability — ${CAL_MONTH.label}</div>
       ${renderMiniCalendar(s.blockedDates||[], false)}
       <div class="section-label">Recent reviews</div>
@@ -1815,48 +1882,62 @@ function screenSitterDetail(){
 
 function screenRequestForm(){
   const s = SITTERS.find(x=>x.id===state.selectedId);
+  const F = state.form, pre = F.prefill || {};
   const keep = (id, dflt) => { const el = document.getElementById(id); return el ? el.value : dflt; };
-  const fIn = keep('f-in', state.search.checkIn || '2026-07-10');
-  const fOut = keep('f-out', state.search.checkOut || '2026-07-14');
-  const fPet = keep('f-petname', 'Luna');
-  const fType = keep('f-pettype', 'Dog');
-  const fNotes = keep('f-notes', 'Very friendly, needs a short walk morning and evening.');
-  const nights = computeNights(fIn||'2026-07-10', fOut||'2026-07-14');
-  const perNight = parsePrice(s.price);
-  const protectFee = 99;
-  const subtotal = nights*perNight;
-  const total = subtotal + (state.form.protect ? protectFee : 0);
+  const fIn = keep('f-in', (F.dates && F.dates.in) || state.search.checkIn || '2026-07-10');
+  const fOut = keep('f-out', (F.dates && F.dates.out) || state.search.checkOut || '2026-07-14');
+  const fPet = keep('f-petname', pre.petName || 'Luna');
+  const fType = keep('f-pettype', pre.petType || 'Dog');
+  const fNotes = keep('f-notes', pre.notes || 'Very friendly, needs a short walk morning and evening.');
+  const first = s.name.split(' ')[0];
+  const q = priceQuote(s, fIn||'2026-07-10', fOut||'2026-07-14', F.pets||1, F.protect);
+  const selPet = F.petIdx!=null ? state.myPets[F.petIdx] : null;
+  const tick = ICON.check.replace('26','14').replace('26','14');
   return `
   <div class="fade-in narrow">
-    <h2 class="title">Tell ${s.name.split(' ')[0]} about your pet</h2>
-    <p class="subtitle">${s.instantBook ? `${s.name.split(' ')[0]} accepts Instant Book — your pawcation is confirmed right away, no waiting for approval.` : `This goes straight to ${s.name.split(' ')[0]} as a booking request — nothing is confirmed until they accept.`}</p>
+    <h2 class="title">Tell ${first} about your pet</h2>
+    <p class="subtitle">${s.instantBook ? `${first} accepts Instant Book — your pawcation is confirmed right away, no waiting for approval.` : `This goes straight to ${first} as a booking request — nothing is confirmed until they accept.`}</p>
+    ${F.rebook ? `<div class="trustnote" style="margin-bottom:14px;">${ICON.check}<span>Rebooking ${first} — we filled in your last stay's details and the declarations you already agreed to. Check the dates and send.</span></div>` : ''}
+    ${state.myPets.length ? `
+    <div class="section-label" style="margin-top:0;">Choose a saved pet</div>
+    <div class="chiprow wrap" style="margin-bottom:14px;">
+      ${state.myPets.map((p,i)=>`<div class="chip ${F.petIdx===i?'active':''}" data-action="select-pet-${i}">${p.name}</div>`).join('')}
+      <div class="chip ${F.petIdx==null?'active':''}" data-action="select-pet-new">+ New pet</div>
+    </div>` : ''}
     <div class="field-row">
       <div class="field"><label>Pet's name</label><input id="f-petname" placeholder="e.g. Luna" value="${escAttr(fPet)}"/></div>
       <div class="field"><label>Pet type</label><select id="f-pettype">${['Dog','Cat','Small pet','Bird'].map(o=>`<option value="${o}" ${fType===o?'selected':''}>${o}</option>`).join('')}</select></div>
+    </div>
+    <div class="field"><label>Number of pets</label>
+      <div class="stepper"><button data-action="pets-dec">−</button><b>${F.pets||1}</b><button data-action="pets-inc">+</button></div>
     </div>
     <div class="field-row">
       <div class="field"><label>Check-in</label><input id="f-in" type="date" value="${fIn||'2026-07-10'}"/></div>
       <div class="field"><label>Check-out</label><input id="f-out" type="date" value="${fOut||'2026-07-14'}"/></div>
     </div>
-    ${isRangeBlocked(s, fIn||'2026-07-10', fOut||'2026-07-14') ? `<p style="color:var(--stamp);font-size:12px;margin:-8px 0 14px;">${s.name.split(' ')[0]} isn't available for some of these dates — check the calendar on their profile.</p>` : ''}
-    <div class="field"><label>Anything ${s.name.split(' ')[0]} should know</label><textarea id="f-notes" placeholder="Feeding schedule, medication, temperament…">${fNotes.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</textarea></div>
+    ${isRangeBlocked(s, fIn||'2026-07-10', fOut||'2026-07-14') ? `<p style="color:var(--stamp);font-size:12px;margin:-8px 0 14px;">${first} isn't available for some of these dates — check the calendar on their profile.</p>` : ''}
+    <div class="field"><label>Anything ${first} should know</label><textarea id="f-notes" placeholder="Feeding schedule, medication, temperament…">${fNotes.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</textarea></div>
     <div class="section-label">Add-ons</div>
-    <div class="consent-row addon-row ${state.form.protect ? 'checked' : ''}" data-action="toggle-protect">
-      <div class="consent-box">${state.form.protect ? ICON.check.replace('26','14').replace('26','14') : ''}</div>
-      <p><b>Pawcation Protect</b> — ₺${protectFee} flat. Covers accidental damage at the sitter's home and adds 24/7 priority support for this stay.</p>
+    ${selPet ? `
+    <div class="consent-row addon-row ${F.shareHealth!==false ? 'checked' : ''}" data-action="toggle-share-health">
+      <div class="consent-box">${F.shareHealth!==false ? tick : ''}</div>
+      <p><b>Share health card</b> — ${selPet.name}'s vaccines, allergies, medications, vet and feeding routine will be sent to ${first} automatically.</p>
+    </div>` : ''}
+    <div class="consent-row addon-row ${F.protect ? 'checked' : ''}" data-action="toggle-protect">
+      <div class="consent-box">${F.protect ? tick : ''}</div>
+      <p><b>Pawcation Protect</b> — ₺99 flat. Covers accidental damage at the sitter's home and adds 24/7 priority support for this stay.</p>
     </div>
     <div class="pricebox-summary">
-      <div class="pb-row"><span>${nights} night${nights>1?'s':''} × ${s.price}</span><b>₺${subtotal.toLocaleString('tr-TR')}</b></div>
-      ${state.form.protect ? `<div class="pb-row"><span>Pawcation Protect</span><b>₺${protectFee}</b></div>` : ''}
-      <div class="pb-row total"><span>Total</span><b>₺${total.toLocaleString('tr-TR')}</b></div>
+      ${q.lines.map(l=>`<div class="pb-row"><span>${l.label}</span><b>${fmtLine(l.amount)}</b></div>`).join('')}
+      <div class="pb-row total"><span>Total</span><b>₺${q.total.toLocaleString('tr-TR')}</b></div>
     </div>
     <div class="section-label">Before you send</div>
     <div class="consent-row ${state.consent.petHealth ? 'checked' : ''}" data-action="toggle-consent-petHealth">
-      <div class="consent-box">${state.consent.petHealth ? ICON.check.replace('26','14').replace('26','14') : ''}</div>
+      <div class="consent-box">${state.consent.petHealth ? tick : ''}</div>
       <p>I confirm my pet has no history of aggression toward people or other animals, and is current on core vaccinations. <a data-action="open-policy-health-request">Read full declaration</a></p>
     </div>
     <div class="consent-row ${state.consent.vetConsent ? 'checked' : ''}" data-action="toggle-consent-vetConsent">
-      <div class="consent-box">${state.consent.vetConsent ? ICON.check.replace('26','14').replace('26','14') : ''}</div>
+      <div class="consent-box">${state.consent.vetConsent ? tick : ''}</div>
       <p>If I'm unreachable in an emergency, I authorize the sitter to seek veterinary care on my behalf, up to ₺2,000 — to be reimbursed by me afterward. <a data-action="open-policy-vetconsent-request">Read full consent</a></p>
     </div>
     <button class="btn btn-primary" data-action="confirm-request-${s.id}" ${(!state.consent.petHealth||!state.consent.vetConsent) ? 'disabled' : ''}>${s.instantBook ? 'Book instantly' : 'Send request'}</button>
@@ -1932,6 +2013,8 @@ function renderTicketCard(b, clickable){
           <div><span>Location</span><b>${b.loc}</b></div>
         </div>
         ${b.protect ? `<div class="protect-badge">${ICON.shield}Pawcation Protect included</div>` : ''}
+        ${b.petCard ? `<div class="protect-badge">${ICON.cert}Health card shared</div>` : ''}
+        ${b.pets>1 ? `<div class="protect-badge" style="color:var(--ink-soft);">${b.pets} pets</div>` : ''}
         ${b.total ? `<div class="protect-badge" style="color:var(--ink-soft);">Total paid: ₺${b.total.toLocaleString('tr-TR')}</div>` : ''}
       </div>
       <div class="tear"></div>
@@ -2029,6 +2112,8 @@ function screenBookingDetail(){
         ${b.status==='confirmed' ? `<button class="btn btn-ghost" style="flex:1;" data-action="open-reschedule-${b.id}">Reschedule</button>` : ''}
       </div>
     ` : ''}
+    ${(!isHost && b.sitterId && b.status==='completed') ? `<button class="btn btn-primary" style="margin-bottom:16px;" data-action="rebook-${b.sitterId}">Book again</button>` : ''}
+    ${b.petCard ? `<div class="section-label">Pet health card</div>${renderHealthRows(b.petCard.health)}` : ''}
     ${b.sessions ? `
       <div class="section-label">Session schedule${b.goal ? ' — '+b.goal : ''}</div>
       ${b.sessions.map((s,i)=>`
@@ -2218,6 +2303,9 @@ function screenProfile(){
     <div class="profile-row" data-action="nav2-policyhub"><div class="left">${ICON.idcard}<span>${t('profile_legal')}</span></div>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-documents"><div class="left">${ICON.filesheet}<span>${t('profile_documents')}</span></div>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-rewards"><div class="left">${ICON.gift}<span>${t('profile_points')}</span></div><span style="color:var(--ink-soft);font-size:12px;">${state.loyaltyPoints} pts</span>${ICON.chevron}</div>
+    ${!isOwner ? `<div class="profile-row" data-action="nav2-earnings"><div class="left">${ICON.cardicon}<span>Earnings</span></div><span style="color:var(--ink-soft);font-size:12px;">₺${earningsSummary().month.toLocaleString('tr-TR')} this month</span>${ICON.chevron}</div>` : ''}
+    ${state.mode==='sitter' ? `<div class="profile-row" data-action="nav2-pricing"><div class="left">${ICON.bolt}<span>My pricing</span></div><span style="color:var(--ink-soft);font-size:12px;">₺${state.myPricing.base} / night</span>${ICON.chevron}</div>` : ''}
+    <div class="profile-row" data-action="nav2-invite"><div class="left">${ICON.gift}<span>Invite friends</span></div><span style="color:var(--ink-soft);font-size:12px;">Get 100 pts</span>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-tour"><div class="left">${ICON.clock}<span>${t('profile_how_it_works')}</span></div>${ICON.chevron}</div>
     <div class="section-label">${t('profile_language')}</div>
     <div class="profile-row" style="cursor:default;">
@@ -2450,9 +2538,9 @@ function screenPayment(){
       <h2 class="title">Payout details</h2>
       <p class="subtitle">Where your earnings from hosting get sent after each completed stay.</p>
       <div class="statrow">
-        <div class="stat"><b>₺2,450</b><span>This month</span></div>
-        <div class="stat"><b>₺11,900</b><span>All time</span></div>
-        <div class="stat"><b>2</b><span>Payouts due</span></div>
+        <div class="stat"><b>₺${earningsSummary().month.toLocaleString('tr-TR')}</b><span>This month</span></div>
+        <div class="stat"><b>₺${earningsSummary().allTime.toLocaleString('tr-TR')}</b><span>All time</span></div>
+        <div class="stat"><b>${earningsSummary().pendingList.length}</b><span>Payouts due</span></div>
       </div>
       ${state.payout ? `
         <div class="savedcard">
@@ -2474,10 +2562,11 @@ function screenMyPets(){
     <h2 class="title">My pets</h2>
     <p class="subtitle">Add a photo and a few details for each pet — sitters see this when you send a request.</p>
     <div class="petgrid">
-      ${state.myPets.map((p)=>`
-        <div class="petcard">
+      ${state.myPets.map((p,i)=>`
+        <div class="petcard" data-action="open-pet-${i}">
           <div class="pimg" style="background-image:url('${p.photo}')"></div>
-          <div class="pinfo"><b>${p.name}</b><span>${p.type}${p.breed ? ' · '+p.breed : ''}${p.age ? ' · '+p.age+' yr' : ''}</span></div>
+          <div class="pinfo"><b>${p.name}</b><span>${p.type}${p.breed ? ' · '+p.breed : ''}${p.age ? ' · '+p.age+' yr' : ''}</span>
+            <span class="hc-badge ${healthScore(p.health)===5?'ok':''}">Health card ${healthScore(p.health)}/5</span></div>
         </div>
       `).join('')}
       <div class="addpet-tile" data-action="nav2-addpet">${ICON.plus}Add a pet</div>
@@ -2487,24 +2576,39 @@ function screenMyPets(){
 }
 
 function screenAddPet(){
+  const ed = state.editPetIdx!=null ? state.myPets[state.editPetIdx] : null;
+  const p = ed || {}, h = p.health || {};
+  const val = v => escAttr(v||'');
   return `
   <div class="fade-in narrow">
-    <h2 class="title">Add a pet</h2>
+    <h2 class="title">${ed ? 'Edit pet' : 'Add a pet'}</h2>
     <p class="subtitle">A good photo helps sitters recognize your pet's personality at a glance.</p>
-    <div class="upload-tile" style="margin-bottom:16px;" data-upload="newPetPhoto">
-      <div style="color:var(--ink-soft)">${ICON.camera}</div><div class="uplabel-empty">Add pet photo</div>
+    <div class="upload-tile ${ed ? 'filled' : ''}" style="margin-bottom:16px;${ed ? `background-image:url('${p.photo}')` : ''}" data-upload="newPetPhoto">
+      ${ed ? `<div class="uplabel">Tap to change photo</div>` : `<div style="color:var(--ink-soft)">${ICON.camera}</div><div class="uplabel-empty">Add pet photo</div>`}
       <input type="file" accept="image/*" data-upload-input="newPetPhoto"/>
     </div>
     <div class="field-row">
-      <div class="field"><label>Pet's name</label><input id="pet-name" placeholder="e.g. Luna"/></div>
-      <div class="field"><label>Type</label><select id="pet-type"><option>Dog</option><option>Cat</option><option>Small pet</option><option>Bird</option></select></div>
+      <div class="field"><label>Pet's name</label><input id="pet-name" placeholder="e.g. Luna" value="${val(p.name)}"/></div>
+      <div class="field"><label>Type</label><select id="pet-type">${['Dog','Cat','Small pet','Bird'].map(o=>`<option value="${o}" ${p.type===o?'selected':''}>${o}</option>`).join('')}</select></div>
     </div>
     <div class="field-row">
-      <div class="field"><label>Breed (optional)</label><input id="pet-breed" placeholder="e.g. Golden Retriever"/></div>
-      <div class="field"><label>Age</label><input id="pet-age" type="number" min="0" max="40" placeholder="e.g. 3"/></div>
+      <div class="field"><label>Breed (optional)</label><input id="pet-breed" placeholder="e.g. Golden Retriever" value="${val(p.breed)}"/></div>
+      <div class="field"><label>Age</label><input id="pet-age" type="number" min="0" max="40" placeholder="e.g. 3" value="${val(p.age)}"/></div>
     </div>
-    <div class="field"><label>Notes for sitters</label><textarea id="pet-notes" placeholder="Feeding schedule, medication, temperament…"></textarea></div>
-    <button class="btn btn-primary" data-action="save-pet">Save pet</button>
+    <div class="field"><label>Notes for sitters</label><textarea id="pet-notes" placeholder="Feeding schedule, medication, temperament…">${val(p.notes)}</textarea></div>
+    <div class="section-label">Health card</div>
+    <div class="field-row">
+      <div class="field"><label>Vaccinations</label><select id="pet-vacc">${Object.keys(VACC_LABEL).map(k=>`<option value="${k}" ${(h.vaccines||'unknown')===k?'selected':''}>${VACC_LABEL[k]}</option>`).join('')}</select></div>
+      <div class="field"><label>Last vaccinated</label><input id="pet-vacc-date" type="date" value="${val(h.vaccineDate)}"/></div>
+    </div>
+    <div class="field"><label>Allergies</label><input id="pet-allergies" placeholder="e.g. Chicken, pollen — or None" value="${val(h.allergies)}"/></div>
+    <div class="field"><label>Medications</label><input id="pet-meds" placeholder="e.g. Daily joint supplement — or None" value="${val(h.medications)}"/></div>
+    <div class="field-row">
+      <div class="field"><label>Veterinarian</label><input id="pet-vet" placeholder="e.g. Dr. Ayhan Kurt" value="${val(h.vetName)}"/></div>
+      <div class="field"><label>Vet phone</label><input id="pet-vetphone" inputmode="tel" placeholder="e.g. 0216 555 01 23" value="${val(h.vetPhone)}"/></div>
+    </div>
+    <div class="field"><label>Feeding routine</label><textarea id="pet-feeding" placeholder="e.g. 1 cup dry food at 08:00 and 19:00">${val(h.feeding)}</textarea></div>
+    <button class="btn btn-primary" data-action="save-pet">${ed ? 'Save changes' : 'Save pet'}</button>
   </div>`;
 }
 
@@ -2557,6 +2661,300 @@ function screenTrainerCV(){
   </div>`;
 }
 
+/* ============ PRICING RULES (weekend / holiday / multi-pet / cleaning) ============ */
+// public holidays + bayrams (2026) — a night that starts on one of these dates gets the holiday rate
+const HOLIDAYS = ['2026-01-01','2026-03-20','2026-03-21','2026-03-22','2026-04-23','2026-05-01','2026-05-19','2026-05-27','2026-05-28','2026-05-29','2026-05-30','2026-07-15','2026-08-30','2026-10-29'];
+function isoLocal(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function priceQuote(s, inISO, outISO, pets, protect){
+  const pr = s.pricing || { weekend:0, holiday:0, multiPet:0, cleaning:0 };
+  const base = parsePrice(s.price);
+  const nights = computeNights(inISO, outISO);
+  let wk = 0, hol = 0;
+  const d = new Date(inISO+'T00:00:00');
+  for(let i=0;i<nights;i++){
+    if(HOLIDAYS.includes(isoLocal(d))) hol++;
+    else if(d.getDay()===5 || d.getDay()===6) wk++;      // Friday & Saturday nights
+    d.setDate(d.getDate()+1);
+  }
+  const lines = [{ label:`${nights} night${nights>1?'s':''} × ${s.price}`, amount:nights*base }];
+  if(wk && pr.weekend) lines.push({ label:`Weekend surcharge · ${wk} night${wk>1?'s':''}`, amount:wk*pr.weekend });
+  if(hol && pr.holiday) lines.push({ label:`Holiday surcharge · ${hol} night${hol>1?'s':''}`, amount:hol*pr.holiday });
+  const stay = lines.reduce((a,l)=>a+l.amount,0);
+  const extra = Math.max(0, (pets||1)-1);
+  if(extra){
+    lines.push({ label:`Additional pets × ${extra}`, amount:extra*stay });
+    if(pr.multiPet) lines.push({ label:`Multi-pet discount · ${pr.multiPet}%`, amount:-Math.round(extra*stay*pr.multiPet/100) });
+  }
+  if(pr.cleaning) lines.push({ label:'Cleaning fee', amount:pr.cleaning });
+  if(protect) lines.push({ label:'Pawcation Protect', amount:99 });
+  return { nights, lines, total:lines.reduce((a,l)=>a+l.amount,0), weekendNights:wk, holidayNights:hol };
+}
+function fmtLine(n){ return (n<0?'−':'')+'₺'+Math.abs(n).toLocaleString('tr-TR'); }
+function pricingRowsHTML(base, pr){
+  const row = (l,v) => `<div class="pr-row"><span>${l}</span><b>${v}</b></div>`;
+  return `<div class="pricing-rows">
+    ${row('Base rate','₺'+base+' / night')}
+    ${row('Weekend nights (Fri–Sat)', pr.weekend ? '+₺'+pr.weekend+' / night' : 'No surcharge')}
+    ${row('Holiday nights (bayram & public holidays)', pr.holiday ? '+₺'+pr.holiday+' / night' : 'No surcharge')}
+    ${row('Each additional pet', pr.multiPet ? '−'+pr.multiPet+'%' : 'Full price')}
+    ${row('Cleaning fee', pr.cleaning ? '₺'+pr.cleaning+' once' : 'Included')}
+  </div>`;
+}
+const PRICING_EXAMPLES = [
+  { tags:['Weekday','3 nights','1 pet'], in:'2026-07-06', out:'2026-07-09', pets:1 },
+  { tags:['Weekend','2 nights','1 pet'], in:'2026-07-10', out:'2026-07-12', pets:1 },
+  { tags:['Holiday','2 nights','1 pet'], in:'2026-07-14', out:'2026-07-16', pets:1 },
+  { tags:['Weekend','2 nights','2 pets'], in:'2026-07-10', out:'2026-07-12', pets:2 },
+];
+function pricingPreviewHTML(){
+  const mp = state.myPricing;
+  const fake = { price:'₺'+mp.base, pricing:{ weekend:mp.weekend, holiday:mp.holiday, multiPet:mp.multiPet, cleaning:mp.cleaning } };
+  return PRICING_EXAMPLES.map(ex => {
+    const q = priceQuote(fake, ex.in, ex.out, ex.pets, false);
+    return `<div class="pr-row"><span>${ex.tags.join(' · ')}</span><b>₺${q.total.toLocaleString('tr-TR')}</b></div>`;
+  }).join('');
+}
+function screenPricing(){
+  const mp = state.myPricing;
+  const fld = (id, label, val, hint, suffix) => `
+    <div class="field"><label>${label}</label>
+      <div class="inputsuffix"><input id="${id}" type="number" min="0" inputmode="numeric" value="${val}"/><span>${suffix}</span></div>
+      <p class="fieldhint">${hint}</p></div>`;
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">My pricing</h2>
+    <p class="subtitle">Set your base rate and the extras owners see before they book. The preview below updates as you type.</p>
+    ${fld('pr-base','Base rate per night',mp.base,'What a standard weeknight costs for one pet.','₺ / night')}
+    ${fld('pr-weekend','Weekend surcharge',mp.weekend,'Added to each Friday and Saturday night.','₺ / night')}
+    ${fld('pr-holiday','Holiday & bayram surcharge',mp.holiday,'Added to nights that start on a public holiday or bayram day. Replaces the weekend surcharge on those nights.','₺ / night')}
+    ${fld('pr-multi','Additional pet discount',mp.multiPet,'Discount on each extra pet from the same owner.','%')}
+    ${fld('pr-clean','Cleaning fee',mp.cleaning,'One-time fee per stay. Leave 0 if it is included.','₺')}
+    <div class="section-label">What owners would pay</div>
+    <div class="pricing-rows" id="pricing-preview">${pricingPreviewHTML()}</div>
+    <button class="btn btn-primary" style="margin-top:14px;" data-action="save-pricing">Save pricing</button>
+  </div>`;
+}
+
+/* ============ PET HEALTH CARD ============ */
+const VACC_LABEL = { up_to_date:'Up to date', due:'Due soon', none:'Not vaccinated', unknown:'Unknown' };
+function fmtLong(iso){
+  if(!iso) return '';
+  return new Date(iso+'T00:00:00').toLocaleDateString(state.lang==='tr' ? 'tr-TR' : 'en-US', { day:'numeric', month:'short', year:'numeric' });
+}
+function healthScore(h){
+  h = h || {};
+  return [h.vaccines && h.vaccines!=='unknown', h.allergies, h.medications, h.vetName, h.feeding].filter(Boolean).length;
+}
+function renderHealthRows(h){
+  h = h || {};
+  const row = (ic, label, val) => `<div class="hc-row"><div class="hc-ic">${ic}</div><div class="hc-body"><span>${label}</span><b>${val || '—'}</b></div></div>`;
+  const vacc = (VACC_LABEL[h.vaccines] || 'Unknown') + (h.vaccineDate ? ' · '+fmtLong(h.vaccineDate) : '');
+  const vet = [h.vetName, h.vetPhone].filter(Boolean).join(' · ');
+  return `<div class="healthcard">
+    ${row(ICON.shield,'Vaccinations',vacc)}
+    ${row(ICON.alert,'Allergies',h.allergies)}
+    ${row(ICON.cardicon,'Medications',h.medications)}
+    ${row(ICON.cert,'Veterinarian',vet)}
+    ${row(ICON.home,'Feeding routine',h.feeding)}
+  </div>`;
+}
+function screenPetDetail(){
+  const p = state.myPets[state.selectedPet];
+  if(!p) return screenMyPets();
+  const sc = healthScore(p.health);
+  return `
+  <div class="fade-in narrow">
+    <div class="pethero" style="background-image:url('${p.photo}')"></div>
+    <h2 class="title" style="margin-top:14px;">${p.name}</h2>
+    <p class="subtitle">${p.type}${p.breed ? ' · '+p.breed : ''}${p.age ? ' · '+p.age+' yr' : ''}</p>
+    <div class="section-label">Health card <span class="hc-badge ${sc===5?'ok':''}">Health card ${sc}/5</span></div>
+    ${renderHealthRows(p.health)}
+    <p class="subtitle" style="margin-top:10px;">Shared automatically with the sitter when you pick this pet in a booking request.</p>
+    ${p.notes ? `<div class="section-label">Notes for sitters</div><p class="bio">${p.notes}</p>` : ''}
+    <button class="btn btn-primary" data-action="edit-pet-${state.selectedPet}">Edit pet & health card</button>
+    <button class="btn btn-ghost" style="margin-top:10px;color:var(--stamp);border-color:var(--stamp);" data-action="delete-pet-${state.selectedPet}">Remove pet</button>
+  </div>`;
+}
+
+/* ============ HOST EARNINGS ============ */
+const EARN_HISTORY = [
+  { m:'Feb', amount:1150, occ:32 }, { m:'Mar', amount:1700, occ:44 }, { m:'Apr', amount:2100, occ:52 },
+  { m:'May', amount:2400, occ:61 }, { m:'Jun', amount:2100, occ:55 },
+];
+const BASE_JULY_BOOKED = [3,4,5,18,19,24,25,26];
+const BASE_PENDING = [
+  { who:'Zeynep Arslan', what:"Buddy's stay", amount:1800, when:'Jul 16' },
+  { who:'Elif Sarı', what:"Rocky's stay", amount:900, when:'Jul 9' },
+];
+function mdParts(str){
+  const m = String(str).match(/^([A-Z][a-z]{2}) (\d{1,2})$/);
+  if(!m) return null;
+  const mi = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].indexOf(m[1]);
+  return mi<0 ? null : { month:mi, day:parseInt(m[2],10) };
+}
+function shiftMD(str, n){
+  const p = mdParts(str); if(!p) return str;
+  return new Date(2026, p.month, p.day+n).toLocaleDateString('en-US', { month:'short', day:'numeric' });
+}
+function hostedBookings(){ return state.bookings.filter(b => b.hostName==='You' && b.status!=='cancelled'); }
+function julyDaysOf(b){
+  const out = [];
+  if(b.sessions){ b.sessions.forEach(s => { const p = mdParts(s.date); if(p && p.month===6) out.push(p.day); }); return out; }
+  const a = mdParts(b.checkIn), z = mdParts(b.checkOut);
+  if(a && z && a.month===6){ for(let d=a.day; d<(z.month===6 ? z.day : 32); d++) out.push(d); }
+  return out;
+}
+function earningsSummary(){
+  const hosted = hostedBookings().filter(b => b.earn);
+  const done = hosted.filter(b => b.status==='completed').reduce((a,b)=>a+b.earn,0);
+  const open = hosted.filter(b => b.status!=='completed');
+  const booked = new Set(BASE_JULY_BOOKED);
+  hostedBookings().forEach(b => julyDaysOf(b).forEach(d => booked.add(d)));
+  const month = 2450 + done;
+  const pendingList = BASE_PENDING.map(x=>({ ...x })).concat(open.map(b => ({
+    who: b.ownerName || 'Owner', what: `${b.petName}'s ${b.trainerBooking ? 'training' : 'stay'}`, amount: b.earn,
+    when: shiftMD(b.sessions ? b.sessions[b.sessions.length-1].date : b.checkOut, 2)
+  })));
+  return {
+    month, allTime: 11900 + done, pendingList,
+    pending: pendingList.reduce((a,x)=>a+x.amount,0),
+    booked, occupancy: Math.min(100, Math.round(booked.size/31*100)),
+    last: EARN_HISTORY[EARN_HISTORY.length-1].amount,
+  };
+}
+function renderBookedCalendar(booked, blocked){
+  const year = CAL_MONTH.year, month = CAL_MONTH.month;
+  const dim = new Date(year, month+1, 0).getDate(), first = new Date(year, month, 1).getDay();
+  const cells = [];
+  for(let i=0;i<first;i++) cells.push('<div class="cal-cell empty"></div>');
+  for(let d=1; d<=dim; d++){
+    const iso = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const cls = booked.has(d) ? 'booked' : blocked.includes(iso) ? 'blocked' : 'open';
+    cells.push(`<div class="cal-cell ${cls}">${d}</div>`);
+  }
+  return `
+    <div class="cal-grid-head">${['S','M','T','W','T','F','S'].map(d=>`<div>${d}</div>`).join('')}</div>
+    <div class="cal-grid">${cells.join('')}</div>
+    <div class="cal-legend"><span><i class="caldot booked"></i>Booked</span><span><i class="caldot blocked"></i>Blocked</span><span><i class="caldot open"></i>Free</span></div>`;
+}
+function barChartHTML(series, key, fmt, highlightLast){
+  const max = Math.max(...series.map(x=>x[key]), 1);
+  return `<div class="barchart">${series.map((x,i)=>`
+    <div class="barcol">
+      <span class="barval">${fmt(x[key])}</span>
+      <div class="bar ${highlightLast && i===series.length-1 ? 'cur' : ''}" style="height:${Math.max(4, Math.round(x[key]/max*100))}%"></div>
+      <span class="barlbl">${x.m}</span>
+    </div>`).join('')}</div>`;
+}
+function screenEarnings(){
+  const es = earningsSummary();
+  const series = EARN_HISTORY.concat([{ m:'Jul', amount:es.month, occ:es.occupancy }]);
+  const delta = es.last ? Math.round((es.month-es.last)/es.last*100) : 0;
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">Earnings</h2>
+    <p class="subtitle">What you have earned hosting through Pawcation, what is on its way, and how full your calendar is.</p>
+    <div class="earnhero">
+      <span>This month</span>
+      <b>₺${es.month.toLocaleString('tr-TR')}</b>
+      <em class="${delta>=0?'up':'down'}">${delta>=0?'+':'−'}${Math.abs(delta)}% vs last month</em>
+    </div>
+    <div class="statrow">
+      <div class="stat"><b>₺${es.pending.toLocaleString('tr-TR')}</b><span>Pending payouts</span></div>
+      <div class="stat"><b>₺${es.allTime.toLocaleString('tr-TR')}</b><span>All time</span></div>
+      <div class="stat"><b>${es.occupancy}%</b><span>Occupancy</span></div>
+    </div>
+    <div class="section-label">Earnings · last 6 months</div>
+    ${barChartHTML(series,'amount',v=>'₺'+v.toLocaleString('tr-TR'),true)}
+    <div class="section-label">Occupancy · last 6 months</div>
+    ${barChartHTML(series,'occ',v=>v+'%',true)}
+    <div class="section-label">${CAL_MONTH.label}</div>
+    ${renderBookedCalendar(es.booked, state.myBlockedDates)}
+    <div class="section-label">Pending payouts</div>
+    ${es.pendingList.map(x=>`
+      <div class="reviewcard">
+        <div class="rh"><span>${x.who}</span><b style="color:var(--moss-deep);">₺${x.amount.toLocaleString('tr-TR')}</b></div>
+        <p>${x.what} · Expected ${x.when}</p>
+      </div>`).join('')}
+    <button class="btn btn-ghost" data-action="nav2-payment">Payout details</button>
+  </div>`;
+}
+
+/* ============ REFERRALS ============ */
+const REF_BONUS = 100;
+const REF_CODES = { 'PAW-ELIF25':'Elif Kaya', 'PAW-MERT25':'Mert Yıldız', 'PAW-AYSE25':'Ayşe Demir' };
+function screenInvite(){
+  const r = state.referral;
+  const joined = r.invited.filter(x=>x.status==='joined').length;
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">Invite friends</h2>
+    <p class="subtitle">You and your friend each get ${REF_BONUS} Pawcation Points when they sign up with your code and complete their first pawcation.</p>
+    <div class="invitecode">
+      <span>Your code</span>
+      <b>${r.code}</b>
+      <div class="ic-actions">
+        <button class="btn btn-ghost" data-action="copy-ref">Copy</button>
+        <button class="btn btn-primary" data-action="share-ref">Share</button>
+      </div>
+    </div>
+    <div class="statrow">
+      <div class="stat"><b>${r.invited.length}</b><span>Invited</span></div>
+      <div class="stat"><b>${joined}</b><span>Joined</span></div>
+      <div class="stat"><b>${joined*REF_BONUS + (r.usedCode ? REF_BONUS : 0)}</b><span>Points earned</span></div>
+    </div>
+    <div class="section-label">Invite by name</div>
+    <div class="field-row" style="align-items:flex-end;">
+      <div class="field" style="flex:1;"><input id="ref-name" placeholder="Friend's name or phone"/></div>
+      <button class="btn btn-primary" style="width:auto;padding:14px 18px;margin-bottom:14px;" data-action="send-invite">Invite</button>
+    </div>
+    ${r.invited.map((x,i)=>`
+      <div class="friendrow">
+        <div class="avatar" style="background:var(--moss);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;">${x.name[0].toUpperCase()}</div>
+        <div class="mbody"><b>${x.name}</b><span>${x.status==='joined' ? '+'+REF_BONUS+' points earned' : 'Invite sent'}</span></div>
+        ${x.status==='joined'
+          ? `<span class="statuspill verified" style="margin:0;padding:3px 9px;font-size:10px;"><span class="dot"></span>Joined</span>`
+          : `<button class="btn btn-ghost" style="width:auto;padding:7px 12px;font-size:11.5px;" data-action="sim-ref-${i}">Simulate: they joined</button>`}
+      </div>`).join('')}
+    ${r.usedCode ? `
+      <div class="trustnote" style="margin-top:14px;">${ICON.check}<span>You joined with ${r.usedCode} — ${REF_BONUS} points were added.</span></div>` : `
+      <div class="section-label">Have a friend's code?</div>
+      <div class="field-row" style="align-items:flex-end;">
+        <div class="field" style="flex:1;"><input id="ref-apply" placeholder="e.g. PAW-ELIF25" autocapitalize="characters"/></div>
+        <button class="btn btn-ghost" style="width:auto;padding:14px 18px;margin-bottom:14px;" data-action="apply-ref">Apply</button>
+      </div>`}
+  </div>`;
+}
+
+/* ============ REBOOK ============ */
+function nextFreeRange(s, nights, fromISO){
+  const d = new Date(fromISO+'T00:00:00');
+  for(let tries=0; tries<60; tries++){
+    const out = new Date(d); out.setDate(out.getDate()+nights);
+    if(!isRangeBlocked(s, isoLocal(d), isoLocal(out))) return { in:isoLocal(d), out:isoLocal(out) };
+    d.setDate(d.getDate()+1);
+  }
+  return { in:fromISO, out:fromISO };
+}
+function rebookRailHTML(){
+  if(state.mode!=='owner' || state.search.view==='map' || state.search.q) return '';
+  const ids = [];
+  state.bookings.forEach(b => { if(b.sitterId && !ids.includes(b.sitterId)) ids.push(b.sitterId); });
+  state.favorites.forEach(id => { if(!ids.includes(id)) ids.push(id); });
+  const list = ids.map(id => SITTERS.find(s=>s.id===id)).filter(Boolean).slice(0,6);
+  if(!list.length) return '';
+  return `
+    <div class="section-label" style="margin-top:2px;">Your sitters</div>
+    <div class="rebookrail">${list.map(s=>`
+      <div class="rb-card">
+        <div class="rb-img" style="background-image:url('${s.img}')" data-action="open-sitter-${s.id}"></div>
+        <div class="rb-name">${s.name.split(' ')[0]}</div>
+        <div class="rb-sub">${s.price} / night</div>
+        <button class="btn btn-primary rb-btn" data-action="rebook-${s.id}">Rebook</button>
+      </div>`).join('')}
+    </div>`;
+}
+
 /* ============ MASTER RENDER ============ */
 function render(){
   renderTopbar();
@@ -2592,6 +2990,10 @@ function render(){
     case 'favorites': html = screenFavorites(); break;
     case 'cancelBooking': html = screenCancelBooking(); break;
     case 'reschedule': html = screenReschedule(); break;
+    case 'petdetail': html = screenPetDetail(); break;
+    case 'earnings': html = screenEarnings(); break;
+    case 'pricing': html = screenPricing(); break;
+    case 'invite': html = screenInvite(); break;
     default: html = screenOnboard();
   }
   app.content.innerHTML = html;
@@ -2678,7 +3080,8 @@ document.addEventListener('click', (e) => {
     if(state.screen==='detail' || state.screen==='requestDetail' || state.screen==='trainingDetail') go('browse');
     else if(state.screen==='request') go('detail', {selectedId:state.selectedId});
     else if(state.screen==='ticket') go('bookings');
-    else if(state.screen==='addpet') go('mypets');
+    else if(state.screen==='addpet') go(state.editPetIdx!=null ? 'petdetail' : 'mypets');
+    else if(state.screen==='petdetail') go('mypets');
     else if(state.screen==='policy') go(state.policyReturnTo || 'policyhub');
     else if(state.screen==='policyhub') go('profile');
     else if(state.screen==='documents') go('profile');
@@ -2687,7 +3090,7 @@ document.addEventListener('click', (e) => {
     else if(state.screen==='leaveReview'){ state.reviewDraft=null; go('bookingDetail', {selectedId:state.selectedId}); }
     else if(state.screen==='cancelBooking' || state.screen==='reschedule') go('bookingDetail', {selectedId:state.selectedId});
     else if(state.screen==='chatThread') go('messages');
-    else if(['verify','payment','mypets','trainercv','notifications','rewards','availability','favorites','tour'].includes(state.screen)) go('profile');
+    else if(['verify','payment','mypets','trainercv','notifications','rewards','availability','favorites','tour','earnings','pricing','invite'].includes(state.screen)) go('profile');
     else go('browse');
     return;
   }
@@ -2785,7 +3188,7 @@ document.addEventListener('click', (e) => {
   if(action.startsWith('request-stay-')){
     state.consent.petHealth = false;
     state.consent.vetConsent = false;
-    state.form.protect = false;
+    state.form = { protect:false, pets:1, petIdx:null, shareHealth:true, dates:null, prefill:null, rebook:false };
     go('request', {selectedId: action.replace('request-stay-','')});
     return;
   }
@@ -2801,20 +3204,23 @@ document.addEventListener('click', (e) => {
       toast(s.name.split(' ')[0]+" isn't available for some of those dates");
       return;
     }
-    const nights = computeNights(checkIn, checkOut);
     const protect = state.form.protect;
     const protectFee = 99;
-    const total = nights*parsePrice(s.price) + (protect ? protectFee : 0);
+    const pets = state.form.pets || 1;
+    const quote = priceQuote(s, checkIn, checkOut, pets, protect);
+    const selPet = state.form.petIdx!=null ? state.myPets[state.form.petIdx] : null;
     const booking = {
       id: 'b'+Date.now(), status: s.instantBook ? 'confirmed' : 'pending',
       petName, hostName: s.name, loc: s.loc.split(',')[0],
-      checkIn: fmtDate(checkIn), checkOut: fmtDate(checkOut),
+      checkIn: fmtDate(checkIn), checkOut: fmtDate(checkOut), checkInISO: checkIn, checkOutISO: checkOut,
       code: randCode(), sitterId: s.id, updates: [], review: null,
-      protect, protectFee: protect ? protectFee : 0, total
+      protect, protectFee: protect ? protectFee : 0, total: quote.total, pets,
+      petCard: (selPet && state.form.shareHealth!==false) ? { name:selPet.name, type:selPet.type, breed:selPet.breed, age:selPet.age, photo:selPet.photo, health:{ ...selPet.health } } : null
     };
     state.bookings.push(booking);
     state.loyaltyPoints += 50;
-    state.form.protect = false;
+    state.consentGiven = true;
+    state.form = { protect:false, pets:1, petIdx:null, shareHealth:true, dates:null, prefill:null, rebook:false };
     toast((s.instantBook ? 'Confirmed with ' : 'Request sent to ')+s.name.split(' ')[0]+' · +50 points');
     go('ticket', {selectedId: booking.id});
     return;
@@ -2827,7 +3233,8 @@ document.addEventListener('click', (e) => {
     const booking = {
       id: 'b'+Date.now(), status:'confirmed',
       petName: r.pet, hostName: 'You', loc: r.loc.split(',')[0],
-      checkIn, checkOut, code: randCode(), updates: [], review: null
+      checkIn, checkOut, code: randCode(), updates: [], review: null,
+      ownerName: r.owner, earn: parsePrice(r.pay)
     };
     state.bookings.push(booking);
     toast('Offer sent to '+r.owner.split(' ')[0]);
@@ -2846,7 +3253,7 @@ document.addEventListener('click', (e) => {
       petName: r.pet, hostName: 'You', loc: r.loc.split(',')[0],
       checkIn: sessions[0].date, checkOut: sessions[sessions.length-1].date,
       code: randCode(), updates: [], review: null,
-      trainerBooking: true, ownerName: r.owner, goal: r.goal, sessions
+      trainerBooking: true, ownerName: r.owner, goal: r.goal, sessions, earn: parsePrice(r.pay)
     };
     state.bookings.push(booking);
     toast('Offer sent to '+r.owner.split(' ')[0]);
@@ -2982,7 +3389,6 @@ document.addEventListener('click', (e) => {
   }
   if(action==='nav2-mypets'){ go('mypets'); return; }
   if(action==='nav2-payment'){ go('payment'); return; }
-  if(action==='nav2-addpet'){ go('addpet'); return; }
   if(action==='nav2-noop'){ return; }
 
   if(action==='submit-verification'){
@@ -3028,17 +3434,93 @@ document.addEventListener('click', (e) => {
   if(action==='remove-payout'){ state.payout = null; render(); return; }
 
   if(action==='save-pet'){
-    const name = document.getElementById('pet-name').value;
-    const type = document.getElementById('pet-type').value;
-    const breed = document.getElementById('pet-breed').value;
-    const age = document.getElementById('pet-age').value;
-    const notes = document.getElementById('pet-notes').value;
-    if(!name || !pendingUploads.newPetPhoto){ toast('Add a name and photo first'); return; }
-    state.myPets.push({ name, type, breed, age, notes, photo: pendingUploads.newPetPhoto });
+    const g = id => (document.getElementById(id)||{}).value || '';
+    const name = g('pet-name');
+    const ed = state.editPetIdx!=null ? state.myPets[state.editPetIdx] : null;
+    const photo = pendingUploads.newPetPhoto || (ed && ed.photo);
+    if(!name || !photo){ toast('Add a name and photo first'); return; }
+    const pet = {
+      name, type:g('pet-type'), breed:g('pet-breed'), age:g('pet-age'), notes:g('pet-notes'), photo,
+      health:{ vaccines:g('pet-vacc')||'unknown', vaccineDate:g('pet-vacc-date'), allergies:g('pet-allergies'), medications:g('pet-meds'), vetName:g('pet-vet'), vetPhone:g('pet-vetphone'), feeding:g('pet-feeding') }
+    };
     delete pendingUploads.newPetPhoto;
-    toast(name+' added to your pets');
-    go('mypets');
+    if(ed){ state.myPets[state.editPetIdx] = pet; toast('Pet updated'); go('petdetail', {selectedPet:state.editPetIdx}); }
+    else { state.myPets.push(pet); toast(name+' added to your pets'); go('mypets'); }
     return;
+  }
+  if(action==='nav2-addpet'){ state.editPetIdx = null; go('addpet'); return; }
+  if(action.startsWith('open-pet-')){ go('petdetail', {selectedPet: parseInt(action.replace('open-pet-',''),10)}); return; }
+  if(action.startsWith('edit-pet-')){ state.editPetIdx = parseInt(action.replace('edit-pet-',''),10); go('addpet'); return; }
+  if(action.startsWith('delete-pet-')){
+    state.myPets.splice(parseInt(action.replace('delete-pet-',''),10),1);
+    toast('Pet removed'); go('mypets'); return;
+  }
+  if(action.startsWith('select-pet-')){
+    const v = action.replace('select-pet-','');
+    if(v==='new'){ state.form.petIdx = null; }
+    else {
+      const i = parseInt(v,10), p = state.myPets[i];
+      state.form.petIdx = i; state.form.shareHealth = true;
+      const set = (id,val) => { const el = document.getElementById(id); if(el) el.value = val; };
+      set('f-petname', p.name); set('f-pettype', p.type);
+      if(p.notes) set('f-notes', p.notes);
+    }
+    render(); return;
+  }
+  if(action==='toggle-share-health'){ state.form.shareHealth = !(state.form.shareHealth!==false); render(); return; }
+  if(action==='pets-inc'){ state.form.pets = Math.min(4,(state.form.pets||1)+1); render(); return; }
+  if(action==='pets-dec'){ state.form.pets = Math.max(1,(state.form.pets||1)-1); render(); return; }
+
+  /* ---- rebook ---- */
+  if(action.startsWith('rebook-')){
+    const sid = action.replace('rebook-','');
+    const s = SITTERS.find(x=>x.id===sid); if(!s) return;
+    const last = state.bookings.slice().reverse().find(b=>b.sitterId===sid);
+    const nights = (last && last.checkInISO && last.checkOutISO) ? computeNights(last.checkInISO,last.checkOutISO) : 3;
+    const range = nextFreeRange(s, nights, '2026-07-16');
+    const petIdx = last ? state.myPets.findIndex(p=>p.name===last.petName) : -1;
+    state.form = {
+      protect: !!(last && last.protect), pets: (last && last.pets) || 1,
+      petIdx: petIdx>=0 ? petIdx : null, shareHealth:true,
+      dates: range, rebook:true,
+      prefill: { petName: last ? last.petName : 'Luna', petType: petIdx>=0 ? state.myPets[petIdx].type : 'Dog', notes: petIdx>=0 ? (state.myPets[petIdx].notes || '') : '' },
+    };
+    state.consent.petHealth = state.consent.vetConsent = !!state.consentGiven;
+    go('request', {selectedId: sid});
+    return;
+  }
+
+  /* ---- host tools ---- */
+  if(action==='nav2-earnings'){ go('earnings'); return; }
+  if(action==='nav2-pricing'){ go('pricing'); return; }
+  if(action==='save-pricing'){ toast('Pricing saved'); go('profile'); return; }
+
+  /* ---- referrals ---- */
+  if(action==='nav2-invite'){ go('invite'); return; }
+  if(action==='copy-ref' || action==='share-ref'){
+    const code = state.referral.code;
+    const msg = (state.lang==='tr' ? 'Pawcation\'a katıl, ilk pawcation\'ında 100 puan kazan! Kodum: ' : 'Join Pawcation and get 100 points on your first pawcation! My code: ') + code;
+    if(action==='share-ref' && navigator.share){ navigator.share({ title:'Pawcation', text:msg }).catch(()=>{}); return; }
+    try{ navigator.clipboard.writeText(action==='share-ref' ? msg : code).then(()=>toast(action==='share-ref' ? 'Invite message copied' : 'Code copied'), ()=>toast(code)); }
+    catch(err){ toast(code); }
+    return;
+  }
+  if(action==='send-invite'){
+    const el = document.getElementById('ref-name'); const name = el ? el.value.trim() : '';
+    if(!name){ toast('Enter a name or phone number'); return; }
+    state.referral.invited.unshift({ name, status:'pending' });
+    toast('Invite sent to '+name); render(); return;
+  }
+  if(action.startsWith('sim-ref-')){
+    const x = state.referral.invited[parseInt(action.replace('sim-ref-',''),10)];
+    if(x && x.status!=='joined'){ x.status='joined'; state.loyaltyPoints += REF_BONUS; toast(x.name+' joined · +'+REF_BONUS+' points'); render(); }
+    return;
+  }
+  if(action==='apply-ref'){
+    const el = document.getElementById('ref-apply'); const code = el ? el.value.trim().toUpperCase() : '';
+    if(!REF_CODES[code]){ toast('That code is not valid'); return; }
+    state.referral.usedCode = code; state.loyaltyPoints += REF_BONUS;
+    toast('Code applied · +'+REF_BONUS+' points'); render(); return;
   }
 });
 
@@ -3126,6 +3608,12 @@ function lookupBank(bin){
 }
 
 document.addEventListener('input', (e) => {
+  const prMap = { 'pr-base':'base', 'pr-weekend':'weekend', 'pr-holiday':'holiday', 'pr-multi':'multiPet', 'pr-clean':'cleaning' };
+  if(prMap[e.target.id]){
+    state.myPricing[prMap[e.target.id]] = Math.max(0, parseInt(e.target.value,10) || 0);
+    const box = document.getElementById('pricing-preview'); if(box) box.innerHTML = pricingPreviewHTML();
+    return;
+  }
   if(e.target.id==='search-q'){
     state.search.q = e.target.value;
     state.search.pin = null;
@@ -3410,12 +3898,39 @@ const TR_EXACT = {
   "Every policy that governs how Pawcation works — the same texts linked from verification and booking.":"Pawcation'ın işleyişini düzenleyen tüm politikalar — doğrulama ve rezervasyon sırasında bağlantısı verilen metinlerin aynısı.",
   "Market research, financial model, pitch deck, and legal policies — everything prepared for launch.":"Pazar araştırması, finansal model, lansman sunumu ve hukuki metinler — lansman için hazırlanan her şey.",
   "Tapping a file downloads it directly — these are the same documents prepared alongside this app.":"Bir dosyaya dokunmak onu doğrudan indirir — bunlar bu uygulamayla birlikte hazırlanan belgelerin aynısı.",
+  /* --- round 7: health card, pricing, earnings, referrals, rebook --- */
+  "My pricing":"Fiyatlandırmam","Pricing":"Fiyatlandırma","What owners would pay":"Sahiplerin ödeyeceği tutar","Save pricing":"Fiyatlandırmayı kaydet","Pricing saved":"Fiyatlandırma kaydedildi",
+  "Set your base rate and the extras owners see before they book. The preview below updates as you type.":"Temel ücretini ve sahiplerin rezervasyondan önce gördüğü ek ücretleri belirle. Aşağıdaki önizleme yazdıkça güncellenir.",
+  "Base rate per night":"Gecelik temel ücret","Weekend surcharge":"Hafta sonu farkı","Holiday & bayram surcharge":"Tatil ve bayram farkı","Additional pet discount":"Ek hayvan indirimi","Cleaning fee":"Temizlik ücreti",
+  "What a standard weeknight costs for one pet.":"Bir hayvan için standart bir hafta içi gecenin ücreti.","Added to each Friday and Saturday night.":"Her cuma ve cumartesi gecesine eklenir.",
+  "Added to nights that start on a public holiday or bayram day. Replaces the weekend surcharge on those nights.":"Resmi tatil veya bayram gününde başlayan gecelere eklenir. O gecelerde hafta sonu farkının yerine geçer.",
+  "Discount on each extra pet from the same owner.":"Aynı sahibin her ek hayvanı için indirim.","One-time fee per stay. Leave 0 if it is included.":"Konaklama başına tek seferlik ücret. Dahilse 0 bırak.",
+  "₺ / night":"₺ / gece","Base rate":"Temel ücret","Weekend nights (Fri–Sat)":"Hafta sonu geceleri (Cuma–Cumartesi)","Holiday nights (bayram & public holidays)":"Tatil geceleri (bayram ve resmi tatiller)",
+  "No surcharge":"Ek ücret yok","Full price":"Tam fiyat","Included":"Dahil","Each additional pet":"Her ek hayvan",
+  "Weekday":"Hafta içi","Weekend":"Hafta sonu","Holiday":"Tatil","Weekend surcharge ":"Hafta sonu farkı","Holiday surcharge":"Tatil farkı","Multi-pet discount":"Çoklu hayvan indirimi",
+  "Up to date":"Güncel","Due soon":"Yakında yapılmalı","Not vaccinated":"Aşısız","Unknown":"Bilinmiyor",
+  "Vaccinations":"Aşılar","Allergies":"Alerjiler","Medications":"İlaçlar","Veterinarian":"Veteriner","Feeding routine":"Beslenme düzeni","Last vaccinated":"Son aşı tarihi","Vet phone":"Veteriner telefonu",
+  "Health card":"Sağlık kartı","Pet health card":"Hayvan sağlık kartı","Health card shared":"Sağlık kartı paylaşıldı","Share health card":"Sağlık kartını paylaş",
+  "Shared automatically with the sitter when you pick this pet in a booking request.":"Rezervasyon talebinde bu hayvanı seçtiğinde bakıcıyla otomatik paylaşılır.",
+  "Edit pet & health card":"Hayvanı ve sağlık kartını düzenle","Remove pet":"Hayvanı kaldır","Edit pet":"Hayvanı düzenle","Save changes":"Değişiklikleri kaydet","Tap to change photo":"Fotoğrafı değiştirmek için dokun",
+  "Pet updated":"Hayvan güncellendi","Pet removed":"Hayvan kaldırıldı","Choose a saved pet":"Kayıtlı hayvanını seç","+ New pet":"+ Yeni hayvan","Number of pets":"Hayvan sayısı",
+  "e.g. Chicken, pollen — or None":"örn. Tavuk, polen — ya da Yok","e.g. Daily joint supplement — or None":"örn. Günlük eklem takviyesi — ya da Yok","e.g. Dr. Ayhan Kurt":"örn. Dr. Ayhan Kurt",
+  "e.g. 0216 555 01 23":"örn. 0216 555 01 23","e.g. 1 cup dry food at 08:00 and 19:00":"örn. 08:00 ve 19:00'da 1 kase kuru mama",
+  "Chicken":"Tavuk","None":"Yok","Loves tennis balls.":"Tenis topuna bayılır.","1 cup dry food at 08:00 and 19:00. No table scraps.":"08:00 ve 19:00'da 1 kase kuru mama. Sofradan artık yok.",
+  "Your sitters":"Bakıcılarım","Rebook":"Tekrar ayır","Book again":"Tekrar rezervasyon yap",
+  "Earnings":"Kazançlarım","What you have earned hosting through Pawcation, what is on its way, and how full your calendar is.":"Pawcation'da ev sahipliğinden kazandıkların, yoldaki ödemelerin ve takviminin ne kadar dolu olduğu.",
+  "Pending payouts":"Bekleyen ödemeler","Occupancy":"Doluluk","Earnings · last 6 months":"Kazanç · son 6 ay","Occupancy · last 6 months":"Doluluk · son 6 ay","Booked":"Rezerve","Blocked":"Kapalı","Free":"Boş",
+  "Feb":"Şub","Mar":"Mar","Apr":"Nis","May":"May","Jun":"Haz","Jul":"Tem",
+  "Invite friends":"Arkadaşını davet et","Get 100 pts":"100 puan kazan","Your code":"Kodun","Copy":"Kopyala","Share":"Paylaş","Invited":"Davet edilen","Joined":"Katıldı","Points earned":"Kazanılan puan",
+  "Invite by name":"İsimle davet et","Friend's name or phone":"Arkadaşının adı veya telefonu","Invite":"Davet et","Invite sent":"Davet gönderildi","Simulate: they joined":"Simülasyon: katıldı",
+  "Have a friend's code?":"Bir arkadaşının kodu var mı?","e.g. PAW-ELIF25":"örn. PAW-ELIF25","Apply":"Uygula",
+  "Code copied":"Kod kopyalandı","Invite message copied":"Davet mesajı kopyalandı","Enter a name or phone number":"Bir isim veya telefon numarası gir","That code is not valid":"Bu kod geçerli değil",
 };
 
 const TR_WHEN = { hour:'saat', hours:'saat', day:'gün', days:'gün', week:'hafta', weeks:'hafta' };
 const TR_PATTERNS = [
   [/^Tell (.+) about your pet$/, (m,n)=> `${trSuffix(trFirst(n),'dat')} evcil hayvanından bahset`],
-  [/^(.+) accepts Instant Book — your pawcation is confirmed right away, no waiting for approval\.$/, (m,n)=> `${n} Anında Rezervasyon kabul ediyor — pawcation'ın hemen onaylanır, onay beklemene gerek yok.`],
+  [/^(.+) accepts Instant Book — your pawcation is confirmed right away, no waiting for approval\.$/, (m,n)=> `${n} Anında Rezervasyon kabul ediyor — rezervasyonun hemen onaylanır, onay beklemene gerek yok.`],
   [/^This goes straight to (.+) as a booking request — nothing is confirmed until they accept\.$/, (m,n)=> `Bu talep doğrudan ${trSuffix(n,'dat')} rezervasyon talebi olarak gider — kabul edene kadar hiçbir şey kesinleşmez.`],
   [/^(.+) isn't available for some of these dates — check the calendar on their profile\.$/, (m,n)=> `${n} bu tarihlerin bir kısmında müsait değil — profilindeki takvime göz at.`],
   [/^(.+) isn't available for some of those dates$/, (m,n)=> `${n} bu tarihlerin bir kısmında müsait değil`],
@@ -3460,6 +3975,24 @@ const TR_PATTERNS = [
   [/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{1,2})$/, (m,mo,d)=> `${d} ${TR_MONTHS[mo]}`],
   [/^(\d{1,2}):(\d{2}) (AM|PM)$/, (m,h,mi,ap)=> { let H = parseInt(h,10)%12 + (ap==='PM'?12:0); return String(H).padStart(2,'0')+':'+mi; }],
   [/^₺([\d,]+) total$/, (m,a)=> trMoney('₺'+a)+' toplam'],
+  [/^(\d+) nights?$/, (m,n)=> `${n} gece`],
+  [/^(\d+) pets?$/, (m,n)=> `${n} hayvan`],
+  [/^Additional pets × (\d+)$/, (m,n)=> `Ek hayvan × ${n}`],
+  [/^(.+) \/ night$/, (m,x)=> `${x} / gece`],
+  [/^₺(\d+) once$/, (m,n)=> `₺${n} tek sefer`],
+  [/^Health card (\d)\/5$/, (m,n)=> `Sağlık kartı ${n}/5`],
+  [/^Rebooking (.+) — we filled in your last stay's details and the declarations you already agreed to\. Check the dates and send\.$/, (m,n)=> `${n} ile tekrar rezervasyon — son konaklamanın bilgilerini ve daha önce onayladığın beyanları doldurduk. Tarihleri kontrol edip gönder.`],
+  [/^— (.+)'s vaccines, allergies, medications, vet and feeding routine will be sent to (.+) automatically\.$/, (m,p,n)=> `— ${trSuffix(p,'gen')} aşı, alerji, ilaç, veteriner ve beslenme bilgileri ${trSuffix(n,'dat')} otomatik olarak iletilir.`],
+  [/^(.+)'s (stay|training)$/, (m,p,k)=> `${p} için ${k==='stay'?'kalış':'eğitim'}`],
+  [/^Expected (.+)$/, (m,d)=> `Beklenen: ${trCore(d)}`],
+  [/^([+−])(\d+)% vs last month$/, (m,sg,n)=> `${sg}${n}% geçen aya göre`],
+  [/^(₺[\d.,]+) this month$/, (m,a)=> `${a} bu ay`],
+  [/^You and your friend each get (\d+) Pawcation Points when they sign up with your code and complete their first pawcation\.$/, (m,n)=> `Sen ve arkadaşın, arkadaşın kodunla kaydolup ilk pawcation'ını tamamladığında ikiniz de ${n} Pawcation Puanı kazanırsınız.`],
+  [/^\+(\d+) points earned$/, (m,n)=> `+${n} puan kazanıldı`],
+  [/^You joined with (.+) — (\d+) points were added\.$/, (m,c,n)=> `${c} koduyla katıldın — ${n} puan eklendi.`],
+  [/^Invite sent to (.+)$/, (m,n)=> `${trSuffix(n,'dat')} davet gönderildi`],
+  [/^(.+) joined · \+(\d+) points$/, (m,n,pt)=> `${n} katıldı · +${pt} puan`],
+  [/^Code applied · \+(\d+) points$/, (m,n)=> `Kod uygulandı · +${n} puan`],
 ];
 
 function trCore(c){
