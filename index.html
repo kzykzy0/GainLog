@@ -1092,6 +1092,131 @@
     font-family:'Inter',sans-serif; font-size:calc(12.5px*var(--fs)); color:rgba(241,239,226,0.65);
     letter-spacing:.02em;
   }
+  /* ---- round 10: growth ---- */
+  .trustbadge.super{ color:#1B2620; background:linear-gradient(135deg,#F0BE5E,#E3A23B); }
+  .trustbadge.super svg{ fill:currentColor; stroke:none; }
+  .hero-img .share-btn{ right:62px; color:var(--ink); }
+  .hero-img .share-btn svg{ width:18px; height:18px; }
+  .gallery-strip{ display:flex; gap:8px; overflow-x:auto; margin:0 -20px; padding:12px 20px 4px; scroll-snap-type:x proximity; }
+  .gallery-strip img{ width:116px; height:116px; object-fit:cover; border-radius:14px; flex-shrink:0; cursor:pointer; scroll-snap-align:start; border:1px solid var(--line); }
+  .hometour video{ width:100%; max-height:260px; border-radius:14px; background:#000; display:block; }
+  .hometour .vmeta{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:8px; font-size:calc(12px*var(--fs)); color:var(--text2); }
+  .btn-sm{ width:auto; padding:8px 14px; font-size:calc(12px*var(--fs)); border-radius:12px; flex-shrink:0; }
+  .twobtn{ display:flex; gap:10px; margin-top:14px; } .twobtn .btn{ flex:1; margin:0; display:flex; align-items:center; justify-content:center; gap:7px; text-decoration:none; }
+  .twobtn .btn svg{ width:16px; height:16px; }
+  .remcard{ display:flex; gap:12px; padding:14px; border:1px solid var(--line); background:var(--paper); border-radius:16px; margin-bottom:10px; position:relative; }
+  .remico{ width:38px; height:38px; border-radius:50%; background:rgba(227,162,59,.18); color:var(--gold-deep); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .remcard.vaccine .remico{ background:rgba(176,58,37,.12); color:var(--stamp); }
+  .remcard.booking .remico, .remcard.calendar .remico{ background:rgba(110,143,114,.18); color:var(--moss-deep); }
+  .remico svg{ width:18px; height:18px; }
+  .rembody{ flex:1; min-width:0; padding-right:24px; }
+  .rembody b{ display:block; font-size:calc(14px*var(--fs)); color:var(--ink); line-height:1.3; }
+  .rembody p{ margin:4px 0 0; font-size:calc(12.5px*var(--fs)); color:var(--text2); line-height:1.45; }
+  .remacts{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .remacts .btn{ margin:0; }
+  .remx{ position:absolute; top:6px; right:6px; width:32px; height:32px; border:none; background:transparent; color:var(--text2); display:flex; align-items:center; justify-content:center; cursor:pointer; border-radius:50%; }
+  .remx svg{ width:16px; height:16px; }
+  .np-lead{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:0 0 12px; color:var(--text2); font-size:calc(12px*var(--fs)); }
+  .strengthcard, .supercard{ border:1px solid var(--line); background:var(--paper); border-radius:16px; padding:14px; margin-bottom:14px; }
+  .st-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-size:calc(14px*var(--fs)); }
+  .st-top span{ font-family:'Fraunces',serif; font-weight:600; color:var(--moss-deep); }
+  .strengthcard .bar-track{ height:8px; margin-bottom:6px; }
+  .checkrow{ display:flex; align-items:center; gap:10px; padding:9px 0; border-top:1px solid var(--line); font-size:calc(13px*var(--fs)); color:var(--ink); }
+  .checkrow span:nth-child(2){ flex:1; }
+  .checkrow .ck{ width:20px; height:20px; border-radius:50%; border:1.5px solid var(--text2); flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff; }
+  .checkrow.ok .ck{ background:var(--moss-deep); border-color:var(--moss-deep); }
+  .checkrow.ok span:nth-child(2){ color:var(--text2); }
+  .supercard.on{ border-color:var(--gold-deep); background:linear-gradient(180deg,rgba(227,162,59,.14),transparent 70%),var(--paper); }
+  .sc-head{ display:flex; gap:10px; align-items:flex-start; margin-bottom:8px; }
+  .sc-head svg{ width:22px; height:22px; color:var(--gold-deep); fill:var(--gold-deep); flex-shrink:0; margin-top:2px; }
+  .sc-head b{ display:block; font-size:calc(15px*var(--fs)); } .sc-head span{ font-size:calc(12px*var(--fs)); color:var(--text2); }
+  .sc-row{ display:flex; align-items:center; gap:8px; padding:7px 0; border-top:1px solid var(--line); font-size:calc(13px*var(--fs)); }
+  .sc-row span:first-child{ flex:1; } .sc-row small{ color:var(--text2); margin-left:4px; }
+  .sc-row i{ font-style:normal; width:20px; text-align:center; font-weight:700; color:var(--text2); }
+  .sc-row.ok i{ color:var(--moss-deep); }
+  .gal-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .gal-tile{ position:relative; aspect-ratio:1; border-radius:12px; overflow:hidden; background:var(--fill); }
+  .gal-tile img{ width:100%; height:100%; object-fit:cover; display:block; cursor:pointer; }
+  .gal-tile .x{ position:absolute; top:4px; right:4px; width:28px; height:28px; border-radius:50%; border:none; background:var(--glass); color:var(--ink); display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .gal-tile .x svg{ width:14px; height:14px; }
+  .gal-tile .cover{ position:absolute; left:6px; bottom:6px; background:var(--glass); color:var(--ink); font-size:calc(10px*var(--fs)); font-weight:600; padding:2px 8px; border-radius:999px; }
+  .gal-add{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; border:1.5px dashed var(--text2); color:var(--text2); background:transparent; font-size:calc(12px*var(--fs)); text-align:center; cursor:pointer; padding:8px; }
+  .gal-add svg{ width:22px; height:22px; }
+  .gal-add.vid-add{ aspect-ratio:auto; height:96px; width:100%; }
+  .promo-row{ display:flex; gap:8px; align-items:stretch; }
+  .promo-row input{ flex:1; min-width:0; text-transform:uppercase; letter-spacing:.06em; }
+  .promoerr{ color:var(--stamp); font-size:calc(12px*var(--fs)); margin:6px 0 0; }
+  .promochip{ display:flex; align-items:center; gap:10px; padding:10px 12px; border:1.5px dashed var(--moss-deep); border-radius:14px; background:rgba(110,143,114,.12); }
+  .promochip.bad{ border-color:var(--stamp); background:rgba(176,58,37,.08); }
+  .promochip > svg{ width:20px; height:20px; color:var(--moss-deep); flex-shrink:0; }
+  .promochip.bad > svg{ color:var(--stamp); }
+  .promochip div{ flex:1; min-width:0; } .promochip b{ display:block; letter-spacing:.06em; font-size:calc(13px*var(--fs)); } .promochip span{ font-size:calc(12px*var(--fs)); color:var(--text2); }
+  .promochip button{ border:none; background:transparent; color:var(--text2); width:32px; height:32px; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .promochip button svg{ width:16px; height:16px; }
+  .pb-row b.neg{ color:var(--moss-deep); }
+  .offer{ display:flex; align-items:center; gap:10px; padding:14px; border:1.5px dashed var(--gold-deep); border-radius:16px; margin-bottom:10px; background:var(--paper); }
+  .offer.first{ border-color:var(--moss-deep); background:rgba(110,143,114,.1); }
+  .offer.off{ border-color:var(--line); border-style:solid; }
+  .offer.off .code{ color:var(--text2); text-decoration:line-through; }
+  .offer .of-l{ flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; }
+  .offer .code{ font-family:'Fraunces',serif; letter-spacing:.08em; font-size:calc(16px*var(--fs)); display:flex; align-items:center; gap:6px; }
+  .offer .code svg{ width:16px; height:16px; }
+  .offer span{ font-size:calc(13px*var(--fs)); color:var(--ink); } .offer small{ font-size:calc(11.5px*var(--fs)); color:var(--text2); }
+  .promobanner{ display:flex; align-items:center; gap:10px; padding:12px 14px; margin:0 0 12px; border-radius:14px; background:linear-gradient(135deg,rgba(227,162,59,.22),rgba(110,143,114,.16)); border:1px solid var(--line); cursor:pointer; }
+  .promobanner > svg:first-child{ width:22px; height:22px; color:var(--gold-deep); flex-shrink:0; }
+  .promobanner div{ flex:1; min-width:0; } .promobanner b{ display:block; font-size:calc(13.5px*var(--fs)); } .promobanner span{ font-size:calc(11.5px*var(--fs)); color:var(--text2); }
+  .sharepreview{ display:flex; gap:12px; align-items:center; padding:12px; border:1px solid var(--line); border-radius:16px; background:var(--paper); margin-bottom:14px; }
+  .sp-img{ width:72px; height:72px; border-radius:14px; background-size:cover; background-position:center; flex-shrink:0; }
+  .sp-body{ display:flex; flex-direction:column; gap:4px; min-width:0; align-items:flex-start; } .sp-body b{ font-size:calc(15px*var(--fs)); } .sp-body > span{ font-size:calc(12px*var(--fs)); color:var(--text2); }
+  .sharelink{ display:flex; gap:8px; align-items:stretch; margin-top:14px; } .sharelink input{ flex:1; min-width:0; font-size:calc(12px*var(--fs)); }
+  .qrbox{ background:#fff; padding:14px; border-radius:16px; width:max-content; margin:14px auto 6px; border:1px solid var(--line); }
+  .qrbox svg{ display:block; width:168px; height:168px; }
+  .trustnote.warn{ border-color:var(--stamp); }
+  .bio, .rembody p, .sp-body b, .hero-caption h2, .card-name{ overflow-wrap:anywhere; }
+  .pb-row b{ white-space:nowrap; }
+
+  /* ---- round 11: money flow ---- */
+  .payopt{ display:flex; align-items:center; gap:12px; padding:12px 14px; border:1.5px solid var(--line); border-radius:14px; margin-bottom:8px; cursor:pointer; background:var(--paper); }
+  .payopt.on{ border-color:var(--moss-deep); background:rgba(110,143,114,.12); }
+  .payopt > div{ flex:1; min-width:0; } .payopt b{ display:block; font-size:calc(14px*var(--fs)); } .payopt small{ display:block; color:var(--text2); font-size:calc(12px*var(--fs)); line-height:1.4; }
+  .po-ico svg{ width:22px; height:22px; color:var(--moss-deep); }
+  .po-dot{ width:20px; height:20px; border-radius:50%; border:2px solid var(--text2); flex-shrink:0; position:relative; }
+  .payopt.on .po-dot{ border-color:var(--moss-deep); } .payopt.on .po-dot::after{ content:''; position:absolute; inset:3px; border-radius:50%; background:var(--moss-deep); }
+  .paycard, .policycard{ border:1px solid var(--line); background:var(--paper); border-radius:16px; padding:14px; margin-bottom:14px; }
+  .pc-top{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:6px; flex-wrap:wrap; }
+  .pc-m{ font-size:calc(12px*var(--fs)); color:var(--text2); }
+  .pc-hint{ margin:0 0 10px; font-size:calc(12.5px*var(--fs)); color:var(--text2); line-height:1.45; }
+  .paychip{ display:inline-block; font-size:calc(11.5px*var(--fs)); font-weight:700; padding:4px 10px; border-radius:999px; }
+  .paychip.ok{ background:rgba(110,143,114,.2); color:var(--moss-deep); } .paychip.wait{ background:rgba(227,162,59,.22); color:var(--gold-deep); } .paychip.done{ background:var(--fill); color:var(--ink); }
+  .psteps{ display:flex; gap:6px; margin:4px 0 12px; }
+  .pstep{ flex:1; display:flex; flex-direction:column; gap:6px; font-size:calc(11px*var(--fs)); color:var(--text2); text-align:center; }
+  .pstep i{ display:block; height:6px; border-radius:3px; background:var(--line); } .pstep.done i{ background:var(--moss-deep); } .pstep.cur i{ background:var(--gold-deep); } .pstep.done span, .pstep.cur span{ color:var(--ink); font-weight:600; }
+  .paycard .pr-row, .rc-row{ display:flex; justify-content:space-between; gap:14px; padding:7px 0; border-top:1px solid var(--line); font-size:calc(13px*var(--fs)); }
+  .paycard .pr-row span, .rc-row span{ min-width:0; overflow-wrap:anywhere; } .paycard .pr-row b, .rc-row b{ white-space:nowrap; }
+  .paycard .pr-row.total, .rc-row.tot{ font-weight:700; }
+  .ibanbox{ background:rgba(110,143,114,.16); border-radius:12px; padding:10px 12px; margin-bottom:10px; display:flex; flex-direction:column; gap:2px; font-size:calc(12px*var(--fs)); color:var(--text2); }
+  .ibanbox b{ color:var(--ink); font-size:calc(13.5px*var(--fs)); letter-spacing:.04em; overflow-wrap:anywhere; } .ibanbox .btn{ margin-top:8px; align-self:flex-start; }
+  .policycard .pc-head{ margin-bottom:8px; } .policycard p{ margin:0 0 8px; font-size:calc(12.5px*var(--fs)); color:var(--text2); }
+  .pc-row{ display:flex; justify-content:space-between; gap:12px; padding:7px 8px; border-top:1px solid var(--line); font-size:calc(12.5px*var(--fs)); border-radius:8px; }
+  .pc-row.now{ background:rgba(227,162,59,.2); font-weight:600; } .pc-row b{ text-align:right; }
+  small.net{ display:block; font-weight:400; color:var(--text2); font-size:calc(11px*var(--fs)); }
+  .receipt{ background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:18px; margin-bottom:14px; }
+  .rc-brand{ display:flex; align-items:center; gap:8px; font-family:'Fraunces',serif; font-weight:600; font-size:calc(17px*var(--fs)); color:var(--moss-deep); } .rc-brand svg{ width:18px; height:18px; }
+  .rc-title{ font-family:'Fraunces',serif; font-size:calc(22px*var(--fs)); margin:4px 0 12px; }
+  .rc-meta{ margin-bottom:12px; } .rc-lines{ border-bottom:1px solid var(--line); } .rc-foot{ font-size:calc(11.5px*var(--fs)); color:var(--text2); line-height:1.5; margin:12px 0 0; }
+  table.stm{ width:100%; border-collapse:collapse; font-size:calc(13px*var(--fs)); } table.stm th{ text-align:left; font-size:calc(11px*var(--fs)); color:var(--text2); padding:6px 0; } table.stm th.r, table.stm td.r{ text-align:right; white-space:nowrap; padding-left:10px; }
+  table.stm td{ padding:8px 0; border-top:1px solid var(--line); vertical-align:top; overflow-wrap:anywhere; } table.stm small{ color:var(--text2); } .stm-sum{ margin-top:10px; }
+  .receiptrow{ display:flex; gap:10px; align-items:center; justify-content:space-between; padding:12px; border:1px solid var(--line); border-radius:14px; background:var(--paper); margin-bottom:10px; }
+  .rr-l{ flex:1; min-width:0; display:flex; flex-direction:column; gap:4px; align-items:flex-start; cursor:pointer; } .rr-l b{ overflow-wrap:anywhere; } .rr-l span:not(.paychip){ font-size:calc(12px*var(--fs)); color:var(--text2); }
+  .rr-r{ display:flex; flex-direction:column; gap:6px; align-items:flex-end; flex-shrink:0; }
+  @media print{
+    body *{ visibility:hidden !important; }
+    #receipt, #receipt *{ visibility:visible !important; color:#111 !important; background:transparent !important; }
+    #receipt{ position:absolute; left:0; top:0; width:100%; border:none; padding:24px; background:#fff !important; }
+    .no-print{ display:none !important; }
+  }
+  .twobtn{ flex-wrap:wrap; } .twobtn .btn{ min-width:140px; }
+
 </style>
 </head>
 <body>
@@ -1123,6 +1248,7 @@
 </div>
 
 <script src="config.js"></script>
+<script src="vendor/qrcode.js"></script>
 <script src="vendor/supabase.js"></script>
 <script src="vendor/leaflet.js" onerror="(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';document.head.appendChild(l);var x=document.createElement('script');x.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';document.head.appendChild(x);})()"></script>
 <script>
@@ -1324,6 +1450,13 @@ const POLICIES = {
       ['Check-in\'den 3 günden az kala','İade yok'],
       ['Bakıcı tarafından iptal','%100 iade + öncelikli yeni bakıcı önerisi'],
     ]},
+    {h:'Politika Seçenekleri'},
+    {table:[
+      ['Esnek','Check-in\'den 2+ gün önce %100 iade; sonrasında check-in\'e kadar %50'],
+      ['Orta','7+ gün %100; 3-7 gün %50; 3 günden az iade yok'],
+      ['Katı','14+ gün %100; 7-14 gün %50; 7 günden az iade yok'],
+    ]},
+    {p:'Her Bakıcı kendi profilinde bu üç politikadan birini seçer. Rezervasyon anında geçerli olan politika uygulanır; yukarıdaki tablo "Orta" politikadır.'},
     {h:'Platform Komisyonu'},
     {p:'Tam iade yapılan durumlarda Platform komisyonu da iade edilir. Kısmi iade durumlarında, komisyon iade edilen tutarla orantılı olarak geri ödenir.'},
     {h:'Erken Sonlandırma'},
@@ -1459,12 +1592,13 @@ let state = {
   selectedId: null,
   filter: 'All',
   bookings: [
-    { id:'demo1', status:'confirmed', petName:'Buddy', hostName:'Elif Kaya', loc:'Kadıköy', checkIn:'Jul 10', checkOut:'Jul 14', checkInISO:'2026-07-10', checkOutISO:'2026-07-14', pets:1, protect:true, code:'PWC-7734', sitterId:'s1',
+    { id:'demo1', seed:true, status:'confirmed', petName:'Buddy', hostName:'Elif Kaya', loc:'Kadıköy', checkIn:'Jul 10', checkOut:'Jul 14', checkInISO:'2026-07-10', checkOutISO:'2026-07-14', pets:1, protect:true, code:'PWC-7734', sitterId:'s1', policy:'flexible', paidISO:'2026-07-02', payment:{ method:'card', status:'held' },
       updates:[
         { photo:'https://images.unsplash.com/photo-1591160690555-5debfba289f0?w=400&q=80', note:'Morning walk done — big appetite today, finished his whole bowl!', when:'Today, 09:14' },
         { photo:'https://images.unsplash.com/photo-1583512603806-077998240c7a?w=400&q=80', note:'Nap time in the sun ☀️ he’s completely settled in.', when:'Yesterday, 16:40' },
       ], review:null },
-    { id:'demo2', status:'completed', petName:'Mia', hostName:'Ayşe Demir', loc:'Üsküdar', checkIn:'Jun 2', checkOut:'Jun 9', checkInISO:'2026-06-02', checkOutISO:'2026-06-09', pets:1, code:'PWC-4471', sitterId:'s3', updates:[], review:null },
+    { id:'demo2', seed:true, status:'completed', petName:'Mia', hostName:'Ayşe Demir', loc:'Üsküdar', checkIn:'Jun 2', checkOut:'Jun 9', checkInISO:'2026-06-02', checkOutISO:'2026-06-09', pets:1, code:'PWC-4471', sitterId:'s3', policy:'flexible', paidISO:'2026-05-28', payment:{ method:'card', status:'released', releasedAt:'Jun 10' }, updates:[], review:null },
+    { id:'demo3', seed:true, status:'confirmed', petName:'Luna', hostName:'Burcu Tan', loc:'Bakırköy', checkIn:'Jul 18', checkOut:'Jul 21', checkInISO:'2026-07-18', checkOutISO:'2026-07-21', pets:1, protect:false, code:'PWC-5520', sitterId:'s5', policy:'moderate', paidISO:'2026-07-10', payment:{ method:'troy', status:'held' }, updates:[], review:null, reports:[], chatKey:'owner-s5' },
   ],
   reviewDraft: null,
   form: { protect:false, pets:1, petIdx:null, shareHealth:true, dates:null, prefill:null, rebook:false },
@@ -1474,6 +1608,13 @@ let state = {
   referral: { code:'PAW-KUZEY7', usedCode:null, invited:[ {name:'Ece K.', status:'joined'}, {name:'Tolga A.', status:'pending'} ] },
   loyaltyPoints: 180,
   redeemedRewards: [],
+  notifPrefs: { vaccine:true, bookingSoon:true, emptyCalendar:true, promos:true, push:false, vaccineLead:14, bookingLead:3, emptyThreshold:8 },
+  dismissedReminders: [], seenReminders: [],
+  promo: { firstUsed:false, used:[] },
+  myProfile: { name:'Kuzey K.', headline:'', bio:'', gallery:[], video:null, published:false },
+  hostStats: { rating:4.8, responseRate:92, responseMinutes:45, stays:8 },
+  shareId: null, shareSrc: 'instagram', shareReturn: 'detail',
+  myPolicy: 'moderate',
   favorites: [],
   myBlockedDates: ['2026-07-20'],
   chats: seedChats(),
@@ -1485,7 +1626,7 @@ let state = {
   payout: null,
   myPets: [
     { name:'Luna', type:'Dog', breed:'Golden Retriever', age:'3', notes:'Loves tennis balls.', photo:'https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80',
-      health:{ vaccines:'up_to_date', vaccineDate:'2026-03-12', allergies:'Chicken', medications:'None', vetName:'Dr. Ayhan Kurt', vetPhone:'0216 555 01 23', feeding:'1 cup dry food at 08:00 and 19:00. No table scraps.' } },
+      health:{ vaccines:'up_to_date', vaccineDate:'2025-07-28', allergies:'Chicken', medications:'None', vetName:'Dr. Ayhan Kurt', vetPhone:'0216 555 01 23', feeding:'1 cup dry food at 08:00 and 19:00. No table scraps.' } },
   ],
   trainerCV: null, // { experience, bio, certifications, animals:[] }
   trainerCV_draft: null, // in-progress edits before saving
@@ -1522,13 +1663,853 @@ function toast(msg, icon){
   setTimeout(()=> t.classList.remove('show'), 2200);
 }
 function unreadNotifCount(){
-  return state.notifications.filter(n=>!n.read).length;
+  return state.notifications.filter(n=>!n.read).length + unseenReminders().length;
+}
+
+/* ============ ROUND 10 — GROWTH (reminders · promos · sitter profile · share link) ============ */
+const L10 = (en, tr) => state.lang==='tr' ? tr : en;
+const pctTxt = n => (state.lang==='tr' ? '%'+n : n+'%');
+function slugify(str){ return norm(str).replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+function addDaysISO(iso, n){ const d = new Date(iso+'T00:00:00'); d.setDate(d.getDate()+n); return isoLocal(d); }
+function daysBetweenISO(a, b){ return Math.round((new Date(b+'T00:00:00') - new Date(a+'T00:00:00')) / 86400000); }
+const PLACEHOLDER_IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#6E8F72"/><g fill="#fff" opacity=".88"><ellipse cx="200" cy="245" rx="70" ry="58"/><ellipse cx="118" cy="165" rx="28" ry="34"/><ellipse cx="170" cy="120" rx="28" ry="34"/><ellipse cx="230" cy="120" rx="28" ry="34"/><ellipse cx="282" cy="165" rx="28" ry="34"/></g></svg>');
+const SHARE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>';
+
+/* ---------- sitter extras: stats + galleries for the seeded sitters ---------- */
+const SITTER_EXTRA = {
+  s1:{ responseRate:98, occupancy:62 }, s2:{ responseRate:78, occupancy:44 }, s3:{ responseRate:99, occupancy:55 }, s4:{ responseRate:91, occupancy:70 },
+  s5:{ responseRate:88, occupancy:38 }, s6:{ responseRate:85, occupancy:35 }, s7:{ responseRate:94, occupancy:48 }, s8:{ responseRate:70, occupancy:30 },
+};
+const GALLERY_POOL = [
+  'photo-1552053831-71594a27632d','photo-1583512603806-077998240c7a','photo-1591160690555-5debfba289f0','photo-1601758228041-f3b2795255f1',
+  'photo-1517841905240-472988babdf9','photo-1533738363-b7f9aef128ce','photo-1583337130417-3346a1be7dee','photo-1571566882372-1598d88abd90',
+].map(id => `https://images.unsplash.com/${id}?w=600&q=80`);
+SITTERS.forEach((s, i) => {
+  const x = SITTER_EXTRA[s.id] || {};
+  s.stats = { responseRate:x.responseRate, occupancy:x.occupancy };
+  const pick = [1,3,5].map(k => GALLERY_POOL[(i+k) % GALLERY_POOL.length]);
+  s.gallery = [s.img.replace('w=400','w=600'), ...pick].filter((u,k,a)=> a.indexOf(u)===k).slice(0,4);
+});
+const REMOTE_SITTERS = {};
+function sitterById(id){ return id==='me' ? mySitterObject() : (SITTERS.find(x=>x.id===id) || REMOTE_SITTERS[id]); }
+
+/* ---------- Super sitter: evaluated automatically from real numbers ---------- */
+const SUPER_RULES = [
+  { key:'rating',          label:'Rating',                  need:4.8, fmt:v=>v.toFixed(1)+'★' },
+  { key:'responseRate',    label:'Response rate',           need:90,  fmt:v=>pctTxt(v) },
+  { key:'responseMinutes', label:'Average response time',   need:60,  fmt:v=>formatResponseTime(v), max:true },
+  { key:'stays',           label:'Completed stays',         need:10,  fmt:v=>String(v) },
+  { key:'occupancy',       label:'Occupancy this month',    need:40,  fmt:v=>pctTxt(v) },
+];
+function superMetrics(s){
+  if(s.id==='me'){
+    const hs = state.hostStats, done = hostedBookings().filter(b=>b.status==='completed').length;
+    return { rating:hs.rating, responseRate:hs.responseRate, responseMinutes:hs.responseMinutes, stays:hs.stays+done, occupancy:earningsSummary().occupancy };
+  }
+  return { rating:s.rating, responseRate:s.stats && s.stats.responseRate, responseMinutes:s.responseMinutes, stays:s.reviews, occupancy:s.stats && s.stats.occupancy };
+}
+function superEval(s){
+  const m = superMetrics(s);
+  const checks = SUPER_RULES.map(r => { const have = m[r.key]; const pass = have!=null && (r.max ? have<=r.need : have>=r.need); return { ...r, have, pass }; });
+  return { ok: checks.every(c=>c.pass), checks, passed: checks.filter(c=>c.pass).length };
+}
+function isSuper(s){ return !!s && superEval(s).ok; }
+function needLabel(r){ return (r.max ? '≤ ' : '≥ ') + r.fmt(r.need); }
+
+/* ---------- own public profile ---------- */
+function mySitterObject(){
+  const p = state.myProfile, m = superMetrics({ id:'me' });
+  return { id:'me', isMe:true, name:p.name || 'You', loc:'Kadıköy, Istanbul', area:'Kadıköy', rating:m.rating, reviews:m.stays, price:'₺'+state.myPricing.base,
+    pets:['Dogs','Cats'], img:p.gallery[0] || PLACEHOLDER_IMG, bio:p.bio || 'Add a short introduction so owners get to know you.', tagline:p.headline || '',
+    verified:state.verification.status==='verified', backgroundCheck:false, instantBook:false, blockedDates:state.myBlockedDates,
+    responseMinutes:m.responseMinutes, lat:40.99, lng:29.03, pricing:{ ...state.myPricing }, policy:state.myPolicy, gallery:p.gallery.slice(), video:p.video,
+    stats:{ responseRate:m.responseRate, occupancy:m.occupancy } };
+}
+function profileChecks(){
+  const p = state.myProfile;
+  return [
+    { label:'Add at least 3 photos of your home', ok:p.gallery.length>=3 },
+    { label:'Write a headline', ok:p.headline.trim().length>=10 },
+    { label:'Introduce yourself (80+ characters)', ok:p.bio.trim().length>=80 },
+    { label:'Add a home video tour', ok:!!p.video },
+    { label:'Verify your ID', ok:state.verification.status==='verified', action:'nav2-verify' },
+    { label:'Keep your calendar up to date', ok:state.myBlockedDates.length>0, action:'nav2-availability' },
+  ];
+}
+function fileToImage(file, max){
+  return new Promise((res, rej) => {
+    const fr = new FileReader();
+    fr.onload = () => { const img = new Image(); img.onload = () => {
+      const sc = Math.min(1, (max||1000)/Math.max(img.width, img.height)), c = document.createElement('canvas');
+      c.width = Math.round(img.width*sc); c.height = Math.round(img.height*sc); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      res(c.toDataURL('image/jpeg', 0.82)); }; img.onerror = rej; img.src = fr.result; };
+    fr.onerror = rej; fr.readAsDataURL(file);
+  });
+}
+function screenHostProfile(){
+  const p = state.myProfile, checks = profileChecks(), pct = Math.round(checks.filter(c=>c.ok).length/checks.length*100);
+  const ev = superEval({ id:'me' });
+  const sw = (on, act, label) => `<button class="switch" role="switch" aria-checked="${on}" aria-label="${label}" data-action="${act}"></button>`;
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">My public profile</h2>
+    <p class="subtitle">This is what owners see when they find you. A complete profile with photos gets noticeably more requests.</p>
+
+    <div class="strengthcard">
+      <div class="st-top"><b>Profile strength</b><span>${pctTxt(pct)}</span></div>
+      <div class="bar-track"><div style="width:${pct}%"></div></div>
+      ${checks.map(c=>`<div class="checkrow ${c.ok?'ok':''}" ${c.action && !c.ok ? `data-action="${c.action}" style="cursor:pointer"` : ''}><span class="ck">${c.ok ? ICON.check.replace('26','12').replace('26','12') : ''}</span><span>${c.label}</span>${c.action && !c.ok ? ICON.chevron : ''}</div>`).join('')}
+    </div>
+
+    <div class="supercard ${ev.ok?'on':''}">
+      <div class="sc-head">${ICON.star}<div><b>${ev.ok ? 'You are a Super sitter' : 'Super sitter'}</b><span>${ev.ok ? 'The badge shows on your profile and cards. It is re-checked automatically.' : `${ev.passed} of ${ev.checks.length} requirements met — the badge is awarded automatically.`}</span></div></div>
+      ${ev.checks.map(c=>`<div class="sc-row ${c.pass?'ok':''}"><span>${c.label}</span><span>${c.have!=null ? c.fmt(c.have) : '—'} <small>${needLabel(c)}</small></span><i aria-label="${c.pass?'Met':'Not met'}">${c.pass ? '✓' : '·'}</i></div>`).join('')}
+    </div>
+
+    <div class="section-label">About you</div>
+    <div class="field"><label>Display name</label><input id="hp-name" value="${escAttr(p.name)}" maxlength="40" placeholder="e.g. Elif K."/></div>
+    <div class="field"><label>Headline</label><input id="hp-headline" value="${escAttr(p.headline)}" maxlength="70" placeholder="e.g. Big yard, calm house, two resident cats"/></div>
+    <div class="field"><label>Introduce yourself</label><textarea id="hp-bio" maxlength="600" placeholder="Your home, your routine, your experience with animals…">${escAttr(p.bio)}</textarea></div>
+    <button class="btn btn-ghost" data-action="hp-save">Save details</button>
+
+    <div class="section-label">Photos <span style="font-weight:400;color:var(--ink-soft)">· ${p.gallery.length}/8</span></div>
+    <div class="gal-grid">
+      ${p.gallery.map((u,i)=>`<div class="gal-tile"><img src="${u}" alt="Home photo ${i+1}" data-action="hp-photo-view-${i}"/><button class="x" aria-label="Remove photo ${i+1}" data-action="hp-photo-del-${i}">${ICON.close}</button>${i===0 ? '<span class="cover">Cover</span>' : ''}</div>`).join('')}
+      ${p.gallery.length<8 ? `<label class="gal-tile gal-add">${ICON.camera}<span>Add photos</span><input id="hp-photo-input" type="file" accept="image/*" multiple hidden/></label>` : ''}
+    </div>
+    <p class="fieldhint">The first photo is your cover. Show the space your guest will actually use — yard, sleeping spot, walking routes.</p>
+
+    <div class="section-label">Home video tour</div>
+    ${p.video ? `
+      <div class="hometour"><video controls playsinline preload="metadata" src="${p.video.url}"></video>
+      <div class="vmeta"><span>${escAttr(p.video.name)} · ${(p.video.size/1048576).toFixed(1)} MB</span><button class="btn btn-ghost btn-sm" data-action="hp-video-del">Remove</button></div></div>`
+    : `<label class="gal-tile gal-add vid-add">${ICON.camera}<span>Add a short video (up to 30 MB)</span><input id="hp-video-input" type="file" accept="video/*" hidden/></label>`}
+    <p class="fieldhint">30–60 seconds is plenty. Owners trust a sitter more when they can see the home.</p>
+
+    <div class="section-label">Visibility</div>
+    <div class="setrow"><div><b>Public profile</b><small>${p.published ? 'Owners can find you and open your link.' : 'Hidden. Publish when your name, headline and a photo are ready.'}</small></div>${sw(p.published,'hp-publish','Public profile')}</div>
+    <div class="twobtn">
+      <button class="btn btn-ghost" data-action="hp-preview">Preview profile</button>
+      <button class="btn btn-primary" data-action="share-sitter-me">${SHARE_ICON} Share link</button>
+    </div>
+  </div>`;
+}
+
+function galleryHTML(s){
+  const g = s.gallery || [];
+  return (g.length ? `<div class="gallery-strip" role="list" aria-label="Photos">${g.map((u,i)=>`<img role="listitem" src="${u}" alt="${escAttr(s.name)} — photo ${i+1}" loading="lazy" data-action="view-photo-${i}"/>`).join('')}</div>` : '')
+    + (s.video ? `<div class="hometour"><div class="section-label" style="margin-top:14px">Home tour</div><video controls playsinline preload="metadata" src="${s.video.url}"></video></div>` : '');
+}
+
+/* ---------- share link ---------- */
+function shareBase(){ return location.href.split('#')[0].split('?')[0]; }
+function shareSlug(s){ return slugify(s.name) || s.id; }
+function shareURL(s, src){
+  const q = new URLSearchParams({ sitter: shareSlug(s) });
+  if(src) q.set('utm_source', src);
+  return shareBase() + '?' + q.toString();
+}
+function qrSVG(text, cell){
+  if(typeof qrcode!=='function') return '';
+  const q = qrcode(0, 'M'); q.addData(text); q.make();
+  return q.createSvgTag({ cellSize:cell||4, margin:0, scalable:true });
+}
+function screenShareProfile(){
+  const s = sitterById(state.shareId); if(!s) return '<div class="fade-in narrow"><p>Profile not found.</p></div>';
+  const src = state.shareSrc || 'instagram', url = shareURL(s, src);
+  const first = s.name.split(' ')[0];
+  const own = s.isMe, ready = !own || state.myProfile.published;
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">Share ${own ? 'your profile' : first+'’s profile'}</h2>
+    <p class="subtitle">${own ? 'Put this link in your Instagram bio, a story or a WhatsApp message — owners land straight on your profile.' : 'Send this profile to a friend, or post it to your story.'}</p>
+    <div class="sharepreview">
+      <div class="sp-img" style="background-image:url('${s.img}')"></div>
+      <div class="sp-body"><b>${s.name}</b>${isSuper(s) ? `<span class="trustbadge super">${ICON.star}Super sitter</span>` : ''}<span>${s.loc}</span><span>${s.rating}★ · ${s.price} / night</span></div>
+    </div>
+    ${!ready ? `<div class="trustnote warn">${ICON.alert}<span>Your profile is hidden, so this link won’t open for anyone yet. <a data-action="hp-publish-go">Publish it</a> first.</span></div>` : ''}
+    <div class="section-label">Where are you sharing?</div>
+    <div class="chiprow wrap">
+      ${[['instagram','Instagram'],['whatsapp','WhatsApp'],['link','Other']].map(([k,l])=>`<div class="chip ${src===k?'active':''}" data-action="share-src-${k}">${l}</div>`).join('')}
+    </div>
+    <div class="sharelink"><input id="share-link" readonly value="${escAttr(url)}" aria-label="Profile link"/><button class="btn btn-primary btn-sm" data-action="share-copy">Copy</button></div>
+    <p class="fieldhint">The tag after <code>utm_source</code> tells you which channel the visit came from.</p>
+    <div class="qrbox" role="img" aria-label="QR code for the profile link">${qrSVG(url, 4)}</div>
+    <p class="fieldhint" style="text-align:center">Print it for your door or your business card.</p>
+    <div class="twobtn" style="margin-top:14px">
+      <button class="btn btn-primary" data-action="share-story">Story card</button>
+      ${navigator.share ? `<button class="btn btn-ghost" data-action="share-native">${SHARE_ICON} Share…</button>` : `<a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(url)}">WhatsApp</a>`}
+    </div>
+    <p class="fieldhint">The story card is a 1080×1920 image sized for Instagram Stories — it includes a QR code to the profile.</p>
+    ${own && !backendActive() ? `<div class="trustnote">${ICON.shield}<span>Demo mode keeps your profile on this device, so your link only opens here. Connect the backend to publish it for everyone.</span></div>` : ''}
+  </div>`;
+}
+function loadImg(src){
+  return new Promise((res, rej) => { const i = new Image(); if(/^https?:/.test(src)) i.crossOrigin = 'anonymous';
+    i.onload = () => res(i); i.onerror = rej; i.src = src; setTimeout(() => rej(new Error('timeout')), 6000); });
+}
+async function buildStoryCard(s, url, withPhoto){
+  const W = 1080, H = 1920, c = document.createElement('canvas'); c.width = W; c.height = H;
+  const g = c.getContext('2d'), serif = 'Fraunces, Georgia, serif', sans = 'Inter, system-ui, -apple-system, Segoe UI, sans-serif';
+  const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#26352C'); gr.addColorStop(1, '#141E18'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+  g.fillStyle = '#E3A23B'; g.font = `700 54px ${serif}`; g.textBaseline = 'alphabetic'; g.fillText('Pawcation', 90, 150);
+  const rr = (x, y, w, h, r) => { g.beginPath(); g.moveTo(x+r, y); g.arcTo(x+w, y, x+w, y+h, r); g.arcTo(x+w, y+h, x, y+h, r); g.arcTo(x, y+h, x, y, r); g.arcTo(x, y, x+w, y, r); g.closePath(); };
+  const px = 90, py = 220, pw = 900, ph = 900;
+  g.save(); rr(px, py, pw, ph, 48); g.clip();
+  let img = null; if(withPhoto){ try{ img = await loadImg(s.img); }catch(e){} }
+  if(img){ const sc = Math.max(pw/img.width, ph/img.height), dw = img.width*sc, dh = img.height*sc; g.drawImage(img, px+(pw-dw)/2, py+(ph-dh)/2, dw, dh); }
+  else { g.fillStyle = '#6E8F72'; g.fillRect(px, py, pw, ph); g.fillStyle = 'rgba(255,255,255,.9)'; g.font = `700 340px ${serif}`; g.textAlign = 'center'; g.fillText((s.name||'?').trim()[0].toUpperCase(), px+pw/2, py+ph/2+120); g.textAlign = 'left'; }
+  g.restore();
+  let y = py + ph + 110;
+  g.fillStyle = '#FFFFFF'; g.font = `700 84px ${serif}`; g.fillText(s.name, 90, y);
+  y += 62; g.fillStyle = 'rgba(255,255,255,.72)'; g.font = `400 40px ${sans}`;
+  g.fillText(`${s.loc}  ·  ${s.rating}★  ·  ${s.price} / ${L10('night','gece')}`, 90, y);
+  if(isSuper(s)){ y += 40; const label = '★ ' + L10('Super sitter','Süper bakıcı'); g.font = `700 34px ${sans}`; const tw = g.measureText(label).width;
+    g.fillStyle = '#E3A23B'; rr(90, y, tw+56, 64, 32); g.fill(); g.fillStyle = '#1B2620'; g.fillText(label, 118, y+44); y += 64; }
+  const qy = 1480, qs = 300;
+  g.fillStyle = '#fff'; rr(90, qy, qs, qs, 28); g.fill();
+  if(typeof qrcode==='function'){ const q = qrcode(0, 'M'); q.addData(url); q.make(); const n = q.getModuleCount(), cs = (qs-48)/n; g.fillStyle = '#111';
+    for(let r=0;r<n;r++) for(let k=0;k<n;k++) if(q.isDark(r,k)) g.fillRect(114+k*cs, qy+24+r*cs, Math.ceil(cs), Math.ceil(cs)); }
+  g.fillStyle = '#fff'; g.font = `700 54px ${serif}`; g.fillText(L10('Book a stay with', 'Konaklama için'), 440, qy+90);
+  g.fillText(L10(s.name.split(' ')[0]+' on Pawcation', s.name.split(' ')[0]+' · Pawcation'), 440, qy+160);
+  g.fillStyle = 'rgba(255,255,255,.65)'; g.font = `400 32px ${sans}`;
+  const short = url.replace(/^https?:\/\//,'').replace(/&utm_source=.*/,''); g.fillText(short.length>34 ? short.slice(0,33)+'…' : short, 440, qy+240);
+  return c;
+}
+function canvasBlob(c){ return new Promise((res, rej) => { try{ c.toBlob(b => b ? res(b) : rej(new Error('blob')), 'image/png'); }catch(e){ rej(e); } }); }
+async function downloadStoryCard(s){
+  const url = shareURL(s, state.shareSrc || 'instagram');
+  let blob; try{ blob = await canvasBlob(await buildStoryCard(s, url, true)); }catch(e){ blob = await canvasBlob(await buildStoryCard(s, url, false)); }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `pawcation-${shareSlug(s)}-story.png`;
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  toast('Story card saved');
+}
+function copyText(text){
+  const done = () => toast('Copied');
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done, () => fallbackCopy(text, done)); }
+  else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done){
+  const ta = document.createElement('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;top:0'; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); done(); }catch(e){ toast('Press and hold to copy'); } ta.remove();
+}
+/* ---------- deep link: index.html?sitter=<slug>&utm_source=… ---------- */
+let PENDING_LINK = null;
+function readDeepLink(){ try{ const p = new URLSearchParams(location.search), v = p.get('sitter'); if(v) return { slug:v, src:p.get('utm_source')||'' }; }catch(e){} return null; }
+function resolveSitterSlug(slug){
+  slug = norm(slug).trim();
+  const mine = state.myProfile.published && (slug==='me' || slugify(state.myProfile.name)===slug);
+  if(mine) return mySitterObject();
+  return SITTERS.find(s => s.id===slug || slugify(s.name)===slug) || Object.values(REMOTE_SITTERS).find(s => shareSlug(s)===slug) || null;
+}
+async function fetchRemoteSitter(slug){
+  if(!BE.sb) return null;
+  try{
+    const r = await BE.sb.from('sitters').select('*').eq('active', true).eq('data->>slug', slug);
+    const row = r && r.data && r.data[0]; if(!row) return null;
+    const d = row.data || {};
+    const s = { id:row.id, name:d.name||'Sitter', loc:(row.area||'Istanbul')+', Istanbul', area:row.area, rating:Number(row.rating)||5, reviews:d.stays||0, price:'₺'+(row.price||0),
+      pets:d.pets||['Dogs','Cats'], img:(d.gallery&&d.gallery[0])||PLACEHOLDER_IMG, bio:d.bio||'', tagline:d.headline||'', verified:!!d.verified, backgroundCheck:false, instantBook:!!row.instant_book,
+      blockedDates:d.blockedDates||[], responseMinutes:d.responseMinutes||60, lat:row.lat, lng:row.lng, pricing:d.pricing||{weekend:0,holiday:0,multiPet:0,cleaning:0},
+      policy:d.policy||'moderate', gallery:d.gallery||[], video:d.video?{url:d.video,name:'Home tour',size:0}:null, stats:d.stats||{} };
+    REMOTE_SITTERS[s.id] = s; return s;
+  }catch(e){ return null; }
+}
+async function applyDeepLink(link){
+  let s = resolveSitterSlug(link.slug);
+  if(!s) s = await fetchRemoteSitter(norm(link.slug).trim());
+  if(!s){ setTimeout(() => toast('That profile link isn’t available'), 400); return false; }
+  state.onboarded = true; state.mode = 'owner'; state.selectedId = s.id; state.deepLink = true; state.screen = 'detail'; return true;
+}
+async function backendPublishProfile(){
+  if(!BE.sb || !BE.user || !BE.ready) return;
+  const sb = BE.sb, uid = BE.user.id, p = state.myProfile;
+  for(let i=0;i<p.gallery.length;i++){
+    const u = p.gallery[i]; if(!u.startsWith('data:')) continue;
+    const f = bePhotoToBlob(u); if(!f) continue;
+    const path = `${uid}/gallery-${i}-${Date.now()}.jpg`;
+    const up = await sb.storage.from('sitter-media').upload(path, f.blob, { contentType:f.type, upsert:true });
+    if(up.error) throw up.error;
+    p.gallery[i] = sb.storage.from('sitter-media').getPublicUrl(path).data.publicUrl;
+  }
+  if(p.video && p.video.file){
+    const path = `${uid}/home-tour-${Date.now()}.${(p.video.file.type.split('/')[1]||'mp4').replace('quicktime','mov')}`;
+    const up = await sb.storage.from('sitter-media').upload(path, p.video.file, { contentType:p.video.file.type, upsert:true });
+    if(up.error) throw up.error;
+    p.video = { url:sb.storage.from('sitter-media').getPublicUrl(path).data.publicUrl, name:p.video.name, size:p.video.size };
+  }
+  const m = superMetrics({ id:'me' });
+  const row = { id:'u-'+uid.slice(0,8), owner_id:uid, area:'Kadıköy', price:state.myPricing.base, rating:m.rating, lat:40.99, lng:29.03, instant_book:false, active:!!p.published,
+    data:{ slug:slugify(p.name), name:p.name, headline:p.headline, bio:p.bio, gallery:p.gallery.filter(u=>!u.startsWith('data:')), video:p.video && p.video.url && !p.video.url.startsWith('blob:') ? p.video.url : null,
+      verified:state.verification.status==='verified', pricing:state.myPricing, blockedDates:state.myBlockedDates, responseMinutes:m.responseMinutes, stays:m.stays, stats:{ responseRate:m.responseRate, occupancy:m.occupancy }, pets:['Dogs','Cats'], policy:state.myPolicy, superSitter:superEval({id:'me'}).ok } };
+  const r = await sb.from('sitters').upsert(row);
+  if(r && r.error) throw r.error;
+}
+
+/* ---------- promo codes & first-booking discount ---------- */
+const FIRST_OFFER = { value:15, cap:300 };
+const PROMOS = {
+  PAWS100:{ type:'fixed', value:100, min:600, exp:'2026-07-26', title:'₺100 off stays over ₺600' },
+  PAWS10:{  type:'pct',   value:10,  cap:200, exp:'2026-12-31', title:'10% off any stay (up to ₺200)' },
+  YAZ10:{   type:'pct',   value:10,  cap:200, exp:'2026-06-30', title:'Summer launch — 10% off' },
+};
+function promoEligibleFirst(){
+  return !state.promo.firstUsed && !state.bookings.some(b => !b.seed && b.hostName!=='You' && !b.trainerBooking && b.status!=='cancelled');
+}
+function promoSubtotal(q){ return q.lines.filter(l => l.label!=='Pawcation Protect' && !l.promo).reduce((a,l)=>a+l.amount, 0); }
+function evalCode(raw, q, protect){
+  const code = String(raw||'').trim().toUpperCase(); if(!code) return null;
+  const sub = promoSubtotal(q);
+  const rw = state.redeemedRewards.find(r => String(r.code).toUpperCase()===code);
+  if(rw){
+    if(rw.used) return { error:'This reward code was already used.' };
+    if(rw.rewardId==='r2'){ if(!protect) return { error:'Add Pawcation Protect to use this reward.' }; return { code, kind:'reward', discount:99, label:'Reward · Free Protect' }; }
+    return { code, kind:'reward', discount:Math.min(50, sub), label:'Reward · ₺50 off' };
+  }
+  const p = PROMOS[code];
+  if(!p) return { error:'That code isn’t valid.' };
+  if(p.exp < DEMO_TODAY) return { error:'This code has expired.' };
+  if(state.promo.used.includes(code)) return { error:'You’ve already used this code.' };
+  if(p.min && sub < p.min) return { error:`This code needs a stay of at least ₺${p.min}.` };
+  const d = p.type==='pct' ? Math.min(p.cap||1e9, Math.round(sub*p.value/100)) : Math.min(p.value, sub);
+  return { code, kind:'code', discount:d, label:code };
+}
+function resolvePromo(q, protect){
+  const entered = state.form.promoCode ? evalCode(state.form.promoCode, q, protect) : null;
+  const first = promoEligibleFirst() ? { code:'first', kind:'first', discount:Math.min(FIRST_OFFER.cap, Math.round(promoSubtotal(q)*FIRST_OFFER.value/100)), label:'First booking −15%' } : null;
+  let best = null;
+  if(first && first.discount>0) best = first;
+  if(entered && entered.discount>0 && (!best || entered.discount>best.discount)) best = entered;
+  return { best, entered, first };
+}
+function quoteWithPromo(s, inISO, outISO, pets, protect){
+  const q = priceQuote(s, inISO, outISO, pets, protect), r = resolvePromo(q, protect);
+  if(r.best){ q.lines.push({ label:(r.best.kind==='reward' ? '' : 'Promo · ')+r.best.label, amount:-r.best.discount, promo:true }); q.total -= r.best.discount; q.promo = r.best; }
+  q.promoInfo = r; return q;
+}
+function promoBlockHTML(q, keepVal){
+  const F = state.form, r = q.promoInfo || {};
+  const entered = r.entered, applied = r.best && entered && r.best.code===entered.code;
+  const open = Object.entries(PROMOS).filter(([c,p]) => p.exp>=DEMO_TODAY && !state.promo.used.includes(c) && c!==F.promoCode).map(([c])=>c);
+  const rewards = state.redeemedRewards.filter(x=>!x.used && x.code!==F.promoCode).map(x=>x.code);
+  let h = '<div class="section-label">Promo code</div>';
+  if(F.promoCode){
+    const note = entered && entered.error ? entered.error : applied ? `−₺${entered.discount.toLocaleString('tr-TR')} applied` : 'Your first-booking offer is bigger — only one discount per booking.';
+    h += `<div class="promochip ${entered && entered.error ? 'bad' : ''}">${ICON.gift}<div><b>${escAttr(F.promoCode)}</b><span>${note}</span></div><button aria-label="Remove promo code" data-action="remove-promo">${ICON.close}</button></div>`;
+  } else {
+    h += `<div class="promo-row"><input id="f-promo" placeholder="Enter a code" autocapitalize="characters" autocomplete="off" aria-label="Promo code" value="${escAttr(keepVal||'')}"/><button class="btn btn-ghost btn-sm" data-action="apply-promo">Apply</button></div>`;
+    if(F.promoErr) h += `<p class="promoerr" role="alert">${F.promoErr}</p>`;
+    const sug = open.concat(rewards).slice(0,3);
+    if(sug.length) h += `<div class="chiprow wrap" style="margin-top:8px">${sug.map(c=>`<div class="chip" data-action="use-promo-${c}">${c}</div>`).join('')}</div>`;
+  }
+  if(r.first && r.best && r.best.kind==='first') h += `<div class="trustnote" style="margin-top:10px">${ICON.gift}<span>First-booking offer applied automatically — 15% off, up to ₺300.</span></div>`;
+  return h;
+}
+function screenOffers(){
+  const first = promoEligibleFirst();
+  const live = Object.entries(PROMOS).filter(([c,p]) => p.exp>=DEMO_TODAY && !state.promo.used.includes(c));
+  const done = Object.entries(PROMOS).filter(([c,p]) => p.exp<DEMO_TODAY || state.promo.used.includes(c));
+  const rewards = state.redeemedRewards.filter(x=>!x.used), usedRw = state.redeemedRewards.filter(x=>x.used);
+  const card = (code, title, sub, copy) => `<div class="offer"><div class="of-l"><b class="code">${code}</b><span>${title}</span><small>${sub}</small></div>${copy ? `<button class="btn btn-ghost btn-sm" data-action="copy-code-${code}">Copy</button>` : ''}</div>`;
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">Offers &amp; promo codes</h2>
+    <p class="subtitle">Enter a code when you request a stay. One offer applies per booking — the biggest saving wins.</p>
+    <div class="section-label">Available</div>
+    ${first ? `<div class="offer first"><div class="of-l"><b class="code">${ICON.gift} First booking</b><span>15% off your first stay</span><small>Applied automatically · up to ₺300 off</small></div></div>` : ''}
+    ${live.map(([c,p]) => card(c, p.title, 'Expires '+fmtLong(p.exp), true)).join('')}
+    ${rewards.map(r => card(r.code, r.title, 'From your Pawcation Points', true)).join('')}
+    ${(!first && !live.length && !rewards.length) ? '<p class="fieldhint">No offers right now. Earn points by booking and inviting friends.</p>' : ''}
+    ${(done.length || usedRw.length) ? `<div class="section-label">Used &amp; expired</div>
+      ${done.map(([c,p]) => `<div class="offer off"><div class="of-l"><b class="code">${c}</b><span>${p.title}</span><small>${state.promo.used.includes(c) ? 'Used' : 'Expired'}</small></div></div>`).join('')}
+      ${usedRw.map(r => `<div class="offer off"><div class="of-l"><b class="code">${r.code}</b><span>${r.title}</span><small>Used</small></div></div>`).join('')}` : ''}
+    <button class="btn btn-ghost" style="margin-top:14px" data-action="nav2-rewards">${ICON.gift} Earn more with Pawcation Points</button>
+  </div>`;
+}
+function promoBannerHTML(){
+  if(state.mode!=='owner' || !promoEligibleFirst()) return '';
+  return `<div class="promobanner" data-action="nav2-offers" role="button" tabindex="0">${ICON.gift}<div><b>Your first booking is 15% off</b><span>Applied automatically at checkout · up to ₺300</span></div>${ICON.chevron}</div>`;
+}
+
+/* ---------- reminders & notification preferences ---------- */
+function computeReminders(){
+  const P = state.notifPrefs, out = [], today = DEMO_TODAY, sitterSide = state.mode==='sitter';
+  const pl = (n, w) => `${n} ${w}${n===1?'':'s'}`;
+  if(!sitterSide){
+    if(P.vaccine) state.myPets.forEach((p, i) => {
+      const d = p.health && p.health.vaccineDate; if(!d) return;
+      const due = addDaysISO(d, 365), left = daysBetweenISO(today, due);
+      if(left <= P.vaccineLead) out.push({ id:`vacc-${i}-${due}`, kind:'vaccine', icon:ICON.shield,
+        title: left<0 ? `${p.name}'s vaccines are overdue` : left===0 ? `${p.name}'s vaccines are due today` : `${p.name}'s vaccines are due in ${pl(left,'day')}`,
+        body:`Last vaccinated ${fmtLong(d)}. Book a vet visit and update ${p.name}'s health card.`, actions:[{ act:`open-pet-${i}`, label:'Open health card' }] });
+    });
+    if(P.bookingSoon) state.bookings.filter(b => b.status==='confirmed' && b.hostName!=='You' && !b.trainerBooking && b.checkInISO).forEach(b => {
+      const left = daysBetweenISO(today, b.checkInISO);
+      if(left>=0 && left<=P.bookingLead) out.push({ id:`soon-${b.id}`, kind:'booking', icon:ICON.calendar,
+        title:`Your stay with ${b.hostName.split(' ')[0]} starts ${left===0 ? 'today' : left===1 ? 'tomorrow' : 'in '+left+' days'}`,
+        body:`Pack ${b.petName}'s food, medication and a favourite toy. Check-in details are in your booking.`, actions:[{ act:`open-booking-${b.id}`, label:'View booking' }] });
+    });
+    if(P.promos){
+      if(promoEligibleFirst()) out.push({ id:'first-offer', kind:'promo', icon:ICON.gift, title:'Your first booking is 15% off', body:'Applied automatically at checkout — up to ₺300 off.', actions:[{ act:'nav2-offers', label:'See offers' }] });
+      Object.entries(PROMOS).forEach(([c,p]) => { const left = daysBetweenISO(today, p.exp);
+        if(left>=0 && left<=14 && !state.promo.used.includes(c)) out.push({ id:`promo-${c}`, kind:'promo', icon:ICON.gift, title:`${c} expires in ${pl(left,'day')}`, body:`${p.title}. Use it before it’s gone.`, actions:[{ act:'nav2-offers', label:'See offers' }] }); });
+    }
+  } else if(P.emptyCalendar){
+    const booked = earningsSummary().booked; let free = 0;
+    for(let i=0;i<14;i++){ const iso = addDaysISO(today, i), day = +iso.slice(8), july = iso.slice(0,7)==='2026-07';
+      if(!((july && booked.has(day)) || state.myBlockedDates.includes(iso))) free++; }
+    if(free >= P.emptyThreshold) out.push({ id:`empty-cal-${free}`, kind:'calendar', icon:ICON.calendar, title:`Your calendar is open on ${free} of the next 14 days`,
+      body:'Sitters with a lively profile get more requests. Share your link or update your availability.', actions:[{ act:'share-sitter-me', label:'Share my profile' }, { act:'nav2-availability', label:'Open calendar', ghost:true }] });
+  }
+  return out.filter(r => !state.dismissedReminders.includes(r.id));
+}
+function unseenReminders(){ return computeReminders().filter(r => !state.seenReminders.includes(r.id)); }
+function reminderCardHTML(r){
+  return `<div class="remcard ${r.kind}"><div class="remico">${r.icon}</div><div class="rembody"><b>${r.title}</b><p>${r.body}</p>
+    <div class="remacts">${r.actions.map(a=>`<button class="btn ${a.ghost?'btn-ghost':'btn-primary'} btn-sm" data-action="${a.act}">${a.label}</button>`).join('')}</div></div>
+    <button class="remx" aria-label="Dismiss reminder" data-action="dismiss-rem-${r.id}">${ICON.close}</button></div>`;
+}
+function screenNotifSettings(){
+  const P = state.notifPrefs;
+  const sw = (on, act, label) => `<button class="switch" role="switch" aria-checked="${on}" aria-label="${label}" data-action="${act}"></button>`;
+  const seg = (items, cur, act) => `<div class="seg" role="group">${items.map(([v,l])=>`<button data-action="${act}-${v}" aria-pressed="${String(cur)===String(v)}">${l}</button>`).join('')}</div>`;
+  const perm = typeof Notification==='undefined' ? 'unsupported' : Notification.permission;
+  const permTxt = { unsupported:'This browser doesn’t support device notifications.', default:'Not enabled yet.', granted:'Enabled on this device.', denied:'Blocked — turn them on in your browser’s site settings.' }[perm];
+  const n = computeReminders().length;
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">Notification settings</h2>
+    <p class="subtitle">Choose which reminders you want. They appear in your notifications${P.push ? ' and as device alerts' : ''}.</p>
+    <div class="section-label">For pet owners</div>
+    <div class="setrow"><div><b>Vaccine reminders</b><small>When a pet’s yearly vaccine is coming up.</small></div>${sw(P.vaccine,'np-toggle-vaccine','Vaccine reminders')}</div>
+    ${P.vaccine ? `<div class="np-lead"><small>Remind me</small>${seg([[7,'7 days'],[14,'14 days'],[30,'30 days']], P.vaccineLead, 'np-vlead')}<small>before</small></div>` : ''}
+    <div class="setrow"><div><b>Before a booking</b><small>A heads-up before a confirmed stay begins.</small></div>${sw(P.bookingSoon,'np-toggle-bookingSoon','Before a booking')}</div>
+    ${P.bookingSoon ? `<div class="np-lead"><small>Remind me</small>${seg([[1,'1 day'],[3,'3 days'],[7,'7 days']], P.bookingLead, 'np-blead')}<small>before</small></div>` : ''}
+    <div class="setrow"><div><b>Offers &amp; expiring codes</b><small>Your first-booking discount and promo codes about to expire.</small></div>${sw(P.promos,'np-toggle-promos','Offers and expiring codes')}</div>
+    <div class="section-label">For sitters</div>
+    <div class="setrow"><div><b>Empty calendar alert</b><small>When most of your next two weeks are still open.</small></div>${sw(P.emptyCalendar,'np-toggle-emptyCalendar','Empty calendar alert')}</div>
+    <div class="section-label">On this device</div>
+    <div class="setrow"><div><b>Device notifications</b><small>${permTxt}</small></div>${perm==='granted' ? sw(P.push,'np-toggle-push','Device notifications') : perm==='unsupported' || perm==='denied' ? '' : `<button class="btn btn-primary btn-sm" data-action="np-enable">Allow</button>`}</div>
+    ${perm==='granted' ? `<button class="btn btn-ghost" data-action="np-test">Send a test notification</button>` : ''}
+    <p class="fieldhint">Reminders reach this device while Pawcation is open or installed. Alerts while the app is fully closed need a push server — not part of this demo.</p>
+    <button class="btn btn-ghost" style="margin-top:6px" data-action="tap-bell">See my ${n} reminder${n===1?'':'s'}</button>
+  </div>`;
+}
+async function systemNotify(title, body){
+  try{
+    if(typeof Notification==='undefined' || Notification.permission!=='granted') return false;
+    const reg = navigator.serviceWorker && navigator.serviceWorker.getRegistration ? await navigator.serviceWorker.getRegistration() : null;
+    if(reg && reg.showNotification) await reg.showNotification(title, { body, icon:'icons/icon-192.png', badge:'icons/icon-192.png', tag:'pawcation-'+title.slice(0,20) });
+    else new Notification(title, { body, icon:'icons/icon-192.png' });
+    return true;
+  }catch(e){ return false; }
+}
+function maybeSystemNotify(){
+  try{
+    if(!state.notifPrefs.push || typeof Notification==='undefined' || Notification.permission!=='granted' || sessionStorage.getItem('pawcation.notified')) return;
+    sessionStorage.setItem('pawcation.notified', '1');
+    unseenReminders().slice(0,3).forEach(r => systemNotify(r.title, r.body));
+  }catch(e){}
+}
+function saveGrowthState(){
+  try{ localStorage.setItem('pawcation.growth', JSON.stringify({ notifPrefs:state.notifPrefs, dismissedReminders:state.dismissedReminders, seenReminders:state.seenReminders, promo:state.promo, myPolicy:state.myPolicy, myProfile:{ ...state.myProfile, video:null } })); }catch(e){}
+  if(typeof backendSyncSoon==='function') backendSyncSoon();
+}
+function loadGrowthState(){
+  try{ const d = JSON.parse(localStorage.getItem('pawcation.growth')||'null'); if(!d) return;
+    if(d.notifPrefs) state.notifPrefs = { ...state.notifPrefs, ...d.notifPrefs };
+    ['dismissedReminders','seenReminders'].forEach(k => { if(Array.isArray(d[k])) state[k] = d[k]; });
+    if(d.promo) state.promo = { firstUsed:!!d.promo.firstUsed, used:d.promo.used||[] };
+    if(d.myProfile) state.myProfile = { ...state.myProfile, ...d.myProfile, gallery:Array.isArray(d.myProfile.gallery) ? d.myProfile.gallery : [] };
+    if(d.myPolicy) state.myPolicy = d.myPolicy;
+  }catch(e){}
+}
+function beProfileData(){
+  const p = state.myProfile;
+  return { name:p.name, headline:p.headline, bio:p.bio, published:p.published, gallery:p.gallery.filter(u=>!u.startsWith('data:')), video:p.video && p.video.url && !p.video.url.startsWith('blob:') ? { url:p.video.url, name:p.video.name, size:p.video.size } : null };
+}
+
+/* ---------- handlers (called first from the delegated click listener) ---------- */
+function handleGrowthClick(action, el){
+  /* reminders & notification prefs */
+  if(action==='nav2-notifsettings'){ go('notifsettings'); return true; }
+  if(action.startsWith('dismiss-rem-')){ state.dismissedReminders.push(action.replace('dismiss-rem-','')); saveGrowthState(); render(); return true; }
+  if(action.startsWith('np-toggle-')){ const k = action.replace('np-toggle-',''); state.notifPrefs[k] = !state.notifPrefs[k]; saveGrowthState(); render(); return true; }
+  if(action.startsWith('np-vlead-')){ state.notifPrefs.vaccineLead = +action.replace('np-vlead-',''); saveGrowthState(); render(); return true; }
+  if(action.startsWith('np-blead-')){ state.notifPrefs.bookingLead = +action.replace('np-blead-',''); saveGrowthState(); render(); return true; }
+  if(action==='np-enable'){
+    Notification.requestPermission().then(p => { if(p==='granted'){ state.notifPrefs.push = true; saveGrowthState(); toast('Device notifications on'); } render(); });
+    return true;
+  }
+  if(action==='np-test'){ systemNotify('Pawcation', L10('Test notification — reminders will look like this.','Test bildirimi — hatırlatmalar böyle görünecek.')).then(ok => toast(ok ? 'Test notification sent' : 'Could not send a notification')); return true; }
+  /* promos */
+  if(action==='nav2-offers'){ go('offers'); return true; }
+  if(action.startsWith('copy-code-')){ copyText(action.replace('copy-code-','')); return true; }
+  if(action==='apply-promo' || action.startsWith('use-promo-')){
+    const s = sitterById(state.selectedId), F = state.form;
+    const raw = action==='apply-promo' ? (document.getElementById('f-promo')||{}).value : action.replace('use-promo-','');
+    const code = String(raw||'').trim().toUpperCase(); if(!code){ return true; }
+    const g = id => { const e = document.getElementById(id); return e ? e.value : ''; };
+    const q = priceQuote(s, g('f-in')||'2026-07-10', g('f-out')||'2026-07-14', F.pets||1, F.protect);
+    const r = evalCode(code, q, F.protect);
+    if(r && r.error){ F.promoErr = r.error; F.promoCode = ''; } else { F.promoCode = code; F.promoErr = ''; }
+    render(); return true;
+  }
+  if(action==='remove-promo'){ state.form.promoCode = ''; state.form.promoErr = ''; render(); return true; }
+  /* sitter profile */
+  if(action==='nav2-hostprofile'){ go('hostprofile'); return true; }
+  if(action.startsWith('view-photo-')){ const sd = sitterById(state.selectedId), u = sd && sd.gallery[+action.replace('view-photo-','')]; if(u) openLightbox(u); return true; }
+  if(action==='hp-save'){ hpCollect(); saveGrowthState(); toast('Profile saved'); render(); return true; }
+  if(action.startsWith('hp-photo-del-')){ hpCollect(); state.myProfile.gallery.splice(+action.replace('hp-photo-del-',''), 1); saveGrowthState(); render(); return true; }
+  if(action.startsWith('hp-photo-view-')){ openLightbox(state.myProfile.gallery[+action.replace('hp-photo-view-','')]); return true; }
+  if(action==='hp-video-del'){ hpCollect(); const v = state.myProfile.video; if(v && v.url && v.url.startsWith('blob:')) try{ URL.revokeObjectURL(v.url); }catch(e){} state.myProfile.video = null; render(); return true; }
+  if(action==='hp-publish' || action==='hp-publish-go'){
+    hpCollect(); const p = state.myProfile;
+    const turnOn = action==='hp-publish-go' ? true : !p.published;
+    if(turnOn){
+      if(p.name.trim().length<2 || p.headline.trim().length<10 || !p.gallery.length){ toast('Add a name, a headline and one photo first'); if(state.screen!=='hostprofile') go('hostprofile'); return true; }
+      p.published = true;
+    } else p.published = false;
+    saveGrowthState();
+    if(backendActive()) backendPublishProfile().then(()=>{ BE.status='saved'; beStatusUI(); toast(p.published ? 'Profile published' : 'Profile hidden'); render(); }).catch(e => { console.warn('publish failed', e); toast('Could not publish — check your connection'); });
+    else toast(p.published ? 'Profile published on this device' : 'Profile hidden');
+    render(); return true;
+  }
+  if(action==='hp-preview'){ hpCollect(); state.selectedId = 'me'; go('detail'); return true; }
+  /* share */
+  if(action.startsWith('share-sitter-')){ state.shareId = action.replace('share-sitter-',''); state.shareReturn = state.screen; go('shareProfile'); return true; }
+  if(action.startsWith('share-src-')){ state.shareSrc = action.replace('share-src-',''); render(); return true; }
+  if(action==='share-copy'){ copyText(document.getElementById('share-link').value); return true; }
+  if(action==='share-native'){ const s = sitterById(state.shareId), url = shareURL(s, state.shareSrc||'instagram');
+    navigator.share({ title:s.name+' · Pawcation', text:L10(`Meet ${s.name.split(' ')[0]} on Pawcation`, `${s.name.split(' ')[0]} ile Pawcation'da tanış`), url }).catch(()=>{}); return true; }
+  if(action==='share-story'){ downloadStoryCard(sitterById(state.shareId)).catch(()=>toast('Could not create the card')); return true; }
+  return false;
+}
+function hpCollect(){
+  const g = id => { const e = document.getElementById(id); return e ? e.value : null; }, p = state.myProfile;
+  const n = g('hp-name'), h = g('hp-headline'), b = g('hp-bio');
+  if(n!==null) p.name = n.trim(); if(h!==null) p.headline = h.trim(); if(b!==null) p.bio = b.trim();
+}
+document.addEventListener('change', async (e) => {
+  const t = e.target; if(!t || !t.id) return;
+  if(t.id==='hp-name' || t.id==='hp-headline' || t.id==='hp-bio'){ hpCollect(); return; }
+  if(t.id==='hp-photo-input'){
+    hpCollect(); const p = state.myProfile, files = [...t.files].filter(f=>/^image\//.test(f.type)).slice(0, 8-p.gallery.length);
+    for(const f of files){ try{ p.gallery.push(await fileToImage(f, 1000)); }catch(err){} }
+    saveGrowthState(); render(); return;
+  }
+  if(t.id==='hp-video-input'){
+    hpCollect(); const f = t.files[0]; if(!f) return;
+    if(!/^video\//.test(f.type)){ toast('Please choose a video file'); return; }
+    if(f.size > 30*1048576){ toast('That video is over 30 MB'); t.value = ''; return; }
+    state.myProfile.video = { url:URL.createObjectURL(f), name:f.name, size:f.size, file:f }; render();
+  }
+});
+
+/* ============ ROUND 11 — MONEY FLOW (payment · escrow · commission · receipts · cancellation) ============ */
+/* NOTE: every rate and window below is a PLACEHOLDER for the demo. Real money movement must run through a licensed
+   payment provider (iyzico / PayTR marketplace sub-merchants) and be calculated server-side. */
+const COMMISSION = 0.15;           // platform commission on the stay amount, taken from the sitter's side
+const RELEASE_DELAY_DAYS = 1;      // escrow is released this many days after check-out
+const DEMO_IBAN = 'TR00 0000 0000 0000 0000 0000 00';
+const PAY_METHODS = {
+  card:  { label:'Credit / debit card',          note:'Visa, Mastercard or Amex' },
+  troy:  { label:'Troy card',                    note:'Domestic Troy-branded cards' },
+  havale:{ label:'Bank transfer (havale / EFT)', note:'Transfer within 24 hours to keep the booking' },
+};
+const PAY_STATUS = {
+  authorized:{ label:'Card on hold',            tone:'wait', hint:'You are charged when the sitter accepts.' },
+  awaiting:  { label:'Waiting for your transfer',tone:'wait', hint:'Send the transfer within 24 hours or the booking is cancelled.' },
+  held:      { label:'Held by Pawcation',       tone:'ok',   hint:'The sitter is paid after check-out.' },
+  released:  { label:'Paid out to sitter',      tone:'done', hint:'The stay is over and the payment was released.' },
+  refunded:  { label:'Refunded',                tone:'done', hint:'The full amount was returned.' },
+  partial:   { label:'Partly refunded',         tone:'done', hint:'Part of the amount was returned under the cancellation policy.' },
+  kept:      { label:'Not refundable',          tone:'done', hint:'Under the cancellation policy this was paid to the sitter.' },
+};
+const SITTER_POLICY = { s1:'flexible', s2:'moderate', s3:'flexible', s4:'strict', s5:'moderate', s6:'strict', s7:'moderate', s8:'flexible' };
+SITTERS.forEach(s => { s.policy = SITTER_POLICY[s.id] || 'moderate'; });
+const CANCEL_POLICIES = {
+  flexible:{ label:'Flexible', blurb:'Best for last-minute plans. Free cancellation until 2 days before check-in.', tiers:[{ days:2, pct:100 }, { days:0, pct:50 }] },
+  moderate:{ label:'Moderate', blurb:'The Pawcation standard. Free cancellation until 7 days before check-in.',     tiers:[{ days:7, pct:100 }, { days:3, pct:50 }, { days:0, pct:0 }] },
+  strict:  { label:'Strict',   blurb:'For busy seasons. Free cancellation until 14 days before check-in.',          tiers:[{ days:14, pct:100 }, { days:7, pct:50 }, { days:0, pct:0 }] },
+};
+function refundPct(key, daysBefore){
+  const p = CANCEL_POLICIES[key] || CANCEL_POLICIES.moderate;
+  if(daysBefore < 0) return 0;
+  for(const t of p.tiers) if(daysBefore >= t.days) return t.pct;
+  return 0;
+}
+function tierRows(key){
+  const p = CANCEL_POLICIES[key] || CANCEL_POLICIES.moderate, out = [];
+  p.tiers.forEach((t, i) => {
+    const prev = i ? p.tiers[i-1].days : null;
+    const when = i===0 ? `${t.days}+ days before check-in` : t.days===0 ? `Less than ${prev} days before check-in` : `${t.days}–${prev} days before check-in`;
+    out.push([when, t.pct ? `${t.pct}% refund` : 'No refund']);
+  });
+  return out;
+}
+function policyCardHTML(key, highlightPct){
+  const p = CANCEL_POLICIES[key] || CANCEL_POLICIES.moderate;
+  const rows = tierRows(key), cur = p.tiers.map(t=>t.pct);
+  return `<div class="section-label">Cancellation policy</div>
+  <div class="policycard"><div class="pc-head"><span class="trustbadge">${ICON.shield}${p.label}</span></div><p>${p.blurb}</p>
+    ${rows.map((r,i)=>`<div class="pc-row ${highlightPct!=null && cur[i]===highlightPct ? 'now' : ''}"><span>${r[0]}</span><b>${r[1]}</b></div>`).join('')}
+    <div class="pc-row"><span>After check-in</span><b>Handled by support</b></div></div>`;
+}
+
+/* ---------- money maths ---------- */
+function bkISO(b, which){
+  const k = which==='in' ? 'checkInISO' : 'checkOutISO'; if(b[k]) return b[k];
+  const p = mdParts(which==='in' ? b.checkIn : b.checkOut); return p ? isoLocal(new Date(2026, p.month, p.day)) : null;
+}
+function stayParts(lines){
+  const sum = f => lines.filter(f).reduce((a,l)=>a+l.amount, 0);
+  return { protect:sum(l=>l.label==='Pawcation Protect'), promo:-sum(l=>l.promo), stay:sum(l=>l.label!=='Pawcation Protect' && !l.promo) };
+}
+function finOf(b){
+  let lines = b.lines;
+  if(!lines){
+    if(b.hostName==='You') lines = [{ label:'Stay', amount:b.gross || b.earn || 0 }];
+    else { const s = sitterById(b.sitterId), a = bkISO(b,'in'), z = bkISO(b,'out');
+      lines = (s && a && z && z>a) ? priceQuote(s, a, z, b.pets||1, !!b.protect).lines : [{ label:'Stay', amount:b.total || 0 }]; }
+  }
+  const { stay, protect, promo } = stayParts(lines);
+  const commission = Math.round(stay*COMMISSION);
+  return { lines, stay, protect, promo, total:stay+protect-promo, commission, net:stay-commission };
+}
+function hostMoney(gross){ const c = Math.round(gross*COMMISSION); return { gross, commission:c, earn:gross-c, payment:{ method:'card', status:'held' } }; }
+function paymentOf(b){ return b.payment || { method:'card', status: b.status==='completed' ? 'released' : b.status==='cancelled' ? 'refunded' : b.status==='pending' ? 'authorized' : 'held' }; }
+function releaseISO(b){ const z = bkISO(b,'out'); return z ? addDaysISO(z, RELEASE_DELAY_DAYS) : null; }
+function releaseEscrow(b){ const p = paymentOf(b); if(p.status==='held' || p.status==='authorized') b.payment = { ...p, status:'released', releasedAt:'Just now' }; }
+function cancelQuote(b, who){
+  const f = finOf(b), pay = paymentOf(b), inISO = bkISO(b,'in');
+  const days = inISO ? daysBetweenISO(DEMO_TODAY, inISO) : 99, policy = b.policy || 'moderate';
+  const pct = who==='sitter' ? 100 : b.status==='pending' ? 100 : refundPct(policy, days);
+  const refundStay = Math.round((f.stay - f.promo) * pct/100), refundProtect = days>=0 ? f.protect : 0;
+  const ownerRefund = refundStay + refundProtect, keptStay = f.stay - Math.round(f.stay*pct/100);
+  const commissionKept = Math.round(keptStay*COMMISSION);
+  return { pct, days, policy, f, who, ownerRefund, ownerPays:f.total-ownerRefund, sitterNet:keptStay-commissionKept, commissionKept, started:days<0, hold:pay.status==='authorized' || pay.status==='awaiting' };
+}
+
+/* ---------- request form: payment + policy ---------- */
+function paymentBlockHTML(s, q){
+  const F = state.form, sel = F.payMethod || 'card';
+  const note = sel==='havale' ? 'We show the bank details right after you book. Transfer within 24 hours to keep the booking.'
+    : s.instantBook ? 'You are charged now. Pawcation holds the money and pays the sitter after check-out.'
+    : 'Your card is only put on hold. You are charged when the sitter accepts — and Pawcation then holds it until after check-out.';
+  return `<div class="section-label">Payment</div>
+  <div role="radiogroup" aria-label="Payment method">
+    ${Object.entries(PAY_METHODS).map(([k,m])=>`<div class="payopt ${sel===k?'on':''}" role="radio" aria-checked="${sel===k}" tabindex="0" data-action="pay-method-${k}"><span class="po-ico">${ICON.cardicon}</span><div><b>${m.label}</b><small>${m.note}</small></div><i class="po-dot"></i></div>`).join('')}
+  </div>
+  <div class="trustnote">${ICON.shield}<span><b>Escrow:</b> ${note} Demo only — no real payment is taken.</span></div>
+  ${policyCardHTML(s.policy)}`;
+}
+
+/* ---------- booking detail: payment card ---------- */
+function stepHTML(label, done, cur){ return `<div class="pstep ${done?'done':''} ${cur?'cur':''}"><i></i><span>${label}</span></div>`; }
+function paymentCardHTML(b, isHost){
+  const pay = paymentOf(b), st = PAY_STATUS[pay.status] || PAY_STATUS.held, f = finOf(b), rel = releaseISO(b);
+  const m = PAY_METHODS[pay.method] || PAY_METHODS.card;
+  const cancelled = ['refunded','partial','kept'].includes(pay.status);
+  const steps = cancelled ? '' : `<div class="psteps">${stepHTML('Paid', pay.status!=='awaiting' && pay.status!=='authorized', pay.status==='awaiting'||pay.status==='authorized')}${stepHTML('Held by Pawcation', ['held','released'].includes(pay.status), pay.status==='held')}${stepHTML('Paid out', pay.status==='released', false)}</div>`;
+  const rows = isHost
+    ? `<div class="pr-row"><span>Stay amount</span><b>${fmtLine(f.stay)}</b></div><div class="pr-row"><span>Pawcation commission · ${Math.round(COMMISSION*100)}%</span><b>${fmtLine(-f.commission)}</b></div><div class="pr-row total"><span>You receive</span><b>${fmtLine(f.net)}</b></div>`
+    : `${f.lines.map(l=>`<div class="pr-row"><span>${l.label}</span><b>${fmtLine(l.amount)}</b></div>`).join('')}<div class="pr-row total"><span>Total</span><b>${fmtLine(f.total)}</b></div>`;
+  const cx = b.cancel ? `<div class="pr-row"><span>${b.cancel.by==='sitter' ? 'Cancelled by the sitter' : 'Cancelled by the owner'} · ${b.cancel.pct}% refund</span><b>${fmtLine(isHost ? b.cancel.sitterNet : b.cancel.refund)}</b></div>` : '';
+  const sims = [];
+  if(!isHost && pay.status==='awaiting') sims.push(['pay-sim-transfer-'+b.id, 'Simulate: transfer received']);
+  if(!isHost && b.status==='pending' && (pay.status==='authorized' || pay.status==='held')) sims.push(['pay-sim-accept-'+b.id, 'Simulate: sitter accepts']);
+  if(!isHost && b.status==='confirmed' && pay.status==='held') sims.push(['pay-sim-end-'+b.id, 'Simulate: stay ends']);
+  return `<div class="section-label">${isHost ? 'Payout' : 'Payment'}</div>
+  <div class="paycard">
+    <div class="pc-top"><span class="paychip ${st.tone}">${st.label}</span>${isHost ? '' : `<span class="pc-m">${m.label}</span>`}</div>
+    <p class="pc-hint">${isHost && pay.status==='held' ? 'The owner’s payment is held by Pawcation and is paid out to you after check-out.' : isHost && pay.status==='released' ? 'Paid out to you.' : st.hint}${pay.status==='held' && rel ? ` Releases on ${fmtLong(rel)}.` : ''}</p>
+    ${pay.status==='awaiting' && !isHost ? `<div class="ibanbox"><span>IBAN (demo)</span><b>${DEMO_IBAN}</b><span>Reference</span><b>${b.code}</b><button class="btn btn-ghost btn-sm" data-action="copy-iban">Copy IBAN</button></div>` : ''}
+    ${steps}
+    ${rows}${cx}
+    <div class="twobtn" style="margin-top:12px">
+      <button class="btn btn-ghost" data-action="open-receipt-${b.id}">${isHost ? 'Payout receipt' : 'Receipt'}</button>
+      ${sims.map(([a,l])=>`<button class="btn btn-ghost" data-action="${a}">${l}</button>`).join('')}
+    </div>
+  </div>
+  ${isHost ? '' : policyCardHTML(b.policy || 'moderate')}`;
+}
+
+/* ---------- cancel screen ---------- */
+function screenCancelBooking(){
+  const b = state.bookings.find(x=>x.id===state.selectedId); if(!b) return screenBookings();
+  const who = b.hostName==='You' ? 'sitter' : 'owner', q = cancelQuote(b, who), P = CANCEL_POLICIES[q.policy];
+  const reason = (document.getElementById('cancel-reason')||{}).value || '';
+  const when = q.started ? 'This stay has already started — support mediates refunds.' : who==='sitter' ? 'You are cancelling a confirmed stay.' : b.status==='pending' ? 'The sitter has not accepted yet, so you get everything back.' : `Check-in is in ${q.days} day${q.days===1?'':'s'}.`;
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">Cancel this pawcation?</h2>
+    <p class="subtitle">Refunds follow the <a data-action="open-policy-cancellation-bookingDetail">cancellation policy</a>. This can't be undone.</p>
+    ${renderTicketCard(b, false)}
+    <div class="section-label">Who pays what</div>
+    <div class="paycard">
+      <div class="pc-top"><span class="paychip ${q.pct===100?'ok':q.pct?'wait':'done'}">${q.pct}% refund</span><span class="pc-m">${P.label} policy</span></div>
+      <p class="pc-hint">${when}</p>
+      ${who==='owner' ? `
+        <div class="pr-row"><span>You get back</span><b>${fmtLine(q.ownerRefund)}</b></div>
+        <div class="pr-row"><span>${q.hold ? 'You are charged' : 'You pay (non-refundable)'}</span><b>${fmtLine(q.ownerPays)}</b></div>
+        <div class="pr-row"><span>Sitter receives (after ${Math.round(COMMISSION*100)}% commission)</span><b>${fmtLine(q.sitterNet)}</b></div>
+        <div class="pr-row"><span>Pawcation commission</span><b>${fmtLine(q.commissionKept)}</b></div>` : `
+        <div class="pr-row"><span>Owner is refunded</span><b>${fmtLine(q.ownerRefund)}</b></div>
+        <div class="pr-row"><span>Your payout</span><b>${fmtLine(q.sitterNet)}</b></div>
+        <p class="pc-hint">Cancelling confirmed stays can lower your response rate and affect your Super sitter badge.</p>`}
+    </div>
+    ${policyCardHTML(q.policy, who==='owner' && !q.started && b.status!=='pending' ? q.pct : null)}
+    <div class="section-label">Reason (optional)</div>
+    <div class="field"><textarea id="cancel-reason" placeholder="Let them know why…">${escAttr(reason)}</textarea></div>
+    <button class="btn btn-primary" style="background:var(--stamp);" data-action="confirm-cancel-${b.id}">Confirm cancellation</button>
+    <button class="btn btn-ghost" data-action="back">Never mind</button>
+  </div>`;
+}
+function doCancel(id){
+  const b = state.bookings.find(x=>x.id===id); if(!b) return;
+  const who = b.hostName==='You' ? 'sitter' : 'owner', q = cancelQuote(b, who), pay = paymentOf(b);
+  const reason = (document.getElementById('cancel-reason')||{}).value || '';
+  b.status = 'cancelled'; b.cancelReason = reason;
+  b.cancel = { by:who, pct:q.pct, refund:q.ownerRefund, ownerPays:q.ownerPays, sitterNet:q.sitterNet, at:'Just now' };
+  b.payment = { ...pay, status: q.ownerRefund>=q.f.total ? 'refunded' : q.ownerRefund>0 ? 'partial' : 'kept', refund:q.ownerRefund };
+  toast(who==='sitter' ? 'Cancelled — the owner is refunded in full' : q.ownerRefund ? `Cancelled · ${fmtLine(q.ownerRefund)} refunded` : 'Cancelled · no refund under this policy');
+}
+
+/* ---------- receipts ---------- */
+function receiptNo(b){ return 'RCP-' + String(b.code||b.id).replace(/[^A-Z0-9]/gi,'').toUpperCase(); }
+function receiptInnerHTML(b){
+  const isHost = b.hostName==='You', f = finOf(b), pay = paymentOf(b), st = PAY_STATUS[pay.status] || PAY_STATUS.held;
+  const date = b.paidISO || bkISO(b,'in'), m = PAY_METHODS[pay.method] || PAY_METHODS.card;
+  const row = (l, v, cls) => `<div class="rc-row ${cls||''}"><span>${l}</span><b>${v}</b></div>`;
+  const body = isHost
+    ? row('Stay amount', fmtLine(f.stay)) + row('Pawcation commission · '+Math.round(COMMISSION*100)+'%', fmtLine(-f.commission)) + row('Net payout', fmtLine(f.net), 'tot')
+    : f.lines.map(l => row(l.label, fmtLine(l.amount))).join('') + row('Total', fmtLine(f.total), 'tot')
+      + (b.cancel ? row('Refunded', fmtLine(-b.cancel.refund)) + row('Net paid', fmtLine(f.total - b.cancel.refund), 'tot') : '');
+  return `<div class="rc-head"><div class="rc-brand">${ICON.paw} Pawcation</div><div class="rc-title">${isHost ? 'Payout receipt' : 'Payment receipt'}</div></div>
+    <div class="rc-meta">
+      ${row('Receipt no.', receiptNo(b))}${date ? row('Date', fmtLong(date)) : ''}
+      ${row(isHost ? 'Owner' : 'Sitter', isHost ? (b.ownerName||'Owner') : b.hostName)}
+      ${row('Pet', b.petName)}${row('Stay', `${b.checkIn} – ${b.checkOut}`)}
+      ${isHost ? '' : row('Payment method', m.label)}${row('Status', st.label)}
+    </div>
+    <div class="rc-lines">${body}</div>
+    <p class="rc-foot">This receipt confirms a payment made through Pawcation. It is for your records and is not an official tax invoice (e-Arşiv / e-Fatura).</p>`;
+}
+function screenReceipt(){
+  const b = state.bookings.find(x=>x.id===state.selectedId); if(!b) return screenBookings();
+  return `<div class="fade-in narrow">
+    <h2 class="title no-print">${b.hostName==='You' ? 'Payout receipt' : 'Receipt'}</h2>
+    <div id="receipt" class="receipt">${receiptInnerHTML(b)}</div>
+    <div class="twobtn no-print"><button class="btn btn-primary" data-action="receipt-print">Print / Save as PDF</button><button class="btn btn-ghost" data-action="receipt-download-${b.id}">Download</button></div>
+  </div>`;
+}
+function screenReceipts(){
+  const list = state.bookings.filter(b => b.hostName!=='You' && !b.trainerBooking);
+  return `<div class="fade-in narrow">
+    <h2 class="title">Payments &amp; receipts</h2>
+    <p class="subtitle">Every payment is held by Pawcation until the stay is over. Open any booking to see where its money is.</p>
+    ${list.length ? list.slice().reverse().map(b => { const pay = paymentOf(b), st = PAY_STATUS[pay.status] || PAY_STATUS.held;
+      return `<div class="receiptrow"><div class="rr-l" data-action="open-booking-${b.id}"><b>${b.petName} · ${b.hostName}</b><span>${b.checkIn} – ${b.checkOut}</span><span class="paychip ${st.tone}">${st.label}</span></div><div class="rr-r"><b>${fmtLine(finOf(b).total)}</b><button class="btn btn-ghost btn-sm" data-action="open-receipt-${b.id}">Receipt</button></div></div>`; }).join('')
+      : `<div class="emptystate"><div class="ico">${ICON.ticket}</div><h3>No payments yet</h3><p>Your receipts appear here after you book.</p></div>`}
+  </div>`;
+}
+function standaloneDoc(title, inner){
+  const wrap = document.createElement('div'); wrap.innerHTML = inner; if(state.lang==='tr') trApply(wrap);
+  return `<!doctype html><html lang="${state.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escAttr(title)}</title>
+<style>body{font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;color:#1B2620;max-width:640px;margin:32px auto;padding:0 20px}
+.rc-brand{font:700 22px Georgia,serif;display:flex;gap:8px;align-items:center}.rc-brand svg{width:22px;height:22px}.rc-title{font:600 28px Georgia,serif;margin:6px 0 18px}
+.rc-row{display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px solid #ddd}.rc-row.tot{border-top:2px solid #1B2620;font-weight:700}
+.rc-meta{margin-bottom:18px}.rc-foot{font-size:12px;color:#666;margin-top:20px}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:7px 6px;border-bottom:1px solid #ddd}td.r,th.r{text-align:right}
+.stm-sum{margin-top:14px}</style></head><body>${wrap.innerHTML}</body></html>`;
+}
+function downloadFile(name, mime, text){
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type:mime }));
+  a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+}
+
+/* ---------- sitter monthly statement ---------- */
+const STMT_MONTHS = ['Feb','Mar','Apr','May','Jun','Jul'];
+function statementData(mon){
+  const es = earningsSummary(), rows = [];
+  if(mon==='Jul'){
+    rows.push({ desc:'Earlier bookings this month (summary)', net:2450, status:'paid' });
+    hostedBookings().filter(b=>b.status==='completed' && b.gross).forEach(b => rows.push({ desc:`${b.petName} · ${b.ownerName||'Owner'} · ${b.checkIn} – ${b.checkOut}`, gross:b.gross, commission:b.commission, net:b.earn, status:'paid' }));
+    es.pendingList.forEach(x => rows.push({ desc:`${x.what} · ${x.who}`, net:x.amount, status:'escrow' }));
+  } else {
+    const h = EARN_HISTORY.find(x=>x.m===mon); rows.push({ desc:`Bookings in ${mon} (summary)`, net:h ? h.amount : 0, status:'paid' });
+  }
+  const paid = rows.filter(r=>r.status==='paid').reduce((a,r)=>a+r.net,0), escrow = rows.filter(r=>r.status==='escrow').reduce((a,r)=>a+r.net,0);
+  const comm = rows.reduce((a,r)=>a+(r.commission||0),0), gross = rows.reduce((a,r)=>a+(r.gross||0),0);
+  return { rows, paid, escrow, comm, gross };
+}
+function statementInnerHTML(mon){
+  const d = statementData(mon), lab = { paid:'Paid out', escrow:'In escrow' };
+  return `<div class="rc-head"><div class="rc-brand">${ICON.paw} Pawcation</div><div class="rc-title">Earnings statement · ${mon} 2026</div></div>
+  <table class="stm"><thead><tr><th>Booking</th><th class="r">Net</th></tr></thead><tbody>
+    ${d.rows.map(r => `<tr><td>${r.desc}<br><small>${r.gross ? `Gross ${fmtLine(r.gross)} − commission ${fmtLine(r.commission)} · ` : ''}${lab[r.status]}</small></td><td class="r">${fmtLine(r.net)}</td></tr>`).join('')}
+  </tbody></table>
+  <div class="stm-sum">
+    <div class="rc-row"><span>Paid out</span><b>${fmtLine(d.paid)}</b></div>
+    ${d.escrow ? `<div class="rc-row"><span>In escrow</span><b>${fmtLine(d.escrow)}</b></div>` : ''}
+    ${d.comm ? `<div class="rc-row"><span>Commission on itemised bookings</span><b>${fmtLine(d.comm)}</b></div>` : ''}
+    <div class="rc-row tot"><span>Total net earnings</span><b>${fmtLine(d.paid + d.escrow)}</b></div>
+  </div>
+  <p class="rc-foot">Net amounts are after the ${Math.round(COMMISSION*100)}% Pawcation commission. Earlier months are shown as summaries. This statement is for your records and is not a tax document — you are responsible for declaring your income.</p>`;
+}
+function screenStatement(){
+  const mon = state.stmtMonth || 'Jul';
+  return `<div class="fade-in narrow">
+    <h2 class="title no-print">Monthly statement</h2>
+    <div class="chiprow wrap no-print" style="margin-bottom:14px">${STMT_MONTHS.map(m=>`<div class="chip ${m===mon?'active':''}" data-action="stmt-month-${m}">${m}</div>`).join('')}</div>
+    <div id="receipt" class="receipt">${statementInnerHTML(mon)}</div>
+    <div class="twobtn no-print"><button class="btn btn-primary" data-action="receipt-print">Print / Save as PDF</button><button class="btn btn-ghost" data-action="stmt-csv">Download CSV</button></div>
+  </div>`;
+}
+function statementCSV(mon){
+  const d = statementData(mon), q = v => '"' + String(v).replace(/"/g,'""') + '"';
+  const lines = [['Description','Gross (TRY)','Commission (TRY)','Net (TRY)','Status'].map(q).join(',')];
+  d.rows.forEach(r => lines.push([r.desc, r.gross||'', r.commission||'', r.net, r.status==='paid' ? 'Paid out' : 'In escrow'].map(q).join(',')));
+  lines.push(['Total net','','',d.paid+d.escrow,''].map(q).join(','));
+  return '﻿' + lines.join('\r\n');
+}
+
+/* ---------- sitter pricing: commission + policy ---------- */
+function commissionNoteHTML(){
+  const base = state.myPricing.base, c = Math.round(base*COMMISSION);
+  return `<div class="trustnote">${ICON.cardicon}<span>Pawcation keeps a ${Math.round(COMMISSION*100)}% commission. On a ${fmtLine(base)} night you receive <b>${fmtLine(base-c)}</b>. Payments are held in escrow and paid out ${RELEASE_DELAY_DAYS} day after check-out.</span></div>`;
+}
+function policyPickerHTML(){
+  return `<div class="section-label">Cancellation policy</div>
+  <div role="radiogroup" aria-label="Cancellation policy">${Object.entries(CANCEL_POLICIES).map(([k,p])=>`<div class="payopt ${state.myPolicy===k?'on':''}" role="radio" aria-checked="${state.myPolicy===k}" tabindex="0" data-action="set-policy-${k}"><div><b>${p.label}</b><small>${p.blurb}</small></div><i class="po-dot"></i></div>`).join('')}</div>`;
+}
+
+/* ---------- click handlers ---------- */
+function handleMoneyClick(action){
+  if(action.startsWith('pay-method-')){ state.form.payMethod = action.replace('pay-method-',''); render(); return true; }
+  if(action.startsWith('set-policy-')){ state.myPolicy = action.replace('set-policy-',''); toast('Policy: '+CANCEL_POLICIES[state.myPolicy].label); saveGrowthState(); render(); return true; }
+  if(action==='copy-iban'){ copyText(DEMO_IBAN.replace(/\s/g,'')); return true; }
+  if(action.startsWith('pay-sim-')){
+    const [, , kind, ...rest] = action.split('-'), id = rest.join('-'), b = state.bookings.find(x=>x.id===id); if(!b) return true;
+    if(kind==='transfer'){ b.payment = { ...paymentOf(b), status:'held' }; toast('Transfer received — payment held'); }
+    else if(kind==='accept'){ b.status = 'confirmed'; b.payment = { ...paymentOf(b), status:'held' }; toast('Sitter accepted — card charged'); }
+    else if(kind==='end'){ b.status = 'completed'; releaseEscrow(b); toast('Stay finished — payment released to the sitter'); }
+    render(); return true;
+  }
+  if(action.startsWith('open-receipt-')){ state.receiptReturn = state.screen; go('receipt', { selectedId:action.replace('open-receipt-','') }); return true; }
+  if(action==='receipt-print'){ window.print(); return true; }
+  if(action.startsWith('receipt-download-')){ const b = state.bookings.find(x=>x.id===action.replace('receipt-download-','')); if(b) downloadFile(`${receiptNo(b)}.html`, 'text/html', standaloneDoc(receiptNo(b), receiptInnerHTML(b))); toast('Receipt downloaded'); return true; }
+  if(action==='nav2-receipts'){ go('receipts'); return true; }
+  if(action==='nav2-statement'){ go('statement'); return true; }
+  if(action.startsWith('stmt-month-')){ state.stmtMonth = action.replace('stmt-month-',''); render(); return true; }
+  if(action==='stmt-csv'){ const m = state.stmtMonth || 'Jul'; downloadFile(`pawcation-statement-${m}-2026.csv`, 'text/csv;charset=utf-8', statementCSV(m)); toast('Statement downloaded'); return true; }
+  return false;
 }
 
 /* ============ RENDER: TOPBAR ============ */
 function renderTopbar(){
   if(!state.onboarded){ app.topbar.innerHTML=''; return; }
-  const showBack = ['settings','reportForm','meetForm','incidentForm','incidentDetail','incidents','detail','request','requestDetail','trainingDetail','ticket','verify','payment','mypets','addpet','policy','policyhub','documents','trainercv','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen);
+  const showBack = ['receipt','receipts','statement','hostprofile','shareProfile','offers','notifsettings','settings','reportForm','meetForm','incidentForm','incidentDetail','incidents','detail','request','requestDetail','trainingDetail','ticket','verify','payment','mypets','addpet','policy','policyhub','documents','trainercv','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen);
   app.topbar.innerHTML = `
     <div class="topbar-row">
       ${showBack
@@ -1556,7 +2537,7 @@ function renderBottomNav(){
     {key:'messages', icon:ICON.chat, label:t('nav_messages')},
     {key:'profile', icon:ICON.user, label:t('nav_profile')},
   ];
-  const activeKey = ['settings','reportForm','meetForm','incidentForm','incidentDetail','incidents','detail','request','ticket','requestDetail','trainingDetail','trainercv','verify','payment','mypets','addpet','policy','policyhub','documents','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen) ? null : state.screen;
+  const activeKey = ['receipt','receipts','statement','hostprofile','shareProfile','offers','notifsettings','settings','reportForm','meetForm','incidentForm','incidentDetail','incidents','detail','request','ticket','requestDetail','trainingDetail','trainercv','verify','payment','mypets','addpet','policy','policyhub','documents','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen) ? null : state.screen;
   app.bottomnav.innerHTML = items.map(it => `
     <div class="navitem ${activeKey===it.key?'active':''}" data-action="nav-${it.key}">
       ${it.icon}<span>${it.label}</span>
@@ -1616,6 +2597,7 @@ function screenTour(){
 
 function renderTrustBadges(s, compact){
   const badges = [];
+  if(isSuper(s)) badges.push({icon:ICON.star, label:'Super sitter', cls:'super'});
   if(s.instantBook) badges.push({icon:ICON.bolt, label:'Instant Book', cls:'instant'});
   if(s.verified) badges.push({icon:ICON.shield, label:'ID verified'});
   badges.push({icon:ICON.check.replace('26','12').replace('26','12'), label:`${s.reviews}+ stays`});
@@ -1661,6 +2643,7 @@ function filteredSitters(){
     if(f.maxPrice<700 && parsePrice(s.price)>f.maxPrice) return false;
     if(f.instant && !s.instantBook) return false;
     if(f.fast && s.responseMinutes>60) return false;
+    if(f.superOnly && !isSuper(s)) return false;
     if(f.checkIn && f.checkOut && f.checkOut>f.checkIn && isRangeBlocked(s,f.checkIn,f.checkOut)) return false;
     if(f.maxDist && dist!=null && dist>f.maxDist) return false;
     return true;
@@ -1688,7 +2671,7 @@ function filteredRequests(list){
 }
 function activeFilterCount(){
   const f = state.search;
-  return (f.area!=='All'?1:0) + (f.maxPrice<700?1:0) + (f.instant?1:0) + (f.fast?1:0) + ((f.checkIn&&f.checkOut)?1:0) + (f.maxDist?1:0);
+  return (f.area!=='All'?1:0) + (f.maxPrice<700?1:0) + (f.instant?1:0) + (f.fast?1:0) + (f.superOnly?1:0) + ((f.checkIn&&f.checkOut)?1:0) + (f.maxDist?1:0);
 }
 
 function sitterCardHTML(s, dist){
@@ -1857,6 +2840,7 @@ function renderFilterPanel(){
       <div class="chiprow wrap">
         <div class="chip ${f.instant?'active':''}" data-action="flt-instant">${ICON.bolt} ${t('flt_instant')}</div>
         <div class="chip ${f.fast?'active':''}" data-action="flt-fast">${t('flt_fast')}</div>
+        <div class="chip ${f.superOnly?'active':''}" data-action="flt-super">${ICON.star} Super sitters</div>
       </div>
     </div>
     ${state.userLoc ? `
@@ -1968,6 +2952,7 @@ function screenBrowse(){
   <div class="fade-in">
     <h2 class="title">${title}</h2>
     <p class="subtitle">${sub}</p>
+    ${promoBannerHTML()}
     <div class="searchbar">${ICON.search}<input id="search-q" placeholder="${escAttr(searchPlaceholder())}" value="${escAttr(f.q)}" autocomplete="off"/>${f.q ? `<span class="clearq" data-action="search-clear">×</span>` : ''}</div>
     ${mode==='owner' ? `
     <div class="searchtools">
@@ -2026,12 +3011,13 @@ function screenTrainingDetail(){
 }
 
 function screenSitterDetail(){
-  const s = SITTERS.find(x=>x.id===state.selectedId);
+  const s = sitterById(state.selectedId);
   return `
   <div class="fade-in" style="margin:0 -20px;">
     <div class="hero-img" style="background-image:url('${s.img}')">
       <div class="hero-fade"></div>
-      <div class="heart-btn ${state.favorites.includes(s.id)?'active':''}" data-action="toggle-fav-${s.id}">${ICON.heart}</div>
+      ${s.isMe ? '' : `<div class="heart-btn ${state.favorites.includes(s.id)?'active':''}" data-action="toggle-fav-${s.id}">${ICON.heart}</div>`}
+      <div class="heart-btn share-btn" role="button" tabindex="0" aria-label="Share profile" data-action="share-sitter-${s.id}" style="${s.isMe ? 'right:16px' : ''}">${SHARE_ICON}</div>
       <div class="hero-caption">
         <h2>${s.name}</h2>
         <div class="loc">${ICON.pin}${s.loc}</div>
@@ -2043,18 +3029,21 @@ function screenSitterDetail(){
         <div class="stat"><b>${s.reviews}</b><span>Pawcations</span></div>
         <div class="stat"><b>${s.price}</b><span>Per night</span></div>
       </div>
+      ${galleryHTML(s)}
       ${s.responseMinutes ? `<div class="responsetime">${ICON.clock}<span>${t('responds_within')} ${formatResponseTime(s.responseMinutes)}</span></div>` : ''}
+      ${s.stats && s.stats.responseRate ? `<div class="responsetime">${ICON.check.replace('26','16').replace('26','16')}<span>${s.stats.responseRate}% response rate</span></div>` : ''}
       <p class="bio">${s.bio}</p>
       <div class="tagrow">${s.pets.map(p=>`<span class="tag">${p}</span>`).join('')}</div>
       ${renderTrustBadges(s, false)}
       <div class="section-label">Pricing</div>
       ${pricingRowsHTML(parsePrice(s.price), s.pricing || {weekend:0,holiday:0,multiPet:0,cleaning:0})}
+      ${policyCardHTML(s.policy)}
       <div class="section-label">Availability — ${CAL_MONTH.label}</div>
       ${renderMiniCalendar(s.blockedDates||[], false)}
-      <div class="meetprompt"><div><b>Not sure yet?</b>Meet ${s.name.split(' ')[0]} first — a short, free visit before you book.</div><button class="btn btn-ghost" style="width:auto;padding:9px 14px;" data-action="open-meet-${s.id}">Meet &amp; greet</button></div>
+      ${s.isMe ? '' : `<div class="meetprompt"><div><b>Not sure yet?</b>Meet ${s.name.split(' ')[0]} first — a short, free visit before you book.</div><button class="btn btn-ghost" style="width:auto;padding:9px 14px;" data-action="open-meet-${s.id}">Meet &amp; greet</button></div>`}
       ${breakdownHTML(s)}
       <div class="section-label">Recent reviews</div>
-      ${REVIEWS.filter(r=>!r.sitterId || r.sitterId===s.id).map(r=>`
+      ${(s.isMe ? [] : REVIEWS.filter(r=>!r.sitterId || r.sitterId===s.id)).map(r=>`
         <div class="reviewcard">
           <div class="rh"><span>${r.name}</span><span style="color:var(--ink-soft);font-weight:400">${r.when}</span></div>
           ${r.stars ? `<div style="color:var(--gold);font-size:calc(12px*var(--fs));margin-bottom:2px;">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>` : ''}
@@ -2066,14 +3055,14 @@ function screenSitterDetail(){
       <div style="height:6px"></div>
       <div class="stickybar">
         <div class="pricebox"><b>${s.price}</b><span>per night</span></div>
-        <button class="btn btn-primary" data-action="request-stay-${s.id}">Request this stay</button>
+        ${s.isMe ? '<button class="btn btn-ghost" data-action="back">Back to editing</button>' : `<button class="btn btn-primary" data-action="request-stay-${s.id}">Request this stay</button>`}
       </div>
     </div>
   </div>`;
 }
 
 function screenRequestForm(){
-  const s = SITTERS.find(x=>x.id===state.selectedId);
+  const s = sitterById(state.selectedId);
   const F = state.form, pre = F.prefill || {};
   const keep = (id, dflt) => { const el = document.getElementById(id); return el ? el.value : dflt; };
   const fIn = keep('f-in', (F.dates && F.dates.in) || state.search.checkIn || '2026-07-10');
@@ -2082,7 +3071,7 @@ function screenRequestForm(){
   const fType = keep('f-pettype', pre.petType || 'Dog');
   const fNotes = keep('f-notes', pre.notes || 'Very friendly, needs a short walk morning and evening.');
   const first = s.name.split(' ')[0];
-  const q = priceQuote(s, fIn||'2026-07-10', fOut||'2026-07-14', F.pets||1, F.protect);
+  const q = quoteWithPromo(s, fIn||'2026-07-10', fOut||'2026-07-14', F.pets||1, F.protect);
   const selPet = F.petIdx!=null ? state.myPets[F.petIdx] : null;
   const tick = ICON.check.replace('26','14').replace('26','14');
   return `
@@ -2119,10 +3108,12 @@ function screenRequestForm(){
       <div class="consent-box">${F.protect ? tick : ''}</div>
       <p><b>Pawcation Protect</b> — ₺99 flat. Covers accidental damage at the sitter's home and adds 24/7 priority support for this stay.</p>
     </div>
+    ${promoBlockHTML(q, keep('f-promo',''))}
     <div class="pricebox-summary">
       ${q.lines.map(l=>`<div class="pb-row"><span>${l.label}</span><b>${fmtLine(l.amount)}</b></div>`).join('')}
       <div class="pb-row total"><span>Total</span><b>₺${q.total.toLocaleString('tr-TR')}</b></div>
     </div>
+    ${paymentBlockHTML(s, q)}
     <div class="section-label">Before you send</div>
     <div class="consent-row ${state.consent.petHealth ? 'checked' : ''}" data-action="toggle-consent-petHealth">
       <div class="consent-box">${state.consent.petHealth ? tick : ''}</div>
@@ -2208,6 +3199,8 @@ function renderTicketCard(b, clickable){
         ${b.petCard ? `<div class="protect-badge">${ICON.cert}Health card shared</div>` : ''}
         ${b.pets>1 ? `<div class="protect-badge" style="color:var(--ink-soft);">${b.pets} pets</div>` : ''}
         ${b.total ? `<div class="protect-badge" style="color:var(--ink-soft);">Total paid: ₺${b.total.toLocaleString('tr-TR')}</div>` : ''}
+        ${b.promo ? `<div class="protect-badge" style="color:var(--moss-deep);">${ICON.gift}Promo applied: ${b.promo.label} · −₺${b.promo.amount.toLocaleString('tr-TR')}</div>` : ''}
+        ${b.hostName!=='You' && b.total ? `<div class="protect-badge" style="color:var(--ink-soft);">${ICON.shield}${(PAY_STATUS[paymentOf(b).status]||{}).label}</div>` : ''}
       </div>
       <div class="tear"></div>
       <div class="ticket-bottom">
@@ -2308,6 +3301,7 @@ function screenBookingDetail(){
       </div>
     ` : ''}
     ${(!isHost && b.sitterId && b.status==='completed') ? `<button class="btn btn-primary" style="margin-bottom:16px;" data-action="rebook-${b.sitterId}">Book again</button>` : ''}
+    ${paymentCardHTML(b, b.hostName==='You')}
     ${b.petCard ? `<div class="section-label">Pet health card</div>${renderHealthRows(b.petCard.health)}` : ''}
     ${b.sessions ? `
       <div class="section-label">Session schedule${b.goal ? ' — '+b.goal : ''}</div>
@@ -2363,21 +3357,6 @@ function screenSOS(){
       <div class="soicon">${ICON.cert}</div>
       <div><b>Find nearest emergency vet</b><span>Uses the vet-care authorization from your booking</span></div>
     </div>
-  </div>`;
-}
-
-function screenCancelBooking(){
-  const b = state.bookings.find(x=>x.id===state.selectedId);
-  if(!b) return screenBookings();
-  return `
-  <div class="fade-in narrow">
-    <h2 class="title">Cancel this pawcation?</h2>
-    <p class="subtitle">Refunds follow the <a data-action="open-policy-cancellation-bookingDetail">cancellation policy</a>. This can't be undone.</p>
-    ${renderTicketCard(b, false)}
-    <div class="section-label">Reason (optional)</div>
-    <div class="field"><textarea id="cancel-reason" placeholder="Let them know why…"></textarea></div>
-    <button class="btn btn-primary" style="background:var(--stamp);" data-action="confirm-cancel-${b.id}">Confirm cancellation</button>
-    <button class="btn btn-ghost" data-action="back">Never mind</button>
   </div>`;
 }
 
@@ -2508,6 +3487,9 @@ function screenProfile(){
     <div class="profile-row" data-action="nav2-documents"><div class="left">${ICON.filesheet}<span>${t('profile_documents')}</span></div>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-rewards"><div class="left">${ICON.gift}<span>${t('profile_points')}</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${state.loyaltyPoints} pts</span>${ICON.chevron}</div>
     ${!isOwner ? `<div class="profile-row" data-action="nav2-earnings"><div class="left">${ICON.cardicon}<span>Earnings</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">₺${earningsSummary().month.toLocaleString('tr-TR')} this month</span>${ICON.chevron}</div>` : ''}
+    ${state.mode==='sitter' ? `<div class="profile-row" data-action="nav2-hostprofile"><div class="left">${ICON.star}<span>My public profile</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${isSuper({id:'me'}) ? 'Super sitter' : Math.round(profileChecks().filter(c=>c.ok).length/profileChecks().length*100)+'% complete'}</span>${ICON.chevron}</div>` : ''}
+    ${isOwner ? `<div class="profile-row" data-action="nav2-receipts"><div class="left">${ICON.filesheet}<span>Payments &amp; receipts</span></div>${ICON.chevron}</div>` : `<div class="profile-row" data-action="nav2-statement"><div class="left">${ICON.filesheet}<span>Monthly statement</span></div>${ICON.chevron}</div>`}
+    ${isOwner ? `<div class="profile-row" data-action="nav2-offers"><div class="left">${ICON.gift}<span>Offers &amp; promo codes</span></div>${promoEligibleFirst() ? `<span style="color:var(--gold-deep);font-size:calc(12px*var(--fs));font-weight:600;">First booking −15%</span>` : ''}${ICON.chevron}</div>` : ''}
     ${state.mode==='sitter' ? `<div class="profile-row" data-action="nav2-pricing"><div class="left">${ICON.bolt}<span>My pricing</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">₺${state.myPricing.base} / night</span>${ICON.chevron}</div>` : ''}
     <div class="profile-row" data-action="nav2-incidents"><div class="left">${ICON.shield}<span>Reports &amp; claims</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${state.incidents.length || ''}</span>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-invite"><div class="left">${ICON.gift}<span>Invite friends</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">Get 100 pts</span>${ICON.chevron}</div>
@@ -2562,16 +3544,20 @@ function screenPolicyHub(){
 
 function screenNotifications(){
   const list = state.notifications.slice().sort((a,b)=> (a.read===b.read) ? 0 : (a.read ? 1 : -1));
+  const rems = computeReminders();
   return `
   <div class="fade-in narrow">
     <h2 class="title">Notifications</h2>
-    <p class="subtitle">Payments and updates land here.</p>
-    ${list.length===0 ? `
+    <p class="subtitle">Reminders, payments and updates land here.</p>
+    <div class="profile-row" data-action="nav2-notifsettings"><div class="left">${ICON.bell}<span>Notification settings</span></div>${ICON.chevron}</div>
+    ${rems.length ? `<div class="section-label">Reminders</div>${rems.map(reminderCardHTML).join('')}` : ''}
+    ${list.length===0 && !rems.length ? `
       <div class="emptystate">
         <div class="ico">${ICON.bell}</div>
         <h3>No notifications yet</h3>
         <p>You'll see it here as soon as a payment comes in.</p>
-      </div>` : list.map(n=>`
+      </div>` : ''}
+    ${list.length ? `<div class="section-label">Payments</div>` + list.map(n=>`
       <div class="msgrow">
         <div class="avatar" style="background:var(--moss);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;">${n.from.split(' ').map(w=>w[0]).join('')}</div>
         <div class="mbody">
@@ -2580,7 +3566,7 @@ function screenNotifications(){
         </div>
         ${!n.read ? '<div class="unreaddot"></div>' : ''}
       </div>
-    `).join('')}
+    `).join('') : ''}
   </div>`;
 }
 
@@ -2917,7 +3903,7 @@ function pricingPreviewHTML(){
   const fake = { price:'₺'+mp.base, pricing:{ weekend:mp.weekend, holiday:mp.holiday, multiPet:mp.multiPet, cleaning:mp.cleaning } };
   return PRICING_EXAMPLES.map(ex => {
     const q = priceQuote(fake, ex.in, ex.out, ex.pets, false);
-    return `<div class="pr-row"><span>${ex.tags.join(' · ')}</span><b>₺${q.total.toLocaleString('tr-TR')}</b></div>`;
+    return `<div class="pr-row"><span>${ex.tags.join(' · ')}</span><b>₺${q.total.toLocaleString('tr-TR')} <small class="net">${L10('you get','sana kalan')} ${fmtLine(q.total-Math.round(q.total*COMMISSION))}</small></b></div>`;
   }).join('');
 }
 function screenPricing(){
@@ -2935,8 +3921,10 @@ function screenPricing(){
     ${fld('pr-holiday','Holiday & bayram surcharge',mp.holiday,'Added to nights that start on a public holiday or bayram day. Replaces the weekend surcharge on those nights.','₺ / night')}
     ${fld('pr-multi','Additional pet discount',mp.multiPet,'Discount on each extra pet from the same owner.','%')}
     ${fld('pr-clean','Cleaning fee',mp.cleaning,'One-time fee per stay. Leave 0 if it is included.','₺')}
+    ${commissionNoteHTML()}
     <div class="section-label">What owners would pay</div>
     <div class="pricing-rows" id="pricing-preview">${pricingPreviewHTML()}</div>
+    ${policyPickerHTML()}
     <button class="btn btn-primary" style="margin-top:14px;" data-action="save-pricing">Save pricing</button>
   </div>`;
 }
@@ -3070,6 +4058,8 @@ function screenEarnings(){
       <div class="stat"><b>₺${es.allTime.toLocaleString('tr-TR')}</b><span>All time</span></div>
       <div class="stat"><b>${es.occupancy}%</b><span>Occupancy</span></div>
     </div>
+    <div class="trustnote">${ICON.shield}<span>Amounts are after Pawcation’s ${Math.round(COMMISSION*100)}% commission. Payments are held in escrow and released ${RELEASE_DELAY_DAYS} day after check-out.</span></div>
+    <button class="btn btn-ghost" style="margin-bottom:6px" data-action="nav2-statement">Monthly statement</button>
     <div class="section-label">Earnings · last 6 months</div>
     ${barChartHTML(series,'amount',v=>'₺'+v.toLocaleString('tr-TR'),true)}
     <div class="section-label">Occupancy · last 6 months</div>
@@ -3080,7 +4070,7 @@ function screenEarnings(){
     ${es.pendingList.map(x=>`
       <div class="reviewcard">
         <div class="rh"><span>${x.who}</span><b style="color:var(--moss-deep);">₺${x.amount.toLocaleString('tr-TR')}</b></div>
-        <p>${x.what} · Expected ${x.when}</p>
+        <p>${x.what} · In escrow · Expected ${x.when}</p>
       </div>`).join('')}
     <button class="btn btn-ghost" data-action="nav2-payment">Payout details</button>
   </div>`;
@@ -3183,6 +4173,7 @@ function beUUID(){ return (window.crypto && crypto.randomUUID) ? crypto.randomUU
 function beSlices(){
   const profile = { lang:state.lang, points:state.loyaltyPoints, data:{
     onboarded:state.onboarded, mode:state.mode, myPricing:state.myPricing, myBlockedDates:state.myBlockedDates, redeemedRewards:state.redeemedRewards,
+    notifPrefs:state.notifPrefs, dismissedReminders:state.dismissedReminders, promo:state.promo, myProfile:beProfileData(), myPolicy:state.myPolicy,
     consent:state.consent, trainerCV:state.trainerCV, verificationStatus:state.verification && state.verification.status,
     invited:state.referral.invited, usedCode:state.referral.usedCode, prefs:{ theme:PREFS.theme, text:PREFS.text, contrast:PREFS.contrast, motion:PREFS.motion } } };
   const pets = state.myPets.map((p,i)=>{ const {id,name,...rest}=p; return { id, position:i, name, data:JSON.parse(beJSON(rest)) }; });
@@ -3273,6 +4264,11 @@ async function backendLoad(){
   if(d.myPricing) state.myPricing = d.myPricing;
   state.myBlockedDates = d.myBlockedDates || [];
   state.redeemedRewards = d.redeemedRewards || [];
+  if(d.notifPrefs) state.notifPrefs = { ...state.notifPrefs, ...d.notifPrefs };
+  state.dismissedReminders = d.dismissedReminders || [];
+  if(d.myPolicy) state.myPolicy = d.myPolicy;
+  if(d.promo) state.promo = { firstUsed:!!d.promo.firstUsed, used:d.promo.used||[] };
+  if(d.myProfile) state.myProfile = { ...state.myProfile, ...d.myProfile, gallery:d.myProfile.gallery||[] };
   if(d.consent) state.consent = d.consent;
   state.trainerCV = d.trainerCV || null;
   state.verification = { status: d.verificationStatus || 'unverified', selfie:null, idFront:null, idBack:null };
@@ -3290,7 +4286,9 @@ async function onSignedIn(user){
   BE.loading = true; BE.user = user; BE.guest = false; state.auth.checking = true; state.auth.error = '';
   try{
     await backendLoad(); BE.ready = true; BE.status = 'saved'; state.auth.checking = false;
-    state.screen = state.onboarded ? 'browse' : 'tour'; render();
+    state.screen = state.onboarded ? 'browse' : 'tour';
+    if(PENDING_LINK){ const l = PENDING_LINK; PENDING_LINK = null; await applyDeepLink(l); }
+    render();
   }catch(e){
     console.warn('load failed', e); BE.user = null; BE.ready = false; state.auth = { tab:'in', checking:false, busy:false, info:'', error:'Could not load your account. Did you run schema.sql? ('+((e&&e.message)||e)+')' };
     state.screen='auth'; render();
@@ -3613,7 +4611,7 @@ function meetsSectionHTML(){
   return `<div class="section-label">Meet &amp; greets</div>` + list.map(meetCardHTML).join('');
 }
 function screenMeetForm(){
-  const s = SITTERS.find(x=>x.id===state.selectedId); if(!s) return screenBrowse();
+  const s = sitterById(state.selectedId); if(!s) return screenBrowse();
   const D = state.meetDraft || (state.meetDraft = { date:'2026-07-17', time:'11:00', place:'home', petIdx: state.myPets.length ? 0 : null, note:'' });
   const first = s.name.split(' ')[0];
   const blocked = (s.blockedDates||[]).includes(D.date);
@@ -3798,6 +4796,13 @@ function render(){
     case 'incidentForm': html = screenIncidentForm(); break;
     case 'incidentDetail': html = screenIncidentDetail(); break;
     case 'incidents': html = screenIncidents(); break;
+    case 'hostprofile': html = screenHostProfile(); break;
+    case 'shareProfile': html = screenShareProfile(); break;
+    case 'offers': html = screenOffers(); break;
+    case 'notifsettings': html = screenNotifSettings(); break;
+    case 'receipt': html = screenReceipt(); break;
+    case 'receipts': html = screenReceipts(); break;
+    case 'statement': html = screenStatement(); break;
     case 'auth': html = screenAuth(); break;
     default: html = screenOnboard();
   }
@@ -3812,6 +4817,8 @@ document.addEventListener('click', (e) => {
   const action = el.dataset.action;
   // a drag on the map must not count as a tap on a pin
   if(mapDragMoved && Date.now()-mapDragEnd < 300 && action.startsWith('map-')){ return; }
+  if(handleGrowthClick(action, el)) return;
+  if(handleMoneyClick(action)) return;
 
   /* ---- search / filter / map ---- */
   if(action==='search-clear'){ state.search.q=''; render(); return; }
@@ -3821,9 +4828,10 @@ document.addEventListener('click', (e) => {
   if(action.startsWith('flt-area-')){ state.search.area = action.replace('flt-area-',''); render(); return; }
   if(action==='flt-instant'){ state.search.instant = !state.search.instant; render(); return; }
   if(action==='flt-fast'){ state.search.fast = !state.search.fast; render(); return; }
+  if(action==='flt-super'){ state.search.superOnly = !state.search.superOnly; render(); return; }
   if(action.startsWith('flt-dist-')){ state.search.maxDist = parseInt(action.replace('flt-dist-',''),10)||0; render(); return; }
   if(action==='flt-clear'){
-    Object.assign(state.search, { q:'', area:'All', maxPrice:700, instant:false, fast:false, checkIn:'', checkOut:'', maxDist:0, pin:null });
+    Object.assign(state.search, { q:'', area:'All', maxPrice:700, instant:false, fast:false, superOnly:false, checkIn:'', checkOut:'', maxDist:0, pin:null });
     state.filter = 'All';
     if(state.search.sort==='distance' && !state.userLoc) state.search.sort='rating';
     render(); return;
@@ -3880,9 +4888,10 @@ document.addEventListener('click', (e) => {
   if(action==='mode-owner'){ setMode('owner'); return; }
   if(action==='mode-sitter'){ setMode('sitter'); return; }
   if(action==='mode-trainer'){ setMode('trainer'); return; }
-  if(action==='tap-bell'){ state.notifications.forEach(n=> n.read=true); go('notifications'); return; }
+  if(action==='tap-bell'){ state.notifications.forEach(n=> n.read=true); computeReminders().forEach(r=>{ if(!state.seenReminders.includes(r.id)) state.seenReminders.push(r.id); }); saveGrowthState(); go('notifications'); return; }
   if(action==='back'){
-    if(state.screen==='detail' || state.screen==='requestDetail' || state.screen==='trainingDetail') go('browse');
+    if(state.screen==='detail' && state.selectedId==='me') go('hostprofile');
+    else if(state.screen==='detail' || state.screen==='requestDetail' || state.screen==='trainingDetail') go('browse');
     else if(state.screen==='request') go('detail', {selectedId:state.selectedId});
     else if(state.screen==='ticket') go('bookings');
     else if(state.screen==='addpet') go(state.editPetIdx!=null ? 'petdetail' : 'mypets');
@@ -3898,6 +4907,12 @@ document.addEventListener('click', (e) => {
     else if(state.screen==='meetForm') go('detail', {selectedId:state.selectedId});
     else if(state.screen==='incidentDetail') go(state.incidentReturn==='bookingDetail' ? 'bookingDetail' : 'incidents');
     else if(state.screen==='incidents') go('profile');
+    else if(state.screen==='receipt') go(state.receiptReturn==='receipts' ? 'receipts' : 'bookingDetail');
+    else if(state.screen==='receipts') go('profile');
+    else if(state.screen==='statement') go('earnings');
+    else if(state.screen==='notifsettings') go('notifications');
+    else if(state.screen==='hostprofile' || state.screen==='offers') go('profile');
+    else if(state.screen==='shareProfile') go(state.shareReturn && state.shareReturn!=='shareProfile' ? state.shareReturn : 'browse');
     else if(state.screen==='chatThread') go('messages');
     else if(['verify','payment','mypets','trainercv','notifications','rewards','availability','favorites','tour','earnings','pricing','invite','settings'].includes(state.screen)) go('profile');
     else go('browse');
@@ -3920,7 +4935,7 @@ document.addEventListener('click', (e) => {
     const r = REWARDS.find(x=>x.id===id);
     if(!r || state.loyaltyPoints < r.cost){ toast('Not enough points yet'); return; }
     state.loyaltyPoints -= r.cost;
-    state.redeemedRewards.push({ title:r.title, when:'Just now', code:'PWC-'+Math.random().toString(36).slice(2,7).toUpperCase() });
+    state.redeemedRewards.push({ rewardId:r.id, used:false, title:r.title, when:'Just now', code:'PWC-'+Math.random().toString(36).slice(2,7).toUpperCase() });
     toast(r.title+' redeemed!');
     render();
     return;
@@ -3974,9 +4989,7 @@ document.addEventListener('click', (e) => {
   if(action.startsWith('confirm-cancel-')){
     const id = action.replace('confirm-cancel-','');
     const b = state.bookings.find(x=>x.id===id);
-    const reason = document.getElementById('cancel-reason').value;
-    if(b){ b.status='cancelled'; b.cancelReason = reason; }
-    toast('Pawcation cancelled');
+    doCancel(id);
     go('bookingDetail', {selectedId:id});
     return;
   }
@@ -4007,7 +5020,7 @@ document.addEventListener('click', (e) => {
 
   if(action.startsWith('confirm-request-')){
     const id = action.replace('confirm-request-','');
-    const s = SITTERS.find(x=>x.id===id);
+    const s = sitterById(id);
     const petName = document.getElementById('f-petname').value || 'Your pet';
     const checkIn = document.getElementById('f-in').value || '2026-07-10';
     const checkOut = document.getElementById('f-out').value || '2026-07-14';
@@ -4018,7 +5031,7 @@ document.addEventListener('click', (e) => {
     const protect = state.form.protect;
     const protectFee = 99;
     const pets = state.form.pets || 1;
-    const quote = priceQuote(s, checkIn, checkOut, pets, protect);
+    const quote = quoteWithPromo(s, checkIn, checkOut, pets, protect);
     const selPet = state.form.petIdx!=null ? state.myPets[state.form.petIdx] : null;
     const booking = {
       id: 'b'+Date.now(), status: s.instantBook ? 'confirmed' : 'pending',
@@ -4026,10 +5039,19 @@ document.addEventListener('click', (e) => {
       checkIn: fmtDate(checkIn), checkOut: fmtDate(checkOut), checkInISO: checkIn, checkOutISO: checkOut,
       code: randCode(), sitterId: s.id, updates: [], review: null, reports: [], chatKey: 'owner-'+s.id,
       protect, protectFee: protect ? protectFee : 0, total: quote.total, pets,
+      promo: quote.promo ? { code:quote.promo.code, kind:quote.promo.kind, label:quote.promo.label, amount:quote.promo.discount } : null,
+      lines: quote.lines.map(l=>({ label:l.label, amount:l.amount, promo:!!l.promo })), policy: s.policy||'moderate', paidISO: DEMO_TODAY,
+      payment: { method: state.form.payMethod||'card', status: state.form.payMethod==='havale' ? 'awaiting' : s.instantBook ? 'held' : 'authorized' },
       petCard: (selPet && state.form.shareHealth!==false) ? { name:selPet.name, type:selPet.type, breed:selPet.breed, age:selPet.age, photo:selPet.photo, health:{ ...selPet.health } } : null
     };
     state.bookings.push(booking);
     state.loyaltyPoints += 50;
+    if(booking.promo){
+      if(booking.promo.kind==='first') state.promo.firstUsed = true;
+      else if(booking.promo.kind==='code') state.promo.used.push(booking.promo.code);
+      else if(booking.promo.kind==='reward'){ const rw = state.redeemedRewards.find(x=>String(x.code).toUpperCase()===booking.promo.code); if(rw) rw.used = true; }
+      saveGrowthState();
+    }
     state.consentGiven = true;
     state.form = { protect:false, pets:1, petIdx:null, shareHealth:true, dates:null, prefill:null, rebook:false };
     toast((s.instantBook ? 'Confirmed with ' : 'Request sent to ')+s.name.split(' ')[0]+' · +50 points');
@@ -4045,7 +5067,7 @@ document.addEventListener('click', (e) => {
       id: 'b'+Date.now(), status:'confirmed',
       petName: r.pet, hostName: 'You', loc: r.loc.split(',')[0],
       checkIn, checkOut, code: randCode(), updates: [], review: null, reports: [], chatKey: 'sitter-'+r.id,
-      ownerName: r.owner, earn: parsePrice(r.pay)
+      ownerName: r.owner, ...hostMoney(parsePrice(r.pay))
     };
     state.bookings.push(booking);
     toast('Offer sent to '+r.owner.split(' ')[0]);
@@ -4064,7 +5086,7 @@ document.addEventListener('click', (e) => {
       petName: r.pet, hostName: 'You', loc: r.loc.split(',')[0],
       checkIn: sessions[0].date, checkOut: sessions[sessions.length-1].date,
       code: randCode(), updates: [], review: null,
-      trainerBooking: true, ownerName: r.owner, goal: r.goal, sessions, earn: parsePrice(r.pay)
+      trainerBooking: true, ownerName: r.owner, goal: r.goal, sessions, ...hostMoney(parsePrice(r.pay))
     };
     state.bookings.push(booking);
     toast('Offer sent to '+r.owner.split(' ')[0]);
@@ -4081,7 +5103,7 @@ document.addEventListener('click', (e) => {
   if(action.startsWith('complete-booking-')){
     const id = action.replace('complete-booking-','');
     const b = state.bookings.find(x=>x.id===id);
-    if(b){ b.status='completed'; toast('Marked as completed'); }
+    if(b){ b.status='completed'; releaseEscrow(b); toast('Marked as completed — payment released'); }
     go('bookingDetail', {selectedId:id});
     return;
   }
@@ -4285,7 +5307,7 @@ document.addEventListener('click', (e) => {
   /* ---- rebook ---- */
   if(action.startsWith('rebook-')){
     const sid = action.replace('rebook-','');
-    const s = SITTERS.find(x=>x.id===sid); if(!s) return;
+    const s = sitterById(sid); if(!s) return;
     const last = state.bookings.slice().reverse().find(b=>b.sitterId===sid);
     const nights = (last && last.checkInISO && last.checkOutISO) ? computeNights(last.checkInISO,last.checkOutISO) : 3;
     const range = nextFreeRange(s, nights, '2026-07-16');
@@ -4316,7 +5338,7 @@ document.addEventListener('click', (e) => {
   }
   if(action==='auth-open'){ state.auth.error=''; state.auth.info=''; state.onboarded=false; go('auth'); return; }
   if(action==='auth-tab-in' || action==='auth-tab-up'){ state.auth.tab = action==='auth-tab-up' ? 'up' : 'in'; state.auth.error=''; state.auth.info=''; render(); return; }
-  if(action==='auth-guest'){ BE.guest = true; state.auth.error=''; go('tour'); return; }
+  if(action==='auth-guest'){ BE.guest = true; state.auth.error=''; if(PENDING_LINK){ const l = PENDING_LINK; PENDING_LINK = null; applyDeepLink(l).then(ok => { if(ok) render(); else go('tour'); }); return; } go('tour'); return; }
   if(action==='auth-submit' || action==='auth-magic' || action==='auth-reset'){
     const g = id => ((document.getElementById(id)||{}).value||'').trim();
     const email = g('auth-email'), pass = (document.getElementById('auth-pass')||{}).value||'', name = g('auth-name');
@@ -4379,7 +5401,7 @@ document.addEventListener('click', (e) => {
     render(); return;
   }
   if(action.startsWith('submit-meet-')){
-    const s = SITTERS.find(x=>x.id===action.replace('submit-meet-','')); const D = state.meetDraft; if(!s || !D) return;
+    const s = sitterById(action.replace('submit-meet-','')); const D = state.meetDraft; if(!s || !D) return;
     if((s.blockedDates||[]).includes(D.date)){ toast(s.name.split(' ')[0]+" isn't available that day"); return; }
     const note = (document.getElementById('meet-note')||{}).value || '';
     const pet = D.petIdx!=null ? state.myPets[D.petIdx] : null;
@@ -4774,7 +5796,7 @@ const TR_EXACT = {
   "Emergency":"Acil durum","This is a mock emergency panel. In a live version these would reach the other side and Pawcation support in real time.":"Bu bir demo acil durum paneli. Gerçek sürümde bunlar karşı tarafa ve Pawcation desteğine anında ulaşır.",
   "Reach them directly, right now":"Şimdi doğrudan ulaş","Alert Pawcation support":"Pawcation desteğini uyar","A team member is notified immediately":"Bir ekip üyesine anında bildirim gider",
   "Find nearest emergency vet":"En yakın acil veterineri bul","Uses the vet-care authorization from your booking":"Rezervasyonundaki veteriner bakımı iznini kullanır",
-  "Cancel this pawcation?":"Bu pawcation iptal edilsin mi?","Refunds follow the":"İadeler","cancellation policy":"iptal politikasına",". This can't be undone.":"göre yapılır. Bu işlem geri alınamaz.",
+  "Cancel this pawcation?":"Bu pawcation iptal edilsin mi?","Refunds follow the":"İadeler","cancellation policy":"iptal politikasına",". This can't be undone.":" göre yapılır. Bu işlem geri alınamaz.",
   "Reason (optional)":"Sebep (isteğe bağlı)","Let them know why…":"Nedenini onlara bildir…","Confirm cancellation":"İptali onayla","Never mind":"Vazgeç",
   "New dates":"Yeni tarihler","New check-in":"Yeni giriş","New check-out":"Yeni çıkış","Send new dates":"Yeni tarihleri gönder",
   "Your feedback helps other owners choose a trustworthy sitter.":"Geri bildirimin diğer sahiplerin güvenilir bir bakıcı seçmesine yardımcı olur.",
@@ -4951,6 +5973,254 @@ const TR_EXACT = {
   "Invite by name":"İsimle davet et","Friend's name or phone":"Arkadaşının adı veya telefonu","Invite":"Davet et","Invite sent":"Davet gönderildi","Simulate: they joined":"Simülasyon: katıldı",
   "Have a friend's code?":"Bir arkadaşının kodu var mı?","e.g. PAW-ELIF25":"örn. PAW-ELIF25","Apply":"Uygula",
   "Code copied":"Kod kopyalandı","Invite message copied":"Davet mesajı kopyalandı","Enter a name or phone number":"Bir isim veya telefon numarası gir","That code is not valid":"Bu kod geçerli değil",
+  /* --- round 10 --- */
+  "Your first booking is 15% off":"İlk rezervasyonun %15 indirimli",
+  "Applied automatically at checkout · up to ₺300":"Ödemede otomatik uygulanır · en fazla ₺300",
+  "Applied automatically at checkout — up to ₺300 off.":"Ödemede otomatik uygulanır — en fazla ₺300 indirim.",
+  "Super sitter":"Süper bakıcı",
+  "Super sitters":"Süper bakıcılar",
+  "You are a Super sitter":"Süper bakıcısın",
+  "Send this profile to a friend, or post it to your story.":"Bu profili bir arkadaşına gönder ya da hikâyende paylaş.",
+  "Where are you sharing?":"Nerede paylaşıyorsun?",
+  "Other":"Diğer",
+  "Copy":"Kopyala",
+  "The tag after":"Şundan sonraki etiket:",
+  "tells you which channel the visit came from.":"ziyaretin hangi kanaldan geldiğini gösterir.",
+  "Print it for your door or your business card.":"Kapına ya da kartvizitine yazdırabilirsin.",
+  "Story card":"Hikâye kartı",
+  "Share…":"Paylaş…",
+  "Share profile":"Profili paylaş",
+  "Profile link":"Profil bağlantısı",
+  "The story card is a 1080×1920 image sized for Instagram Stories — it includes a QR code to the profile.":"Hikâye kartı, Instagram Hikâyeleri için 1080×1920 boyutunda bir görsel — profile giden QR kodu içerir.",
+  "Your profile is hidden, so this link won’t open for anyone yet.":"Profilin gizli, bu yüzden bu bağlantı henüz kimse için açılmaz.",
+  "Publish it":"Yayınla",
+  "first.":"önce.",
+  "Share your profile":"Profilini paylaş",
+  "Put this link in your Instagram bio, a story or a WhatsApp message — owners land straight on your profile.":"Bu bağlantıyı Instagram biyografine, hikâyene ya da bir WhatsApp mesajına ekle — sahipler doğrudan profiline ulaşır.",
+  "Demo mode keeps your profile on this device, so your link only opens here. Connect the backend to publish it for everyone.":"Demo modu profilini bu cihazda tutar, bu yüzden bağlantın sadece burada açılır. Herkese yayınlamak için arka ucu bağla.",
+  "Profile not found.":"Profil bulunamadı.",
+  "First-booking offer applied automatically — 15% off, up to ₺300.":"İlk rezervasyon indirimi otomatik uygulandı — %15 indirim, en fazla ₺300.",
+  "Promo code":"Promosyon kodu",
+  "Promo":"Promosyon",
+  "Enter a code":"Bir kod gir",
+  "Remove promo code":"Promosyon kodunu kaldır",
+  "That code isn’t valid.":"Bu kod geçerli değil.",
+  "This code has expired.":"Bu kodun süresi dolmuş.",
+  "You’ve already used this code.":"Bu kodu zaten kullandın.",
+  "This reward code was already used.":"Bu ödül kodu zaten kullanıldı.",
+  "Add Pawcation Protect to use this reward.":"Bu ödülü kullanmak için Pawcation Protect ekle.",
+  "Your first-booking offer is bigger — only one discount per booking.":"İlk rezervasyon indirimin daha büyük — rezervasyon başına yalnızca bir indirim uygulanır.",
+  "First booking −15%":"İlk rezervasyon −%15",
+  "Reward · Free Protect":"Ödül · Ücretsiz Protect",
+  "Reward · ₺50 off":"Ödül · ₺50 indirim",
+  "10% off any stay (up to ₺200)":"Her konaklamada %10 indirim (en fazla ₺200)",
+  "Summer launch — 10% off":"Yaz lansmanı — %10 indirim",
+  "Offers & promo codes":"Fırsatlar ve promosyon kodları",
+  "Enter a code when you request a stay. One offer applies per booking — the biggest saving wins.":"Konaklama talep ederken bir kod gir. Rezervasyon başına tek fırsat uygulanır — en büyük tasarruf kazanır.",
+  "Available":"Kullanılabilir",
+  "First booking":"İlk rezervasyon",
+  "15% off your first stay":"İlk konaklamanda %15 indirim",
+  "Applied automatically · up to ₺300 off":"Otomatik uygulanır · en fazla ₺300 indirim",
+  "From your Pawcation Points":"Pawcation Puanlarından",
+  "No offers right now. Earn points by booking and inviting friends.":"Şu an fırsat yok. Rezervasyon yaparak ve arkadaşlarını davet ederek puan kazan.",
+  "Used & expired":"Kullanılmış ve süresi dolmuş",
+  "Used":"Kullanıldı",
+  "Expired":"Süresi doldu",
+  "Earn more with Pawcation Points":"Pawcation Puanlarıyla daha fazla kazan",
+  "Reminders":"Hatırlatmalar",
+  "Payments":"Ödemeler",
+  "Notification settings":"Bildirim ayarları",
+  "Reminders, payments and updates land here.":"Hatırlatmalar, ödemeler ve güncellemeler burada.",
+  "Open health card":"Sağlık kartını aç",
+  "View booking":"Rezervasyonu gör",
+  "See offers":"Fırsatları gör",
+  "Share my profile":"Profilimi paylaş",
+  "Open calendar":"Takvimi aç",
+  "Dismiss reminder":"Hatırlatmayı kapat",
+  "Sitters with a lively profile get more requests. Share your link or update your availability.":"Canlı profili olan bakıcılar daha fazla talep alır. Bağlantını paylaş ya da müsaitliğini güncelle.",
+  "Choose which reminders you want. They appear in your notifications.":"Hangi hatırlatmaları istediğini seç. Bildirimlerinde görünürler.",
+  "Choose which reminders you want. They appear in your notifications and as device alerts.":"Hangi hatırlatmaları istediğini seç. Bildirimlerinde ve cihaz uyarısı olarak görünürler.",
+  "For pet owners":"Evcil hayvan sahipleri için",
+  "For sitters":"Bakıcılar için",
+  "On this device":"Bu cihazda",
+  "Vaccine reminders":"Aşı hatırlatmaları",
+  "When a pet’s yearly vaccine is coming up.":"Bir evcil hayvanın yıllık aşısı yaklaşırken.",
+  "Before a booking":"Rezervasyondan önce",
+  "A heads-up before a confirmed stay begins.":"Onaylı bir konaklama başlamadan önce haber verir.",
+  "Offers & expiring codes":"Fırsatlar ve süresi dolan kodlar",
+  "Your first-booking discount and promo codes about to expire.":"İlk rezervasyon indirimin ve süresi dolmak üzere olan promosyon kodların.",
+  "Empty calendar alert":"Boş takvim uyarısı",
+  "When most of your next two weeks are still open.":"Önümüzdeki iki haftanın çoğu hâlâ boşken.",
+  "Remind me":"Hatırlat",
+  "before":"önce",
+  "7 days":"7 gün",
+  "14 days":"14 gün",
+  "30 days":"30 gün",
+  "1 day":"1 gün",
+  "3 days":"3 gün",
+  "Device notifications":"Cihaz bildirimleri",
+  "Allow":"İzin ver",
+  "Send a test notification":"Test bildirimi gönder",
+  "This browser doesn’t support device notifications.":"Bu tarayıcı cihaz bildirimlerini desteklemiyor.",
+  "Not enabled yet.":"Henüz açık değil.",
+  "Enabled on this device.":"Bu cihazda açık.",
+  "Blocked — turn them on in your browser’s site settings.":"Engellendi — tarayıcının site ayarlarından aç.",
+  "Reminders reach this device while Pawcation is open or installed. Alerts while the app is fully closed need a push server — not part of this demo.":"Hatırlatmalar, Pawcation açıkken ya da yüklüyken bu cihaza ulaşır. Uygulama tamamen kapalıyken uyarı için bir push sunucusu gerekir — bu demoda yok.",
+  "My public profile":"Herkese açık profilim",
+  "This is what owners see when they find you. A complete profile with photos gets noticeably more requests.":"Sahipler seni bulduğunda bunu görür. Fotoğraflı, eksiksiz bir profil belirgin şekilde daha fazla talep alır.",
+  "Profile strength":"Profil gücü",
+  "Add at least 3 photos of your home":"Evinden en az 3 fotoğraf ekle",
+  "Write a headline":"Bir başlık yaz",
+  "Introduce yourself (80+ characters)":"Kendini tanıt (80+ karakter)",
+  "Add a home video tour":"Ev videosu turu ekle",
+  "Verify your ID":"Kimliğini doğrula",
+  "Keep your calendar up to date":"Takvimini güncel tut",
+  "The badge shows on your profile and cards. It is re-checked automatically.":"Rozet profilinde ve kartlarında görünür. Otomatik olarak yeniden kontrol edilir.",
+  "Response rate":"Yanıt oranı",
+  "Average response time":"Ortalama yanıt süresi",
+  "Completed stays":"Tamamlanan konaklamalar",
+  "Occupancy this month":"Bu ayki doluluk",
+  "Met":"Karşılandı",
+  "Not met":"Karşılanmadı",
+  "About you":"Hakkında",
+  "Display name":"Görünen ad",
+  "Headline":"Başlık",
+  "Introduce yourself":"Kendini tanıt",
+  "Save details":"Bilgileri kaydet",
+  "Photos":"Fotoğraflar",
+  "Add photos":"Fotoğraf ekle",
+  "Cover":"Kapak",
+  "The first photo is your cover. Show the space your guest will actually use — yard, sleeping spot, walking routes.":"İlk fotoğraf kapağın olur. Misafirin gerçekten kullanacağı alanı göster — bahçe, uyku yeri, yürüyüş rotaları.",
+  "Home video tour":"Ev videosu turu",
+  "Home tour":"Ev turu",
+  "Add a short video (up to 30 MB)":"Kısa bir video ekle (en fazla 30 MB)",
+  "30–60 seconds is plenty. Owners trust a sitter more when they can see the home.":"30–60 saniye yeter. Sahipler evi görebildiklerinde bakıcıya daha çok güvenir.",
+  "Visibility":"Görünürlük",
+  "Public profile":"Herkese açık profil",
+  "Owners can find you and open your link.":"Sahipler seni bulabilir ve bağlantını açabilir.",
+  "Hidden. Publish when your name, headline and a photo are ready.":"Gizli. Adın, başlığın ve bir fotoğrafın hazır olunca yayınla.",
+  "Preview profile":"Profili önizle",
+  "Share link":"Bağlantıyı paylaş",
+  "Back to editing":"Düzenlemeye dön",
+  "Remove":"Kaldır",
+  "e.g. Elif K.":"örn. Elif K.",
+  "e.g. Big yard, calm house, two resident cats":"örn. Geniş bahçe, sakin ev, iki evcil kedi",
+  "Your home, your routine, your experience with animals…":"Evin, günlük düzenin, hayvanlarla deneyimin…",
+  "Profile saved":"Profil kaydedildi",
+  "Add a name, a headline and one photo first":"Önce bir ad, bir başlık ve bir fotoğraf ekle",
+  "Profile published":"Profil yayınlandı",
+  "Profile hidden":"Profil gizlendi",
+  "Profile published on this device":"Profil bu cihazda yayınlandı",
+  "Could not publish — check your connection":"Yayınlanamadı — bağlantını kontrol et",
+  "Story card saved":"Hikâye kartı kaydedildi",
+  "Could not create the card":"Kart oluşturulamadı",
+  "Copied":"Kopyalandı",
+  "Press and hold to copy":"Kopyalamak için basılı tut",
+  "Please choose a video file":"Lütfen bir video dosyası seç",
+  "That video is over 30 MB":"Bu video 30 MB'tan büyük",
+  "Device notifications on":"Cihaz bildirimleri açık",
+  "Test notification sent":"Test bildirimi gönderildi",
+  "Could not send a notification":"Bildirim gönderilemedi",
+  "That profile link isn’t available":"Bu profil bağlantısı kullanılamıyor",
+  "Promo applied":"Promosyon uygulandı",
+  /* --- round 11 --- */
+  "Credit / debit card":"Kredi / banka kartı",
+  "Visa, Mastercard or Amex":"Visa, Mastercard veya Amex",
+  "Troy card":"Troy kart",
+  "Domestic Troy-branded cards":"Yerli Troy markalı kartlar",
+  "Bank transfer (havale / EFT)":"Banka havalesi (havale / EFT)",
+  "Transfer within 24 hours to keep the booking":"Rezervasyonu korumak için 24 saat içinde gönder",
+  "Card on hold":"Kart provizyonda",
+  "You are charged when the sitter accepts.":"Bakıcı kabul edince tahsil edilir.",
+  "Waiting for your transfer":"Havaleni bekliyoruz",
+  "Send the transfer within 24 hours or the booking is cancelled.":"Havaleyi 24 saat içinde gönder, aksi halde rezervasyon iptal edilir.",
+  "Held by Pawcation":"Pawcation'da emanette",
+  "The sitter is paid after check-out.":"Bakıcıya check-out sonrası ödenir.",
+  "Paid out to sitter":"Bakıcıya ödendi",
+  "The stay is over and the payment was released.":"Konaklama bitti, ödeme serbest bırakıldı.",
+  "Refunded":"İade edildi",
+  "The full amount was returned.":"Tutarın tamamı iade edildi.",
+  "Partly refunded":"Kısmen iade edildi",
+  "Part of the amount was returned under the cancellation policy.":"Tutarın bir kısmı iptal politikasına göre iade edildi.",
+  "Not refundable":"İade edilemez",
+  "Under the cancellation policy this was paid to the sitter.":"İptal politikası gereği bakıcıya ödendi.",
+  "Flexible":"Esnek",
+  "Moderate":"Orta",
+  "Strict":"Katı",
+  "Best for last-minute plans. Free cancellation until 2 days before check-in.":"Son dakika planlar için ideal. Check-in'den 2 gün öncesine kadar ücretsiz iptal.",
+  "The Pawcation standard. Free cancellation until 7 days before check-in.":"Pawcation standardı. Check-in'den 7 gün öncesine kadar ücretsiz iptal.",
+  "For busy seasons. Free cancellation until 14 days before check-in.":"Yoğun sezonlar için. Check-in'den 14 gün öncesine kadar ücretsiz iptal.",
+  "Cancellation policy":"İptal politikası",
+  "After check-in":"Check-in sonrası",
+  "Handled by support":"Destek ekibi çözer",
+  "No refund":"İade yok",
+  "Payment":"Ödeme",
+  "Payout":"Hakediş",
+  "Payment method":"Ödeme yöntemi",
+  "Escrow:":"Emanet:",
+  "We show the bank details right after you book. Transfer within 24 hours to keep the booking.":"Banka bilgilerini rezervasyondan hemen sonra gösteririz. Rezervasyonu korumak için 24 saat içinde havale yap.",
+  "You are charged now. Pawcation holds the money and pays the sitter after check-out.":"Şimdi tahsil edilirsin. Pawcation parayı emanette tutar ve check-out sonrası bakıcıya öder.",
+  "Your card is only put on hold. You are charged when the sitter accepts — and Pawcation then holds it until after check-out.":"Kartına yalnızca provizyon konur. Bakıcı kabul edince tahsil edilirsin — Pawcation parayı check-out sonrasına kadar emanette tutar.",
+  "Paid":"Ödendi",
+  "Paid out":"Aktarıldı",
+  "Stay amount":"Konaklama tutarı",
+  "You receive":"Eline geçen",
+  "Receipt":"Makbuz",
+  "Payout receipt":"Hakediş makbuzu",
+  "Payment receipt":"Ödeme makbuzu",
+  "Simulate: transfer received":"Simülasyon: havale ulaştı",
+  "Simulate: sitter accepts":"Simülasyon: bakıcı kabul eder",
+  "Simulate: stay ends":"Simülasyon: konaklama biter",
+  "Copy IBAN":"IBAN'ı kopyala",
+  "IBAN (demo)":"IBAN (demo)",
+  "Reference":"Referans",
+  "The owner’s payment is held by Pawcation and is paid out to you after check-out.":"Sahibin ödemesi Pawcation'da emanette tutulur ve check-out sonrası sana aktarılır.",
+  "Paid out to you.":"Sana aktarıldı.",
+  "Who pays what":"Kim ne öder",
+  "You get back":"Sana iade edilen",
+  "You pay (non-refundable)":"Ödeyeceğin (iade edilmez)",
+  "You are charged":"Tahsil edilecek tutar",
+  "Pawcation commission":"Pawcation komisyonu",
+  "Owner is refunded":"Sahibe iade edilen",
+  "Your payout":"Hakedişin",
+  "Cancelling confirmed stays can lower your response rate and affect your Super sitter badge.":"Onaylı konaklamaları iptal etmek yanıt oranını düşürebilir ve Süper bakıcı rozetini etkileyebilir.",
+  "This stay has already started — support mediates refunds.":"Bu konaklama başladı — iadelere destek ekibi arabuluculuk eder.",
+  "You are cancelling a confirmed stay.":"Onaylı bir konaklamayı iptal ediyorsun.",
+  "The sitter has not accepted yet, so you get everything back.":"Bakıcı henüz kabul etmedi, bu yüzden her şey sana iade edilir.",
+  "Cancelled — the owner is refunded in full":"İptal edildi — sahibe tamamı iade edilir",
+  "Cancelled · no refund under this policy":"İptal edildi · bu politikada iade yok",
+  "Transfer received — payment held":"Havale ulaştı — ödeme emanette",
+  "Sitter accepted — card charged":"Bakıcı kabul etti — kart tahsil edildi",
+  "Stay finished — payment released to the sitter":"Konaklama bitti — ödeme bakıcıya aktarıldı",
+  "Receipt downloaded":"Makbuz indirildi",
+  "Statement downloaded":"Döküm indirildi",
+  "Marked as completed — payment released":"Tamamlandı olarak işaretlendi — ödeme aktarıldı",
+  "Payments & receipts":"Ödemeler ve makbuzlar",
+  "Every payment is held by Pawcation until the stay is over. Open any booking to see where its money is.":"Her ödeme, konaklama bitene kadar Pawcation'da emanette tutulur. Paranın nerede olduğunu görmek için bir rezervasyonu aç.",
+  "No payments yet":"Henüz ödeme yok",
+  "Your receipts appear here after you book.":"Makbuzların rezervasyon yaptıktan sonra burada görünür.",
+  "Receipt no.":"Makbuz no.",
+  "Date":"Tarih",
+  "Stay":"Konaklama",
+  "Status":"Durum",
+  "Total":"Toplam",
+  "Net paid":"Net ödenen",
+  "Net payout":"Net hakediş",
+  "Owner":"Sahip",
+  "Pet":"Hayvan",
+  "Sitter":"Bakıcı",
+  "This receipt confirms a payment made through Pawcation. It is for your records and is not an official tax invoice (e-Arşiv / e-Fatura).":"Bu makbuz, Pawcation üzerinden yapılan bir ödemeyi doğrular. Kayıtların içindir; resmî bir vergi faturası (e-Arşiv / e-Fatura) değildir.",
+  "Print / Save as PDF":"Yazdır / PDF olarak kaydet",
+  "Download":"İndir",
+  "Download CSV":"CSV indir",
+  "Monthly statement":"Aylık döküm",
+  "Booking":"Rezervasyon",
+  "Net":"Net",
+  "Earlier bookings this month (summary)":"Bu ayın önceki rezervasyonları (özet)",
+  "In escrow":"Emanette",
+  "Commission on itemised bookings":"Listelenen rezervasyonların komisyonu",
+  "Total net earnings":"Toplam net kazanç",
+  "Reason (optional)":"Sebep (isteğe bağlı)",
 };
 
 const TR_WHEN = { hour:'saat', hours:'saat', day:'gün', days:'gün', week:'hafta', weeks:'hafta' };
@@ -5036,6 +6306,52 @@ const TR_PATTERNS = [
   [/^Simulate: (.+) leaves a review$/, (m,n)=> `Simülasyon: ${n} yorum bırakır`],
   [/^Simulate: (.+) replies$/, (m,n)=> `Simülasyon: ${n} yanıt verir`],
   [/^(.+) replied to your review$/, (m,n)=> `${n} yorumuna yanıt verdi`],
+  /* --- round 10 --- */
+  [/^(.+)'s vaccines are overdue$/, (m,n)=> `${trSuffix(n,'gen')} aşıları gecikti`],
+  [/^(.+)'s vaccines are due today$/, (m,n)=> `${trSuffix(n,'gen')} aşıları bugün yenilenmeli`],
+  [/^(.+)'s vaccines are due in (\d+) days?$/, (m,n,d)=> `${trSuffix(n,'gen')} aşıları ${d} gün içinde yenilenmeli`],
+  [/^Last vaccinated (.+)\. Book a vet visit and update (.+)'s health card\.$/, (m,d,n)=> `Son aşı: ${d}. Veteriner randevusu al ve ${trSuffix(n,'gen')} sağlık kartını güncelle.`],
+  [/^Your stay with (.+) starts (today|tomorrow|in (\d+) days)$/, (m,n,w,d)=> `${n} ile konaklaman ${w==='today' ? 'bugün başlıyor' : w==='tomorrow' ? 'yarın başlıyor' : d+' gün içinde başlıyor'}`],
+  [/^Pack (.+)'s food, medication and a favourite toy\. Check-in details are in your booking\.$/, (m,n)=> `${trSuffix(n,'gen')} mamasını, ilaçlarını ve en sevdiği oyuncağı hazırla. Giriş bilgileri rezervasyonunda.`],
+  [/^([A-Z0-9]{4,12}) expires in (\d+) days?$/, (m,c,d)=> `${c} ${d} gün içinde sona eriyor`],
+  [/^(.+)\. Use it before it’s gone\.$/, (m,t)=> `${trCore(t)}. Bitmeden kullan.`],
+  [/^₺(\d+) off stays over ₺(\d+)$/, (m,a,b)=> `₺${a} indirim — ₺${b} üzeri konaklamalarda`],
+  [/^Your calendar is open on (\d+) of the next 14 days$/, (m,n)=> `Önümüzdeki 14 günün ${n} günü takvimin boş`],
+  [/^This code needs a stay of at least ₺(\d+)\.$/, (m,n)=> `Bu kod en az ₺${n} tutarında bir konaklama gerektirir.`],
+  [/^Expires (.+)$/, (m,d)=> `Son kullanma: ${d}`],
+  [/^Promo applied: (.+)$/, (m,r)=> `Promosyon uygulandı: ${trCore(r)}`],
+  [/^Promo · (.+)$/, (m,r)=> `Promosyon · ${trCore(r)}`],
+  [/^−₺(.+) applied$/, (m,n)=> `−₺${n} uygulandı`],
+  [/^Share (.+)’s profile$/, (m,n)=> `${trSuffix(n,'gen')} profilini paylaş`],
+  [/^See my (\d+) reminders?$/, (m,n)=> `${n} hatırlatmamı gör`],
+  [/^(\d+)% response rate$/, (m,n)=> `%${n} yanıt oranı`],
+  [/^(\d+) of (\d+) requirements met — the badge is awarded automatically\.$/, (m,a,b)=> `${b} koşuldan ${a}'i karşılandı — rozet otomatik verilir.`],
+  [/^(\d+)% complete$/, (m,n)=> `%${n} tamamlandı`],
+  [/^Home photo (\d+)$/, (m,n)=> `Ev fotoğrafı ${n}`],
+  [/^Remove photo (\d+)$/, (m,n)=> `${n}. fotoğrafı kaldır`],
+  [/^(.+) — photo (\d+)$/, (m,n,i)=> `${n} — fotoğraf ${i}`],
+  /* --- round 11 --- */
+  [/^(\d+)\+ days before check-in$/, (m,n)=> `Check-in'den ${n}+ gün önce`],
+  [/^(\d+)–(\d+) days before check-in$/, (m,a,b)=> `Check-in'den ${a}–${b} gün önce`],
+  [/^Less than (\d+) days before check-in$/, (m,n)=> `Check-in'den ${n} günden az kala`],
+  [/^(\d+)% refund$/, (m,n)=> `%${n} iade`],
+  [/^(Flexible|Moderate|Strict) policy$/, (m,k)=> `${{Flexible:'Esnek',Moderate:'Orta',Strict:'Katı'}[k]} politika`],
+  [/^(Flexible|Moderate|Strict) cancellation$/, (m,k)=> `${{Flexible:'Esnek',Moderate:'Orta',Strict:'Katı'}[k]} iptal`],
+  [/^(.*) Demo only — no real payment is taken\.$/, (m,t)=> `${trCore(t)} Yalnızca demo — gerçek ödeme alınmaz.`],
+  [/^(.+?) Releases on (.+)\.$/, (m,t,d)=> `${trCore(t)} ${d} tarihinde aktarılır.`],
+  [/^Pawcation commission · (\d+)%$/, (m,n)=> `Pawcation komisyonu · %${n}`],
+  [/^Cancelled by the (sitter|owner) · (\d+)% refund$/, (m,w,n)=> `${w==='sitter' ? 'Bakıcı' : 'Sahip'} iptal etti · %${n} iade`],
+  [/^Sitter receives \(after (\d+)% commission\)$/, (m,n)=> `Bakıcıya geçen (%${n} komisyon sonrası)`],
+  [/^Check-in is in (\d+) days?\.$/, (m,n)=> `Check-in'e ${n} gün var.`],
+  [/^Cancelled · (.+) refunded$/, (m,a)=> `İptal edildi · ${a} iade edildi`],
+  [/^Policy: (.+)$/, (m,k)=> `Politika: ${trCore(k)}`],
+  [/^Earnings statement · (\w+) 2026$/, (m,mo)=> `Kazanç dökümü · ${trCore(mo)} 2026`],
+  [/^Bookings in (\w+) \(summary\)$/, (m,mo)=> `${trCore(mo)} ayı rezervasyonları (özet)`],
+  [/^Gross (.+) − commission (.+)$/, (m,a,b)=> `Brüt ${a} − komisyon ${b}`],
+  [/^Net amounts are after the (\d+)% Pawcation commission\. Earlier months are shown as summaries\. This statement is for your records and is not a tax document — you are responsible for declaring your income\.$/, (m,n)=> `Net tutarlar %${n} Pawcation komisyonu düşüldükten sonraki tutarlardır. Önceki aylar özet olarak gösterilir. Bu döküm kayıtların içindir, vergi belgesi değildir — gelirini beyan etmek senin sorumluluğundadır.`],
+  [/^Amounts are after Pawcation’s (\d+)% commission\. Payments are held in escrow and released (\d+) days? after check-out\.$/, (m,n,d)=> `Tutarlar Pawcation'ın %${n} komisyonu düşüldükten sonraki tutarlardır. Ödemeler emanette tutulur ve check-out'tan ${d} gün sonra aktarılır.`],
+  [/^Pawcation keeps a (\d+)% commission\. On a (.+) night you receive$/, (m,n,a)=> `Pawcation %${n} komisyon alır. ${a} tutarındaki bir gecede eline geçen`],
+  [/^\. Payments are held in escrow and paid out (\d+) days? after check-out\.$/, (m,d)=> `. Ödemeler emanette tutulur ve check-out'tan ${d} gün sonra aktarılır.`],
 ];
 
 function trCore(c){
@@ -5097,8 +6413,17 @@ document.documentElement.lang = state.lang;
 trApply(document.body);
 updateOnlineBar();
 
+loadGrowthState();
+(function(){
+  const dl = readDeepLink(); if(!dl) return;
+  if(backendActive()){ PENDING_LINK = dl; return; }
+  const s = resolveSitterSlug(dl.slug);
+  if(s){ state.onboarded = true; state.mode = 'owner'; state.selectedId = s.id; state.deepLink = true; state.screen = 'detail'; }
+  else setTimeout(() => toast('That profile link isn’t available'), 600);
+})();
 render();
 backendBoot();
+setTimeout(maybeSystemNotify, 1500);
 
 /* ============ SYNTHESIZED "WOOF" SOUND (no audio file — generated in-browser) ============ */
 let barkPlayed = false;
