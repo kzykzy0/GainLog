@@ -6,10 +6,80 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#1E3A2B">
+<meta name="color-scheme" content="light dark">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="vendor/leaflet.css">
 <title>Pawcation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+(function(){ var P={theme:'auto',text:100,contrast:false,motion:false};
+  try{ var r=JSON.parse(localStorage.getItem('pawcation.prefs')||'{}'); for(var k in r) P[k]=r[k]; }catch(e){}
+  window.__prefs=P; var h=document.documentElement;
+  h.dataset.theme=P.theme; h.dataset.contrast=P.contrast?'high':'normal'; h.dataset.motion=P.motion?'reduce':'auto';
+  h.style.setProperty('--fs', (P.text||100)/100);
+})();
+</script>
 <style>
+  :root{
+    --fill:#1E3A2B; --on-fill:#F1EFE2; --text2:#333; --glass:rgba(255,255,255,.92); --mapbg:#EAE6D0; --fs:1;
+  }
+  html[data-theme=light]{ color-scheme:light; }
+  html[data-theme=dark]{
+    --ink:#E9EEE6; --ink-soft:#A8B7AB; --canvas:#121A15; --paper:#1B2620; --line:#33433A;
+    --gold:#EDB04F; --gold-deep:#E3A23B; --moss:#4F7256; --moss-deep:#9CC9A3; --stamp:#EE7A62;
+    --fill:#2D5A40; --on-fill:#F1F5EE; --text2:#D2DBD3; --glass:rgba(27,38,32,.92); --mapbg:#1D2A22;
+    --shadow: 0 18px 40px -18px rgba(0,0,0,.7);
+    color-scheme:dark;
+  }
+  @media (prefers-color-scheme:dark){
+    html[data-theme=auto]{
+    --ink:#E9EEE6; --ink-soft:#A8B7AB; --canvas:#121A15; --paper:#1B2620; --line:#33433A;
+    --gold:#EDB04F; --gold-deep:#E3A23B; --moss:#4F7256; --moss-deep:#9CC9A3; --stamp:#EE7A62;
+    --fill:#2D5A40; --on-fill:#F1F5EE; --text2:#D2DBD3; --glass:rgba(27,38,32,.92); --mapbg:#1D2A22;
+    --shadow: 0 18px 40px -18px rgba(0,0,0,.7);
+    color-scheme:dark;
+    }
+  }
+  html[data-contrast=high]{ --line:#8B8466; --ink-soft:#26402F; --moss-deep:#2F5237; }
+  html[data-contrast=high][data-theme=dark]{ --line:#7C9183; --ink-soft:#D5E0D7; }
+  @media (prefers-color-scheme:dark){ html[data-contrast=high][data-theme=auto]{ --line:#7C9183; --ink-soft:#D5E0D7; } }
+  html[data-contrast=high] .card, html[data-contrast=high] .profile-row, html[data-contrast=high] .field input, html[data-contrast=high] .field textarea, html[data-contrast=high] .field select{ border-width:2px; }
+  html[data-contrast=high] a, html[data-contrast=high] .pp-link{ text-decoration:underline; }
+  /* dark map tiles + imagery */
+  html[data-theme=dark] .leaflet-tile-pane{ filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.88) saturate(.7); }
+  html[data-theme=dark] .leaflet-container{ background:var(--mapbg); }
+  html[data-theme=dark] .leaflet-control-attribution{ background:rgba(27,38,32,.8) !important; color:#A8B7AB; }
+  html[data-theme=dark] .leaflet-control-attribution a{ color:#9CC9A3; }
+  html[data-theme=dark] img, html[data-theme=dark] .pp-img, html[data-theme=dark] .card-img{ filter:brightness(.9); }
+  @media (prefers-color-scheme:dark){
+    html[data-theme=auto] .leaflet-tile-pane{ filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.88) saturate(.7); }
+    html[data-theme=auto] .leaflet-container{ background:var(--mapbg); }
+    html[data-theme=auto] .leaflet-control-attribution{ background:rgba(27,38,32,.8) !important; color:#A8B7AB; }
+    html[data-theme=auto] .leaflet-control-attribution a{ color:#9CC9A3; }
+    html[data-theme=auto] img, html[data-theme=auto] .pp-img, html[data-theme=auto] .card-img{ filter:brightness(.9); }
+  }
+  /* accessibility: focus, motion, skip */
+  :focus{ outline:none; }
+  :focus-visible{ outline:3px solid var(--gold); outline-offset:2px; border-radius:8px; }
+  html[data-motion=reduce] *, html[data-motion=reduce] *::before, html[data-motion=reduce] *::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+  @media (prefers-reduced-motion:reduce){ html[data-motion=auto] *, html[data-motion=auto] *::before, html[data-motion=auto] *::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
+  .offlinebar{ position:absolute; left:0; right:0; top:0; z-index:50; background:#7A4B0C; color:#fff; font-size:calc(12px*var(--fs)); font-weight:600; text-align:center; padding:calc(env(safe-area-inset-top,0px) + 6px) 12px 6px; transform:translateY(-110%); transition:transform .25s; }
+  .offlinebar.show{ transform:translateY(0); }
+  .sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .seg{ display:flex; gap:6px; background:rgba(110,143,114,.14); padding:4px; border-radius:14px; margin:0 0 6px; }
+  .seg button{ flex:1; border:none; background:transparent; color:var(--ink); border-radius:11px; padding:10px 6px; font-size:calc(13px*var(--fs)); font-weight:600; cursor:pointer; font-family:inherit; }
+  .seg button[aria-pressed=true]{ background:var(--fill); color:var(--on-fill); }
+  .setrow{ display:flex; align-items:center; justify-content:space-between; gap:12px; background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:14px 16px; margin-bottom:10px; }
+  .setrow b{ display:block; font-size:calc(14px*var(--fs)); }
+  .setrow small{ display:block; color:var(--ink-soft); font-size:calc(12px*var(--fs)); margin-top:2px; line-height:1.4; }
+  .switch{ position:relative; width:46px; height:28px; border-radius:999px; background:var(--line); border:none; flex-shrink:0; cursor:pointer; }
+  .switch::after{ content:''; position:absolute; top:3px; left:3px; width:22px; height:22px; border-radius:50%; background:#fff; transition:transform .15s; }
+  .switch[aria-checked=true]{ background:var(--moss); }
+  .switch[aria-checked=true]::after{ transform:translateX(18px); }
+  .prefsample{ background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:14px 16px; margin:10px 0 16px; font-size:calc(14px*var(--fs)); line-height:1.5; }
   :root{
     --ink:#1E3A2B;
     --ink-soft:#4A5F4F;
@@ -17,10 +87,10 @@
     --paper:#FFFFFF;
     --line:#DAD5BF;
     --gold:#E3A23B;
-    --gold-deep:#C67F1E;
-    --moss:#6E8F72;
-    --moss-deep:#4F7256;
-    --stamp:#C1442E;
+    --gold-deep:#84510F;
+    --moss:#587A5D;
+    --moss-deep:#3F6247;
+    --stamp:#B03A25;
     --shadow: 0 18px 40px -18px rgba(30,58,43,0.35);
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
@@ -64,7 +134,7 @@
   }
   .brand{
     display:flex; align-items:center; gap:8px;
-    font-family:'Fraunces',serif; font-weight:700; font-size:19px;
+    font-family:'Fraunces',serif; font-weight:700; font-size:calc(19px*var(--fs));
   }
   .brand .mark{
     width:30px;height:30px;border-radius:9px;
@@ -89,7 +159,7 @@
   }
   .modeswitch button{
     border:none; background:transparent;
-    font-family:'Inter',sans-serif; font-size:12px; font-weight:600;
+    font-family:'Inter',sans-serif; font-size:calc(12px*var(--fs)); font-weight:600;
     padding:8px 8px; border-radius:999px;
     color:var(--ink-soft);
     cursor:pointer;
@@ -99,13 +169,13 @@
     white-space:nowrap;
   }
   .modeswitch button.active{
-    background:var(--ink); color:var(--canvas);
+    background:var(--fill); color:var(--on-fill);
   }
 
   /* ---------- content area ---------- */
   .content{
     flex:1;
-    overflow-y:auto;
+    overflow-y:auto; overflow-x:hidden;
     padding:0 20px 100px;
   }
   @media (min-width:900px){
@@ -114,11 +184,11 @@
   }
   .content::-webkit-scrollbar{display:none;}
   h2.title{
-    font-family:'Fraunces',serif; font-weight:600; font-size:24px;
+    font-family:'Fraunces',serif; font-weight:600; font-size:calc(24px*var(--fs));
     margin:2px 0 4px;
   }
   .subtitle{
-    font-size:13.5px; color:var(--ink-soft); margin:0 0 18px; line-height:1.5;
+    font-size:calc(13.5px*var(--fs)); color:var(--ink-soft); margin:0 0 18px; line-height:1.5;
   }
 
   /* ---------- search ---------- */
@@ -132,7 +202,7 @@
   }
   .searchbar input{
     border:none; outline:none; background:transparent;
-    font-family:'Inter',sans-serif; font-size:14px; color:var(--ink);
+    font-family:'Inter',sans-serif; font-size:calc(14px*var(--fs)); color:var(--ink);
     width:100%;
   }
   .searchbar input::placeholder{color:#9CA694;}
@@ -141,7 +211,7 @@
   .chiprow::-webkit-scrollbar{display:none;}
   .chip{
     flex-shrink:0;
-    font-size:12.5px; font-weight:600;
+    font-size:calc(12.5px*var(--fs)); font-weight:600;
     padding:8px 14px; border-radius:999px;
     background:var(--paper); border:1px solid var(--line);
     color:var(--ink-soft);
@@ -170,7 +240,7 @@
   }
   .heart-btn{
     position:absolute; top:5px; right:5px; width:24px; height:24px; border-radius:50%;
-    background:rgba(255,255,255,0.9); display:flex; align-items:center; justify-content:center;
+    background:var(--glass); display:flex; align-items:center; justify-content:center;
     color:var(--stamp); cursor:pointer; z-index:2;
   }
   .heart-btn svg{ width:13px; height:13px; }
@@ -179,26 +249,26 @@
   .hero-img .heart-btn svg{ width:18px; height:18px; }
   .card-body{flex:1; min-width:0;}
   .card-toprow{display:flex; justify-content:space-between; align-items:flex-start; gap:6px;}
-  .card-name{font-family:'Fraunces',serif; font-weight:600; font-size:16px;}
+  .card-name{font-family:'Fraunces',serif; font-weight:600; font-size:calc(16px*var(--fs));}
   .rating{
     display:flex; align-items:center; gap:3px;
-    font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600;
+    font-family:'IBM Plex Mono',monospace; font-size:calc(12px*var(--fs)); font-weight:600;
     color:var(--gold-deep); flex-shrink:0;
   }
-  .card-loc{font-size:12.5px; color:var(--ink-soft); margin:2px 0 6px; display:flex; align-items:center; gap:4px;}
+  .card-loc{font-size:calc(12.5px*var(--fs)); color:var(--ink-soft); margin:2px 0 6px; display:flex; align-items:center; gap:4px;}
   .tagrow{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:6px;}
   .tag{
-    font-size:11px; font-weight:600; color:var(--moss-deep);
+    font-size:calc(11px*var(--fs)); font-weight:600; color:var(--moss-deep);
     background:rgba(110,143,114,0.14);
     padding:3px 8px; border-radius:8px;
   }
-  .price{font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:13.5px;}
-  .price span{color:var(--ink-soft); font-weight:400; font-size:11.5px;}
+  .price{font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:calc(13.5px*var(--fs));}
+  .price span{color:var(--ink-soft); font-weight:400; font-size:calc(11.5px*var(--fs));}
 
   /* ---------- section label ---------- */
   .section-label{
     font-family:'IBM Plex Mono',monospace;
-    font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+    font-size:calc(11px*var(--fs)); font-weight:600; letter-spacing:.1em; text-transform:uppercase;
     color:var(--ink-soft); margin:22px 0 10px;
   }
 
@@ -208,14 +278,14 @@
     padding:0 22px 60px; text-align:center; position:relative;
   }
   .onboard .mark-lg{
-    width:64px;height:64px;border-radius:20px; background:var(--ink); color:var(--gold);
+    width:64px;height:64px;flex-shrink:0;border-radius:20px; background:var(--fill); color:var(--gold);
     display:flex;align-items:center;justify-content:center; margin:0 auto 18px;
   }
   .onboard h1{
-    font-family:'Fraunces',serif; font-size:30px; font-weight:600; margin:0 0 8px; line-height:1.15;
+    font-family:'Fraunces',serif; font-size:calc(30px*var(--fs)); font-weight:600; margin:0 0 8px; line-height:1.15;
   }
   .onboard p.tag{
-    font-size:14px; color:var(--ink-soft); line-height:1.5; margin:0 0 34px;
+    font-size:calc(14px*var(--fs)); color:var(--ink-soft); line-height:1.5; margin:0 0 34px;
     background:transparent; padding:0;
   }
   .roleoption{
@@ -230,8 +300,8 @@
   .roleoption.owner .ricon{ background:rgba(227,162,59,0.18); color:var(--gold-deep); }
   .roleoption.sitter .ricon{ background:rgba(110,143,114,0.18); color:var(--moss-deep); }
   .roleoption.trainer .ricon{ background:rgba(193,68,46,0.15); color:var(--stamp); }
-  .roleoption strong{font-family:'Fraunces',serif; font-size:15.5px; font-weight:600; display:block;}
-  .roleoption span{font-size:12.5px; color:var(--ink-soft);}
+  .roleoption strong{font-family:'Fraunces',serif; font-size:calc(15.5px*var(--fs)); font-weight:600; display:block;}
+  .roleoption span{font-size:calc(12.5px*var(--fs)); color:var(--ink-soft);}
 
   /* ---------- language switch ---------- */
   .langswitch{
@@ -240,81 +310,90 @@
   }
   .onboard .langswitch{ position:absolute; }
   .langpill{
-    font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600;
+    font-family:'IBM Plex Mono',monospace; font-size:calc(11px*var(--fs)); font-weight:600;
     padding:5px 10px; border-radius:9px; cursor:pointer; color:var(--ink-soft);
   }
-  .langpill.active{ background:var(--ink); color:var(--canvas); }
+  .langpill.active{ background:var(--fill); color:var(--on-fill); }
 
   /* ---------- onboarding tour ---------- */
   .tourscreen{ position:relative; }
   .tourskip{
     position:absolute; top:20px; left:0; right:0; text-align:center;
-    font-size:12.5px; font-weight:600; color:var(--ink-soft); cursor:pointer;
+    font-size:calc(12.5px*var(--fs)); font-weight:600; color:var(--ink-soft); cursor:pointer;
   }
   .tourdots{ display:flex; gap:7px; justify-content:center; margin-bottom:26px; }
   .tourdot{ width:7px; height:7px; border-radius:50%; background:var(--line); }
-  .tourdot.active{ background:var(--ink); width:20px; border-radius:5px; transition:all .2s; }
+  .tourdot.active{ background:var(--fill); width:20px; border-radius:5px; transition:all .2s; }
   .tourbtn{ margin-top:4px; }
 
 
   /* ---------- search tools, filters, map ---------- */
-  .searchbar .clearq{ font-size:20px; line-height:1; color:var(--ink-soft); cursor:pointer; padding:0 4px; }
+  .searchbar .clearq{ font-size:calc(20px*var(--fs)); line-height:1; color:var(--ink-soft); cursor:pointer; padding:0 4px; }
   .searchtools{ display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
   .toolbtn{
-    display:flex; align-items:center; gap:6px; font-family:'Inter',sans-serif; font-size:12.5px; font-weight:600;
+    display:flex; align-items:center; gap:6px; font-family:'Inter',sans-serif; font-size:calc(12.5px*var(--fs)); font-weight:600;
     background:var(--paper); border:1px solid var(--line); color:var(--ink-soft);
     padding:8px 12px; border-radius:999px; cursor:pointer;
   }
-  .toolbtn.active{ background:var(--ink); border-color:var(--ink); color:var(--canvas); }
+  .toolbtn.active{ background:var(--fill); border-color:var(--fill); color:var(--on-fill); }
   .toolbtn .tbadge{
-    font-style:normal; font-size:10.5px; background:var(--gold); color:var(--ink);
+    font-style:normal; font-size:calc(10.5px*var(--fs)); background:var(--gold); color:var(--ink);
     min-width:17px; height:17px; border-radius:9px; display:inline-flex; align-items:center; justify-content:center; padding:0 5px;
   }
   .viewtoggle{ margin-left:auto; display:flex; background:var(--paper); border:1px solid var(--line); border-radius:999px; padding:3px; }
-  .viewtoggle span{ font-size:12px; font-weight:600; padding:6px 12px; border-radius:999px; color:var(--ink-soft); cursor:pointer; }
+  .viewtoggle span{ font-size:calc(12px*var(--fs)); font-weight:600; padding:6px 12px; border-radius:999px; color:var(--ink-soft); cursor:pointer; }
   .viewtoggle span.active{ background:var(--moss); color:#fff; }
   .filterpanel{
     background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:14px 14px 12px; margin-bottom:14px;
   }
   .fp-sec{ margin-bottom:14px; }
-  .fp-label{ display:block; font-size:12px; font-weight:600; color:var(--ink-soft); margin-bottom:8px; }
+  .fp-label{ display:block; font-size:calc(12px*var(--fs)); font-weight:600; color:var(--ink-soft); margin-bottom:8px; }
   .fp-label b{ color:var(--ink); }
   .filterpanel input[type=range]{ width:100%; accent-color:var(--moss-deep); }
   .chiprow.wrap{ flex-wrap:wrap; overflow:visible; margin-bottom:0; }
   .chip svg{ width:12px; height:12px; vertical-align:-1px; }
   .fp-select{
-    width:100%; font-family:'Inter',sans-serif; font-size:13.5px; padding:11px 12px; border-radius:12px;
+    width:100%; font-family:'Inter',sans-serif; font-size:calc(13.5px*var(--fs)); padding:11px 12px; border-radius:12px;
     border:1px solid var(--line); background:var(--canvas); color:var(--ink);
   }
-  .fp-clear{ padding:10px; font-size:13px; }
+  .fp-clear{ padding:10px; font-size:calc(13px*var(--fs)); }
   .resultsmeta{
     display:flex; align-items:center; justify-content:space-between; gap:10px;
-    font-size:12.5px; color:var(--ink-soft); margin:0 0 12px;
+    font-size:calc(12.5px*var(--fs)); color:var(--ink-soft); margin:0 0 12px;
   }
   .resultsmeta b{ color:var(--ink); }
   .resultsmeta span{ display:inline-flex; align-items:center; gap:5px; }
   .mapwrap{
     position:relative; border-radius:20px; overflow:hidden; border:1px solid var(--line);
-    background:#EAE6D0; aspect-ratio: 302 / 360; max-height:68vh; width:100%; margin:0 auto 12px; touch-action:none;
+    background:var(--mapbg); aspect-ratio: 302 / 360; max-height:68vh; width:100%; margin:0 auto 12px; touch-action:none;
   }
+  .mapwrap{ isolation:isolate; }
+  .leafmap{ width:100%; height:100%; background:var(--mapbg); font-family:'Inter',sans-serif; }
+  .leaflet-container{ font-family:'Inter',sans-serif; }
+  .leaflet-control-attribution{ font-size:calc(10px*var(--fs)) !important; }
+  .leafctl{ position:static; margin:10px 10px 0 0 !important; }
+  .lpin-wrap{ background:none !important; border:none !important; }
+  .lpin{ display:flex; align-items:center; justify-content:center; height:28px; min-width:56px; padding:0 10px; border-radius:999px;
+    background:var(--fill); color:#fff; font-size:calc(12px*var(--fs)); font-weight:700; border:2px solid #fff; box-shadow:0 4px 10px -3px rgba(0,0,0,.45); white-space:nowrap; }
+  .lpin.sel{ background:var(--stamp); transform:scale(1.12); }
   .mapsvg{ width:100%; height:100%; display:block; cursor:grab; user-select:none; }
   .mapsvg:active{ cursor:grabbing; }
   .mappin{ cursor:pointer; }
   .mapctl{ position:absolute; right:10px; top:10px; display:flex; flex-direction:column; gap:6px; }
   .mapctl button{
     width:34px; height:34px; border-radius:10px; border:1px solid var(--line); background:var(--paper);
-    font-size:18px; font-weight:600; color:var(--ink); cursor:pointer; box-shadow:0 4px 10px -6px rgba(30,58,43,.4);
+    font-size:calc(18px*var(--fs)); font-weight:600; color:var(--ink); cursor:pointer; box-shadow:0 4px 10px -6px rgba(30,58,43,.4);
   }
   .maplegend{
-    position:absolute; left:10px; bottom:10px; background:rgba(255,255,255,.92); border-radius:999px;
-    font-size:11px; font-weight:600; color:var(--ink-soft); padding:5px 10px 5px 8px; display:flex; align-items:center; gap:6px;
+    position:absolute; left:10px; bottom:10px; background:var(--glass); border-radius:999px;
+    font-size:calc(11px*var(--fs)); font-weight:600; color:var(--ink-soft); padding:5px 10px 5px 8px; display:flex; align-items:center; gap:6px;
   }
   .maplegend i{ width:9px; height:9px; border-radius:50%; background:#2C5CE0; display:inline-block; }
   .mapempty{
-    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:rgba(255,255,255,.95);
-    padding:10px 16px; border-radius:14px; font-size:13px; font-weight:600; color:var(--ink-soft);
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:var(--glass);
+    padding:10px 16px; border-radius:14px; font-size:calc(13px*var(--fs)); font-weight:600; color:var(--ink-soft);
   }
-  .maphint{ text-align:center; margin:0 0 14px; font-size:12px; }
+  .maphint{ text-align:center; margin:0 0 14px; font-size:calc(12px*var(--fs)); }
   .pinpreview{
     display:flex; gap:12px; background:var(--paper); border:1px solid var(--line); border-radius:18px;
     padding:10px; cursor:pointer; margin-bottom:14px;
@@ -322,7 +401,7 @@
   .pp-img{ width:84px; height:84px; border-radius:14px; flex-shrink:0; background-size:cover; background-position:center; }
   .pp-body{ flex:1; min-width:0; display:flex; flex-direction:column; justify-content:space-between; }
   .pp-foot{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
-  .pp-link{ font-size:12px; font-weight:600; color:var(--moss-deep); display:inline-flex; align-items:center; gap:2px; }
+  .pp-link{ font-size:calc(12px*var(--fs)); font-weight:600; color:var(--moss-deep); display:inline-flex; align-items:center; gap:2px; }
   .pp-link svg{ width:14px; height:14px; }
 
 
@@ -330,7 +409,7 @@
   .petcard{ cursor:pointer; }
   .petcard .hc-badge{ display:inline-block; margin-top:6px; }
   .hc-badge{
-    font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600; letter-spacing:0; text-transform:none;
+    font-family:'Inter',sans-serif; font-size:calc(10.5px*var(--fs)); font-weight:600; letter-spacing:0; text-transform:none;
     background:rgba(227,162,59,0.18); color:var(--gold-deep); padding:3px 8px; border-radius:999px; margin-left:6px;
   }
   .hc-badge.ok{ background:rgba(110,143,114,0.16); color:var(--moss-deep); }
@@ -339,56 +418,56 @@
   .hc-row:last-child{ border-bottom:none; }
   .hc-ic{ width:30px; height:30px; border-radius:10px; background:rgba(110,143,114,0.14); color:var(--moss-deep); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .hc-ic svg{ width:16px; height:16px; }
-  .hc-body span{ display:block; font-size:11px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; }
-  .hc-body b{ display:block; font-size:13.5px; font-weight:500; margin-top:2px; line-height:1.4; }
+  .hc-body span{ display:block; font-size:calc(11px*var(--fs)); font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; }
+  .hc-body b{ display:block; font-size:calc(13.5px*var(--fs)); font-weight:500; margin-top:2px; line-height:1.4; }
   .pethero{ height:200px; border-radius:20px; background-size:cover; background-position:center; background-color:var(--line); }
   .stepper{ display:inline-flex; align-items:center; gap:14px; background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:6px 8px; }
-  .stepper button{ width:32px; height:32px; border-radius:10px; border:none; background:var(--canvas); font-size:18px; font-weight:600; color:var(--ink); cursor:pointer; }
-  .stepper b{ min-width:18px; text-align:center; font-size:15px; }
+  .stepper button{ width:32px; height:32px; border-radius:10px; border:none; background:var(--canvas); font-size:calc(18px*var(--fs)); font-weight:600; color:var(--ink); cursor:pointer; }
+  .stepper b{ min-width:18px; text-align:center; font-size:calc(15px*var(--fs)); }
   .pricing-rows{ background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:4px 14px; }
-  .pr-row{ display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-bottom:1px solid var(--line); font-size:13px; color:var(--ink-soft); }
+  .pr-row{ display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-bottom:1px solid var(--line); font-size:calc(13px*var(--fs)); color:var(--ink-soft); }
   .pr-row:last-child{ border-bottom:none; }
   .pr-row b{ color:var(--ink); white-space:nowrap; }
   .inputsuffix{ display:flex; align-items:center; gap:8px; }
   .inputsuffix input{ flex:1; }
-  .inputsuffix span{ font-size:12.5px; color:var(--ink-soft); white-space:nowrap; min-width:64px; }
-  .fieldhint{ font-size:11.5px; color:var(--ink-soft); margin:6px 0 0; line-height:1.4; }
-  .earnhero{ background:var(--ink); color:var(--canvas); border-radius:22px; padding:18px 20px; margin-bottom:14px; }
-  .earnhero span{ display:block; font-size:12px; opacity:.7; text-transform:uppercase; letter-spacing:.08em; }
-  .earnhero b{ display:block; font-family:'Fraunces',serif; font-size:36px; font-weight:600; margin:4px 0 2px; }
-  .earnhero em{ font-style:normal; font-size:12.5px; font-weight:600; }
+  .inputsuffix span{ font-size:calc(12.5px*var(--fs)); color:var(--ink-soft); white-space:nowrap; min-width:64px; }
+  .fieldhint{ font-size:calc(11.5px*var(--fs)); color:var(--ink-soft); margin:6px 0 0; line-height:1.4; }
+  .earnhero{ background:var(--fill); color:var(--on-fill); border-radius:22px; padding:18px 20px; margin-bottom:14px; }
+  .earnhero span{ display:block; font-size:calc(12px*var(--fs)); opacity:.7; text-transform:uppercase; letter-spacing:.08em; }
+  .earnhero b{ display:block; font-family:'Fraunces',serif; font-size:calc(36px*var(--fs)); font-weight:600; margin:4px 0 2px; }
+  .earnhero em{ font-style:normal; font-size:calc(12.5px*var(--fs)); font-weight:600; }
   .earnhero em.up{ color:#9FD4A5; } .earnhero em.down{ color:#F0A596; }
   .barchart{ display:flex; align-items:flex-end; gap:10px; height:150px; background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:14px 12px 10px; }
   .barcol{ flex:1; height:100%; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:4px; min-width:0; }
   .barcol .bar{ width:100%; max-width:34px; border-radius:8px 8px 3px 3px; background:rgba(110,143,114,0.45); }
   .barcol .bar.cur{ background:var(--moss-deep); }
-  .barval{ font-size:10px; font-weight:600; color:var(--ink-soft); white-space:nowrap; }
-  .barlbl{ font-size:10.5px; color:var(--ink-soft); }
+  .barval{ font-size:calc(10px*var(--fs)); font-weight:600; color:var(--ink-soft); white-space:nowrap; }
+  .barlbl{ font-size:calc(10.5px*var(--fs)); color:var(--ink-soft); }
   .cal-cell.booked{ background:var(--moss); color:#fff; font-weight:600; }
   .cal-legend .caldot.booked{ background:var(--moss-deep); }
   .invitecode{ background:var(--paper); border:1.5px dashed var(--gold); border-radius:20px; padding:16px; text-align:center; margin-bottom:14px; }
-  .invitecode span{ font-size:11px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.08em; }
-  .invitecode b{ display:block; font-family:'IBM Plex Mono',monospace; font-size:24px; letter-spacing:.06em; margin:6px 0 12px; }
+  .invitecode span{ font-size:calc(11px*var(--fs)); font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.08em; }
+  .invitecode b{ display:block; font-family:'IBM Plex Mono',monospace; font-size:calc(24px*var(--fs)); letter-spacing:.06em; margin:6px 0 12px; }
   .ic-actions{ display:flex; gap:10px; }
   .friendrow{ display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid var(--line); }
   .friendrow .mbody{ flex:1; min-width:0; }
-  .friendrow .mbody b{ display:block; font-size:13.5px; }
-  .friendrow .mbody span{ font-size:12px; color:var(--ink-soft); }
+  .friendrow .mbody b{ display:block; font-size:calc(13.5px*var(--fs)); }
+  .friendrow .mbody span{ font-size:calc(12px*var(--fs)); color:var(--ink-soft); }
   .rebookrail{ display:flex; gap:10px; overflow-x:auto; margin-bottom:16px; padding-bottom:2px; }
   .rebookrail::-webkit-scrollbar{ display:none; }
   .rb-card{ flex:0 0 118px; background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:10px; text-align:center; }
   .rb-img{ width:56px; height:56px; border-radius:50%; background-size:cover; background-position:center; margin:0 auto 6px; cursor:pointer; }
-  .rb-name{ font-family:'Fraunces',serif; font-weight:600; font-size:14px; }
-  .rb-sub{ font-size:11px; color:var(--ink-soft); margin-bottom:8px; }
-  .rb-btn{ padding:8px; font-size:12px; border-radius:12px; }
+  .rb-name{ font-family:'Fraunces',serif; font-weight:600; font-size:calc(14px*var(--fs)); }
+  .rb-sub{ font-size:calc(11px*var(--fs)); color:var(--ink-soft); margin-bottom:8px; }
+  .rb-btn{ padding:8px; font-size:calc(12px*var(--fs)); border-radius:12px; }
 
   /* ---------- buttons ---------- */
   .btn{
     display:flex; align-items:center; justify-content:center; gap:8px;
-    font-family:'Inter',sans-serif; font-weight:600; font-size:14.5px;
+    font-family:'Inter',sans-serif; font-weight:600; font-size:calc(14.5px*var(--fs));
     padding:15px; border-radius:16px; border:none; cursor:pointer; width:100%;
   }
-  .btn-primary{ background:var(--ink); color:var(--canvas); }
+  .btn-primary{ background:var(--fill); color:var(--on-fill); }
   .btn-primary:active{ background:#132a1d; }
   .btn-ghost{ background:transparent; color:var(--ink); border:1.5px solid var(--line); }
   .btn:disabled{ opacity:.45; cursor:not-allowed; }
@@ -406,7 +485,7 @@
     transition:.15s;
   }
   .consent-row.checked .consent-box{ background:var(--moss); border-color:var(--moss); }
-  .consent-row p{ font-size:12px; line-height:1.5; color:var(--ink-soft); margin:0; }
+  .consent-row p{ font-size:calc(12px*var(--fs)); line-height:1.5; color:var(--ink-soft); margin:0; }
   .consent-row a{ color:var(--ink); text-decoration:underline; font-weight:600; cursor:pointer; }
   .consent-row.addon-row.checked .consent-box{ background:var(--gold-deep); border-color:var(--gold-deep); }
   .consent-row p b{ color:var(--ink); }
@@ -416,22 +495,22 @@
     background:var(--paper); border:1px solid var(--line); border-radius:16px;
     padding:14px 16px; margin:4px 0 18px;
   }
-  .pb-row{ display:flex; justify-content:space-between; font-size:13px; padding:5px 0; color:var(--ink-soft); }
+  .pb-row{ display:flex; justify-content:space-between; font-size:calc(13px*var(--fs)); padding:5px 0; color:var(--ink-soft); }
   .pb-row b{ color:var(--ink); font-family:'IBM Plex Mono',monospace; font-weight:600; }
   .pb-row.total{ border-top:1px dashed var(--line); margin-top:4px; padding-top:10px; font-weight:600; color:var(--ink); }
-  .pb-row.total b{ font-size:15.5px; }
+  .pb-row.total b{ font-size:calc(15.5px*var(--fs)); }
 
   /* ---------- instant book / protect badge ---------- */
-  .protect-badge{ display:flex; align-items:center; gap:5px; font-size:10.5px; font-weight:700; color:var(--moss-deep); margin-top:8px; }
+  .protect-badge{ display:flex; align-items:center; gap:5px; font-size:calc(10.5px*var(--fs)); font-weight:700; color:var(--moss-deep); margin-top:8px; }
   .protect-badge svg{ width:12px; height:12px; }
 
   /* ---------- loyalty / rewards ---------- */
   .pointsbanner{
     display:flex; align-items:center; justify-content:space-between;
-    background:var(--ink); color:var(--canvas); border-radius:18px; padding:18px 20px; margin-bottom:18px;
+    background:var(--fill); color:var(--on-fill); border-radius:18px; padding:18px 20px; margin-bottom:18px;
   }
-  .pointsbanner b{ font-family:'Fraunces',serif; font-size:26px; display:block; }
-  .pointsbanner span{ font-size:11.5px; color:var(--canvas); opacity:.75; text-transform:uppercase; letter-spacing:.06em; }
+  .pointsbanner b{ font-family:'Fraunces',serif; font-size:calc(26px*var(--fs)); display:block; }
+  .pointsbanner span{ font-size:calc(11.5px*var(--fs)); color:var(--canvas); opacity:.75; text-transform:uppercase; letter-spacing:.06em; }
   .pointsbanner svg{ width:30px; height:30px; color:var(--gold); }
   .reward-row{
     display:flex; align-items:center; gap:12px; background:var(--paper); border:1px solid var(--line);
@@ -440,8 +519,8 @@
   .reward-row.locked{ opacity:.55; }
   .rw-icon{ width:38px; height:38px; border-radius:11px; background:rgba(227,162,59,0.16); color:var(--gold-deep); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .rw-body{ flex:1; min-width:0; }
-  .rw-body b{ display:block; font-size:13px; }
-  .rw-body span{ font-size:11px; color:var(--ink-soft); }
+  .rw-body b{ display:block; font-size:calc(13px*var(--fs)); }
+  .rw-body span{ font-size:calc(11px*var(--fs)); color:var(--ink-soft); }
 
   /* ---------- session schedule ---------- */
   .session-row{
@@ -451,11 +530,11 @@
   .session-row.done{ opacity:.6; }
   .session-num{
     width:26px; height:26px; border-radius:50%; background:rgba(110,143,114,0.15); color:var(--moss-deep);
-    display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:calc(11px*var(--fs)); font-weight:700; flex-shrink:0;
   }
   .session-body{ flex:1; min-width:0; }
-  .session-body b{ display:block; font-size:13px; }
-  .session-body span{ font-size:11px; color:var(--ink-soft); }
+  .session-body b{ display:block; font-size:calc(13px*var(--fs)); }
+  .session-body span{ font-size:calc(11px*var(--fs)); color:var(--ink-soft); }
   .session-check{
     width:20px; height:20px; border-radius:50%; border:1.5px solid var(--line); flex-shrink:0;
     display:flex; align-items:center; justify-content:center; color:#fff;
@@ -463,18 +542,18 @@
   .session-row.done .session-check{ background:var(--moss); border-color:var(--moss); }
 
   /* ---------- policy document viewer ---------- */
-  .policy-updated{ font-size:11px; color:var(--ink-soft); margin:-8px 0 18px; font-style:italic; }
-  .policy-block h3{ font-family:'Fraunces',serif; font-size:15px; font-weight:600; color:var(--ink); margin:20px 0 8px; }
-  .policy-block p{ font-size:13px; line-height:1.65; color:#333; margin:0 0 12px; }
+  .policy-updated{ font-size:calc(11px*var(--fs)); color:var(--ink-soft); margin:-8px 0 18px; font-style:italic; }
+  .policy-block h3{ font-family:'Fraunces',serif; font-size:calc(15px*var(--fs)); font-weight:600; color:var(--ink); margin:20px 0 8px; }
+  .policy-block p{ font-size:calc(13px*var(--fs)); line-height:1.65; color:var(--text2); margin:0 0 12px; }
   .policy-block ul{ margin:0 0 14px; padding-left:20px; }
-  .policy-block li{ font-size:13px; line-height:1.6; color:#333; margin-bottom:8px; }
-  .policy-table{ width:100%; border-collapse:collapse; margin:6px 0 16px; font-size:12px; }
-  .policy-table th{ background:var(--ink); color:#fff; text-align:left; padding:8px 10px; font-size:11px; }
-  .policy-table td{ padding:8px 10px; border-bottom:1px solid var(--line); color:#333; }
+  .policy-block li{ font-size:calc(13px*var(--fs)); line-height:1.6; color:var(--text2); margin-bottom:8px; }
+  .policy-table{ width:100%; border-collapse:collapse; margin:6px 0 16px; font-size:calc(12px*var(--fs)); }
+  .policy-table th{ background:var(--fill); color:#fff; text-align:left; padding:8px 10px; font-size:calc(11px*var(--fs)); }
+  .policy-table td{ padding:8px 10px; border-bottom:1px solid var(--line); color:var(--text2); }
   .policyhub-row{
     display:flex; align-items:center; justify-content:space-between;
     background:var(--paper); border:1px solid var(--line); border-radius:14px;
-    padding:14px 16px; margin-bottom:10px; cursor:pointer; font-size:13.5px; font-weight:500;
+    padding:14px 16px; margin-bottom:10px; cursor:pointer; font-size:calc(13.5px*var(--fs)); font-weight:500;
   }
   .doc-row{
     display:flex; align-items:center; gap:14px;
@@ -486,8 +565,8 @@
     display:flex; align-items:center; justify-content:center; color:#fff;
   }
   .doc-info{ flex:1; min-width:0; }
-  .doc-info b{ display:block; font-size:13.5px; color:var(--ink); font-family:'Fraunces',serif; font-weight:600; }
-  .doc-info span{ font-size:11.5px; color:var(--ink-soft); }
+  .doc-info b{ display:block; font-size:calc(13.5px*var(--fs)); color:var(--ink); font-family:'Fraunces',serif; font-weight:600; }
+  .doc-info span{ font-size:calc(11.5px*var(--fs)); color:var(--ink-soft); }
   .doc-download{ color:var(--ink-soft); flex-shrink:0; }
 
   /* ---------- detail screen ---------- */
@@ -498,43 +577,43 @@
   .hero-fade{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(14,26,18,0.55) 100%); border-radius:0 0 28px 28px;}
   .hero-topbtn{
     position:absolute; top:16px; width:34px;height:34px;border-radius:50%;
-    background:rgba(255,255,255,0.85); backdrop-filter:blur(4px);
+    background:var(--glass); backdrop-filter:blur(4px);
     display:flex;align-items:center;justify-content:center;
   }
   .hero-caption{
     position:absolute; bottom:14px; left:20px; right:20px; color:#fff;
   }
-  .hero-caption h2{font-family:'Fraunces',serif; font-size:22px; font-weight:600; margin:0 0 2px;}
-  .hero-caption .loc{font-size:12.5px; opacity:.9; display:flex; gap:4px; align-items:center;}
+  .hero-caption h2{font-family:'Fraunces',serif; font-size:calc(22px*var(--fs)); font-weight:600; margin:0 0 2px;}
+  .hero-caption .loc{font-size:calc(12.5px*var(--fs)); opacity:.9; display:flex; gap:4px; align-items:center;}
 
   .statrow{ display:flex; gap:10px; margin:16px 0 6px; }
   .stat{
     flex:1; background:var(--paper); border:1px solid var(--line); border-radius:14px;
     padding:10px; text-align:center;
   }
-  .stat b{display:block; font-family:'Fraunces',serif; font-size:16px;}
-  .stat span{font-size:10.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em;}
+  .stat b{display:block; font-family:'Fraunces',serif; font-size:calc(16px*var(--fs));}
+  .stat span{font-size:calc(10.5px*var(--fs)); color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em;}
 
-  .bio{ font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:14px 0; }
+  .bio{ font-size:calc(13.5px*var(--fs)); line-height:1.6; color:var(--ink-soft); margin:14px 0; }
 
   .reviewcard{
     background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:12px 14px; margin-bottom:10px;
   }
-  .reviewcard .rh{display:flex; justify-content:space-between; font-size:12.5px; font-weight:600; margin-bottom:4px;}
-  .reviewcard p{font-size:12.5px; color:var(--ink-soft); margin:0; line-height:1.5;}
+  .reviewcard .rh{display:flex; justify-content:space-between; font-size:calc(12.5px*var(--fs)); font-weight:600; margin-bottom:4px;}
+  .reviewcard p{font-size:calc(12.5px*var(--fs)); color:var(--ink-soft); margin:0; line-height:1.5;}
 
   /* ---------- trust badges ---------- */
   .trustbadges{display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 4px;}
   .trustbadge{
     display:flex; align-items:center; gap:5px;
-    font-size:11px; font-weight:600; color:var(--moss-deep);
+    font-size:calc(11px*var(--fs)); font-weight:600; color:var(--moss-deep);
     background:rgba(110,143,114,0.14);
     padding:5px 10px 5px 8px; border-radius:999px;
   }
   .trustbadge svg{width:12px;height:12px;flex-shrink:0;}
   .trustbadge.instant{ color:var(--gold-deep); background:rgba(227,162,59,0.18); }
   .responsetime{
-    display:flex; align-items:center; gap:6px; font-size:12px; color:var(--ink-soft);
+    display:flex; align-items:center; gap:6px; font-size:calc(12px*var(--fs)); color:var(--ink-soft);
     margin:8px 0 2px;
   }
   .responsetime svg{width:13px;height:13px;flex-shrink:0;color:var(--moss-deep);}
@@ -546,8 +625,8 @@
   }
   .su-img{width:64px;height:64px;border-radius:12px;flex-shrink:0; background-size:cover; background-position:center;}
   .su-body{flex:1; min-width:0;}
-  .su-body p{font-size:13px; margin:0 0 4px; line-height:1.4;}
-  .su-body span{font-size:11px; color:var(--ink-soft);}
+  .su-body p{font-size:calc(13px*var(--fs)); margin:0 0 4px; line-height:1.4;}
+  .su-body span{font-size:calc(11px*var(--fs)); color:var(--ink-soft);}
 
   /* ---------- star picker (reviews) ---------- */
   .starpicker{display:flex; gap:6px;}
@@ -563,34 +642,35 @@
     padding:14px; display:flex; gap:10px; align-items:flex-start; margin-bottom:18px; color:var(--stamp);
   }
   .sos-banner svg{width:20px;height:20px;flex-shrink:0;margin-top:1px;}
-  .sos-banner p{margin:0; font-size:12.5px; line-height:1.5; color:var(--ink);}
+  .sos-banner p{margin:0; font-size:calc(12.5px*var(--fs)); line-height:1.5; color:var(--ink);}
   .sos-option{
     display:flex; align-items:center; gap:12px; background:var(--paper); border:1px solid var(--line);
     border-radius:16px; padding:14px; margin-bottom:10px; cursor:pointer;
   }
   .sos-option .soicon{width:38px;height:38px;border-radius:11px; background:rgba(193,68,46,0.12); color:var(--stamp); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
-  .sos-option b{display:block; font-size:13.5px;}
-  .sos-option span{font-size:11.5px; color:var(--ink-soft);}
+  .sos-option b{display:block; font-size:calc(13.5px*var(--fs));}
+  .sos-option span{font-size:calc(11.5px*var(--fs)); color:var(--ink-soft);}
 
   .stickybar{
     position:sticky; bottom:0; background:linear-gradient(0deg, var(--canvas) 60%, rgba(241,239,226,0));
     padding:18px 0 6px; display:flex; align-items:center; gap:12px;
   }
   .stickybar .pricebox{flex-shrink:0;}
-  .stickybar .pricebox b{font-family:'IBM Plex Mono',monospace; font-size:17px;}
-  .stickybar .pricebox span{display:block; font-size:11px; color:var(--ink-soft);}
+  .stickybar .pricebox b{font-family:'IBM Plex Mono',monospace; font-size:calc(17px*var(--fs));}
+  .stickybar .pricebox span{display:block; font-size:calc(11px*var(--fs)); color:var(--ink-soft);}
 
   /* ---------- form ---------- */
   .field{ margin-bottom:14px; }
-  .field label{ font-size:12px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px; text-transform:uppercase; letter-spacing:.05em;}
+  .field label{ font-size:calc(12px*var(--fs)); font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px; text-transform:uppercase; letter-spacing:.05em;}
   .field input, .field select, .field textarea{
     width:100%; border:1.5px solid var(--line); border-radius:12px; padding:12px 13px;
-    font-family:'Inter',sans-serif; font-size:14px; color:var(--ink); background:var(--paper);
+    font-family:'Inter',sans-serif; font-size:calc(14px*var(--fs)); color:var(--ink); background:var(--paper);
     outline:none;
   }
   .field textarea{resize:vertical; min-height:70px;}
   .field-row{display:flex; gap:10px;}
-  .field-row .field{flex:1;}
+  .field-row .field{flex:1; min-width:0;}
+  .field input, .field select{ min-width:0; max-width:100%; }
 
   /* ---------- ticket / pawcation pass ---------- */
   .ticket{
@@ -603,20 +683,20 @@
   }
   .ticket-top{ padding:20px 20px 16px; position:relative; }
   .ticket-brand{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;}
-  .ticket-brand .tb-name{ font-family:'Fraunces',serif; font-weight:700; font-size:15px;}
+  .ticket-brand .tb-name{ font-family:'Fraunces',serif; font-weight:700; font-size:calc(15px*var(--fs));}
   .stampbadge{
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700;
+    font-family:'IBM Plex Mono',monospace; font-size:calc(10.5px*var(--fs)); font-weight:700;
     color:var(--stamp); border:1.5px solid var(--stamp); border-radius:8px;
     padding:3px 8px; transform:rotate(-6deg); letter-spacing:.05em;
   }
   .ticket-route{ display:flex; align-items:center; gap:10px; margin-bottom:14px;}
   .ticket-route .pt{flex:1;}
-  .ticket-route .pt b{display:block; font-family:'IBM Plex Mono',monospace; font-size:19px;}
-  .ticket-route .pt span{font-size:10.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em;}
+  .ticket-route .pt b{display:block; font-family:'IBM Plex Mono',monospace; font-size:calc(19px*var(--fs));}
+  .ticket-route .pt span{font-size:calc(10.5px*var(--fs)); color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em;}
   .ticket-route .dots{flex:1; border-top:2px dotted var(--line); position:relative; top:-2px;}
   .ticket-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
-  .ticket-grid div span{display:block; font-size:9.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; margin-bottom:3px;}
-  .ticket-grid div b{font-family:'IBM Plex Mono',monospace; font-size:12.5px;}
+  .ticket-grid div span{display:block; font-size:calc(9.5px*var(--fs)); color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; margin-bottom:3px;}
+  .ticket-grid div b{font-family:'IBM Plex Mono',monospace; font-size:calc(12.5px*var(--fs));}
   .tear{
     position:relative; height:0; border-top:2px dashed var(--line); margin:0 0;
   }
@@ -627,60 +707,60 @@
   .tear::before{ left:-31px; }
   .tear::after{ right:-31px; }
   .ticket-bottom{ padding:16px 20px 20px; display:flex; justify-content:space-between; align-items:center;}
-  .ticket-code{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); letter-spacing:.05em;}
+  .ticket-code{ font-family:'IBM Plex Mono',monospace; font-size:calc(11px*var(--fs)); color:var(--ink-soft); letter-spacing:.05em;}
   .pawstamp{ color:var(--moss-deep); }
 
   .emptystate{ text-align:center; padding:60px 20px; color:var(--ink-soft); }
   .emptystate .ico{ margin-bottom:14px; opacity:.5; }
-  .emptystate h3{font-family:'Fraunces',serif; font-size:17px; color:var(--ink); margin:0 0 6px;}
-  .emptystate p{font-size:13px; margin:0;}
+  .emptystate h3{font-family:'Fraunces',serif; font-size:calc(17px*var(--fs)); color:var(--ink); margin:0 0 6px;}
+  .emptystate p{font-size:calc(13px*var(--fs)); margin:0;}
 
   /* ---------- messages ---------- */
   .msgrow{ display:flex; gap:12px; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); cursor:pointer;}
   .avatar{ width:46px;height:46px;border-radius:50%; background-size:cover; background-position:center; flex-shrink:0; }
   .msgrow .mbody{flex:1; min-width:0;}
-  .msgrow .mtop{display:flex; justify-content:space-between; font-size:13.5px;}
+  .msgrow .mtop{display:flex; justify-content:space-between; font-size:calc(13.5px*var(--fs));}
   .msgrow .mtop b{font-weight:600;}
-  .msgrow .mtop span{font-size:11px; color:var(--ink-soft);}
-  .msgrow p{margin:2px 0 0; font-size:12.5px; color:var(--ink-soft); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .msgrow .mtop span{font-size:calc(11px*var(--fs)); color:var(--ink-soft);}
+  .msgrow p{margin:2px 0 0; font-size:calc(12.5px*var(--fs)); color:var(--ink-soft); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
   .unreaddot{width:8px; height:8px; border-radius:50%; background:var(--stamp); flex-shrink:0;}
 
   /* ---------- chat thread ---------- */
   .chat-header{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
   .chat-header .avatar{ width:36px;height:36px;border-radius:50%;background-size:cover;background-position:center; }
-  .chat-header b{ font-family:'Fraunces',serif; font-size:15.5px; }
+  .chat-header b{ font-family:'Fraunces',serif; font-size:calc(15.5px*var(--fs)); }
   .chat-messages{ display:flex; flex-direction:column; gap:8px; padding-bottom:12px; }
-  .chat-bubble{ max-width:78%; padding:10px 13px; border-radius:16px; font-size:13.5px; line-height:1.45; }
+  .chat-bubble{ max-width:78%; padding:10px 13px; border-radius:16px; font-size:calc(13.5px*var(--fs)); line-height:1.45; }
   .chat-bubble p{ margin:0; }
-  .chat-bubble span{ display:block; font-size:10px; margin-top:4px; opacity:.6; }
+  .chat-bubble span{ display:block; font-size:calc(10px*var(--fs)); margin-top:4px; opacity:.6; }
   .chat-bubble.them{ align-self:flex-start; background:var(--paper); border:1px solid var(--line); border-bottom-left-radius:4px; }
-  .chat-bubble.me{ align-self:flex-end; background:var(--ink); color:var(--canvas); border-bottom-right-radius:4px; }
+  .chat-bubble.me{ align-self:flex-end; background:var(--fill); color:var(--on-fill); border-bottom-right-radius:4px; }
   .chat-inputbar{
     position:sticky; bottom:0; display:flex; gap:8px; align-items:center;
     background:var(--canvas); padding:10px 0 4px; margin-top:auto;
   }
   .chat-inputbar input{
     flex:1; border:1.5px solid var(--line); border-radius:999px; padding:11px 16px;
-    font-family:'Inter',sans-serif; font-size:13.5px; background:var(--paper); outline:none;
+    font-family:'Inter',sans-serif; font-size:calc(13.5px*var(--fs)); background:var(--paper); outline:none;
   }
   .sendbtn{
-    width:42px; height:42px; border-radius:50%; background:var(--ink); color:var(--gold);
+    width:42px; height:42px; border-radius:50%; background:var(--fill); color:var(--gold);
     border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
   }
   .sendbtn svg{ width:17px; height:17px; }
 
   /* ---------- mini calendar ---------- */
-  .cal-grid-head{ display:grid; grid-template-columns:repeat(7,1fr); font-size:10px; color:var(--ink-soft); text-align:center; margin-bottom:5px; }
+  .cal-grid-head{ display:grid; grid-template-columns:repeat(7,1fr); font-size:calc(10px*var(--fs)); color:var(--ink-soft); text-align:center; margin-bottom:5px; }
   .cal-grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:5px; margin-bottom:10px; }
   .cal-cell{
     aspect-ratio:1; display:flex; align-items:center; justify-content:center;
-    border-radius:8px; font-size:11px; font-weight:600;
+    border-radius:8px; font-size:calc(11px*var(--fs)); font-weight:600;
     background:rgba(110,143,114,0.12); color:var(--moss-deep);
   }
   .cal-cell.blocked{ background:rgba(193,68,46,0.12); color:var(--stamp); }
   .cal-cell.empty{ background:transparent; }
   .cal-cell.editable{ cursor:pointer; }
-  .cal-legend{ display:flex; gap:14px; font-size:11px; color:var(--ink-soft); margin-bottom:18px; }
+  .cal-legend{ display:flex; gap:14px; font-size:calc(11px*var(--fs)); color:var(--ink-soft); margin-bottom:18px; }
   .cal-legend .caldot{ width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:4px; }
   .cal-legend .caldot.open{ background:var(--moss); }
   .cal-legend .caldot.blocked{ background:var(--stamp); }
@@ -688,35 +768,35 @@
   /* ---------- profile ---------- */
   .profile-head{ text-align:center; padding:10px 0 20px; }
   .profile-head .avatar{ width:84px; height:84px; margin:0 auto 12px; }
-  .profile-head h2{ font-family:'Fraunces',serif; font-size:20px; margin:0 0 2px;}
-  .profile-head p{ font-size:12.5px; color:var(--ink-soft); margin:0;}
+  .profile-head h2{ font-family:'Fraunces',serif; font-size:calc(20px*var(--fs)); margin:0 0 2px;}
+  .profile-head p{ font-size:calc(12.5px*var(--fs)); color:var(--ink-soft); margin:0;}
   .profile-row{
     display:flex; align-items:center; justify-content:space-between;
     background:var(--paper); border:1px solid var(--line); padding:15px 16px; border-radius:16px; margin-bottom:10px;
-    font-size:13.5px; font-weight:500; cursor:pointer;
+    font-size:calc(13.5px*var(--fs)); font-weight:500; cursor:pointer;
   }
   .profile-row .left{display:flex; align-items:center; gap:12px;}
 
   /* ---------- bottom nav ---------- */
   .bottomnav{
     position:absolute; bottom:0; left:0; right:0;
-    background:rgba(255,255,255,0.92); backdrop-filter:blur(10px);
+    background:var(--glass); backdrop-filter:blur(10px);
     border-top:1px solid var(--line);
     display:flex; padding:10px 10px calc(env(safe-area-inset-bottom, 0px) + 10px);
   }
   .navitem{
     flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;
-    color:#A2A891; cursor:pointer; font-size:10.5px; font-weight:600;
+    color:var(--ink-soft); cursor:pointer; font-size:calc(10.5px*var(--fs)); font-weight:600;
   }
   .navitem.active{ color:var(--ink); }
 
   /* toast */
   .toast{
     position:absolute; left:20px; right:20px; bottom:100px;
-    background:var(--ink); color:var(--canvas);
+    background:var(--fill); color:var(--on-fill);
     padding:14px 16px; border-radius:14px;
     display:flex; align-items:center; gap:10px;
-    font-size:13px; font-weight:500;
+    font-size:calc(13px*var(--fs)); font-weight:500;
     box-shadow:0 10px 24px rgba(0,0,0,0.25);
     z-index:80;
     opacity:0; transform:translateY(10px); pointer-events:none;
@@ -731,14 +811,14 @@
   .trustnote{
     display:flex; gap:10px; background:rgba(110,143,114,0.12);
     border:1px solid rgba(110,143,114,0.3); border-radius:14px;
-    padding:12px 14px; font-size:12px; line-height:1.5; color:var(--moss-deep);
+    padding:12px 14px; font-size:calc(12px*var(--fs)); line-height:1.5; color:var(--moss-deep);
     margin-bottom:18px;
   }
   .trustnote svg{flex-shrink:0; margin-top:1px;}
 
   .statuspill{
     display:inline-flex; align-items:center; gap:6px;
-    font-size:11.5px; font-weight:700; letter-spacing:.03em;
+    font-size:calc(11.5px*var(--fs)); font-weight:700; letter-spacing:.03em;
     padding:6px 12px; border-radius:999px; margin-bottom:18px;
   }
   .statuspill.unverified{ background:rgba(193,68,46,0.12); color:var(--stamp); }
@@ -761,9 +841,9 @@
   .upload-tile.filled .uplabel{
     position:absolute; bottom:0; left:0; right:0;
     background:linear-gradient(0deg, rgba(14,26,18,0.75), rgba(14,26,18,0));
-    color:#fff; padding:20px 8px 8px; font-size:11px; font-weight:600; text-align:center;
+    color:#fff; padding:20px 8px 8px; font-size:calc(11px*var(--fs)); font-weight:600; text-align:center;
   }
-  .upload-tile .uplabel-empty{ font-size:11.5px; font-weight:600; text-align:center; padding:0 8px; }
+  .upload-tile .uplabel-empty{ font-size:calc(11.5px*var(--fs)); font-weight:600; text-align:center; padding:0 8px; }
   .upload-tile input[type=file]{ position:absolute; inset:0; opacity:0; cursor:pointer; }
   .upload-tile .checkmark{
     position:absolute; top:8px; right:8px; width:22px;height:22px;border-radius:50%;
@@ -829,26 +909,26 @@
   }
   .cc-cvvbox{
     background:#F1EFE2; color:#1E3A2B; border-radius:4px;
-    padding:8px 12px; font-family:'IBM Plex Mono',monospace; font-style:italic; font-weight:600; font-size:13px;
+    padding:8px 12px; font-family:'IBM Plex Mono',monospace; font-style:italic; font-weight:600; font-size:calc(13px*var(--fs));
     min-width:44px; text-align:center;
   }
   .cc-backbottom{
     display:flex; align-items:center; gap:8px; margin:14px 20px 0;
-    font-size:9.5px; text-transform:uppercase; letter-spacing:.06em; opacity:.8;
+    font-size:calc(9.5px*var(--fs)); text-transform:uppercase; letter-spacing:.06em; opacity:.8;
   }
-  .cc-backbottom b{ font-family:'IBM Plex Mono',monospace; font-size:13px; text-transform:none; letter-spacing:.03em; opacity:1;}
+  .cc-backbottom b{ font-family:'IBM Plex Mono',monospace; font-size:calc(13px*var(--fs)); text-transform:none; letter-spacing:.03em; opacity:1;}
 
   .cc-top{ display:flex; justify-content:space-between; align-items:flex-start; z-index:1; }
   .cc-chip{ width:38px; height:28px; border-radius:6px; background:linear-gradient(135deg,#E3A23B,#C67F1E); }
   .cc-scheme{
-    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:11.5px;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:calc(11.5px*var(--fs));
     letter-spacing:.06em; text-transform:uppercase;
     border-radius:6px; padding:4px 9px;
     background:rgba(241,239,226,0.16); color:#F1EFE2;
     transition:background .2s;
   }
   .cc-bankline{
-    font-family:'Inter',sans-serif; font-size:11px; opacity:.75; margin-top:4px;
+    font-family:'Inter',sans-serif; font-size:calc(11px*var(--fs)); opacity:.75; margin-top:4px;
     display:flex; align-items:center; gap:5px; min-height:15px;
   }
   .cc-bankline .spinner{
@@ -857,12 +937,12 @@
   }
   @keyframes spin{ to{ transform:rotate(360deg); } }
   .cc-number{
-    font-family:'IBM Plex Mono',monospace; font-size:19px; font-weight:600; letter-spacing:.12em; z-index:1;
+    font-family:'IBM Plex Mono',monospace; font-size:calc(19px*var(--fs)); font-weight:600; letter-spacing:.12em; z-index:1;
     text-shadow: 0 1px 1px rgba(0,0,0,0.5), 0 -1px 0 rgba(255,255,255,0.15);
   }
   .cc-bottom{ display:flex; justify-content:space-between; align-items:flex-end; z-index:1; }
-  .cc-bottom div span{ display:block; font-size:8.5px; opacity:.7; text-transform:uppercase; letter-spacing:.08em; margin-bottom:2px;}
-  .cc-bottom div b{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:500; }
+  .cc-bottom div span{ display:block; font-size:calc(8.5px*var(--fs)); opacity:.7; text-transform:uppercase; letter-spacing:.08em; margin-bottom:2px;}
+  .cc-bottom div b{ font-family:'IBM Plex Mono',monospace; font-size:calc(12.5px*var(--fs)); font-weight:500; }
 
 
   .savedcard{
@@ -874,12 +954,12 @@
     width:44px; height:30px; border-radius:6px; flex-shrink:0;
     background:linear-gradient(135deg, #1E3A2B, #3E5C45);
     display:flex; align-items:center; justify-content:center; color:var(--gold);
-    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:9.5px; color:#fff; letter-spacing:.02em;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:calc(9.5px*var(--fs)); color:#fff; letter-spacing:.02em;
   }
-  .savedcard b{ font-size:13.5px; display:block; }
-  .savedcard span{ font-size:11.5px; color:var(--ink-soft); }
+  .savedcard b{ font-size:calc(13.5px*var(--fs)); display:block; }
+  .savedcard span{ font-size:calc(11.5px*var(--fs)); color:var(--ink-soft); }
   .secure-note{
-    display:flex; align-items:center; gap:8px; font-size:11.5px; color:var(--ink-soft);
+    display:flex; align-items:center; gap:8px; font-size:calc(11.5px*var(--fs)); color:var(--ink-soft);
     margin-top:2px; margin-bottom:18px;
   }
 
@@ -893,12 +973,12 @@
   }
   .petcard .pimg{ height:110px; background-size:cover; background-position:center; }
   .petcard .pinfo{ padding:10px 12px 12px; }
-  .petcard b{ font-family:'Fraunces',serif; font-size:14px; display:block; }
-  .petcard span{ font-size:11px; color:var(--ink-soft); }
+  .petcard b{ font-family:'Fraunces',serif; font-size:calc(14px*var(--fs)); display:block; }
+  .petcard span{ font-size:calc(11px*var(--fs)); color:var(--ink-soft); }
   .addpet-tile{
     border:1.5px dashed var(--line); border-radius:18px;
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
-    color:var(--ink-soft); font-size:12px; font-weight:600; cursor:pointer;
+    color:var(--ink-soft); font-size:calc(12px*var(--fs)); font-weight:600; cursor:pointer;
     min-height:150px;
   }
 
@@ -915,7 +995,7 @@
   .loader.hide{ opacity:0; visibility:hidden; pointer-events:none; }
   .loader-brand{
     display:flex; align-items:center; gap:10px;
-    font-family:'Fraunces',serif; font-weight:700; font-size:22px; color:var(--canvas);
+    font-family:'Fraunces',serif; font-weight:700; font-size:calc(22px*var(--fs)); color:var(--canvas);
   }
   .loader-brand .mk{
     width:38px; height:38px; border-radius:11px; background:var(--gold);
@@ -950,7 +1030,7 @@
     100%{ opacity:0; }
   }
   .loader-tag{
-    font-family:'Inter',sans-serif; font-size:12.5px; color:rgba(241,239,226,0.65);
+    font-family:'Inter',sans-serif; font-size:calc(12.5px*var(--fs)); color:rgba(241,239,226,0.65);
     letter-spacing:.02em;
   }
 </style>
@@ -979,9 +1059,13 @@
   <div class="topbar" id="topbar"></div>
   <div class="content" id="content"></div>
   <div class="bottomnav" id="bottomnav" style="display:none;"></div>
+  <div class="offlinebar" id="offlinebar" role="status" aria-live="polite"></div>
   <div class="toast" id="toast"></div>
 </div>
 
+<script src="config.js"></script>
+<script src="vendor/supabase.js"></script>
+<script src="vendor/leaflet.js" onerror="(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';document.head.appendChild(l);var x=document.createElement('script');x.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';document.head.appendChild(x);})()"></script>
 <script>
 /* ============ ICONS ============ */
 const ICON = {
@@ -1253,7 +1337,7 @@ const I18N = {
     flt_distance:'Distance', flt_within:'Within {n} km', flt_sort:'Sort by', flt_clear:'Clear all', flt_show:'Show results', chip_all:'All',
     sort_rating:'Top rated', sort_price_asc:'Price: low to high', sort_price_desc:'Price: high to low', sort_response:'Fastest reply', sort_distance:'Nearest',
     res_none_title:'No sitters match', res_none_title_req:'Nothing matches your search', res_none_body:'Try widening your filters or clearing the search.',
-    loc_label:'Your location', loc_mock:'Kadıköy (sample location)', map_you:'You', map_view_profile:'View profile', map_tap_pin:'Tap a pin to preview a sitter · drag to move, +/− to zoom',
+    loc_label:'Your location', loc_mock:'Kadıköy (sample location)', map_you:'You', map_view_profile:'View profile', map_tap_pin:'Tap a pin to preview a sitter · drag to move, +/− to zoom', map_aria:'Map of sitters in Istanbul', map_zoom_in:'Zoom in', map_zoom_out:'Zoom out', map_fallback:'Map tiles could not load — showing the simple map',
     map_europe:'EUROPEAN SIDE', map_anatolia:'ANATOLIAN SIDE', map_blacksea:'Black Sea', map_marmara:'Sea of Marmara',
     toast_loc_mock:'Using a sample location in Kadıköy', toast_loc_ok:'Location found',
   },
@@ -1286,7 +1370,7 @@ const I18N = {
     flt_distance:'Mesafe', flt_within:'{n} km içinde', flt_sort:'Sırala', flt_clear:'Temizle', flt_show:'Sonuçları göster', chip_all:'Tümü',
     sort_rating:'En yüksek puan', sort_price_asc:'Fiyat: düşükten yükseğe', sort_price_desc:'Fiyat: yüksekten düşüğe', sort_response:'En hızlı yanıt', sort_distance:'En yakın',
     res_none_title:'Eşleşen bakıcı yok', res_none_title_req:'Aramanla eşleşen bir şey yok', res_none_body:'Filtreleri genişletmeyi ya da aramayı temizlemeyi dene.',
-    loc_label:'Konumun', loc_mock:'Kadıköy (örnek konum)', map_you:'Sen', map_view_profile:'Profili gör', map_tap_pin:'Önizlemek için bir pine dokun · taşımak için sürükle, yakınlaştırmak için +/−',
+    loc_label:'Konumun', loc_mock:'Kadıköy (örnek konum)', map_you:'Sen', map_view_profile:'Profili gör', map_aria:'İstanbul bakıcı haritası', map_zoom_in:'Yakınlaştır', map_zoom_out:'Uzaklaştır', map_fallback:'Harita parçaları yüklenemedi — basit harita gösteriliyor', map_tap_pin:'Önizlemek için bir pine dokun · taşımak için sürükle, yakınlaştırmak için +/−',
     map_europe:'AVRUPA YAKASI', map_anatolia:'ANADOLU YAKASI', map_blacksea:'Karadeniz', map_marmara:'Marmara Denizi',
     toast_loc_mock:'Kadıköy’de örnek bir konum kullanılıyor', toast_loc_ok:'Konumun bulundu',
   }
@@ -1385,7 +1469,7 @@ function unreadNotifCount(){
 /* ============ RENDER: TOPBAR ============ */
 function renderTopbar(){
   if(!state.onboarded){ app.topbar.innerHTML=''; return; }
-  const showBack = ['detail','request','requestDetail','trainingDetail','ticket','verify','payment','mypets','addpet','policy','policyhub','documents','trainercv','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen);
+  const showBack = ['settings','detail','request','requestDetail','trainingDetail','ticket','verify','payment','mypets','addpet','policy','policyhub','documents','trainercv','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen);
   app.topbar.innerHTML = `
     <div class="topbar-row">
       ${showBack
@@ -1413,7 +1497,7 @@ function renderBottomNav(){
     {key:'messages', icon:ICON.chat, label:t('nav_messages')},
     {key:'profile', icon:ICON.user, label:t('nav_profile')},
   ];
-  const activeKey = ['detail','request','ticket','requestDetail','trainingDetail','trainercv','verify','payment','mypets','addpet','policy','policyhub','documents','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen) ? null : state.screen;
+  const activeKey = ['settings','detail','request','ticket','requestDetail','trainingDetail','trainercv','verify','payment','mypets','addpet','policy','policyhub','documents','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen) ? null : state.screen;
   app.bottomnav.innerHTML = items.map(it => `
     <div class="navitem ${activeKey===it.key?'active':''}" data-action="nav-${it.key}">
       ${it.icon}<span>${it.label}</span>
@@ -1585,7 +1669,17 @@ function mapViewBox(){
   mv.x = x; mv.y = y;
   return { x, y, w, h };
 }
+function leafletOK(){ return typeof window.L!=='undefined' && !state.search.mapFallback && navigator.onLine!==false; }
 function renderSitterMap(list){
+  if(leafletOK()){
+    const sel = list.find(x=>x.s.id===state.search.pin);
+    return `
+  <div class="mapwrap"><div id="leafmap" class="leafmap" role="application" aria-label="${escAttr(t('map_aria'))}"></div>
+    ${list.length===0 ? `<div class="mapempty">${t('res_none_title')}</div>` : ''}
+    ${state.userLoc ? `<div class="maplegend"><i></i>${t('map_you')} · ${state.userLoc.mock ? t('loc_mock') : t('loc_label')}</div>` : ''}
+  </div>
+  ${sel ? pinPreviewHTML(sel) : `<p class="subtitle maphint">${t('map_tap_pin')}</p>`}`;
+  }
   const mv = state.search.mv, vb = mapViewBox();
   const k = 1/mv.s;                      // keep pins a constant on-screen size
   const sea = '#BFD8DD', land = '#EAE6D0', seaDeep = '#9DC3CB';
@@ -1628,11 +1722,11 @@ function renderSitterMap(list){
     ${list.length===0 ? `<div class="mapempty">${t('res_none_title')}</div>` : ''}
     ${state.userLoc ? `<div class="maplegend"><i></i>${t('map_you')} · ${state.userLoc.mock ? t('loc_mock') : t('loc_label')}</div>` : ''}
   </div>
-  ${(() => {
-    const sel = list.find(x=>x.s.id===state.search.pin);
-    if(!sel) return `<p class="subtitle maphint">${t('map_tap_pin')}</p>`;
-    const s = sel.s;
-    return `<div class="pinpreview" data-action="open-sitter-${s.id}">
+  ${(() => { const sel = list.find(x=>x.s.id===state.search.pin); return sel ? pinPreviewHTML(sel) : `<p class="subtitle maphint">${t('map_tap_pin')}</p>`; })()}`;
+}
+function pinPreviewHTML(sel){
+  const s = sel.s;
+  return `<div class="pinpreview" data-action="open-sitter-${s.id}">
       <div class="pp-img" style="background-image:url('${s.img}')"></div>
       <div class="pp-body">
         <div class="card-toprow"><div class="card-name">${s.name}</div><div class="rating">${ICON.star}${s.rating}</div></div>
@@ -1640,7 +1734,42 @@ function renderSitterMap(list){
         <div class="pp-foot"><div class="price" style="margin:0">${s.price} <span>/ night</span></div><span class="pp-link">${t('map_view_profile')} ${ICON.chevron}</span></div>
       </div>
     </div>`;
-  })()}`;
+}
+
+/* ---- real map: Leaflet + OpenStreetMap tiles; falls back to the stylised SVG map if tiles/library are unavailable ---- */
+let leafMap = null;
+function destroyLeaf(){ if(leafMap){ try{ leafMap.remove(); }catch(e){} leafMap = null; } }
+function initLeafMap(){
+  const el = document.getElementById('leafmap');
+  if(!el){ destroyLeaf(); return; }
+  if(typeof window.L==='undefined') return;
+  destroyLeaf();
+  const list = filteredSitters();
+  const sv = state.search.lv || { lat:41.03, lng:29.02, z:11 };
+  const map = L.map(el, { zoomControl:false, attributionControl:true, center:[sv.lat,sv.lng], zoom:sv.z, minZoom:9, maxZoom:17 });
+  leafMap = map;
+  let errs = 0, loads = 0;
+  const tl = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19, attribution:'© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>' }).addTo(map);
+  tl.on('tileload', ()=>{ loads++; });
+  tl.on('tileerror', ()=>{ errs++; if(errs>=6 && loads===0){ state.search.mapFallback = true; toast(t('map_fallback')); refreshResults(); } });
+  map.on('moveend', ()=>{ const c = map.getCenter(); state.search.lv = { lat:c.lat, lng:c.lng, z:map.getZoom() }; });
+  const group = [];
+  list.forEach(({s}) => {
+    const sel = state.search.pin===s.id;
+    const icon = L.divIcon({ className:'lpin-wrap', html:`<div class="lpin ${sel?'sel':''}" role="button" aria-label="${escAttr(s.name+', '+s.price)}"><span>${s.price}</span></div>`, iconSize:[56,28], iconAnchor:[28,28] });
+    const m = L.marker([s.lat,s.lng], { icon, keyboard:true, title:s.name, riseOnHover:true, zIndexOffset: sel?1000:0 }).addTo(map);
+    m.on('click', ()=>{ state.search.pin = (state.search.pin===s.id) ? null : s.id; refreshResults(); });
+    group.push([s.lat,s.lng]);
+  });
+  if(state.userLoc){
+    L.circleMarker([state.userLoc.lat,state.userLoc.lng], { radius:8, color:'#fff', weight:3, fillColor:'#2C5CE0', fillOpacity:1 }).addTo(map);
+    group.push([state.userLoc.lat,state.userLoc.lng]);
+  }
+  if(!state.search.lv && group.length>1) map.fitBounds(group, { padding:[34,34], maxZoom:13 });
+  const zc = L.control({ position:'topright' });
+  zc.onAdd = () => { const d = L.DomUtil.create('div','mapctl leafctl'); d.innerHTML = `<button data-leaf="in" aria-label="${escAttr(t('map_zoom_in'))}">+</button><button data-leaf="out" aria-label="${escAttr(t('map_zoom_out'))}">−</button>`; L.DomEvent.disableClickPropagation(d); d.addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; e.stopPropagation(); b.dataset.leaf==='in' ? map.zoomIn() : map.zoomOut(); }); return d; };
+  zc.addTo(map);
+  setTimeout(()=>map.invalidateSize(), 60);
 }
 
 function renderFilterPanel(){
@@ -1732,7 +1861,7 @@ function refreshResults(){
   const v = resultsView();
   metaEl.innerHTML = v.meta;
   bodyEl.innerHTML = v.body;
-  bindMapDrag();
+  bindMapDrag(); initLeafMap();
 }
 
 /* drag-to-pan for the SVG map (pointer events; viewBox is updated directly, no re-render) */
@@ -1826,7 +1955,7 @@ function screenTrainingDetail(){
       <div class="section-label">Owner</div>
       <div class="reviewcard" style="display:flex;align-items:center;gap:12px;">
         <div class="avatar" style="background:var(--moss);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;">${r.owner.split(' ').map(n=>n[0]).join('')}</div>
-        <div><b style="display:block;font-size:13.5px;">${r.owner}</b><span style="font-size:12px;color:var(--ink-soft);">Member since 2025</span></div>
+        <div><b style="display:block;font-size:calc(13.5px*var(--fs));">${r.owner}</b><span style="font-size:calc(12px*var(--fs));color:var(--ink-soft);">Member since 2025</span></div>
       </div>
       <div style="height:6px"></div>
       <div class="stickybar">
@@ -1867,7 +1996,7 @@ function screenSitterDetail(){
       ${REVIEWS.filter(r=>!r.sitterId || r.sitterId===s.id).map(r=>`
         <div class="reviewcard">
           <div class="rh"><span>${r.name}</span><span style="color:var(--ink-soft);font-weight:400">${r.when}</span></div>
-          ${r.stars ? `<div style="color:var(--gold);font-size:12px;margin-bottom:2px;">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>` : ''}
+          ${r.stars ? `<div style="color:var(--gold);font-size:calc(12px*var(--fs));margin-bottom:2px;">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>` : ''}
           <p>${r.text}</p>
         </div>
       `).join('')}
@@ -1915,7 +2044,7 @@ function screenRequestForm(){
       <div class="field"><label>Check-in</label><input id="f-in" type="date" value="${fIn||'2026-07-10'}"/></div>
       <div class="field"><label>Check-out</label><input id="f-out" type="date" value="${fOut||'2026-07-14'}"/></div>
     </div>
-    ${isRangeBlocked(s, fIn||'2026-07-10', fOut||'2026-07-14') ? `<p style="color:var(--stamp);font-size:12px;margin:-8px 0 14px;">${first} isn't available for some of these dates — check the calendar on their profile.</p>` : ''}
+    ${isRangeBlocked(s, fIn||'2026-07-10', fOut||'2026-07-14') ? `<p style="color:var(--stamp);font-size:calc(12px*var(--fs));margin:-8px 0 14px;">${first} isn't available for some of these dates — check the calendar on their profile.</p>` : ''}
     <div class="field"><label>Anything ${first} should know</label><textarea id="f-notes" placeholder="Feeding schedule, medication, temperament…">${fNotes.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</textarea></div>
     <div class="section-label">Add-ons</div>
     ${selPet ? `
@@ -1967,7 +2096,7 @@ function screenRequestDetail(){
       <div class="section-label">Owner</div>
       <div class="reviewcard" style="display:flex;align-items:center;gap:12px;">
         <div class="avatar" style="background:var(--moss);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;">${r.owner.split(' ').map(n=>n[0]).join('')}</div>
-        <div><b style="display:block;font-size:13.5px;">${r.owner}</b><span style="font-size:12px;color:var(--ink-soft);">Member since 2025</span></div>
+        <div><b style="display:block;font-size:calc(13.5px*var(--fs));">${r.owner}</b><span style="font-size:calc(12px*var(--fs));color:var(--ink-soft);">Member since 2025</span></div>
       </div>
       <div style="height:6px"></div>
       <div class="stickybar">
@@ -2284,29 +2413,30 @@ function screenProfile(){
   return `
   <div class="fade-in narrow">
     <div class="profile-head">
-      <div class="avatar" style="background:var(--gold);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:26px;">Y</div>
+      <div class="avatar" style="background:var(--gold);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:calc(26px*var(--fs));">Y</div>
       <h2 style="display:flex;align-items:center;gap:6px;justify-content:center;">${t('profile_you')} ${state.verification.status==='verified' ? `<span class="trustbadge">${ICON.shield}Verified</span>` : ''}</h2>
       <p>${roleLabel} · Istanbul, Turkey</p>
     </div>
     <div class="profile-row" data-action="nav2-verify"><div class="left">${ICON.shield}<span>${t('profile_verification')}</span></div>
       <span style="display:flex;align-items:center;gap:8px;">
-        <span class="statuspill ${state.verification.status}" style="margin:0;padding:3px 9px;font-size:10px;"><span class="dot"></span>${state.verification.status==='unverified' ? 'Not started' : state.verification.status==='pending' ? 'In review' : 'Verified'}</span>
+        <span class="statuspill ${state.verification.status}" style="margin:0;padding:3px 9px;font-size:calc(10px*var(--fs));"><span class="dot"></span>${state.verification.status==='unverified' ? 'Not started' : state.verification.status==='pending' ? 'In review' : 'Verified'}</span>
         ${ICON.chevron}
       </span>
     </div>
     ${isTrainer
-      ? `<div class="profile-row" data-action="nav2-trainercv"><div class="left">${ICON.cert}<span>${t('profile_trainercv')}</span></div>${state.trainerCV ? `<span style="color:var(--ink-soft);font-size:12px;">Complete</span>` : `<span style="color:var(--ink-soft);font-size:12px;">Not started</span>`}${ICON.chevron}</div>`
-      : `<div class="profile-row" data-action="${isOwner ? 'nav2-mypets' : 'nav2-availability'}"><div class="left">${isOwner ? ICON.paw : ICON.calendar}<span>${isOwner ? t('profile_mypets') : t('profile_availability')}</span></div>${isOwner ? `<span style="color:var(--ink-soft);font-size:12px;">${state.myPets.length} added</span>` : `<span style="color:var(--ink-soft);font-size:12px;">${state.myBlockedDates.length} blocked</span>`}${ICON.chevron}</div>`}
-    ${isOwner ? `<div class="profile-row" data-action="nav2-favorites"><div class="left">${ICON.heart}<span>${t('profile_favorites')}</span></div><span style="color:var(--ink-soft);font-size:12px;">${state.favorites.length} saved</span>${ICON.chevron}</div>` : ''}
+      ? `<div class="profile-row" data-action="nav2-trainercv"><div class="left">${ICON.cert}<span>${t('profile_trainercv')}</span></div>${state.trainerCV ? `<span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">Complete</span>` : `<span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">Not started</span>`}${ICON.chevron}</div>`
+      : `<div class="profile-row" data-action="${isOwner ? 'nav2-mypets' : 'nav2-availability'}"><div class="left">${isOwner ? ICON.paw : ICON.calendar}<span>${isOwner ? t('profile_mypets') : t('profile_availability')}</span></div>${isOwner ? `<span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${state.myPets.length} added</span>` : `<span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${state.myBlockedDates.length} blocked</span>`}${ICON.chevron}</div>`}
+    ${isOwner ? `<div class="profile-row" data-action="nav2-favorites"><div class="left">${ICON.heart}<span>${t('profile_favorites')}</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${state.favorites.length} saved</span>${ICON.chevron}</div>` : ''}
     <div class="profile-row" data-action="nav2-payment"><div class="left">${ICON.cardicon}<span>${isOwner ? t('profile_payment') : t('profile_payout')}</span></div>${ICON.chevron}</div>
     <div class="profile-row" data-action="tap-bell"><div class="left">${ICON.bell}<span>${t('profile_notifications')}</span></div>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-policyhub"><div class="left">${ICON.idcard}<span>${t('profile_legal')}</span></div>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-documents"><div class="left">${ICON.filesheet}<span>${t('profile_documents')}</span></div>${ICON.chevron}</div>
-    <div class="profile-row" data-action="nav2-rewards"><div class="left">${ICON.gift}<span>${t('profile_points')}</span></div><span style="color:var(--ink-soft);font-size:12px;">${state.loyaltyPoints} pts</span>${ICON.chevron}</div>
-    ${!isOwner ? `<div class="profile-row" data-action="nav2-earnings"><div class="left">${ICON.cardicon}<span>Earnings</span></div><span style="color:var(--ink-soft);font-size:12px;">₺${earningsSummary().month.toLocaleString('tr-TR')} this month</span>${ICON.chevron}</div>` : ''}
-    ${state.mode==='sitter' ? `<div class="profile-row" data-action="nav2-pricing"><div class="left">${ICON.bolt}<span>My pricing</span></div><span style="color:var(--ink-soft);font-size:12px;">₺${state.myPricing.base} / night</span>${ICON.chevron}</div>` : ''}
-    <div class="profile-row" data-action="nav2-invite"><div class="left">${ICON.gift}<span>Invite friends</span></div><span style="color:var(--ink-soft);font-size:12px;">Get 100 pts</span>${ICON.chevron}</div>
+    <div class="profile-row" data-action="nav2-rewards"><div class="left">${ICON.gift}<span>${t('profile_points')}</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${state.loyaltyPoints} pts</span>${ICON.chevron}</div>
+    ${!isOwner ? `<div class="profile-row" data-action="nav2-earnings"><div class="left">${ICON.cardicon}<span>Earnings</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">₺${earningsSummary().month.toLocaleString('tr-TR')} this month</span>${ICON.chevron}</div>` : ''}
+    ${state.mode==='sitter' ? `<div class="profile-row" data-action="nav2-pricing"><div class="left">${ICON.bolt}<span>My pricing</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">₺${state.myPricing.base} / night</span>${ICON.chevron}</div>` : ''}
+    <div class="profile-row" data-action="nav2-invite"><div class="left">${ICON.gift}<span>Invite friends</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">Get 100 pts</span>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-tour"><div class="left">${ICON.clock}<span>${t('profile_how_it_works')}</span></div>${ICON.chevron}</div>
+    <div class="profile-row" data-action="nav2-settings"><div class="left"><span aria-hidden="true">🌓</span><span>Appearance &amp; accessibility</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${PREFS.theme==='auto'?'Auto':PREFS.theme==='dark'?'Dark':'Light'}</span>${ICON.chevron}</div>
     <div class="section-label">${t('profile_language')}</div>
     <div class="profile-row" style="cursor:default;">
       <div class="left"><span>🌐</span><span>${state.lang==='tr' ? 'Türkçe' : 'English'}</span></div>
@@ -2317,7 +2447,7 @@ function screenProfile(){
     </div>
     <div class="section-label">${t('profile_switch_role')}</div>
     ${otherModes.map(m=>`<div class="profile-row" data-action="mode-${m}"><div class="left">${modeMeta[m].icon}<span>${modeMeta[m].label}</span></div>${ICON.chevron}</div>`).join('')}
-    <div class="profile-row" style="color:var(--stamp);"><div class="left" style="color:var(--stamp);">${ICON.logout}<span>${t('profile_logout')}</span></div></div>
+    <div class="profile-row" data-action="logout" style="color:var(--stamp);"><div class="left" style="color:var(--stamp);">${ICON.logout}<span>${t('profile_logout')}</span></div></div>
   </div>`;
 }
 
@@ -2392,7 +2522,7 @@ function screenRewards(){
       <div class="reward-row ${state.loyaltyPoints<r.cost?'locked':''}">
         <div class="rw-icon">${r.icon}</div>
         <div class="rw-body"><b>${r.title}</b><span>${r.cost} points</span></div>
-        <button class="btn btn-ghost" style="padding:8px 14px;font-size:12px;width:auto;" data-action="redeem-reward-${r.id}" ${state.loyaltyPoints<r.cost?'disabled':''}>Redeem</button>
+        <button class="btn btn-ghost" style="padding:8px 14px;font-size:calc(12px*var(--fs));width:auto;" data-action="redeem-reward-${r.id}" ${state.loyaltyPoints<r.cost?'disabled':''}>Redeem</button>
       </div>
     `).join('')}
     ${state.redeemedRewards.length ? `
@@ -2637,7 +2767,7 @@ function screenTrainerCV(){
       ${TRAINER_REVIEWS.length===0 ? `<p class="subtitle" style="margin-top:-6px;">No reviews yet — complete a training booking to get your first one.</p>` : TRAINER_REVIEWS.map(r=>`
         <div class="reviewcard">
           <div class="rh"><span>${r.name}</span><span style="color:var(--ink-soft);font-weight:400">${r.when}</span></div>
-          <div style="color:var(--gold);font-size:12px;margin-bottom:2px;">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+          <div style="color:var(--gold);font-size:calc(12px*var(--fs));margin-bottom:2px;">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
           <p>${r.text}</p>
         </div>
       `).join('')}
@@ -2913,8 +3043,8 @@ function screenInvite(){
         <div class="avatar" style="background:var(--moss);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;">${x.name[0].toUpperCase()}</div>
         <div class="mbody"><b>${x.name}</b><span>${x.status==='joined' ? '+'+REF_BONUS+' points earned' : 'Invite sent'}</span></div>
         ${x.status==='joined'
-          ? `<span class="statuspill verified" style="margin:0;padding:3px 9px;font-size:10px;"><span class="dot"></span>Joined</span>`
-          : `<button class="btn btn-ghost" style="width:auto;padding:7px 12px;font-size:11.5px;" data-action="sim-ref-${i}">Simulate: they joined</button>`}
+          ? `<span class="statuspill verified" style="margin:0;padding:3px 9px;font-size:calc(10px*var(--fs));"><span class="dot"></span>Joined</span>`
+          : `<button class="btn btn-ghost" style="width:auto;padding:7px 12px;font-size:calc(11.5px*var(--fs));" data-action="sim-ref-${i}">Simulate: they joined</button>`}
       </div>`).join('')}
     ${r.usedCode ? `
       <div class="trustnote" style="margin-top:14px;">${ICON.check}<span>You joined with ${r.usedCode} — ${REF_BONUS} points were added.</span></div>` : `
@@ -2955,6 +3085,303 @@ function rebookRailHTML(){
     </div>`;
 }
 
+
+
+
+/* ============ BACKEND (Supabase) — optional; app runs in local demo mode when no keys are configured ============ */
+const BE = { sb:null, user:null, ready:false, guest:false, status:'off', error:'', snap:{}, timer:null, busy:false, again:false, loading:false };
+(function initBackend(){
+  const c = window.PAWCATION_CONFIG || {};
+  if(c.supabaseUrl && c.supabaseAnonKey && window.supabase && window.supabase.createClient){
+    try{ BE.sb = window.supabase.createClient(c.supabaseUrl, c.supabaseAnonKey, { auth:{ persistSession:true, autoRefreshToken:true, detectSessionInUrl:true } }); BE.status='signedout'; }
+    catch(e){ console.warn('Supabase init failed', e); }
+  }
+})();
+function backendActive(){ return !!BE.sb; }
+state.auth = { tab:'in', error:'', info:'', busy:false, checking: !!BE.sb };
+if(BE.sb) state.screen = 'auth';
+
+const BE_PET_DEFAULTS = {};
+function beJSON(v){ return JSON.stringify(v, (k,val)=> (k==='photo' || k==='selfie' || k==='idFront' || k==='idBack') && typeof val==='string' && val.startsWith('data:') ? '' : val); }
+function beUUID(){ return (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0;return (c==='x'?r:(r&3|8)).toString(16);}); }
+function beSlices(){
+  const profile = { lang:state.lang, points:state.loyaltyPoints, data:{
+    onboarded:state.onboarded, mode:state.mode, myPricing:state.myPricing, myBlockedDates:state.myBlockedDates, redeemedRewards:state.redeemedRewards,
+    consent:state.consent, trainerCV:state.trainerCV, verificationStatus:state.verification && state.verification.status,
+    invited:state.referral.invited, usedCode:state.referral.usedCode, prefs:{ theme:PREFS.theme, text:PREFS.text, contrast:PREFS.contrast, motion:PREFS.motion } } };
+  const pets = state.myPets.map((p,i)=>{ const {id,name,...rest}=p; return { id, position:i, name, data:JSON.parse(beJSON(rest)) }; });
+  const bookings = state.bookings.map(b=>({ id:b.id, status:b.status||null, sitter_id:b.sitterId||null, data:JSON.parse(beJSON(b)) }));
+  return { profile:beJSON(profile), pets:beJSON(pets), bookings:beJSON(bookings), favorites:beJSON([...state.favorites].sort()) };
+}
+function bePhotoToBlob(dataUrl){
+  const m = /^data:(.+?);base64,(.*)$/.exec(dataUrl); if(!m) return null;
+  const bin = atob(m[2]), arr = new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
+  return { blob:new Blob([arr],{type:m[1]}), type:m[1] };
+}
+async function backendSync(){
+  if(!BE.ready || !BE.user) return;
+  if(BE.busy){ BE.again = true; return; }
+  if(navigator.onLine===false){ BE.status='offline'; beStatusUI(); return; }
+  BE.busy = true;
+  try{
+    const sb = BE.sb, uid = BE.user.id;
+    state.myPets.forEach(p=>{ if(!p.id) p.id = beUUID(); });
+    for(const p of state.myPets){
+      if(typeof p.photo==='string' && p.photo.startsWith('data:')){
+        const f = bePhotoToBlob(p.photo); if(!f) continue;
+        BE.status='saving'; beStatusUI();
+        const path = `${uid}/${p.id}.${(f.type.split('/')[1]||'jpg').replace('jpeg','jpg')}`;
+        const up = await sb.storage.from('pet-photos').upload(path, f.blob, { contentType:f.type, upsert:true });
+        if(up.error) throw up.error;
+        p.photo = sb.storage.from('pet-photos').getPublicUrl(path).data.publicUrl + '?v=' + Date.now();
+      }
+    }
+    const cur = beSlices();
+    if(cur.profile===BE.snap.profile && cur.pets===BE.snap.pets && cur.bookings===BE.snap.bookings && cur.favorites===BE.snap.favorites){ BE.status='saved'; beStatusUI(); return; }
+    BE.status='saving'; beStatusUI();
+    const done = {};
+    if(cur.profile!==BE.snap.profile){ const r = await sb.from('profiles').update(JSON.parse(cur.profile)).eq('id',uid); if(r.error) throw r.error; done.profile=cur.profile; }
+    if(cur.pets!==BE.snap.pets){
+      const rows = JSON.parse(cur.pets).map(r=>({ ...r, owner_id:uid }));
+      const ex = await sb.from('pets').select('id').eq('owner_id',uid); if(ex.error) throw ex.error;
+      const keep = new Set(rows.map(r=>r.id)), del = (ex.data||[]).map(r=>r.id).filter(id=>!keep.has(id));
+      if(del.length){ const r = await sb.from('pets').delete().eq('owner_id',uid).in('id',del); if(r.error) throw r.error; }
+      if(rows.length){ const r = await sb.from('pets').upsert(rows,{ onConflict:'id' }); if(r.error) throw r.error; }
+      done.pets=cur.pets;
+    }
+    if(cur.bookings!==BE.snap.bookings){
+      const rows = JSON.parse(cur.bookings).map(r=>({ ...r, user_id:uid }));
+      const ex = await sb.from('bookings').select('id').eq('user_id',uid); if(ex.error) throw ex.error;
+      const keep = new Set(rows.map(r=>r.id)), del = (ex.data||[]).map(r=>r.id).filter(id=>!keep.has(id));
+      if(del.length){ const r = await sb.from('bookings').delete().eq('user_id',uid).in('id',del); if(r.error) throw r.error; }
+      if(rows.length){ const r = await sb.from('bookings').upsert(rows,{ onConflict:'user_id,id' }); if(r.error) throw r.error; }
+      done.bookings=cur.bookings;
+    }
+    if(cur.favorites!==BE.snap.favorites){
+      const ids = JSON.parse(cur.favorites);
+      const ex = await sb.from('favorites').select('sitter_id').eq('user_id',uid); if(ex.error) throw ex.error;
+      const del = (ex.data||[]).map(r=>r.sitter_id).filter(id=>!ids.includes(id));
+      if(del.length){ const r = await sb.from('favorites').delete().eq('user_id',uid).in('sitter_id',del); if(r.error) throw r.error; }
+      if(ids.length){ const r = await sb.from('favorites').upsert(ids.map(sid=>({ user_id:uid, sitter_id:sid })),{ onConflict:'user_id,sitter_id' }); if(r.error) throw r.error; }
+      done.favorites=cur.favorites;
+    }
+    Object.assign(BE.snap, done); BE.status='saved'; BE.error='';
+  }catch(e){ BE.status='error'; BE.error = (e && e.message) || String(e); console.warn('Pawcation sync failed:', e); }
+  finally{ BE.busy=false; beStatusUI(); if(BE.again){ BE.again=false; backendSyncSoon(); } }
+}
+function backendSyncSoon(){ if(!BE.ready) return; clearTimeout(BE.timer); BE.timer = setTimeout(backendSync, 900); }
+function backendSavePrefs(){ backendSyncSoon(); }
+window.addEventListener('online', ()=>{ if(BE.ready) backendSyncSoon(); });
+function beStatusUI(){
+  const el = document.getElementById('be-status'); if(!el) return;
+  const m = { saved:'Saved ✓', saving:'Saving…', offline:'Offline — will sync later', error:'Could not sync — will retry' };
+  el.textContent = m[BE.status] || ''; el.style.color = BE.status==='error' ? 'var(--stamp)' : 'var(--ink-soft)';
+}
+
+async function backendLoad(){
+  const sb = BE.sb, uid = BE.user.id;
+  let pr = await sb.from('profiles').select('*').eq('id',uid).maybeSingle();
+  if(pr.error) throw pr.error;
+  if(!pr.data){ const ins = await sb.from('profiles').insert({ id:uid }); if(ins.error) throw ins.error; pr = await sb.from('profiles').select('*').eq('id',uid).maybeSingle(); if(pr.error||!pr.data) throw (pr.error||new Error('profile missing')); }
+  const [pets, bk, fav, sit] = await Promise.all([
+    sb.from('pets').select('*').eq('owner_id',uid).order('position'),
+    sb.from('bookings').select('*').eq('user_id',uid).order('created_at'),
+    sb.from('favorites').select('sitter_id').eq('user_id',uid),
+    sb.from('sitters').select('id,data').eq('active',true)
+  ]);
+  for(const r of [pets,bk,fav]) if(r.error) throw r.error;
+  const row = pr.data, d = row.data || {};
+  state.lang = row.lang || state.lang; document.documentElement.lang = state.lang;
+  state.loyaltyPoints = row.points || 0;
+  state.referral = { code: row.referral_code || '', usedCode: d.usedCode || (row.referred_by ? 'PAW' : null), invited: d.invited || [] };
+  if(d.myPricing) state.myPricing = d.myPricing;
+  state.myBlockedDates = d.myBlockedDates || [];
+  state.redeemedRewards = d.redeemedRewards || [];
+  if(d.consent) state.consent = d.consent;
+  state.trainerCV = d.trainerCV || null;
+  state.verification = { status: d.verificationStatus || 'unverified', selfie:null, idFront:null, idBack:null };
+  state.onboarded = !!d.onboarded; state.mode = d.mode || 'owner';
+  if(d.prefs){ Object.assign(PREFS, d.prefs); applyPrefs(false); try{ localStorage.setItem('pawcation.prefs', JSON.stringify(PREFS)); }catch(e){} }
+  state.myPets = (pets.data||[]).map(r=>({ ...r.data, id:r.id, name:r.name }));
+  state.bookings = (bk.data||[]).map(r=>r.data);
+  state.favorites = (fav.data||[]).map(r=>r.sitter_id);
+  state.notifications = [];                       // demo notifications are not part of an account yet
+  if(!sit.error && sit.data && sit.data.length){ SITTERS.splice(0, SITTERS.length, ...sit.data.map(r=>({ ...r.data, id:r.id }))); }
+  BE.snap = beSlices();
+}
+async function onSignedIn(user){
+  if(BE.loading || (BE.user && BE.user.id===user.id && BE.ready)) return;
+  BE.loading = true; BE.user = user; BE.guest = false; state.auth.checking = true; state.auth.error = '';
+  try{
+    await backendLoad(); BE.ready = true; BE.status = 'saved'; state.auth.checking = false;
+    state.screen = state.onboarded ? 'browse' : 'tour'; render();
+  }catch(e){
+    console.warn('load failed', e); BE.user = null; BE.ready = false; state.auth = { tab:'in', checking:false, busy:false, info:'', error:'Could not load your account. Did you run schema.sql? ('+((e&&e.message)||e)+')' };
+    state.screen='auth'; render();
+  }finally{ BE.loading = false; }
+}
+async function backendBoot(){
+  if(!BE.sb) return;
+  BE.sb.auth.onAuthStateChange((evt, session)=>{ setTimeout(()=>{
+    if(evt==='SIGNED_OUT'){ if(BE.user){ BE.user=null; BE.ready=false; location.reload(); } }
+    else if(session && session.user && (!BE.user || BE.user.id!==session.user.id)) onSignedIn(session.user);
+  },0); });
+  try{
+    const r = await BE.sb.auth.getSession();
+    if(r.data && r.data.session) await onSignedIn(r.data.session.user);
+    else { state.auth.checking = false; render(); }
+  }catch(e){ state.auth.checking = false; state.auth.error = 'Could not reach the server.'; render(); }
+}
+async function backendRefreshPoints(){
+  const r = await BE.sb.from('profiles').select('points').eq('id',BE.user.id).maybeSingle();
+  if(!r.error && r.data){ state.loyaltyPoints = r.data.points; BE.snap.profile = beSlices().profile; }
+}
+
+function screenAuth(){
+  const a = state.auth, up = a.tab==='up';
+  if(a.checking) return `<div class="onboard fade-in"><div class="mark-lg">${ICON.paw}</div><p class="tag" style="margin:0;">Loading…</p></div>`;
+  return `
+  <div class="onboard fade-in" style="justify-content:flex-start;padding-top:56px;overflow-y:auto;">
+    <div class="langswitch">
+      <span class="langpill ${state.lang==='en'?'active':''}" data-action="set-lang-en">EN</span>
+      <span class="langpill ${state.lang==='tr'?'active':''}" data-action="set-lang-tr">TR</span>
+    </div>
+    <div class="mark-lg">${ICON.paw}</div>
+    <h1>${up ? 'Create your account' : 'Welcome back'}</h1>
+    <p class="tag" style="margin-bottom:18px;">Keep your pets, bookings and points safe across all your devices.</p>
+    <div class="seg" role="group" style="margin-bottom:16px;">
+      <button data-action="auth-tab-in" aria-pressed="${!up}">Sign in</button>
+      <button data-action="auth-tab-up" aria-pressed="${up}">Create account</button>
+    </div>
+    <div style="text-align:left;">
+      ${up ? `<div class="field"><label>Your name</label><input id="auth-name" autocomplete="name" placeholder="e.g. Kuzey"/></div>` : ''}
+      <div class="field"><label>Email</label><input id="auth-email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" placeholder="you@example.com"/></div>
+      <div class="field"><label>Password</label><input id="auth-pass" type="password" autocomplete="${up?'new-password':'current-password'}" placeholder="${up?'At least 8 characters':'Your password'}"/></div>
+    </div>
+    ${a.error ? `<p role="alert" style="color:var(--stamp);font-size:calc(13px*var(--fs));margin:0 0 12px;text-align:left;">${escAttr(a.error)}</p>` : ''}
+    ${a.info ? `<p role="status" style="color:var(--moss-deep);font-size:calc(13px*var(--fs));margin:0 0 12px;text-align:left;">${escAttr(a.info)}</p>` : ''}
+    <button class="btn btn-primary" data-action="auth-submit" ${a.busy?'disabled':''}>${a.busy ? 'Please wait…' : (up ? 'Create account' : 'Sign in')}</button>
+    <div style="display:flex;flex-direction:column;gap:6px;margin-top:14px;">
+      <button class="btn btn-ghost" data-action="auth-magic">Email me a sign-in link</button>
+      ${up ? '' : `<button class="btn btn-ghost" data-action="auth-reset">Forgot password?</button>`}
+      <button class="btn btn-ghost" data-action="auth-guest">Explore without an account</button>
+    </div>
+  </div>`;
+}
+function accountRowHTML(){
+  if(!BE.sb) return `<div class="setrow"><div><b>Demo mode</b><small>Your data stays on this device. To turn on accounts and cloud sync, add your Supabase keys to config.js.</small></div></div>`;
+  if(BE.user) return `<div class="setrow"><div><b>${escAttr(BE.user.email||'Signed in')}</b><small id="be-status">${({saved:'Saved ✓',saving:'Saving…',offline:'Offline — will sync later',error:'Could not sync — will retry'})[BE.status]||''}</small></div><button class="btn btn-ghost" style="width:auto;padding:9px 16px;" data-action="logout">Sign out</button></div>`;
+  return `<div class="setrow"><div><b>Guest</b><small>Changes are not saved to an account.</small></div><button class="btn btn-primary" style="width:auto;padding:9px 16px;" data-action="auth-open">Sign in</button></div>`;
+}
+const AUTH_ERR = { 'Invalid login credentials':'Wrong email or password.', 'Email not confirmed':'Please confirm your email first — check your inbox.', 'User already registered':'An account with this email already exists. Try signing in.' };
+const authMsg = e => { const m = (e && e.message) || String(e); return AUTH_ERR[m] || (/password should be at least/i.test(m) ? 'Password is too short.' : /rate limit/i.test(m) ? 'Too many attempts. Please wait a minute.' : m); };
+
+/* ============ PWA: install prompt, service worker, offline banner ============ */
+let deferredInstall = null;
+const IS_IOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+const IS_STANDALONE = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstall = e; if(state.screen==='settings') render(); });
+window.addEventListener('appinstalled', () => { deferredInstall = null; toast('Pawcation installed'); if(state.screen==='settings') render(); });
+function pwaRowHTML(){
+  if(IS_STANDALONE) return `<div class="setrow"><div><b>Installed</b><small>You're using the Pawcation app.</small></div><span aria-hidden="true">✓</span></div>`;
+  if(deferredInstall) return `<div class="setrow"><div><b>Install Pawcation</b><small>Add it to your home screen. It opens full-screen and works offline.</small></div><button class="btn btn-primary" style="width:auto;padding:9px 16px;" data-action="install-app">Install</button></div>`;
+  if(IS_IOS) return `<div class="setrow"><div><b>Add to Home Screen</b><small>In Safari tap Share, then “Add to Home Screen”.</small></div><span aria-hidden="true">⬆︎</span></div>`;
+  return `<div class="setrow"><div><b>Install as an app</b><small>Use your browser menu → “Install app” or “Add to Home Screen”.</small></div></div>`;
+}
+function updateOnlineBar(){
+  const b = document.getElementById('offlinebar'); if(!b) return;
+  const off = navigator.onLine === false;
+  b.textContent = off ? (state.lang==='tr' ? 'Çevrimdışısın — kayıtlı içerik gösteriliyor' : "You're offline — showing saved content") : '';
+  b.classList.toggle('show', off);
+}
+window.addEventListener('online', ()=>{ updateOnlineBar(); if(state.screen==='browse' && state.search && state.search.view==='map') refreshResults(); });
+window.addEventListener('offline', ()=>{ updateOnlineBar(); });
+if('serviceWorker' in navigator && /^https?:$/.test(location.protocol)){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').then(reg => {
+      reg.addEventListener('updatefound', () => { const w = reg.installing; if(w) w.addEventListener('statechange', () => { if(w.state==='installed' && navigator.serviceWorker.controller) toast('Update ready — reopen the app to get it'); }); });
+    }).catch(()=>{});
+  });
+}
+
+/* ============ APPEARANCE & ACCESSIBILITY ============ */
+const PREFS = window.__prefs || { theme:'auto', text:100, contrast:false, motion:false };
+function applyPrefs(save){
+  const h = document.documentElement;
+  h.dataset.theme = PREFS.theme; h.dataset.contrast = PREFS.contrast ? 'high' : 'normal'; h.dataset.motion = PREFS.motion ? 'reduce' : 'auto';
+  h.style.setProperty('--fs', (PREFS.text||100)/100);
+  const dark = PREFS.theme==='dark' || (PREFS.theme==='auto' && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+  const m = document.querySelector('meta[name=theme-color]'); if(m) m.setAttribute('content', dark ? '#121A15' : '#1E3A2B');
+  if(save){ try{ localStorage.setItem('pawcation.prefs', JSON.stringify(PREFS)); }catch(e){} if(typeof backendSavePrefs==='function') backendSavePrefs(); }
+}
+if(window.matchMedia){ try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ()=>applyPrefs(false)); }catch(e){} }
+applyPrefs(false);
+
+function screenSettings(){
+  const seg = (items, cur, act) => `<div class="seg" role="group">${items.map(([v,l])=>`<button data-action="${act}-${v}" aria-pressed="${String(cur)===String(v)}">${l}</button>`).join('')}</div>`;
+  const sw = (on, act, label) => `<button class="switch" role="switch" aria-checked="${on}" aria-label="${label}" data-action="${act}"></button>`;
+  return `
+  <div class="fade-in">
+    <h2 class="title">Appearance &amp; accessibility</h2>
+    <p class="subtitle">Make Pawcation comfortable to read and use. Settings are saved on this device${typeof backendActive==='function' && backendActive() ? ' and to your account' : ''}.</p>
+    <div class="section-label">Theme</div>
+    ${seg([['auto','Auto'],['light','Light'],['dark','Dark']], PREFS.theme, 'set-theme')}
+    <p class="fieldhint" style="margin:0 0 14px;">Auto follows your phone's setting.</p>
+    <div class="section-label">Text size</div>
+    ${seg([[100,'Default'],[115,'Large'],[130,'Extra large']], PREFS.text, 'set-text')}
+    <div class="prefsample"><b>Sample</b><br/>Elif will look after Luna from 10 to 14 July. Daily photo updates included.</div>
+    <div class="section-label">Display</div>
+    <div class="setrow"><div><b>Higher contrast</b><small>Stronger borders and text colours.</small></div>${sw(PREFS.contrast,'toggle-contrast','Higher contrast')}</div>
+    <div class="setrow"><div><b>Reduce motion</b><small>Turn off animations and transitions.</small></div>${sw(PREFS.motion,'toggle-motion','Reduce motion')}</div>
+    ${typeof pwaRowHTML==='function' ? pwaRowHTML() : ''}
+    ${typeof accountRowHTML==='function' ? accountRowHTML() : ''}
+    <button class="btn btn-ghost" style="margin-top:6px;" data-action="reset-prefs">Reset to defaults</button>
+  </div>`;
+}
+
+/* a11y pass: roles, labels, keyboard — runs after every render (and from the DOM observer) */
+const ARIA_BY_ACTION = [
+  [/^back$/,'Back'],[/^tap-bell$/,'Notifications'],[/^flt-toggle$/,'Filters'],[/^map-zoom-in$/,'Zoom in'],[/^map-zoom-out$/,'Zoom out'],
+  [/^toggle-fav-/,'Favourite'],[/^send-chat-/,'Send message'],[/^clear-search$/,'Clear search'],[/^pets-dec$/,'Fewer pets'],[/^pets-inc$/,'More pets'],
+  [/^copy-ref$/,'Copy code'],[/^share-ref$/,'Share code']
+];
+function a11yApply(root){
+  root = root || document;
+  root.querySelectorAll('[data-action]').forEach(el=>{
+    const tag = el.tagName;
+    if(tag!=='BUTTON' && tag!=='A' && tag!=='INPUT' && tag!=='SELECT' && !el.closest('svg') && !el.hasAttribute('role')){
+      if(!el.hasAttribute('tabindex')) el.setAttribute('tabindex','0');
+      if(!el.querySelector('[data-action],button,a,input,select,textarea')) el.setAttribute('role','button');
+    }
+    if(!el.hasAttribute('aria-label') && !(el.textContent||'').trim()){
+      const a = el.getAttribute('data-action')||''; const hit = ARIA_BY_ACTION.find(([re])=>re.test(a));
+      el.setAttribute('aria-label', hit ? (state.lang==='tr' ? (TR_EXACT[hit[1]]||hit[1]) : hit[1]) : a.replace(/-/g,' '));
+    }
+    if(el.classList.contains('chip') || el.closest('.viewtoggle') || el.classList.contains('langpill')){
+      el.setAttribute('aria-pressed', el.classList.contains('active') ? 'true':'false');
+    }
+  });
+  root.querySelectorAll('.field').forEach(f=>{
+    const lab = f.querySelector('label'), inp = f.querySelector('input,select,textarea');
+    if(lab && inp && !lab.htmlFor){
+      if(!inp.id) inp.id = 'fld-'+Math.random().toString(36).slice(2,8);
+      lab.htmlFor = inp.id;
+    }
+  });
+  root.querySelectorAll('input:not([aria-label])').forEach(i=>{ if(!i.labels || !i.labels.length){ const ph=i.getAttribute('placeholder'); if(ph) i.setAttribute('aria-label', ph); } });
+  const bn = document.getElementById('bottomnav'); if(bn){ bn.setAttribute('role','navigation'); bn.setAttribute('aria-label','Main'); }
+  const ct = document.getElementById('content'); if(ct){ ct.setAttribute('role','main'); }
+  const ti = document.getElementById('toast'); if(ti){ ti.setAttribute('role','status'); ti.setAttribute('aria-live','polite'); }
+  document.querySelectorAll('.navitem').forEach(n=>{ n.setAttribute('aria-current', n.classList.contains('active') ? 'page' : 'false'); });
+  document.querySelectorAll('img:not([alt])').forEach(i=>i.setAttribute('alt',''));
+}
+document.addEventListener('keydown', e=>{
+  if(e.key==='Enter' && e.target && /^auth-(email|pass|name)$/.test(e.target.id)){ e.preventDefault(); const b=document.querySelector('[data-action=auth-submit]'); if(b) b.click(); return; }
+  if((e.key==='Enter' || e.key===' ') && e.target && e.target.matches && e.target.matches('[data-action][tabindex]') && !e.target.matches('button,a,input,select,textarea')){
+    e.preventDefault(); e.target.click();
+  }
+});
+
 /* ============ MASTER RENDER ============ */
 function render(){
   renderTopbar();
@@ -2994,10 +3421,12 @@ function render(){
     case 'earnings': html = screenEarnings(); break;
     case 'pricing': html = screenPricing(); break;
     case 'invite': html = screenInvite(); break;
+    case 'settings': html = screenSettings(); break;
+    case 'auth': html = screenAuth(); break;
     default: html = screenOnboard();
   }
   app.content.innerHTML = html;
-  bindMapDrag();
+  bindMapDrag(); initLeafMap(); a11yApply(); if(typeof backendSyncSoon==='function') backendSyncSoon();
 }
 
 /* ============ EVENTS ============ */
@@ -3090,7 +3519,7 @@ document.addEventListener('click', (e) => {
     else if(state.screen==='leaveReview'){ state.reviewDraft=null; go('bookingDetail', {selectedId:state.selectedId}); }
     else if(state.screen==='cancelBooking' || state.screen==='reschedule') go('bookingDetail', {selectedId:state.selectedId});
     else if(state.screen==='chatThread') go('messages');
-    else if(['verify','payment','mypets','trainercv','notifications','rewards','availability','favorites','tour','earnings','pricing','invite'].includes(state.screen)) go('profile');
+    else if(['verify','payment','mypets','trainercv','notifications','rewards','availability','favorites','tour','earnings','pricing','invite','settings'].includes(state.screen)) go('profile');
     else go('browse');
     return;
   }
@@ -3496,6 +3925,43 @@ document.addEventListener('click', (e) => {
   if(action==='save-pricing'){ toast('Pricing saved'); go('profile'); return; }
 
   /* ---- referrals ---- */
+  if(action==='install-app'){ if(deferredInstall){ deferredInstall.prompt(); deferredInstall.userChoice.finally(()=>{ deferredInstall=null; render(); }); } return; }
+  if(action==='logout'){
+    if(BE.sb && BE.user){ BE.sb.auth.signOut().finally(()=>location.reload()); }
+    else if(BE.sb){ state.screen='auth'; state.onboarded=false; render(); }
+    else toast('Demo mode — there is no account to sign out of');
+    return;
+  }
+  if(action==='auth-open'){ state.auth.error=''; state.auth.info=''; state.onboarded=false; go('auth'); return; }
+  if(action==='auth-tab-in' || action==='auth-tab-up'){ state.auth.tab = action==='auth-tab-up' ? 'up' : 'in'; state.auth.error=''; state.auth.info=''; render(); return; }
+  if(action==='auth-guest'){ BE.guest = true; state.auth.error=''; go('tour'); return; }
+  if(action==='auth-submit' || action==='auth-magic' || action==='auth-reset'){
+    const g = id => ((document.getElementById(id)||{}).value||'').trim();
+    const email = g('auth-email'), pass = (document.getElementById('auth-pass')||{}).value||'', name = g('auth-name');
+    const a = state.auth; a.error=''; a.info='';
+    const redirect = location.origin + location.pathname;
+    if(!/^\S+@\S+\.\S+$/.test(email)){ a.error='Enter a valid email address.'; render(); return; }
+    if(action==='auth-submit' && pass.length < (a.tab==='up' ? 8 : 1)){ a.error = a.tab==='up' ? 'Choose a password with at least 8 characters.' : 'Enter your password.'; render(); return; }
+    a.busy = true; render();
+    (async ()=>{
+      try{
+        let r;
+        if(action==='auth-magic'){ r = await BE.sb.auth.signInWithOtp({ email, options:{ emailRedirectTo:redirect, data:{ lang:state.lang } } }); if(!r.error) a.info='We sent you a sign-in link. Open it on this device.'; }
+        else if(action==='auth-reset'){ r = await BE.sb.auth.resetPasswordForEmail(email, { redirectTo:redirect }); if(!r.error) a.info='If that email has an account, a reset link is on its way.'; }
+        else if(a.tab==='up'){ r = await BE.sb.auth.signUp({ email, password:pass, options:{ emailRedirectTo:redirect, data:{ display_name:name||email.split('@')[0], lang:state.lang } } }); if(!r.error && !(r.data && r.data.session)){ a.info='Check your email to confirm your account, then sign in.'; a.tab='in'; } }
+        else { r = await BE.sb.auth.signInWithPassword({ email, password:pass }); }
+        if(r && r.error) a.error = authMsg(r.error);
+      }catch(e){ a.error = authMsg(e); }
+      a.busy = false; if(state.screen==='auth' && !BE.user) render();
+    })();
+    return;
+  }
+  if(action==='nav2-settings'){ go('settings'); return; }
+  if(action.startsWith('set-theme-')){ PREFS.theme = action.replace('set-theme-',''); applyPrefs(true); render(); return; }
+  if(action.startsWith('set-text-')){ PREFS.text = parseInt(action.replace('set-text-',''),10); applyPrefs(true); render(); return; }
+  if(action==='toggle-contrast'){ PREFS.contrast = !PREFS.contrast; applyPrefs(true); render(); return; }
+  if(action==='toggle-motion'){ PREFS.motion = !PREFS.motion; applyPrefs(true); render(); return; }
+  if(action==='reset-prefs'){ PREFS.theme='auto'; PREFS.text=100; PREFS.contrast=false; PREFS.motion=false; applyPrefs(true); render(); toast('Settings reset'); return; }
   if(action==='nav2-invite'){ go('invite'); return; }
   if(action==='copy-ref' || action==='share-ref'){
     const code = state.referral.code;
@@ -3518,6 +3984,13 @@ document.addEventListener('click', (e) => {
   }
   if(action==='apply-ref'){
     const el = document.getElementById('ref-apply'); const code = el ? el.value.trim().toUpperCase() : '';
+    if(BE.sb && BE.user){
+      BE.sb.rpc('apply_referral', { p_code:code }).then(async r=>{
+        if(r.error){ const m = r.error.message||''; toast(/invalid_code/.test(m) ? 'That code is not valid' : /own_code/.test(m) ? 'That is your own code' : /already_used/.test(m) ? 'You already used a code' : 'Could not apply the code'); return; }
+        state.referral.usedCode = code; await backendRefreshPoints(); toast('Code applied · +'+REF_BONUS+' points'); render();
+      });
+      return;
+    }
     if(!REF_CODES[code]){ toast('That code is not valid'); return; }
     state.referral.usedCode = code; state.loyaltyPoints += REF_BONUS;
     toast('Code applied · +'+REF_BONUS+' points'); render(); return;
@@ -3898,6 +4371,26 @@ const TR_EXACT = {
   "Every policy that governs how Pawcation works — the same texts linked from verification and booking.":"Pawcation'ın işleyişini düzenleyen tüm politikalar — doğrulama ve rezervasyon sırasında bağlantısı verilen metinlerin aynısı.",
   "Market research, financial model, pitch deck, and legal policies — everything prepared for launch.":"Pazar araştırması, finansal model, lansman sunumu ve hukuki metinler — lansman için hazırlanan her şey.",
   "Tapping a file downloads it directly — these are the same documents prepared alongside this app.":"Bir dosyaya dokunmak onu doğrudan indirir — bunlar bu uygulamayla birlikte hazırlanan belgelerin aynısı.",
+
+  "Pawcation installed":"Pawcation yüklendi","Installed":"Yüklendi","You're using the Pawcation app.":"Pawcation uygulamasını kullanıyorsun.","Install Pawcation":"Pawcation'ı yükle","Add it to your home screen. It opens full-screen and works offline.":"Ana ekranına ekle. Tam ekran açılır ve çevrimdışı çalışır.","Install":"Yükle",
+  "Add to Home Screen":"Ana Ekrana Ekle","In Safari tap Share, then “Add to Home Screen”.":"Safari'de Paylaş'a, ardından “Ana Ekrana Ekle”'ye dokun.","Install as an app":"Uygulama olarak yükle","Use your browser menu → “Install app” or “Add to Home Screen”.":"Tarayıcı menüsünden “Uygulamayı yükle” veya “Ana Ekrana Ekle”'yi seç.",
+  "Update ready — reopen the app to get it":"Güncelleme hazır — almak için uygulamayı yeniden aç",
+  "Loading…":"Yükleniyor…","Create your account":"Hesabını oluştur","Welcome back":"Tekrar hoş geldin","Keep your pets, bookings and points safe across all your devices.":"Hayvanların, rezervasyonların ve puanların tüm cihazlarında güvende olsun.",
+  "Sign in":"Giriş yap","Create account":"Hesap oluştur","Your name":"Adın","e.g. Kuzey":"örn. Kuzey","Email":"E-posta","you@example.com":"sen@ornek.com","Password":"Şifre","At least 8 characters":"En az 8 karakter","Your password":"Şifren",
+  "Please wait…":"Lütfen bekle…","Email me a sign-in link":"Bana giriş bağlantısı gönder","Forgot password?":"Şifreni mi unuttun?","Explore without an account":"Hesapsız göz at",
+  "Enter a valid email address.":"Geçerli bir e-posta adresi gir.","Choose a password with at least 8 characters.":"En az 8 karakterli bir şifre seç.","Enter your password.":"Şifreni gir.",
+  "We sent you a sign-in link. Open it on this device.":"Sana bir giriş bağlantısı gönderdik. Bu cihazda aç.","If that email has an account, a reset link is on its way.":"Bu e-postayla bir hesap varsa sıfırlama bağlantısı yolda.",
+  "Check your email to confirm your account, then sign in.":"Hesabını onaylamak için e-postanı kontrol et, sonra giriş yap.","Wrong email or password.":"E-posta veya şifre hatalı.","Please confirm your email first — check your inbox.":"Önce e-postanı onayla — gelen kutunu kontrol et.",
+  "An account with this email already exists. Try signing in.":"Bu e-postayla bir hesap zaten var. Giriş yapmayı dene.","Password is too short.":"Şifre çok kısa.","Too many attempts. Please wait a minute.":"Çok fazla deneme. Bir dakika bekle.","Could not reach the server.":"Sunucuya ulaşılamadı.",
+  "Demo mode":"Demo modu","Your data stays on this device. To turn on accounts and cloud sync, add your Supabase keys to config.js.":"Verilerin bu cihazda kalır. Hesapları ve bulut senkronunu açmak için Supabase anahtarlarını config.js'e ekle.",
+  "Saved ✓":"Kaydedildi ✓","Saving…":"Kaydediliyor…","Offline — will sync later":"Çevrimdışı — sonra senkronlanır","Could not sync — will retry":"Senkronize edilemedi — tekrar denenecek","Sign out":"Çıkış yap","Guest":"Misafir","Changes are not saved to an account.":"Değişiklikler hesaba kaydedilmez.",
+  "Demo mode — there is no account to sign out of":"Demo modu — çıkış yapılacak bir hesap yok","That is your own code":"Bu senin kendi kodun","You already used a code":"Zaten bir kod kullandın","Could not apply the code":"Kod uygulanamadı",
+  "Appearance & accessibility":"Görünüm ve erişilebilirlik","Make Pawcation comfortable to read and use. Settings are saved on this device":"Pawcation'ı okumayı ve kullanmayı rahatlatın. Ayarlar bu cihazda saklanır",
+  " and to your account":" ve hesabına","Theme":"Tema","Auto":"Otomatik","Light":"Açık","Dark":"Koyu","Auto follows your phone's setting.":"Otomatik, telefonunun ayarını izler.",
+  "Text size":"Yazı boyutu","Default":"Varsayılan","Large":"Büyük","Extra large":"Çok büyük","Sample":"Örnek","Elif will look after Luna from 10 to 14 July. Daily photo updates included.":"Elif, Luna'ya 10–14 Temmuz arasında bakacak. Günlük fotoğraf güncellemeleri dahil.",
+  "Display":"Ekran","Higher contrast":"Yüksek kontrast","Stronger borders and text colours.":"Daha belirgin kenarlıklar ve yazı renkleri.","Reduce motion":"Hareketi azalt","Turn off animations and transitions.":"Animasyonları ve geçişleri kapat.",
+  "Reset to defaults":"Varsayılana dön","Settings reset":"Ayarlar sıfırlandı",
+  "Back":"Geri","Notifications":"Bildirimler","Filters":"Filtreler","Zoom in":"Yakınlaştır","Zoom out":"Uzaklaştır","Favourite":"Favori","Send message":"Mesaj gönder","Clear search":"Aramayı temizle","Fewer pets":"Daha az hayvan","More pets":"Daha çok hayvan","Copy code":"Kodu kopyala","Share code":"Kodu paylaş","Main":"Ana menü",
   /* --- round 7: health card, pricing, earnings, referrals, rebook --- */
   "My pricing":"Fiyatlandırmam","Pricing":"Fiyatlandırma","What owners would pay":"Sahiplerin ödeyeceği tutar","Save pricing":"Fiyatlandırmayı kaydet","Pricing saved":"Fiyatlandırma kaydedildi",
   "Set your base rate and the extras owners see before they book. The preview below updates as you type.":"Temel ücretini ve sahiplerin rezervasyondan önce gördüğü ek ücretleri belirle. Aşağıdaki önizleme yazdıkça güncellenir.",
@@ -4052,8 +4545,10 @@ const trObserver = new MutationObserver(muts => {
 trObserver.observe(document.body, { childList:true, subtree:true, characterData:true });
 document.documentElement.lang = state.lang;
 trApply(document.body);
+updateOnlineBar();
 
 render();
+backendBoot();
 
 /* ============ SYNTHESIZED "WOOF" SOUND (no audio file — generated in-browser) ============ */
 let barkPlayed = false;
