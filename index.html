@@ -68,6 +68,64 @@
   @media (prefers-reduced-motion:reduce){ html[data-motion=auto] *, html[data-motion=auto] *::before, html[data-motion=auto] *::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
   .offlinebar{ position:absolute; left:0; right:0; top:0; z-index:50; background:#7A4B0C; color:#fff; font-size:calc(12px*var(--fs)); font-weight:600; text-align:center; padding:calc(env(safe-area-inset-top,0px) + 6px) 12px 6px; transform:translateY(-110%); transition:transform .25s; }
   .offlinebar.show{ transform:translateY(0); }
+  /* round 9 */
+  .reportcard{ background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:14px; margin-bottom:12px; }
+  .rp-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
+  .rp-head b{ font-family:'Fraunces',serif; font-size:calc(16px*var(--fs)); }
+  .rp-head span{ font-size:calc(11.5px*var(--fs)); color:var(--ink-soft); }
+  .rp-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .rp-cell{ background:rgba(110,143,114,.12); border-radius:12px; padding:9px 10px; display:grid; grid-template-columns:auto 1fr; column-gap:8px; align-items:center; }
+  .rp-cell i{ font-style:normal; font-size:calc(18px*var(--fs)); grid-row:span 2; }
+  .rp-cell span{ font-size:calc(10.5px*var(--fs)); color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; }
+  .rp-cell b{ font-size:calc(12.5px*var(--fs)); line-height:1.3; }
+  .rp-note{ font-size:calc(13px*var(--fs)); line-height:1.55; margin:10px 0 0; color:var(--text2); }
+  .rp-photo{ height:150px; border-radius:14px; background-size:cover; background-position:center; margin-top:10px; background-color:rgba(110,143,114,.15); }
+  .chat-report{ max-width:92%; margin:6px 0; display:flex; flex-direction:column; }
+  .chat-report.me{ align-self:flex-end; } .chat-report.them{ align-self:flex-start; }
+  .chat-report span{ font-size:calc(10.5px*var(--fs)); color:var(--ink-soft); margin:-4px 6px 0; }
+  .chat-report .reportcard{ margin-bottom:6px; }
+  .attachbtn{ width:42px; height:42px; border-radius:50%; background:var(--paper); border:1.5px solid var(--line); color:var(--ink-soft); display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; }
+  .attachbtn:focus-within{ outline:3px solid var(--gold); outline-offset:2px; }
+  .chat-preview{ display:flex; align-items:center; gap:10px; background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:6px 8px; margin-top:8px; }
+  .chat-preview img, .chat-preview video{ width:44px; height:44px; border-radius:10px; object-fit:cover; }
+  .chat-preview span{ flex:1; min-width:0; font-size:calc(12px*var(--fs)); color:var(--ink-soft); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .chat-preview button{ border:none; background:none; color:var(--ink-soft); cursor:pointer; padding:6px; }
+  .chat-media{ display:block; width:100%; max-width:240px; border-radius:12px; margin-bottom:6px; cursor:zoom-in; background:#000; }
+  video.chat-media{ cursor:default; }
+  #lightbox{ position:fixed; inset:0; z-index:200; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; padding:20px; }
+  #lightbox.show{ display:flex; }
+  #lightbox img{ max-width:100%; max-height:100%; border-radius:10px; }
+  #lightbox button{ position:absolute; top:calc(env(safe-area-inset-top,0px) + 14px); right:14px; width:40px; height:40px; border-radius:50%; border:none; background:rgba(255,255,255,.18); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .meetcard{ background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:14px; margin-bottom:12px; }
+  .mc-top{ display:flex; gap:12px; align-items:center; }
+  .mc-top .avatar{ width:46px; height:46px; border-radius:50%; background-size:cover; background-position:center; background-color:var(--moss); flex-shrink:0; }
+  .mc-body{ flex:1; min-width:0; display:flex; flex-direction:column; gap:1px; }
+  .mc-body b{ font-size:calc(14.5px*var(--fs)); } .mc-body span{ font-size:calc(12px*var(--fs)); color:var(--ink-soft); }
+  .mc-note{ font-size:calc(12.5px*var(--fs)); color:var(--text2); font-style:italic; margin:10px 0 0; line-height:1.5; }
+  .mc-actions{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .mc-actions .btn{ padding:10px 12px; font-size:calc(12.5px*var(--fs)); }
+  .mpill{ font-size:calc(10.5px*var(--fs)); font-weight:700; padding:4px 9px; border-radius:999px; white-space:nowrap; background:rgba(227,162,59,.18); color:var(--gold-deep); }
+  .mpill.confirmed, .mpill.resolved{ background:rgba(110,143,114,.18); color:var(--moss-deep); }
+  .mpill.declined, .mpill.cancelled{ background:rgba(193,68,46,.12); color:var(--stamp); }
+  .mpill.review{ background:rgba(44,92,224,.12); color:#2C5CE0; }
+  html[data-theme=dark] .mpill.review{ color:#8FB0FF; } @media (prefers-color-scheme:dark){ html[data-theme=auto] .mpill.review{ color:#8FB0FF; } }
+  .incidentcard{ background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:13px 14px; margin-bottom:10px; cursor:pointer; display:flex; flex-direction:column; gap:3px; }
+  .incidentcard span{ font-size:calc(12px*var(--fs)); color:var(--ink-soft); }
+  .ic-top{ display:flex; justify-content:space-between; align-items:center; gap:8px; } .ic-top b{ font-size:calc(14.5px*var(--fs)); }
+  .timeline{ display:flex; flex-direction:column; gap:0; margin:4px 0 6px; }
+  .tl-step{ display:flex; gap:12px; padding:8px 0; position:relative; }
+  .tl-step i{ width:12px; height:12px; border-radius:50%; background:var(--moss); margin-top:4px; flex-shrink:0; }
+  .tl-step:not(:last-child)::after{ content:''; position:absolute; left:5px; top:22px; bottom:-6px; width:2px; background:var(--line); }
+  .tl-step b{ display:block; font-size:calc(13px*var(--fs)); } .tl-step span{ font-size:calc(11.5px*var(--fs)); color:var(--ink-soft); }
+  .breakdown{ background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:12px 14px; margin-bottom:6px; }
+  .subbar{ display:grid; grid-template-columns:104px 1fr 30px; gap:10px; align-items:center; padding:5px 0; font-size:calc(12.5px*var(--fs)); }
+  .subbar .bar-track{ height:7px; border-radius:99px; background:rgba(110,143,114,.2); overflow:hidden; } .subbar .bar-track div{ height:100%; background:var(--gold); border-radius:99px; }
+  .subbar b{ text-align:right; }
+  .reviewreply{ margin-top:10px; padding:10px 12px; background:rgba(110,143,114,.12); border-left:3px solid var(--moss); border-radius:0 12px 12px 0; }
+  .reviewreply b{ font-size:calc(12px*var(--fs)); } .reviewreply p{ margin:4px 0 2px; font-size:calc(12.5px*var(--fs)); } .reviewreply span{ font-size:calc(11px*var(--fs)); color:var(--ink-soft); }
+  .upload-tile[data-upload=reportPhoto], .upload-tile[data-upload=incidentPhoto]{ height:130px; aspect-ratio:auto; min-height:0; }
+  .meetprompt{ display:flex; align-items:center; gap:12px; background:var(--paper); border:1px dashed var(--line); border-radius:16px; padding:12px 14px; margin:14px 0 4px; }
+  .meetprompt div{ flex:1; font-size:calc(12.5px*var(--fs)); color:var(--ink-soft); line-height:1.4; } .meetprompt b{ display:block; color:var(--ink); font-size:calc(13.5px*var(--fs)); }
   .sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
   .seg{ display:flex; gap:6px; background:rgba(110,143,114,.14); padding:4px; border-radius:14px; margin:0 0 6px; }
   .seg button{ flex:1; border:none; background:transparent; color:var(--ink); border-radius:11px; padding:10px 6px; font-size:calc(13px*var(--fs)); font-weight:600; cursor:pointer; font-family:inherit; }
@@ -732,7 +790,8 @@
   .chat-messages{ display:flex; flex-direction:column; gap:8px; padding-bottom:12px; }
   .chat-bubble{ max-width:78%; padding:10px 13px; border-radius:16px; font-size:calc(13.5px*var(--fs)); line-height:1.45; }
   .chat-bubble p{ margin:0; }
-  .chat-bubble span{ display:block; font-size:calc(10px*var(--fs)); margin-top:4px; opacity:.6; }
+  .chat-bubble span{ display:block; font-size:calc(10px*var(--fs)); margin-top:4px; opacity:.75; }
+  .chat-bubble.them span{ color:var(--ink-soft); opacity:1; }
   .chat-bubble.them{ align-self:flex-start; background:var(--paper); border:1px solid var(--line); border-bottom-left-radius:4px; }
   .chat-bubble.me{ align-self:flex-end; background:var(--fill); color:var(--on-fill); border-bottom-right-radius:4px; }
   .chat-inputbar{
@@ -1469,7 +1528,7 @@ function unreadNotifCount(){
 /* ============ RENDER: TOPBAR ============ */
 function renderTopbar(){
   if(!state.onboarded){ app.topbar.innerHTML=''; return; }
-  const showBack = ['settings','detail','request','requestDetail','trainingDetail','ticket','verify','payment','mypets','addpet','policy','policyhub','documents','trainercv','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen);
+  const showBack = ['settings','reportForm','meetForm','incidentForm','incidentDetail','incidents','detail','request','requestDetail','trainingDetail','ticket','verify','payment','mypets','addpet','policy','policyhub','documents','trainercv','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen);
   app.topbar.innerHTML = `
     <div class="topbar-row">
       ${showBack
@@ -1497,7 +1556,7 @@ function renderBottomNav(){
     {key:'messages', icon:ICON.chat, label:t('nav_messages')},
     {key:'profile', icon:ICON.user, label:t('nav_profile')},
   ];
-  const activeKey = ['settings','detail','request','ticket','requestDetail','trainingDetail','trainercv','verify','payment','mypets','addpet','policy','policyhub','documents','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen) ? null : state.screen;
+  const activeKey = ['settings','reportForm','meetForm','incidentForm','incidentDetail','incidents','detail','request','ticket','requestDetail','trainingDetail','trainercv','verify','payment','mypets','addpet','policy','policyhub','documents','notifications','rewards','bookingDetail','sos','leaveReview','chatThread','availability','favorites','cancelBooking','reschedule','tour','petdetail','earnings','pricing','invite'].includes(state.screen) ? null : state.screen;
   app.bottomnav.innerHTML = items.map(it => `
     <div class="navitem ${activeKey===it.key?'active':''}" data-action="nav-${it.key}">
       ${it.icon}<span>${it.label}</span>
@@ -1992,12 +2051,16 @@ function screenSitterDetail(){
       ${pricingRowsHTML(parsePrice(s.price), s.pricing || {weekend:0,holiday:0,multiPet:0,cleaning:0})}
       <div class="section-label">Availability — ${CAL_MONTH.label}</div>
       ${renderMiniCalendar(s.blockedDates||[], false)}
+      <div class="meetprompt"><div><b>Not sure yet?</b>Meet ${s.name.split(' ')[0]} first — a short, free visit before you book.</div><button class="btn btn-ghost" style="width:auto;padding:9px 14px;" data-action="open-meet-${s.id}">Meet &amp; greet</button></div>
+      ${breakdownHTML(s)}
       <div class="section-label">Recent reviews</div>
       ${REVIEWS.filter(r=>!r.sitterId || r.sitterId===s.id).map(r=>`
         <div class="reviewcard">
           <div class="rh"><span>${r.name}</span><span style="color:var(--ink-soft);font-weight:400">${r.when}</span></div>
           ${r.stars ? `<div style="color:var(--gold);font-size:calc(12px*var(--fs));margin-bottom:2px;">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>` : ''}
           <p>${r.text}</p>
+          ${reviewExtrasHTML(r)}
+          ${replyHTML(r, s.name.split(' ')[0])}
         </div>
       `).join('')}
       <div style="height:6px"></div>
@@ -2169,6 +2232,7 @@ function screenBookings(){
   <div class="fade-in narrow">
     <h2 class="title">Your pawcations</h2>
     <p class="subtitle">Every request, past and upcoming, kept as a pass. Tap one for stay updates and details.</p>
+    ${meetsSectionHTML()}
     ${state.bookings.length===0 ? screenEmptyBookings() : state.bookings.slice().reverse().map(b=>renderTicketCard(b)).join('')}
   </div>`;
 }
@@ -2177,16 +2241,14 @@ function renderStarLine(n){
   return `<span style="color:var(--gold);letter-spacing:1px;">${'★'.repeat(n)}${'☆'.repeat(5-n)}</span>`;
 }
 
-function renderReviewCard(r){
+function renderReviewCard(r, b){
+  const host = b && (state.mode!=='owner' ? 'You' : (b.hostName||'').split(' ')[0]);
   return `
   <div class="reviewcard">
     <div class="rh">${renderStarLine(r.overall)}<span style="color:var(--ink-soft);font-weight:400">Just now</span></div>
-    <p>${r.text || 'No written comment.'}</p>
-    <div class="tagrow" style="margin-top:8px;">
-      <span class="tag">Cleanliness ${r.cleanliness}★</span>
-      <span class="tag">Communication ${r.communication}★</span>
-      <span class="tag">Punctuality ${r.punctuality}★</span>
-    </div>
+    <p>${escAttr(r.text) || 'No written comment.'}</p>
+    ${reviewExtrasHTML(r)}
+    ${replyHTML(r, host)}
   </div>`;
 }
 
@@ -2196,7 +2258,10 @@ function renderReviewSection(b){
     if(b.review){
       return `
       <div class="section-label">Owner's review</div>
-      ${renderReviewCard(b.review)}
+      ${renderReviewCard(b.review, b)}
+      ${b.review.reply ? '' : `
+        <div class="field" style="margin-top:6px;"><label>Reply publicly</label><textarea id="reply-text" placeholder="Thank them, or add your side of the story…"></textarea></div>
+        <button class="btn btn-primary" data-action="reply-review-${b.id}">Post reply</button>`}
       `;
     }
     if(b.trainerBooking){
@@ -2209,10 +2274,11 @@ function renderReviewSection(b){
     return `
       <div class="section-label">Review</div>
       <p class="subtitle" style="margin-top:-6px;">The owner hasn't left a review yet.</p>
+      <button class="btn btn-ghost" data-action="simulate-host-review-${b.id}">Simulate: ${(b.ownerName||'the owner').split(' ')[0]} leaves a review</button>
     `;
   }
   if(b.review){
-    return `<div class="section-label">Your review</div>${renderReviewCard(b.review)}`;
+    return `<div class="section-label">Your review</div>${renderReviewCard(b.review, b)}${b.review.reply ? '' : `<button class="btn btn-ghost" style="margin-top:4px;" data-action="sim-reply-${b.id}">Simulate: ${(b.hostName||'sitter').split(' ')[0]} replies</button>`}`;
   }
   if(!b.sitterId) return '';
   return `
@@ -2253,6 +2319,7 @@ function screenBookingDetail(){
         </div>
       `).join('')}
     ` : ''}
+    ${reportsSectionHTML(b)}
     <div class="section-label">Stay updates</div>
     ${b.updates.length===0 ? `<p class="subtitle" style="margin-top:-6px;">${isHost ? "Post a photo so the owner can see how things are going." : "No updates yet — your sitter or trainer will post photos here during the stay."}</p>` : ''}
     ${b.updates.slice().reverse().map(u=>`
@@ -2271,6 +2338,10 @@ function screenBookingDetail(){
       <button class="btn btn-ghost" data-action="post-update-${b.id}">Post update</button>
     ` : ''}
     ${b.status==='completed' ? renderReviewSection(b) : ''}
+    ${(b.status==='confirmed' || b.status==='completed') ? `
+      <div class="section-label">Problems</div>
+      ${state.incidents.filter(i=>i.bookingId===b.id).map(incidentCardHTML).join('')}
+      <button class="btn btn-ghost" data-action="report-issue-${b.id}">${ICON.alert}Report an issue</button>` : ''}
   </div>`;
 }
 
@@ -2330,7 +2401,7 @@ function screenReschedule(){
 function screenLeaveReview(){
   const b = state.bookings.find(x=>x.id===state.selectedId);
   if(!b) return screenBookings();
-  if(!state.reviewDraft) state.reviewDraft = { overall:5, cleanliness:5, communication:5, punctuality:5, text:'' };
+  if(!state.reviewDraft) state.reviewDraft = { overall:5, cleanliness:5, communication:5, reliability:5, tags:[], text:'' };
   const draft = state.reviewDraft;
   const starRow = (key,label) => `
     <div class="field">
@@ -2346,7 +2417,9 @@ function screenLeaveReview(){
     ${starRow('overall','Overall')}
     ${starRow('cleanliness','Cleanliness')}
     ${starRow('communication','Communication')}
-    ${starRow('punctuality','Punctuality')}
+    ${starRow('reliability','Reliability')}
+    <div class="section-label">What went well</div>
+    <div class="chiprow wrap" style="margin-bottom:6px;">${REVIEW_TAGS.map((tg,i)=>`<div class="chip ${(draft.tags||[]).includes(tg)?'active':''}" data-action="rv-tag-${i}">${tg}</div>`).join('')}</div>
     <div class="field"><label>Anything you'd like to add</label><textarea id="review-text" placeholder="How was the stay?">${draft.text}</textarea></div>
     <button class="btn btn-primary" data-action="submit-review-${b.id}">Submit review</button>
   </div>`;
@@ -2372,7 +2445,7 @@ function screenMessages(){
         <div class="avatar" style="background-image:url('${t.img}')"></div>
         <div class="mbody">
           <div class="mtop"><b>${t.name}</b><span>${last.when}</span></div>
-          <p>${last.from==='me' ? 'You: ' : ''}${last.text}</p>
+          <p>${last.from==='me' ? 'You: ' : ''}${last.text || (last.media ? (last.media.type==='video' ? '🎬 Video' : '📷 Photo') : '')}</p>
         </div>
         ${t.unread ? '<div class="unreaddot"></div>' : ''}
       </div>
@@ -2391,9 +2464,11 @@ function screenChatThread(){
       <b>${t.name}</b>
     </div>
     <div class="chat-messages" id="chat-scroll">
-      ${t.messages.map(m=>`<div class="chat-bubble ${m.from}"><p>${m.text}</p><span>${m.when}</span></div>`).join('')}
+      ${t.messages.map((m,i)=>chatBubbleHTML(m,i)).join('')}
     </div>
+    <div id="chat-preview-wrap">${chatPreviewHTML()}</div>
     <div class="chat-inputbar">
+      <label class="attachbtn" title="Attach a photo or video"><span class="sr-only">Attach a photo or video</span>${ICON.attach}<input type="file" accept="image/*,video/*" data-upload-input="chatMedia" hidden/></label>
       <input id="chat-input" placeholder="Type a message…"/>
       <button class="sendbtn" data-action="send-chat-${id}">${ICON.send}</button>
     </div>
@@ -2434,6 +2509,7 @@ function screenProfile(){
     <div class="profile-row" data-action="nav2-rewards"><div class="left">${ICON.gift}<span>${t('profile_points')}</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${state.loyaltyPoints} pts</span>${ICON.chevron}</div>
     ${!isOwner ? `<div class="profile-row" data-action="nav2-earnings"><div class="left">${ICON.cardicon}<span>Earnings</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">₺${earningsSummary().month.toLocaleString('tr-TR')} this month</span>${ICON.chevron}</div>` : ''}
     ${state.mode==='sitter' ? `<div class="profile-row" data-action="nav2-pricing"><div class="left">${ICON.bolt}<span>My pricing</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">₺${state.myPricing.base} / night</span>${ICON.chevron}</div>` : ''}
+    <div class="profile-row" data-action="nav2-incidents"><div class="left">${ICON.shield}<span>Reports &amp; claims</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${state.incidents.length || ''}</span>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-invite"><div class="left">${ICON.gift}<span>Invite friends</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">Get 100 pts</span>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-tour"><div class="left">${ICON.clock}<span>${t('profile_how_it_works')}</span></div>${ICON.chevron}</div>
     <div class="profile-row" data-action="nav2-settings"><div class="left"><span aria-hidden="true">🌓</span><span>Appearance &amp; accessibility</span></div><span style="color:var(--ink-soft);font-size:calc(12px*var(--fs));">${PREFS.theme==='auto'?'Auto':PREFS.theme==='dark'?'Dark':'Light'}</span>${ICON.chevron}</div>
@@ -3368,6 +3444,7 @@ function a11yApply(root){
       lab.htmlFor = inp.id;
     }
   });
+  root.querySelectorAll('input[type=file]:not([aria-label])').forEach(i=>{ const t = i.closest('.upload-tile'); const lab = t && t.querySelector('.uplabel-empty,.uplabel'); i.setAttribute('aria-label', (lab && lab.textContent.trim()) || 'Choose a file'); });
   root.querySelectorAll('input:not([aria-label])').forEach(i=>{ if(!i.labels || !i.labels.length){ const ph=i.getAttribute('placeholder'); if(ph) i.setAttribute('aria-label', ph); } });
   const bn = document.getElementById('bottomnav'); if(bn){ bn.setAttribute('role','navigation'); bn.setAttribute('aria-label','Main'); }
   const ct = document.getElementById('content'); if(ct){ ct.setAttribute('role','main'); }
@@ -3381,6 +3458,300 @@ document.addEventListener('keydown', e=>{
     e.preventDefault(); e.target.click();
   }
 });
+
+
+/* ============ ROUND 9: trust — daily reports, chat media, meet & greet, incident reports, detailed reviews ============ */
+const DEMO_TODAY = '2026-07-16';
+ICON.attach = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7-7l8.8-8.8a3.3 3.3 0 0 1 4.7 4.7l-8.8 8.8a1.7 1.7 0 0 1-2.3-2.4l8-8"/></svg>`;
+ICON.close = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>`;
+function fmtDow(iso){ return new Date(iso+'T00:00:00').toLocaleDateString(state.lang==='tr' ? 'tr-TR' : 'en-US', { weekday:'short', day:'numeric', month:'short' }); }
+function nowHM(){ const d=new Date(); return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'); }
+function ensureChat(key, name, img){ if(!state.chats[key]) state.chats[key] = { name, img, unread:false, messages:[] }; return state.chats[key]; }
+function bookingOtherName(b){ return (state.mode==='owner') ? b.hostName : (b.ownerName || 'the owner'); }
+
+/* ---------- daily report ---------- */
+const REPORT_MEAL  = { ate_all:'Ate everything', ate_most:'Ate most', ate_little:'Ate a little', refused:'Skipped the meal' };
+const REPORT_POTTY = { normal:'Normal', soft:'Soft / upset', none:'Not yet' };
+const REPORT_MOOD  = { happy:['😄','Happy'], playful:['🎾','Playful'], calm:['😌','Calm'], tired:['😴','Tired'], anxious:['😟','A bit anxious'] };
+const REPORT_PHOTOS = [
+  'https://images.unsplash.com/photo-1591160690555-5debfba289f0?w=400&q=80',
+  'https://images.unsplash.com/photo-1583512603806-077998240c7a?w=400&q=80',
+  'https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80'
+];
+function reportCardHTML(r, b){
+  const today = r.label==='Today' || r.label==='Just now';
+  const mood = REPORT_MOOD[r.mood] || REPORT_MOOD.happy;
+  return `
+  <div class="reportcard">
+    <div class="rp-head"><b>${today ? "Today's report" : 'Daily report'}</b><span>${r.label==='Just now' ? 'Today' : r.label}${r.time ? ' · '+r.time : ''}</span></div>
+    <div class="rp-grid">
+      <div class="rp-cell"><i aria-hidden="true">🍽️</i><span>Meals</span><b>${REPORT_MEAL[r.meal]||''}</b></div>
+      <div class="rp-cell"><i aria-hidden="true">🚶</i><span>Walks</span><b>${r.walks===0 ? 'No walks' : `${r.walks} ${r.walks===1?'walk':'walks'} · ${r.walkMin} min`}</b></div>
+      <div class="rp-cell"><i aria-hidden="true">💧</i><span>Potty</span><b>${REPORT_POTTY[r.potty]||''}</b></div>
+      <div class="rp-cell"><i aria-hidden="true">${mood[0]}</i><span>Mood</span><b>${mood[1]}</b></div>
+    </div>
+    ${r.note ? `<p class="rp-note">${escAttr(r.note)}</p>` : ''}
+    ${r.photo ? `<div class="rp-photo" style="background-image:url('${r.photo}')" role="img" aria-label="Report photo"></div>` : ''}
+  </div>`;
+}
+function reportsSectionHTML(b){
+  const isHost = state.mode==='sitter' || state.mode==='trainer';
+  if(b.trainerBooking) return '';
+  const rs = (b.reports||[]).slice().reverse();
+  const latest = rs[0], older = rs.slice(1);
+  let h = `<div class="section-label">Daily report</div>`;
+  if(latest && (latest.label==='Today' || latest.label==='Just now' || b.status!=='confirmed')) h += reportCardHTML(latest, b);
+  else if(b.status==='confirmed') h += `<p class="subtitle" style="margin-top:-6px;">${isHost ? "You haven't sent today's report yet." : "No report yet today — your sitter will send one here."}</p>`;
+  if(b.status==='confirmed' && isHost) h += `<button class="btn btn-primary" style="margin-bottom:10px;" data-action="open-report-${b.id}">Write today's report</button>`;
+  if(b.status==='confirmed' && !isHost) h += `<button class="btn btn-ghost" style="margin-bottom:10px;" data-action="sim-report-${b.id}">Simulate: sitter sends today's report</button>`;
+  if(older.length || (latest && !(latest.label==='Today'||latest.label==='Just now') && b.status==='confirmed')){
+    const list = (latest && !(latest.label==='Today'||latest.label==='Just now') && b.status==='confirmed') ? rs : older;
+    if(list.length) h += `<div class="section-label">Earlier reports</div>` + list.map(r=>reportCardHTML(r,b)).join('');
+  }
+  return h;
+}
+function screenReportForm(){
+  const b = state.bookings.find(x=>x.id===state.selectedId); if(!b) return screenBookings();
+  const D = state.reportDraft || (state.reportDraft = { meal:'ate_all', walks:2, walkMin:30, potty:'normal', mood:'happy', note:'' });
+  const chips = (obj, cur, act, label) => Object.keys(obj).map(k=>`<div class="chip ${cur===k?'active':''}" data-action="${act}-${k}">${label(k)}</div>`).join('');
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">Today's report for ${b.petName}</h2>
+    <p class="subtitle">A quick check-in the owner sees as a card in the chat and on the pass.</p>
+    <div class="section-label">Meals</div><div class="chiprow wrap">${chips(REPORT_MEAL, D.meal, 'rp-meal', k=>REPORT_MEAL[k])}</div>
+    <div class="section-label">Walks</div>
+    <div class="stepper" style="margin-bottom:10px;"><button data-action="rp-walks-dec" aria-label="Fewer walks">−</button><b>${D.walks}</b><button data-action="rp-walks-inc" aria-label="More walks">+</button></div>
+    ${D.walks>0 ? `<div class="chiprow wrap">${[15,30,45,60,90].map(n=>`<div class="chip ${D.walkMin===n?'active':''}" data-action="rp-min-${n}">${n} min</div>`).join('')}</div>` : ''}
+    <div class="section-label">Potty</div><div class="chiprow wrap">${chips(REPORT_POTTY, D.potty, 'rp-potty', k=>REPORT_POTTY[k])}</div>
+    <div class="section-label">Mood</div><div class="chiprow wrap">${chips(REPORT_MOOD, D.mood, 'rp-mood', k=>REPORT_MOOD[k][0]+' '+REPORT_MOOD[k][1])}</div>
+    <div class="section-label">Photo or note</div>
+    <div class="upload-tile ${pendingUploads.reportPhoto?'filled':''}" style="margin-bottom:10px;${pendingUploads.reportPhoto?`background-image:url('${pendingUploads.reportPhoto}')`:''}" data-upload="reportPhoto">
+      ${pendingUploads.reportPhoto ? `<div class="checkmark">${ICON.check}</div><div class="uplabel">Photo added</div>` : `<div style="color:var(--ink-soft)">${ICON.camera}</div><div class="uplabel-empty">Add a photo (optional)</div>`}
+      <input type="file" accept="image/*" data-upload-input="reportPhoto"/>
+    </div>
+    <div class="field"><textarea id="rp-note" placeholder="Anything the owner should know?">${escAttr(D.note||'')}</textarea></div>
+    <button class="btn btn-primary" data-action="submit-report-${b.id}">Send report</button>
+  </div>`;
+}
+function makeReportMessage(b, r, from){
+  const key = b.chatKey; if(!key) return;
+  const c = ensureChat(key, b.hostName==='You' ? (b.ownerName||'Owner') : b.hostName, '');
+  c.messages.push({ from, type:'report', reportId:r.id, bookingId:b.id, text:"📋 Daily report", when:'Just now' });
+  if(from==='them') c.unread = true;
+}
+
+/* ---------- chat media ---------- */
+function chatBubbleHTML(m, idx){
+  if(m.type==='report'){
+    const b = state.bookings.find(x=>x.id===m.bookingId), r = b && (b.reports||[]).find(x=>x.id===m.reportId);
+    if(r) return `<div class="chat-report ${m.from}">${reportCardHTML(r,b)}<span>${m.when}</span></div>`;
+  }
+  const media = m.media ? (m.media.type==='video'
+    ? `<video class="chat-media" src="${m.media.src}" controls playsinline preload="metadata" aria-label="Video"></video>`
+    : `<img class="chat-media" src="${m.media.src}" alt="Photo" data-action="view-media-${idx}"/>`) : '';
+  return `<div class="chat-bubble ${m.from}">${media}${m.text ? `<p>${m.text}</p>` : ''}<span>${m.when}</span></div>`;
+}
+function chatPreviewHTML(){
+  const m = pendingUploads.chatMedia; if(!m) return '';
+  return `<div class="chat-preview">${m.type==='video' ? `<video src="${m.src}" muted playsinline></video>` : `<img src="${m.src}" alt=""/>`}<span>${escAttr(m.name||'')}</span><button data-action="clear-chat-media" aria-label="Remove attachment">${ICON.close}</button></div>`;
+}
+function openLightbox(src){
+  let lb = document.getElementById('lightbox');
+  if(!lb){ lb = document.createElement('div'); lb.id='lightbox'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true'); document.body.appendChild(lb);
+    lb.addEventListener('click', ()=>lb.classList.remove('show')); document.addEventListener('keydown', e=>{ if(e.key==='Escape') lb.classList.remove('show'); }); }
+  lb.innerHTML = `<img src="${src}" alt="Photo"/><button aria-label="Close" data-lb-close>${ICON.close}</button>`; lb.classList.add('show');
+}
+
+/* ---------- meet & greet ---------- */
+const MEET_SLOTS = ['10:00','11:00','12:00','14:00','16:00','18:00'];
+const MEET_PLACE = { home:'At the sitter’s home', park:'A park nearby', video:'Video call' };
+function meetPlaceLabel(m){ return m.role==='host' && m.place==='home' ? 'At your home' : MEET_PLACE[m.place]; }
+function meetICS(m){
+  const d = m.dateISO.replace(/-/g,''), [h,mi] = m.time.split(':'), eh = String(Math.min(23,+h+1)).padStart(2,'0');
+  const n = new Date(), z = n.toISOString().replace(/[-:]/g,'').replace(/\.\d+/,'');
+  const who = m.role==='host' ? m.ownerName : m.sitterName;
+  return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Pawcation//Meet and greet//EN','CALSCALE:GREGORIAN','BEGIN:VEVENT',
+    `UID:${m.id}@pawcation.app`,`DTSTAMP:${z}`,`DTSTART:${d}T${h}${mi}00`,`DTEND:${d}T${eh}${mi}00`,
+    `SUMMARY:Meet & greet — ${who}`,`DESCRIPTION:${(m.petName ? 'Pet: '+m.petName+'. ' : '')}Arranged on Pawcation.`,`LOCATION:${meetPlaceLabel(m)}`,
+    'BEGIN:VALARM','TRIGGER:-PT1H','ACTION:DISPLAY','DESCRIPTION:Meet & greet in 1 hour','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+}
+function downloadMeetICS(m){
+  const blob = new Blob([meetICS(m)], { type:'text/calendar;charset=utf-8' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'pawcation-meet-greet.ics';
+  document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+function meetGoogleURL(m){
+  const d = m.dateISO.replace(/-/g,''), [h,mi] = m.time.split(':'), eh = String(Math.min(23,+h+1)).padStart(2,'0');
+  const who = m.role==='host' ? m.ownerName : m.sitterName;
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Meet & greet — '+who)+`&dates=${d}T${h}${mi}00/${d}T${eh}${mi}00`+'&details='+encodeURIComponent('Arranged on Pawcation'+(m.petName?' · '+m.petName:''))+'&location='+encodeURIComponent(meetPlaceLabel(m));
+}
+function meetCardHTML(m){
+  const who = m.role==='host' ? m.ownerName : m.sitterName;
+  const st = { requested:'Requested', confirmed:'Confirmed', declined:'Declined', cancelled:'Cancelled' }[m.status];
+  const btn = (a,l,cls) => `<button class="btn ${cls||'btn-ghost'}" style="flex:1;" data-action="${a}-${m.id}">${l}</button>`;
+  let actions = '';
+  if(m.role==='guest'){
+    if(m.status==='requested') actions = btn('meet-cancel','Cancel') + btn('meet-sim-accept','Simulate: sitter accepted');
+    else if(m.status==='confirmed') actions = btn('meet-ics','Add to calendar','btn-primary') + btn('meet-gcal','Google Calendar') + `<button class="btn btn-ghost" style="flex-basis:100%;" data-action="request-stay-${m.sitterId}">Request the stay</button>` + btn('meet-cancel','Cancel');
+  } else {
+    if(m.status==='requested') actions = btn('meet-accept','Accept','btn-primary') + btn('meet-decline','Decline');
+    else if(m.status==='confirmed') actions = btn('meet-ics','Add to calendar','btn-primary') + btn('meet-gcal','Google Calendar') + btn('meet-cancel','Cancel');
+  }
+  return `
+  <div class="meetcard ${m.status}">
+    <div class="mc-top"><div class="avatar" ${m.img ? `style="background-image:url('${m.img}')"` : ''}></div>
+      <div class="mc-body"><b>${who}</b><span>${fmtDow(m.dateISO)} · ${m.time}</span><span>${meetPlaceLabel(m)}${m.petName ? ' · '+m.petName : ''}</span></div>
+      <span class="mpill ${m.status}">${st}</span></div>
+    ${m.note ? `<p class="mc-note">“${escAttr(m.note)}”</p>` : ''}
+    ${actions ? `<div class="mc-actions">${actions}</div>` : ''}
+  </div>`;
+}
+function meetsSectionHTML(){
+  const role = state.mode==='owner' ? 'guest' : state.mode==='sitter' ? 'host' : null; if(!role) return '';
+  const list = state.meets.filter(m=>m.role===role && m.status!=='cancelled');
+  if(!list.length) return '';
+  return `<div class="section-label">Meet &amp; greets</div>` + list.map(meetCardHTML).join('');
+}
+function screenMeetForm(){
+  const s = SITTERS.find(x=>x.id===state.selectedId); if(!s) return screenBrowse();
+  const D = state.meetDraft || (state.meetDraft = { date:'2026-07-17', time:'11:00', place:'home', petIdx: state.myPets.length ? 0 : null, note:'' });
+  const first = s.name.split(' ')[0];
+  const blocked = (s.blockedDates||[]).includes(D.date);
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">Meet ${first} first</h2>
+    <p class="subtitle">A short, free visit before you book — see the home, let your pet sniff around, ask anything.</p>
+    <div class="field"><label>Date</label><input id="meet-date" type="date" min="${DEMO_TODAY}" value="${D.date}"/></div>
+    ${blocked ? `<p style="color:var(--stamp);font-size:calc(12px*var(--fs));margin:-8px 0 14px;">${first} isn't available that day — pick another date.</p>` : ''}
+    <div class="section-label">Time</div>
+    <div class="chiprow wrap">${MEET_SLOTS.map(t=>`<div class="chip ${D.time===t?'active':''}" data-action="meet-time-${t}">${t}</div>`).join('')}</div>
+    <div class="section-label">Where</div>
+    <div class="chiprow wrap">${Object.keys(MEET_PLACE).map(k=>`<div class="chip ${D.place===k?'active':''}" data-action="meet-place-${k}">${MEET_PLACE[k]}</div>`).join('')}</div>
+    ${state.myPets.length ? `<div class="section-label">Bringing</div><div class="chiprow wrap">${state.myPets.map((p,i)=>`<div class="chip ${D.petIdx===i?'active':''}" data-action="meet-pet-${i}">${escAttr(p.name)}</div>`).join('')}<div class="chip ${D.petIdx==null?'active':''}" data-action="meet-pet-none">Just me</div></div>` : ''}
+    <div class="field" style="margin-top:14px;"><label>Anything ${first} should know</label><textarea id="meet-note" placeholder="Your pet's temperament, what you'd like to see…">${escAttr(D.note||'')}</textarea></div>
+    <button class="btn btn-primary" data-action="submit-meet-${s.id}" ${blocked?'disabled':''}>Send meet &amp; greet request</button>
+  </div>`;
+}
+
+/* ---------- incident reports ---------- */
+const INC_CAT = { injury:'Injury', illness:'Illness', damage:'Property damage', escaped:'Lost or escaped', behaviour:'Behaviour problem', care:'Care not as agreed', other:'Other' };
+const INC_SEV = { minor:'Minor', attention:'Needs attention', urgent:'Urgent' };
+const INC_STATUS = { submitted:'Submitted', review:'Under review', resolved:'Resolved' };
+function incidentFor(id){ return state.incidents.find(x=>x.id===id); }
+function screenIncidentForm(){
+  const b = state.bookings.find(x=>x.id===state.selectedId); if(!b) return screenBookings();
+  const isHost = state.mode==='sitter' || state.mode==='trainer';
+  const D = state.incidentDraft || (state.incidentDraft = { cat:'injury', sev:'attention', date:DEMO_TODAY, desc:'', cost:'', protect:!!b.protect });
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">Report an issue</h2>
+    <p class="subtitle">You're reporting as ${isHost ? 'the host' : 'the owner'}. ${bookingOtherName(b)} will see the report and can add their side. Pawcation support reviews every report.</p>
+    ${renderTicketCard(b, false)}
+    <div class="section-label">What happened</div>
+    <div class="chiprow wrap">${Object.keys(INC_CAT).map(k=>`<div class="chip ${D.cat===k?'active':''}" data-action="inc-cat-${k}">${INC_CAT[k]}</div>`).join('')}</div>
+    <div class="section-label">How serious</div>
+    <div class="chiprow wrap">${Object.keys(INC_SEV).map(k=>`<div class="chip ${D.sev===k?'active':''}" data-action="inc-sev-${k}">${INC_SEV[k]}</div>`).join('')}</div>
+    ${D.sev==='urgent' ? `<div class="sos-banner" style="margin-top:12px;">${ICON.alert}<p>If a pet needs urgent care, use SOS first — then file this report.</p></div><button class="btn btn-ghost sos-btn" style="margin-top:8px;" data-action="open-sos-${b.id}">${ICON.alert}Open SOS</button>` : ''}
+    <div class="field" style="margin-top:14px;"><label>Date it happened</label><input id="inc-date" type="date" value="${D.date}"/></div>
+    <div class="field"><label>Describe what happened</label><textarea id="inc-desc" placeholder="What happened, where, and what was done about it…">${escAttr(D.desc)}</textarea></div>
+    <div class="field"><label>Estimated cost (optional)</label><div class="inputsuffix"><input id="inc-cost" inputmode="numeric" placeholder="e.g. 1500" value="${escAttr(String(D.cost||''))}"/><span>₺</span></div></div>
+    <div class="upload-tile ${pendingUploads.incidentPhoto?'filled':''}" style="margin-bottom:14px;${pendingUploads.incidentPhoto?`background-image:url('${pendingUploads.incidentPhoto}')`:''}" data-upload="incidentPhoto">
+      ${pendingUploads.incidentPhoto ? `<div class="checkmark">${ICON.check}</div><div class="uplabel">Photo added</div>` : `<div style="color:var(--ink-soft)">${ICON.camera}</div><div class="uplabel-empty">Add a photo as evidence (optional)</div>`}
+      <input type="file" accept="image/*" data-upload-input="incidentPhoto"/>
+    </div>
+    ${b.protect ? `
+      <div class="consent-row addon-row ${D.protect?'checked':''}" data-action="inc-toggle-protect">
+        <div class="consent-box">${D.protect ? ICON.check.replace('26','14').replace('26','14') : ''}</div>
+        <p><b>Ask for a Protect review</b> — this stay included Pawcation Protect, so support will check whether this is covered.</p>
+      </div>` : `<p class="fieldhint" style="margin:0 0 14px;">This stay wasn't booked with Pawcation Protect, so there is no reimbursement — support will still review and keep a record.</p>`}
+    <button class="btn btn-primary" data-action="submit-incident-${b.id}">Submit report</button>
+  </div>`;
+}
+function incidentCardHTML(i){
+  const b = state.bookings.find(x=>x.id===i.bookingId);
+  return `<div class="incidentcard" data-action="open-incident-detail-${i.id}">
+    <div class="ic-top"><b>${INC_CAT[i.cat]}</b><span class="mpill ${i.status}">${INC_STATUS[i.status]}</span></div>
+    <span>${i.ref} · ${b ? b.petName+' · '+b.hostName : ''}</span><span>${fmtLong(i.dateISO)} · ${INC_SEV[i.sev]}</span></div>`;
+}
+function screenIncidentDetail(){
+  const i = incidentFor(state.selectedIncident); if(!i) return screenIncidents();
+  const b = state.bookings.find(x=>x.id===i.bookingId);
+  const protectLine = !i.protectReq ? (b && b.protect ? 'Not requested' : 'Stay not covered by Protect')
+    : i.status==='resolved' ? 'Covered under Pawcation Protect (demo outcome)' : 'Waiting for review';
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">${INC_CAT[i.cat]}</h2>
+    <p class="subtitle">${i.ref} · <span class="mpill ${i.status}" style="display:inline-block;">${INC_STATUS[i.status]}</span></p>
+    <div class="section-label">Details</div>
+    <div class="healthcard">
+      <div class="hc-row"><div class="hc-body"><span>Reported by</span><b>${i.by==='host' ? 'Host' : 'Owner'}</b></div></div>
+      <div class="hc-row"><div class="hc-body"><span>When</span><b>${fmtLong(i.dateISO)}</b></div></div>
+      <div class="hc-row"><div class="hc-body"><span>How serious</span><b>${INC_SEV[i.sev]}</b></div></div>
+      ${i.cost ? `<div class="hc-row"><div class="hc-body"><span>Estimated cost</span><b>₺${Number(i.cost).toLocaleString('tr-TR')}</b></div></div>` : ''}
+      <div class="hc-row"><div class="hc-body"><span>Stay</span><b>${b ? b.petName+' · '+b.checkIn+' – '+b.checkOut : '—'}</b></div></div>
+    </div>
+    <p class="rp-note" style="margin-top:12px;">${escAttr(i.desc)}</p>
+    ${i.photo ? `<div class="rp-photo" style="background-image:url('${i.photo}')" role="img" aria-label="Evidence photo"></div>` : ''}
+    <div class="section-label">Pawcation Protect</div>
+    <div class="setrow"><div><b>${protectLine}</b>${i.status==='resolved' && i.resolution ? `<small>${i.resolution}</small>` : ''}</div></div>
+    <div class="section-label">Progress</div>
+    <div class="timeline">${i.timeline.map(s=>`<div class="tl-step"><i></i><div><b>${s.label}</b><span>${s.when}</span></div></div>`).join('')}</div>
+    ${i.status!=='resolved' ? `<button class="btn btn-ghost" style="margin-top:10px;" data-action="sim-incident-${i.id}">${i.status==='submitted' ? 'Simulate: Pawcation starts the review' : 'Simulate: Pawcation resolves the report'}</button>` : ''}
+  </div>`;
+}
+function screenIncidents(){
+  const list = state.incidents.slice().reverse();
+  return `
+  <div class="fade-in narrow">
+    <h2 class="title">Reports &amp; claims</h2>
+    <p class="subtitle">Issues you or your sitter reported, and how Pawcation Protect handled them.</p>
+    ${list.length ? list.map(incidentCardHTML).join('') : `<div class="emptystate"><div class="ico">${ICON.shield}</div><h3>No reports</h3><p>If something goes wrong during a stay, open the pass and tap “Report an issue”.</p></div>`}
+  </div>`;
+}
+
+/* ---------- detailed reviews ---------- */
+const REVIEW_TAGS = ['Great communication','Daily photos','Spotless home','Very caring','Always on time','Pet came back happy','Great value'];
+const SUB_RATINGS = { s1:[4.9,4.9,4.8], s2:[4.8,4.7,4.9], s3:[5,5,5], s4:[4.7,4.6,4.8], s5:[4.6,4.7,4.5], s6:[4.9,4.8,4.9], s7:[4.8,4.9,4.7], s8:[4.5,4.6,4.7] };
+SITTERS.forEach(s=>{ if(SUB_RATINGS[s.id] && !s.sub) s.sub = { communication:SUB_RATINGS[s.id][0], cleanliness:SUB_RATINGS[s.id][1], reliability:SUB_RATINGS[s.id][2] }; });
+function sitterBreakdown(s){
+  if(!s.sub) return null;
+  const extra = REVIEWS.filter(r=>r.sitterId===s.id && r.communication), w = s.reviews || 20;
+  const avg = k => (s.sub[k]*w + extra.reduce((a,r)=>a+(r[k]||0),0)) / (w+extra.length);
+  return { communication:avg('communication'), cleanliness:avg('cleanliness'), reliability:avg('reliability'), n:w+extra.length };
+}
+function breakdownHTML(s){
+  const b = sitterBreakdown(s); if(!b) return '';
+  const row = (l,v)=>`<div class="subbar"><span>${l}</span><div class="bar-track"><div style="width:${(v/5*100).toFixed(0)}%"></div></div><b>${v.toFixed(1)}</b></div>`;
+  return `<div class="section-label">Rating breakdown</div><div class="breakdown">${row('Communication',b.communication)}${row('Cleanliness',b.cleanliness)}${row('Reliability',b.reliability)}</div>`;
+}
+function replyHTML(r, hostFirst){
+  return r.reply ? `<div class="reviewreply"><b>Reply from ${hostFirst||'the host'}</b><p>${escAttr(r.reply.text)}</p><span>${r.reply.when}</span></div>` : '';
+}
+function reviewExtrasHTML(r){
+  const rel = r.reliability!=null ? r.reliability : r.punctuality;
+  const tags = (r.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+  const subs = (r.communication ? `<span class="tag">Communication ${r.communication}★</span><span class="tag">Cleanliness ${r.cleanliness}★</span>${rel ? `<span class="tag">Reliability ${rel}★</span>` : ''}` : '');
+  return (subs||tags) ? `<div class="tagrow" style="margin-top:8px;">${subs}${tags}</div>` : '';
+}
+
+state.meets = [
+  { id:'mg-h1', role:'host', ownerName:REQUESTS[0].owner, img:REQUESTS[0].img, petName:REQUESTS[0].pet, dateISO:'2026-07-18', time:'11:00', place:'home', note:"Buddy is a bit shy with new people — would love to let him sniff around first.", status:'requested' }
+];
+state.incidents = []; state.meetDraft = null; state.reportDraft = null; state.incidentDraft = null; state.selectedIncident = null; state.incidentReturn = 'incidents';
+(function seedR9(){
+  const b1 = state.bookings.find(x=>x.id==='demo1');
+  if(b1){
+    b1.chatKey = 'owner-s1';
+    b1.reports = [
+      { id:'rp1', label:'Yesterday', time:'19:05', meal:'ate_most', walks:2, walkMin:30, potty:'normal', mood:'playful', note:'Zoomies in the garden after dinner.', photo:null },
+      { id:'rp2', label:'Today', time:'18:20', meal:'ate_all', walks:2, walkMin:45, potty:'normal', mood:'happy', note:'Long walk by the water and a big appetite — he is totally settled in.', photo:REPORT_PHOTOS[0] }
+    ];
+    const c = state.chats['owner-s1']; if(c) c.messages.push({ from:'them', type:'report', reportId:'rp2', bookingId:'demo1', text:'📋 Daily report', when:'18:20' });
+  }
+  const b2 = state.bookings.find(x=>x.id==='demo2'); if(b2){ b2.chatKey = 'owner-s3'; b2.reports = []; }
+  REVIEWS.forEach((r,i)=>{ r.id = r.id || 'rv-seed'+i; if(!r.stars){ r.stars = 5; r.communication = 5; r.cleanliness = 5; r.reliability = i===0 ? 5 : 4; r.tags = i===0 ? ['Daily photos','Pet came back happy'] : ['Spotless home','Very caring']; } });
+  REVIEWS[0].reply = { text:'Thank you Zeynep — Buddy was a joy to have. Come back soon!', when:'2 weeks ago' };
+})();
 
 /* ============ MASTER RENDER ============ */
 function render(){
@@ -3422,6 +3793,11 @@ function render(){
     case 'pricing': html = screenPricing(); break;
     case 'invite': html = screenInvite(); break;
     case 'settings': html = screenSettings(); break;
+    case 'reportForm': html = screenReportForm(); break;
+    case 'meetForm': html = screenMeetForm(); break;
+    case 'incidentForm': html = screenIncidentForm(); break;
+    case 'incidentDetail': html = screenIncidentDetail(); break;
+    case 'incidents': html = screenIncidents(); break;
     case 'auth': html = screenAuth(); break;
     default: html = screenOnboard();
   }
@@ -3518,6 +3894,10 @@ document.addEventListener('click', (e) => {
     else if(state.screen==='sos') go('bookingDetail', {selectedId:state.selectedId});
     else if(state.screen==='leaveReview'){ state.reviewDraft=null; go('bookingDetail', {selectedId:state.selectedId}); }
     else if(state.screen==='cancelBooking' || state.screen==='reschedule') go('bookingDetail', {selectedId:state.selectedId});
+    else if(state.screen==='reportForm' || state.screen==='incidentForm') go('bookingDetail', {selectedId:state.selectedId});
+    else if(state.screen==='meetForm') go('detail', {selectedId:state.selectedId});
+    else if(state.screen==='incidentDetail') go(state.incidentReturn==='bookingDetail' ? 'bookingDetail' : 'incidents');
+    else if(state.screen==='incidents') go('profile');
     else if(state.screen==='chatThread') go('messages');
     else if(['verify','payment','mypets','trainercv','notifications','rewards','availability','favorites','tour','earnings','pricing','invite','settings'].includes(state.screen)) go('profile');
     else go('browse');
@@ -3573,14 +3953,16 @@ document.addEventListener('click', (e) => {
     const id = action.replace('send-chat-','');
     const input = document.getElementById('chat-input');
     const text = input.value.trim();
-    if(!text) return;
+    const media = pendingUploads.chatMedia || null;
+    if(!text && !media) return;
     const t = state.chats[id];
-    t.messages.push({from:'me', text, when:'Just now'});
+    t.messages.push({from:'me', text, media, when:'Just now'});
+    delete pendingUploads.chatMedia;
     go('chatThread', {selectedId:id});
     app.content.scrollTop = app.content.scrollHeight;
     setTimeout(()=>{
       if(state.screen==='chatThread' && state.selectedId===id){
-        const replies = ["Got it, thank you!", "Sounds good 👍", "Will do — I'll keep you posted.", "Perfect, see you then!"];
+        const replies = media && !text ? ["Love it, thanks for sharing! 🐾", "Aww, thank you!"] : ["Got it, thank you!", "Sounds good 👍", "Will do — I'll keep you posted.", "Perfect, see you then!"];
         t.messages.push({from:'them', text: replies[Math.floor(Math.random()*replies.length)], when:'Just now'});
         render();
         app.content.scrollTop = app.content.scrollHeight;
@@ -3642,7 +4024,7 @@ document.addEventListener('click', (e) => {
       id: 'b'+Date.now(), status: s.instantBook ? 'confirmed' : 'pending',
       petName, hostName: s.name, loc: s.loc.split(',')[0],
       checkIn: fmtDate(checkIn), checkOut: fmtDate(checkOut), checkInISO: checkIn, checkOutISO: checkOut,
-      code: randCode(), sitterId: s.id, updates: [], review: null,
+      code: randCode(), sitterId: s.id, updates: [], review: null, reports: [], chatKey: 'owner-'+s.id,
       protect, protectFee: protect ? protectFee : 0, total: quote.total, pets,
       petCard: (selPet && state.form.shareHealth!==false) ? { name:selPet.name, type:selPet.type, breed:selPet.breed, age:selPet.age, photo:selPet.photo, health:{ ...selPet.health } } : null
     };
@@ -3662,7 +4044,7 @@ document.addEventListener('click', (e) => {
     const booking = {
       id: 'b'+Date.now(), status:'confirmed',
       petName: r.pet, hostName: 'You', loc: r.loc.split(',')[0],
-      checkIn, checkOut, code: randCode(), updates: [], review: null,
+      checkIn, checkOut, code: randCode(), updates: [], review: null, reports: [], chatKey: 'sitter-'+r.id,
       ownerName: r.owner, earn: parsePrice(r.pay)
     };
     state.bookings.push(booking);
@@ -3735,8 +4117,8 @@ document.addEventListener('click', (e) => {
       { stars:5, text:"My dog's a different animal now. Highly recommend, worth every lira." },
     ];
     const pick = pool[Math.floor(Math.random()*pool.length)];
-    const review = { overall:pick.stars, cleanliness:pick.stars, communication:pick.stars, punctuality:pick.stars, text:pick.text };
-    b.review = review;
+    const review = { overall:pick.stars, cleanliness:pick.stars, communication:pick.stars, reliability:pick.stars, text:pick.text };
+    review.id = 'rv'+Date.now(); b.review = review;
     TRAINER_REVIEWS.unshift({ name: b.ownerName || 'Owner', when:'Just now', text: pick.text, stars: pick.stars });
     toast((b.ownerName||'Owner').split(' ')[0]+' left a review!');
     go('bookingDetail', {selectedId:id});
@@ -3744,7 +4126,7 @@ document.addEventListener('click', (e) => {
   }
 
   if(action.startsWith('nav2-review-')){
-    state.reviewDraft = { overall:5, cleanliness:5, communication:5, punctuality:5, text:'' };
+    state.reviewDraft = { overall:5, cleanliness:5, communication:5, reliability:5, tags:[], text:'' };
     go('leaveReview', {selectedId: action.replace('nav2-review-','')});
     return;
   }
@@ -3752,7 +4134,7 @@ document.addEventListener('click', (e) => {
     const rest = action.replace('set-review-','');
     const n = parseInt(rest.slice(rest.lastIndexOf('-')+1), 10);
     const key = rest.slice(0, rest.lastIndexOf('-'));
-    if(!state.reviewDraft) state.reviewDraft = { overall:5, cleanliness:5, communication:5, punctuality:5, text:'' };
+    if(!state.reviewDraft) state.reviewDraft = { overall:5, cleanliness:5, communication:5, reliability:5, tags:[], text:'' };
     state.reviewDraft[key] = n;
     render();
     return;
@@ -3761,10 +4143,10 @@ document.addEventListener('click', (e) => {
     const id = action.replace('submit-review-','');
     const b = state.bookings.find(x=>x.id===id);
     const text = document.getElementById('review-text').value;
-    const draft = state.reviewDraft || { overall:5, cleanliness:5, communication:5, punctuality:5, text:'' };
-    const review = { ...draft, text };
+    const draft = state.reviewDraft || { overall:5, cleanliness:5, communication:5, reliability:5, tags:[], text:'' };
+    const review = { ...draft, text, id:'rv'+Date.now() };
     b.review = review;
-    if(b.sitterId){ REVIEWS.unshift({ name:'You', when:'Just now', text: text || 'No written comment.', stars: review.overall, sitterId: b.sitterId }); }
+    if(b.sitterId){ REVIEWS.unshift({ id:review.id, name:'You', when:'Just now', text: text || 'No written comment.', stars: review.overall, sitterId: b.sitterId, cleanliness:review.cleanliness, communication:review.communication, reliability:review.reliability, tags:review.tags||[] }); }
     state.reviewDraft = null;
     toast('Review submitted — thank you!');
     go('bookingDetail', {selectedId:id});
@@ -3956,6 +4338,115 @@ document.addEventListener('click', (e) => {
     })();
     return;
   }
+
+  /* ---- round 9 handlers ---- */
+  if(action.startsWith('view-media-')){ const m = ((state.chats[state.selectedId]||{}).messages||[])[parseInt(action.replace('view-media-',''),10)]; if(m && m.media) openLightbox(m.media.src); return; }
+  if(action==='clear-chat-media'){ delete pendingUploads.chatMedia; const w=document.getElementById('chat-preview-wrap'); if(w) w.innerHTML=''; return; }
+
+  if(action.startsWith('open-report-')){ state.reportDraft = null; delete pendingUploads.reportPhoto; go('reportForm', {selectedId: action.replace('open-report-','')}); return; }
+  if(/^rp-(meal|mood|potty|min|walks)-/.test(action)){
+    const D = state.reportDraft; if(!D) return;
+    const n = document.getElementById('rp-note'); if(n) D.note = n.value;
+    const rest = action.slice(3), k = rest.slice(rest.indexOf('-')+1);
+    if(rest.startsWith('meal-')) D.meal = k; else if(rest.startsWith('mood-')) D.mood = k; else if(rest.startsWith('potty-')) D.potty = k;
+    else if(rest.startsWith('min-')) D.walkMin = parseInt(k,10);
+    else if(rest==='walks-inc') D.walks = Math.min(6, D.walks+1); else if(rest==='walks-dec') D.walks = Math.max(0, D.walks-1);
+    render(); return;
+  }
+  if(action.startsWith('submit-report-')){
+    const b = state.bookings.find(x=>x.id===action.replace('submit-report-','')); const D = state.reportDraft; if(!b || !D) return;
+    const note = (document.getElementById('rp-note')||{}).value || '';
+    const r = { id:'rp'+Date.now(), label:'Today', time:nowHM(), meal:D.meal, walks:D.walks, walkMin:D.walks?D.walkMin:0, potty:D.potty, mood:D.mood, note, photo:pendingUploads.reportPhoto||null };
+    (b.reports = b.reports||[]).push(r); makeReportMessage(b, r, 'me');
+    delete pendingUploads.reportPhoto; state.reportDraft = null;
+    toast('Report sent to '+(b.ownerName||'the owner').split(' ')[0]); go('bookingDetail', {selectedId:b.id}); return;
+  }
+  if(action.startsWith('sim-report-')){
+    const b = state.bookings.find(x=>x.id===action.replace('sim-report-','')); if(!b) return;
+    const pick = a => a[Math.floor(Math.random()*a.length)];
+    const r = { id:'rp'+Date.now(), label:'Today', time:nowHM(), meal:pick(Object.keys(REPORT_MEAL).slice(0,3)), walks:pick([1,2,3]), walkMin:pick([30,45,60]), potty:pick(['normal','normal','soft']), mood:pick(Object.keys(REPORT_MOOD)),
+      note:pick(['Settled in nicely and loves the garden.','A little shy this morning, but warmed up fast.','Played fetch for ages — now fast asleep.']), photo:pick(REPORT_PHOTOS) };
+    (b.reports = b.reports||[]).push(r); makeReportMessage(b, r, 'them');
+    toast(b.hostName.split(' ')[0]+' sent today’s report'); render(); return;
+  }
+
+  if(action.startsWith('open-meet-')){ state.meetDraft = null; go('meetForm', {selectedId: action.replace('open-meet-','')}); return; }
+  if(/^meet-(time|place|pet)-/.test(action)){
+    const D = state.meetDraft; if(!D) return;
+    const n = document.getElementById('meet-note'); if(n) D.note = n.value;
+    const rest = action.slice(5), k = rest.slice(rest.indexOf('-')+1);
+    if(rest.startsWith('time-')) D.time = k; else if(rest.startsWith('place-')) D.place = k; else D.petIdx = k==='none' ? null : parseInt(k,10);
+    render(); return;
+  }
+  if(action.startsWith('submit-meet-')){
+    const s = SITTERS.find(x=>x.id===action.replace('submit-meet-','')); const D = state.meetDraft; if(!s || !D) return;
+    if((s.blockedDates||[]).includes(D.date)){ toast(s.name.split(' ')[0]+" isn't available that day"); return; }
+    const note = (document.getElementById('meet-note')||{}).value || '';
+    const pet = D.petIdx!=null ? state.myPets[D.petIdx] : null;
+    const m = { id:'mg'+Date.now(), role:'guest', sitterId:s.id, sitterName:s.name, img:s.img, petName:pet?pet.name:'', dateISO:D.date, time:D.time, place:D.place, note, status:'requested' };
+    state.meets.push(m);
+    const c = ensureChat('owner-'+s.id, s.name, s.img);
+    c.messages.push({ from:'me', text:`Hi ${s.name.split(' ')[0]}! Could we do a meet & greet on ${fmtDow(m.dateISO)} at ${m.time}?`, when:'Just now' });
+    state.meetDraft = null; toast('Meet & greet requested'); go('bookings'); return;
+  }
+  const meetById = pre => state.meets.find(x=>x.id===action.replace(pre,''));
+  if(action.startsWith('meet-cancel-')){ const m = meetById('meet-cancel-'); if(m){ m.status='cancelled'; toast('Meet & greet cancelled'); render(); } return; }
+  if(action.startsWith('meet-sim-accept-')){ const m = meetById('meet-sim-accept-'); if(m){ m.status='confirmed'; toast(m.sitterName.split(' ')[0]+' accepted your meet & greet'); render(); } return; }
+  if(action.startsWith('meet-accept-')){ const m = meetById('meet-accept-'); if(m){ m.status='confirmed'; toast('Meet & greet confirmed'); render(); } return; }
+  if(action.startsWith('meet-decline-')){ const m = meetById('meet-decline-'); if(m){ m.status='declined'; toast('Meet & greet declined'); render(); } return; }
+  if(action.startsWith('meet-ics-')){ const m = meetById('meet-ics-'); if(m){ downloadMeetICS(m); toast('Calendar file downloaded'); } return; }
+  if(action.startsWith('meet-gcal-')){ const m = meetById('meet-gcal-'); if(m) window.open(meetGoogleURL(m), '_blank', 'noopener'); return; }
+
+  if(action.startsWith('report-issue-')){ state.incidentDraft = null; delete pendingUploads.incidentPhoto; go('incidentForm', {selectedId: action.replace('report-issue-','')}); return; }
+  if(/^inc-(cat|sev)-/.test(action) || action==='inc-toggle-protect'){
+    const D = state.incidentDraft; if(!D) return;
+    const g = id => (document.getElementById(id)||{}).value;
+    if(g('inc-desc')!==undefined) D.desc = g('inc-desc'); if(g('inc-date')) D.date = g('inc-date'); if(g('inc-cost')!==undefined) D.cost = g('inc-cost');
+    if(action.startsWith('inc-cat-')) D.cat = action.replace('inc-cat-',''); else if(action.startsWith('inc-sev-')) D.sev = action.replace('inc-sev-',''); else D.protect = !D.protect;
+    render(); return;
+  }
+  if(action.startsWith('submit-incident-')){
+    const b = state.bookings.find(x=>x.id===action.replace('submit-incident-','')); const D = state.incidentDraft; if(!b || !D) return;
+    const g = id => (document.getElementById(id)||{}).value || '';
+    const desc = g('inc-desc').trim(); if(desc.length < 10){ toast('Please describe what happened (a few words at least)'); return; }
+    const cost = parseInt(g('inc-cost').replace(/\D/g,''),10) || null;
+    const inc = { id:'inc'+Date.now(), ref:'INC-'+Math.floor(1000+Math.random()*9000), bookingId:b.id, by:(state.mode==='owner'?'owner':'host'), cat:D.cat, sev:D.sev, dateISO:g('inc-date')||DEMO_TODAY, desc, cost,
+      photo:pendingUploads.incidentPhoto||null, protectReq: !!(b.protect && D.protect), status:'submitted', timeline:[{ label:'Report submitted', when:'Just now' }] };
+    if(inc.protectReq) inc.timeline.push({ label:'Protect review requested', when:'Just now' });
+    state.incidents.push(inc); delete pendingUploads.incidentPhoto; state.incidentDraft = null;
+    state.selectedIncident = inc.id; state.incidentReturn = 'bookingDetail';
+    toast('Report submitted'); go('incidentDetail', {selectedId:b.id}); return;
+  }
+  if(action.startsWith('open-incident-detail-')){ state.selectedIncident = action.replace('open-incident-detail-',''); state.incidentReturn = state.screen==='bookingDetail' ? 'bookingDetail' : 'incidents'; go('incidentDetail'); return; }
+  if(action.startsWith('sim-incident-')){
+    const i = incidentFor(action.replace('sim-incident-','')); if(!i) return;
+    if(i.status==='submitted'){ i.status='review'; i.timeline.push({ label:'Pawcation support is reviewing', when:'Just now' }); }
+    else { i.status='resolved'; i.resolution = i.protectReq ? 'The review found this covered by your Protect plan.' : 'Closed — shared with both sides for their records.'; i.timeline.push({ label:'Resolved', when:'Just now' }); }
+    toast('Report updated'); render(); return;
+  }
+  if(action==='nav2-incidents'){ go('incidents'); return; }
+
+  if(action.startsWith('rv-tag-')){
+    const D = state.reviewDraft; if(!D) return; const tx = document.getElementById('review-text'); if(tx) D.text = tx.value;
+    const tg = REVIEW_TAGS[parseInt(action.replace('rv-tag-',''),10)]; D.tags = D.tags||[]; const k = D.tags.indexOf(tg); k>=0 ? D.tags.splice(k,1) : D.tags.push(tg);
+    render(); return;
+  }
+  if(action.startsWith('reply-review-')){
+    const b = state.bookings.find(x=>x.id===action.replace('reply-review-','')); const text = ((document.getElementById('reply-text')||{}).value||'').trim();
+    if(!b || !b.review) return; if(!text){ toast('Write a reply first'); return; }
+    b.review.reply = { text, when:'Just now' }; const rv = REVIEWS.find(r=>r.id===b.review.id); if(rv) rv.reply = b.review.reply;
+    toast('Reply posted'); render(); return;
+  }
+  if(action.startsWith('sim-reply-')){
+    const b = state.bookings.find(x=>x.id===action.replace('sim-reply-','')); if(!b || !b.review) return;
+    b.review.reply = { text:'Thank you so much for the kind words — it was a pleasure looking after them!', when:'Just now' }; const rv = REVIEWS.find(r=>r.id===b.review.id); if(rv) rv.reply = b.review.reply;
+    toast(b.hostName.split(' ')[0]+' replied to your review'); render(); return;
+  }
+  if(action.startsWith('simulate-host-review-')){
+    const b = state.bookings.find(x=>x.id===action.replace('simulate-host-review-','')); if(!b) return;
+    b.review = { id:'rv'+Date.now(), overall:5, cleanliness:5, communication:5, reliability:4, tags:['Great communication','Pet came back happy'], text:'Lovely owner — clear instructions and everything was exactly as described.' };
+    toast((b.ownerName||'Owner').split(' ')[0]+' left a review!'); render(); return;
+  }
   if(action==='nav2-settings'){ go('settings'); return; }
   if(action.startsWith('set-theme-')){ PREFS.theme = action.replace('set-theme-',''); applyPrefs(true); render(); return; }
   if(action.startsWith('set-text-')){ PREFS.text = parseInt(action.replace('set-text-',''),10); applyPrefs(true); render(); return; }
@@ -4007,13 +4498,20 @@ document.addEventListener('change', (e) => {
   }
   if(e.target.id==='flt-sort'){ state.search.sort = e.target.value; render(); return; }
   if(e.target.id==='f-in' || e.target.id==='f-out'){ render(); return; }
+  if(e.target.id==='meet-date' && state.meetDraft){ const n=document.getElementById('meet-note'); if(n) state.meetDraft.note=n.value; state.meetDraft.date = e.target.value; render(); return; }
   const input = e.target.closest('[data-upload-input]');
   if(!input || !input.files || !input.files[0]) return;
   const key = input.dataset.uploadInput;
+  const file0 = input.files[0];
+  if(key==='chatMedia' && file0.size > 20*1024*1024){ toast('File is too large (max 20 MB)'); input.value=''; return; }
   const reader = new FileReader();
   reader.onload = (ev) => {
     const dataUrl = ev.target.result;
-    if(key === 'newPetPhoto' || key === 'stayUpdatePhoto'){
+    if(key === 'chatMedia'){
+      pendingUploads.chatMedia = { src:dataUrl, type:(file0.type||'').startsWith('video') ? 'video' : 'image', name:file0.name };
+      const w = document.getElementById('chat-preview-wrap'); if(w) w.innerHTML = chatPreviewHTML();
+      input.value = '';
+    } else if(key === 'newPetPhoto' || key === 'stayUpdatePhoto' || key === 'reportPhoto' || key === 'incidentPhoto'){
       pendingUploads[key] = dataUrl;
       const tile = input.closest('.upload-tile');
       tile.style.backgroundImage = `url('${dataUrl}')`;
@@ -4391,6 +4889,41 @@ const TR_EXACT = {
   "Display":"Ekran","Higher contrast":"Yüksek kontrast","Stronger borders and text colours.":"Daha belirgin kenarlıklar ve yazı renkleri.","Reduce motion":"Hareketi azalt","Turn off animations and transitions.":"Animasyonları ve geçişleri kapat.",
   "Reset to defaults":"Varsayılana dön","Settings reset":"Ayarlar sıfırlandı",
   "Back":"Geri","Notifications":"Bildirimler","Filters":"Filtreler","Zoom in":"Yakınlaştır","Zoom out":"Uzaklaştır","Favourite":"Favori","Send message":"Mesaj gönder","Clear search":"Aramayı temizle","Fewer pets":"Daha az hayvan","More pets":"Daha çok hayvan","Copy code":"Kodu kopyala","Share code":"Kodu paylaş","Main":"Ana menü",
+
+  /* --- round 9 --- */
+  "Love it, thanks for sharing! 🐾":"Bayıldım, paylaştığın için teşekkürler! 🐾","Aww, thank you!":"Ahh, teşekkürler!",
+  "Today":"Bugün","Today's report":"Bugünün raporu","Daily report":"Günlük rapor","Meals":"Öğünler","Walks":"Yürüyüşler","Potty":"Tuvalet","Mood":"Ruh hali","No walks":"Yürüyüş yok",
+  "Ate everything":"Hepsini yedi","Ate most":"Çoğunu yedi","Ate a little":"Biraz yedi","Skipped the meal":"Öğünü atladı","Normal":"Normal","Soft / upset":"Yumuşak / rahatsız","Not yet":"Henüz değil",
+  "Happy":"Mutlu","Playful":"Oyuncu","Calm":"Sakin","Tired":"Yorgun","A bit anxious":"Biraz huzursuz",
+  "A quick check-in the owner sees as a card in the chat and on the pass.":"Sahibin sohbette ve pasta kart olarak gördüğü kısa bir bilgilendirme.","Photo or note":"Fotoğraf veya not","Add a photo (optional)":"Fotoğraf ekle (isteğe bağlı)","Anything the owner should know?":"Sahibinin bilmesi gereken bir şey var mı?",
+  "Send report":"Raporu gönder","Fewer walks":"Daha az yürüyüş","More walks":"Daha çok yürüyüş","Write today's report":"Bugünün raporunu yaz","You haven't sent today's report yet.":"Bugünün raporunu henüz göndermedin.",
+  "No report yet today — your sitter will send one here.":"Bugün için henüz rapor yok — bakıcın buraya gönderecek.","Simulate: sitter sends today's report":"Simülasyon: bakıcı bugünün raporunu gönderir","Earlier reports":"Önceki raporlar","Report photo":"Rapor fotoğrafı",
+  "📋 Daily report":"📋 Günlük rapor","🎬 Video":"🎬 Video","📷 Photo":"📷 Fotoğraf","Attach a photo or video":"Fotoğraf veya video ekle","Remove attachment":"Eki kaldır","Photo":"Fotoğraf","Video":"Video","Close":"Kapat","File is too large (max 20 MB)":"Dosya çok büyük (en fazla 20 MB)",
+  "Zoomies in the garden after dinner.":"Akşam yemeğinden sonra bahçede çılgınca koştu.","Long walk by the water and a big appetite — he is totally settled in.":"Su kenarında uzun yürüyüş ve iyi iştah — tamamen yerleşti.",
+  "Settled in nicely and loves the garden.":"Güzelce yerleşti ve bahçeye bayılıyor.","A little shy this morning, but warmed up fast.":"Bu sabah biraz çekingendi ama çabuk ısındı.","Played fetch for ages — now fast asleep.":"Uzun süre getir-götür oynadı — şimdi deliksiz uyuyor.",
+  "Meet & greet":"Tanışma görüşmesi","Meet & greets":"Tanışma görüşmeleri","Not sure yet?":"Emin değil misin?","A short, free visit before you book — see the home, let your pet sniff around, ask anything.":"Rezervasyondan önce kısa, ücretsiz bir ziyaret — evi gör, hayvanın etrafı koklasın, her şeyi sor.",
+  "Date":"Tarih","Time":"Saat","Where":"Nerede","Bringing":"Getireceğin","Just me":"Sadece ben","At the sitter’s home":"Bakıcının evinde","A park nearby":"Yakındaki bir park","Video call":"Görüntülü arama","At your home":"Senin evinde",
+  "Your pet's temperament, what you'd like to see…":"Hayvanının huyu, görmek istediklerin…","Send meet & greet request":"Tanışma görüşmesi talebi gönder","Requested":"Talep edildi","Declined":"Reddedildi","Cancelled":"İptal edildi",
+  "Cancel":"İptal et","Simulate: sitter accepted":"Simülasyon: bakıcı kabul etti","Add to calendar":"Takvime ekle","Google Calendar":"Google Takvim","Request the stay":"Konaklamayı talep et","Accept":"Kabul et","Decline":"Reddet",
+  "Meet & greet requested":"Tanışma görüşmesi talep edildi","Meet & greet cancelled":"Tanışma görüşmesi iptal edildi","Meet & greet confirmed":"Tanışma görüşmesi onaylandı","Meet & greet declined":"Tanışma görüşmesi reddedildi","Calendar file downloaded":"Takvim dosyası indirildi",
+  "“Buddy is a bit shy with new people — would love to let him sniff around first.”":"“Buddy yeni insanlara karşı biraz çekingen — önce etrafı koklamasına izin vermek isterim.”",
+  "Report an issue":"Sorun bildir","Problems":"Sorunlar","Reports & claims":"Bildirimler ve talepler","Issues you or your sitter reported, and how Pawcation Protect handled them.":"Senin veya bakıcının bildirdiği sorunlar ve Pawcation Protect'in bunları nasıl ele aldığı.",
+  "No reports":"Bildirim yok","If something goes wrong during a stay, open the pass and tap “Report an issue”.":"Konaklama sırasında bir şey ters giderse pasa girip “Sorun bildir”e dokun.",
+  "Injury":"Yaralanma","Illness":"Hastalık","Property damage":"Maddi hasar","Lost or escaped":"Kayıp veya kaçtı","Behaviour problem":"Davranış sorunu","Care not as agreed":"Bakım anlaşıldığı gibi değildi","Other":"Diğer",
+  "Minor":"Hafif","Needs attention":"İlgi gerekiyor","Urgent":"Acil","Submitted":"Gönderildi","Under review":"İnceleniyor","Resolved":"Çözüldü",
+  "What happened":"Ne oldu","How serious":"Ne kadar ciddi","If a pet needs urgent care, use SOS first — then file this report.":"Bir hayvanın acil bakıma ihtiyacı varsa önce SOS'u kullan — sonra bu bildirimi yap.","Open SOS":"SOS'u aç",
+  "Date it happened":"Olayın tarihi","Describe what happened":"Ne olduğunu anlat","What happened, where, and what was done about it…":"Ne oldu, nerede oldu ve ne yapıldı…","Estimated cost (optional)":"Tahmini maliyet (isteğe bağlı)","e.g. 1500":"örn. 1500",
+  "Add a photo as evidence (optional)":"Kanıt olarak fotoğraf ekle (isteğe bağlı)","Ask for a Protect review":"Protect incelemesi iste","— this stay included Pawcation Protect, so support will check whether this is covered.":"— bu konaklama Pawcation Protect içeriyordu, destek ekibi kapsamda olup olmadığını inceleyecek.",
+  "This stay wasn't booked with Pawcation Protect, so there is no reimbursement — support will still review and keep a record.":"Bu konaklama Pawcation Protect ile yapılmadı, bu yüzden geri ödeme yok — destek ekibi yine de inceleyip kayıt tutacak.",
+  "Submit report":"Bildirimi gönder","Please describe what happened (a few words at least)":"Lütfen ne olduğunu anlat (en az birkaç kelime)","Report submitted":"Bildirim gönderildi","Report updated":"Bildirim güncellendi",
+  "Details":"Ayrıntılar","Reported by":"Bildiren","Host":"Ev sahibi","Owner":"Sahip","When":"Ne zaman","Estimated cost":"Tahmini maliyet","Stay":"Konaklama","Evidence photo":"Kanıt fotoğrafı",
+  "Not requested":"İstenmedi","Stay not covered by Protect":"Konaklama Protect kapsamında değil","Covered under Pawcation Protect (demo outcome)":"Pawcation Protect kapsamında (demo sonucu)","Waiting for review":"İnceleme bekleniyor","Progress":"Süreç",
+  "Report submitted ":"Bildirim gönderildi","Protect review requested":"Protect incelemesi istendi","Pawcation support is reviewing":"Pawcation destek ekibi inceliyor","Simulate: Pawcation starts the review":"Simülasyon: Pawcation incelemeyi başlatır","Simulate: Pawcation resolves the report":"Simülasyon: Pawcation bildirimi çözer",
+  "The review found this covered by your Protect plan.":"İnceleme bunun Protect planın kapsamında olduğunu buldu.","Closed — shared with both sides for their records.":"Kapatıldı — kayıt için iki tarafla paylaşıldı.",
+  "Rating breakdown":"Puan dağılımı","Reliability":"Güvenilirlik","What went well":"Neler iyi gitti","Great communication":"Harika iletişim","Daily photos":"Günlük fotoğraflar","Spotless home":"Tertemiz ev","Very caring":"Çok ilgili","Always on time":"Hep zamanında","Pet came back happy":"Hayvanım mutlu döndü","Great value":"Fiyatına değer",
+  "Reply publicly":"Herkese açık yanıtla","Thank them, or add your side of the story…":"Teşekkür et ya da kendi tarafını anlat…","Post reply":"Yanıtı yayınla","Write a reply first":"Önce bir yanıt yaz","Reply posted":"Yanıt yayınlandı",
+  "Thank you Zeynep — Buddy was a joy to have. Come back soon!":"Teşekkürler Zeynep — Buddy'yi ağırlamak bir keyifti. Yine bekleriz!","Thank you so much for the kind words — it was a pleasure looking after them!":"Güzel sözlerin için çok teşekkürler — onlara bakmak bir zevkti!",
+  "Lovely owner — clear instructions and everything was exactly as described.":"Harika bir sahip — talimatlar netti ve her şey anlatıldığı gibiydi.",
   /* --- round 7: health card, pricing, earnings, referrals, rebook --- */
   "My pricing":"Fiyatlandırmam","Pricing":"Fiyatlandırma","What owners would pay":"Sahiplerin ödeyeceği tutar","Save pricing":"Fiyatlandırmayı kaydet","Pricing saved":"Fiyatlandırma kaydedildi",
   "Set your base rate and the extras owners see before they book. The preview below updates as you type.":"Temel ücretini ve sahiplerin rezervasyondan önce gördüğü ek ücretleri belirle. Aşağıdaki önizleme yazdıkça güncellenir.",
@@ -4406,7 +4939,7 @@ const TR_EXACT = {
   "Health card":"Sağlık kartı","Pet health card":"Hayvan sağlık kartı","Health card shared":"Sağlık kartı paylaşıldı","Share health card":"Sağlık kartını paylaş",
   "Shared automatically with the sitter when you pick this pet in a booking request.":"Rezervasyon talebinde bu hayvanı seçtiğinde bakıcıyla otomatik paylaşılır.",
   "Edit pet & health card":"Hayvanı ve sağlık kartını düzenle","Remove pet":"Hayvanı kaldır","Edit pet":"Hayvanı düzenle","Save changes":"Değişiklikleri kaydet","Tap to change photo":"Fotoğrafı değiştirmek için dokun",
-  "Pet updated":"Hayvan güncellendi","Pet removed":"Hayvan kaldırıldı","Choose a saved pet":"Kayıtlı hayvanını seç","+ New pet":"+ Yeni hayvan","Number of pets":"Hayvan sayısı",
+  "Pet updated":"Hayvan güncellendi","Pet removed":"Hayvan kaldırıldı","Choose a file":"Dosya seç","Choose a saved pet":"Kayıtlı hayvanını seç","+ New pet":"+ Yeni hayvan","Number of pets":"Hayvan sayısı",
   "e.g. Chicken, pollen — or None":"örn. Tavuk, polen — ya da Yok","e.g. Daily joint supplement — or None":"örn. Günlük eklem takviyesi — ya da Yok","e.g. Dr. Ayhan Kurt":"örn. Dr. Ayhan Kurt",
   "e.g. 0216 555 01 23":"örn. 0216 555 01 23","e.g. 1 cup dry food at 08:00 and 19:00":"örn. 08:00 ve 19:00'da 1 kase kuru mama",
   "Chicken":"Tavuk","None":"Yok","Loves tennis balls.":"Tenis topuna bayılır.","1 cup dry food at 08:00 and 19:00. No table scraps.":"08:00 ve 19:00'da 1 kase kuru mama. Sofradan artık yok.",
@@ -4452,7 +4985,7 @@ const TR_PATTERNS = [
   [/^Offer sent to (.+)$/, (m,n)=> `Teklif ${trSuffix(n,'dat')} gönderildi`],
   [/^(.+) left a review!$/, (m,n)=> `${n} yorum bıraktı!`],
   [/^(.+) added to your pets$/, (m,n)=> `${n} hayvanlarına eklendi`],
-  [/^(Cleanliness|Communication|Punctuality) (\d)★$/, (m,k,n)=> `${TR_EXACT[k]} ${n}★`],
+  [/^(Cleanliness|Communication|Punctuality|Reliability) (\d)★$/, (m,k,n)=> `${TR_EXACT[k]} ${n}★`],
   [/^Total paid: (.+)$/, (m,a)=> `Ödenen toplam: ${trMoney(a)}`],
   [/^PASS · (.+)$/, (m,c)=> `KART · ${c}`],
   [/^Expires (.+)$/, (m,d)=> `Son kullanma ${d}`],
@@ -4486,6 +5019,23 @@ const TR_PATTERNS = [
   [/^Invite sent to (.+)$/, (m,n)=> `${trSuffix(n,'dat')} davet gönderildi`],
   [/^(.+) joined · \+(\d+) points$/, (m,n,pt)=> `${n} katıldı · +${pt} puan`],
   [/^Code applied · \+(\d+) points$/, (m,n)=> `Kod uygulandı · +${n} puan`],
+  [/^(\S+) (Happy|Playful|Calm|Tired|A bit anxious)$/, (m,e,k)=> `${e} ${TR_EXACT[k]}`],
+  [/^(\d+) walks? · (\d+) min$/, (m,n,mi)=> `${n} yürüyüş · ${mi} dk`],
+  [/^(\d+) min$/, (m,n)=> `${n} dk`],
+  [/^(Today|Yesterday|Just now)( · [\d:]+)$/, (m,d,t)=> `${TR_EXACT[d==='Just now'?'Today':d]}${t}`],
+  [/^Today's report for (.+)$/, (m,n)=> `${n} için bugünün raporu`],
+  [/^Report sent to (.+)$/, (m,n)=> `Rapor ${trSuffix(n,'dat')} gönderildi`],
+  [/^(.+) sent today’s report$/, (m,n)=> `${n} bugünün raporunu gönderdi`],
+  [/^Meet (.+) first$/, (m,n)=> `Önce ${n} ile tanış`],
+  [/^Meet (.+) first — a short, free visit before you book\.$/, (m,n)=> `Rezervasyondan önce ${n} ile tanış — kısa ve ücretsiz bir ziyaret.`],
+  [/^(.+) isn't available that day — pick another date\.$/, (m,n)=> `${n} o gün müsait değil — başka bir tarih seç.`],
+  [/^(.+) isn't available that day$/, (m,n)=> `${n} o gün müsait değil`],
+  [/^(.+) accepted your meet & greet$/, (m,n)=> `${n} tanışma görüşmeni kabul etti`],
+  [/^You're reporting as (the host|the owner)\. (.+) will see the report and can add their side\. Pawcation support reviews every report\.$/, (m,r,o)=> `${r==='the host'?'Ev sahibi':'Sahip'} olarak bildiriyorsun. ${o} bildirimi görecek ve kendi tarafını ekleyebilecek. Pawcation destek ekibi her bildirimi inceler.`],
+  [/^Reply from (.+)$/, (m,n)=> n==='You' ? 'Senin yanıtın' : n==='the host' ? 'Bakıcının yanıtı' : `${trSuffix(n,'gen')} yanıtı`],
+  [/^Simulate: (.+) leaves a review$/, (m,n)=> `Simülasyon: ${n} yorum bırakır`],
+  [/^Simulate: (.+) replies$/, (m,n)=> `Simülasyon: ${n} yanıt verir`],
+  [/^(.+) replied to your review$/, (m,n)=> `${n} yorumuna yanıt verdi`],
 ];
 
 function trCore(c){
